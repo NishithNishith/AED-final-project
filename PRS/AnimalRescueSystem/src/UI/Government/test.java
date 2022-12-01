@@ -2,15 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Hospital.Model;
+package UI.Government;
 
 /**
  *
  * @author nishi
  */
-public class Encounter {
-    String id;
-    String patientId;
-    String desc;
+public class test {
     
 }
