@@ -13,7 +13,6 @@ import business.population.Person;
 public class Doctor extends Person {
     
     String doctorId;
-    String specialization;
     int yearsOfExperience;
     String email;
     int phoneNumber;
