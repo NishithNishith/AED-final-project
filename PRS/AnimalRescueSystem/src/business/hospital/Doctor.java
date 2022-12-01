@@ -14,9 +14,7 @@ public class Doctor extends Person {
     
     String doctorId;
     int yearsOfExperience;
-    String email;
     int phoneNumber;
-    String password;
     float salary;
     
 }

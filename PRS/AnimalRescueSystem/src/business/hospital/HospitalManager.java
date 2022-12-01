@@ -8,6 +8,11 @@ package business.hospital;
  *
  * @author nishi
  */
-public class test {
+public class HospitalManager {
+    
+    String hospitalManagerId;
+    int yearsOfExperience;
+    int phoneNumber;
+    float salary;
     
 }
