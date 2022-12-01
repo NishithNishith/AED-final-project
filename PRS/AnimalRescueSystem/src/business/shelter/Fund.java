@@ -10,4 +10,6 @@ package business.shelter;
  */
 public class Fund {
     
+    int currentFunds;
+    
 }
