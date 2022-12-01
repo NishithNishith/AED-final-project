@@ -8,11 +8,6 @@ package business.population;
  *
  * @author nishi
  */
-public class Person {
-    
-    String firstName;
-    String lastName;
-    int age;
-    String gender;
+public class UserAccountDirectory {
     
 }
