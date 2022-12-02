@@ -9,7 +9,6 @@ import business.hospital.EncounterHistory;
 import business.hospital.HospitalManagerDirectory;
 import business.population.PersonDirectory;
 import business.population.ReportDirectory;
-import business.population.UserAccountDirectory;
 
 /**
  *

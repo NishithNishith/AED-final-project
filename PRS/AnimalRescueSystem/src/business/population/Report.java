@@ -11,6 +11,21 @@ package business.population;
 public class Report {
     String id;
     String user;
+    String animal;
+    String description;
+    String community;
+    String city;
+    String condition;
+    String location;
+    String status;
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
     public String getId() {
         return id;
@@ -75,11 +90,6 @@ public class Report {
     public void setLocation(String location) {
         this.location = location;
     }
-    String animal;
-    String description;
-    String community;
-    String city;
-    String condition;
-    String location;
+    
     
 }

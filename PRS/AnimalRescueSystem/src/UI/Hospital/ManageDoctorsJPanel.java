@@ -108,7 +108,7 @@ public class ManageDoctorsJPanel extends javax.swing.JPanel {
         jPanel2.add(DocID);
         DocID.setBounds(239, 105, 133, 23);
         jPanel2.add(txtDocID);
-        txtDocID.setBounds(390, 105, 225, 23);
+        txtDocID.setBounds(390, 105, 225, 22);
 
         name.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
         name.setForeground(new java.awt.Color(1, 77, 78));
@@ -117,7 +117,7 @@ public class ManageDoctorsJPanel extends javax.swing.JPanel {
         jPanel2.add(name);
         name.setBounds(239, 146, 133, 23);
         jPanel2.add(txtDocID1);
-        txtDocID1.setBounds(390, 146, 225, 23);
+        txtDocID1.setBounds(390, 146, 225, 22);
 
         name1.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
         name1.setForeground(new java.awt.Color(1, 77, 78));
@@ -133,9 +133,9 @@ public class ManageDoctorsJPanel extends javax.swing.JPanel {
         jPanel2.add(name2);
         name2.setBounds(239, 228, 133, 23);
         jPanel2.add(txtDocID2);
-        txtDocID2.setBounds(390, 187, 225, 23);
+        txtDocID2.setBounds(390, 187, 225, 22);
         jPanel2.add(txtDocID3);
-        txtDocID3.setBounds(390, 228, 225, 23);
+        txtDocID3.setBounds(390, 228, 225, 22);
 
         name3.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
         name3.setForeground(new java.awt.Color(1, 77, 78));
@@ -163,7 +163,7 @@ public class ManageDoctorsJPanel extends javax.swing.JPanel {
         name6.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         name6.setText("Years of Experience:");
         jPanel2.add(name6);
-        name6.setBounds(239, 386, 133, 23);
+        name6.setBounds(239, 386, 126, 23);
 
         txtAge.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
         txtAge.setModel(new javax.swing.SpinnerNumberModel(18, 18, 60, 1));
@@ -179,11 +179,11 @@ public class ManageDoctorsJPanel extends javax.swing.JPanel {
             }
         });
         jPanel2.add(drpGender);
-        drpGender.setBounds(390, 313, 84, 26);
+        drpGender.setBounds(390, 313, 82, 26);
         jPanel2.add(txtDocID4);
-        txtDocID4.setBounds(390, 351, 225, 23);
+        txtDocID4.setBounds(390, 351, 225, 22);
         jPanel2.add(txtDocID5);
-        txtDocID5.setBounds(390, 386, 225, 23);
+        txtDocID5.setBounds(390, 386, 225, 22);
 
         name7.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
         name7.setForeground(new java.awt.Color(1, 77, 78));
@@ -199,9 +199,9 @@ public class ManageDoctorsJPanel extends javax.swing.JPanel {
         jPanel2.add(name8);
         name8.setBounds(239, 468, 133, 23);
         jPanel2.add(txtDocID6);
-        txtDocID6.setBounds(390, 427, 225, 23);
+        txtDocID6.setBounds(390, 427, 225, 22);
         jPanel2.add(txtDocID7);
-        txtDocID7.setBounds(390, 468, 225, 23);
+        txtDocID7.setBounds(390, 468, 225, 22);
 
         jButton1.setBackground(new java.awt.Color(17, 53, 81));
         jButton1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
