@@ -14,17 +14,7 @@ public class DeliveryAssociate extends Person{
     public int deliveryAssociateID;
     public String phoneNumber;
     public String workStatus;
-    public String nameOfDA;
-    
-    public DeliveryAssociate(String personID, String name, int age, String gender, String dateOfBirth, int deliveryAssociateID, String phoneNumber, String workStatus, String nameOfDA){
-        
-        super(personID, name, age, gender, dateOfBirth);
-        this.deliveryAssociateID = deliveryAssociateID;
-        this.phoneNumber = phoneNumber;
-        this.workStatus = workStatus;
-        this.nameOfDA = nameOfDA;
-               
-    }
+    public String nameOfDA;    
 
     public int getDeliveryAssociateID() {
         return deliveryAssociateID;
@@ -57,6 +47,8 @@ public class DeliveryAssociate extends Person{
     public void setNameOfDA(String nameOfDA) {
         this.nameOfDA = nameOfDA;
     }
+    
+    
     
 
 }
