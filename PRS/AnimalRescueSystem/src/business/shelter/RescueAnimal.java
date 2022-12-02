@@ -10,4 +10,10 @@ package business.shelter;
  */
 public class RescueAnimal {
     
+    String animalId;
+    String animal;
+    String condition;
+    String status;
+    String staffId;
+    
 }

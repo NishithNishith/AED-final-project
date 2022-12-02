@@ -12,5 +12,6 @@ public class Encounter {
     String id;
     String patientId;
     String desc;
+    String prescription;
     
 }

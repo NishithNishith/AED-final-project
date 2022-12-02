@@ -10,4 +10,7 @@ package business.population;
  */
 public class fundDonation {
     
+    int amount;
+    String status;
+    
 }

@@ -10,4 +10,8 @@ package business.shelter;
  */
 public class ShelterManager {
     
+    String shelterManagerId;
+    int yearsOfExperience;
+    int phoneNumber;
+    
 }
