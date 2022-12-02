@@ -4,15 +4,49 @@
  */
 package business.shelter;
 
+import business.population.Person;
+
 /**
  *
  * @author nishi
  */
-public class ShelterStaff {
+public class ShelterStaff extends Person {
     
     String shelterStaffId;
     int yearsOfExperience;
     int phoneNumber;
     float salary;
+
+    public String getShelterStaffId() {
+        return shelterStaffId;
+    }
+
+    public void setShelterStaffId(String shelterStaffId) {
+        this.shelterStaffId = shelterStaffId;
+    }
+
+    public int getYearsOfExperience() {
+        return yearsOfExperience;
+    }
+
+    public void setYearsOfExperience(int yearsOfExperience) {
+        this.yearsOfExperience = yearsOfExperience;
+    }
+
+    public int getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(int phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public float getSalary() {
+        return salary;
+    }
+
+    public void setSalary(float salary) {
+        this.salary = salary;
+    }
     
 }

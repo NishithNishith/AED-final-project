@@ -4,6 +4,8 @@
  */
 package UI.Main;
 
+import UI.shelter.ShelterAdmin;
+
 /**
  *
  * @author nishi
@@ -26,8 +28,9 @@ public class MainJFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jSplitPane1 = new javax.swing.JSplitPane();
+        splitpane = new javax.swing.JSplitPane();
         jPanel1 = new javax.swing.JPanel();
+        txtShelterAdmin = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         txtLogin = new javax.swing.JButton();
@@ -35,18 +38,31 @@ public class MainJFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        txtShelterAdmin.setText("Shelter admin");
+        txtShelterAdmin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtShelterAdminActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(txtShelterAdmin)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 479, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(226, 226, 226)
+                .addComponent(txtShelterAdmin)
+                .addContainerGap(230, Short.MAX_VALUE))
         );
 
-        jSplitPane1.setLeftComponent(jPanel1);
+        splitpane.setLeftComponent(jPanel1);
 
         jLabel1.setText("Animal Rescue System");
 
@@ -81,21 +97,28 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addGap(32, 32, 32))
         );
 
-        jSplitPane1.setRightComponent(jPanel2);
+        splitpane.setRightComponent(jPanel2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(splitpane, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(splitpane, javax.swing.GroupLayout.Alignment.TRAILING)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtShelterAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtShelterAdminActionPerformed
+        // TODO add your handling code here:
+        
+        ShelterAdmin adminPanel = new ShelterAdmin();
+        splitpane.setRightComponent(adminPanel);
+    }//GEN-LAST:event_txtShelterAdminActionPerformed
 
     /**
      * @param args the command line arguments
@@ -136,8 +159,9 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JSplitPane jSplitPane1;
+    private javax.swing.JSplitPane splitpane;
     private javax.swing.JButton txtLogin;
     private javax.swing.JButton txtRegister;
+    private javax.swing.JButton txtShelterAdmin;
     // End of variables declaration//GEN-END:variables
 }

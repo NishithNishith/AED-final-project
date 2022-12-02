@@ -10,4 +10,42 @@ package business.shelter;
  */
 public class FundRequest {
     
+    String fundRequestId;
+    int amount;
+    String status;
+    String description;
+
+    public String getFundRequestId() {
+        return fundRequestId;
+    }
+
+    public void setFundRequestId(String fundRequestId) {
+        this.fundRequestId = fundRequestId;
+    }
+
+    public int getAmount() {
+        return amount;
+    }
+
+    public void setAmount(int amount) {
+        this.amount = amount;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+    
+    
 }
