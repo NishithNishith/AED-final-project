@@ -4,6 +4,13 @@
  */
 package UI.shelter;
 
+import business.population.Report;
+import business.shelter.FundRequest;
+import business.shelter.FundRequestDirectory;
+import business.validations.Validations;
+import java.util.UUID;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author nishi
@@ -13,8 +20,13 @@ public class RequestFunds extends javax.swing.JPanel {
     /**
      * Creates new form RequestFunds
      */
-    public RequestFunds() {
+    javax.swing.JSplitPane splitpane;
+    FundRequestDirectory requestFundsDirectory;
+    Validations validations;
+    
+    public RequestFunds(javax.swing.JSplitPane splitpane) {
         initComponents();
+        this.splitpane = splitpane;
     }
 
     /**
@@ -30,7 +42,7 @@ public class RequestFunds extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         txtAmount = new javax.swing.JTextField();
-        txtDescription = new javax.swing.JTextField();
+        txtDesc = new javax.swing.JTextField();
         txtSubmit = new javax.swing.JButton();
         txtBack = new javax.swing.JButton();
 
@@ -40,7 +52,18 @@ public class RequestFunds extends javax.swing.JPanel {
 
         jLabel3.setText("Description");
 
+        txtAmount.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtAmountActionPerformed(evt);
+            }
+        });
+
         txtSubmit.setText("Submit");
+        txtSubmit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSubmitActionPerformed(evt);
+            }
+        });
 
         txtBack.setText("Back");
 
@@ -61,7 +84,7 @@ public class RequestFunds extends javax.swing.JPanel {
                         .addGap(43, 43, 43)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtDescription, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtDesc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtSubmit))))
                 .addContainerGap(137, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -81,7 +104,7 @@ public class RequestFunds extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(txtDescription, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtDesc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(53, 53, 53)
                 .addComponent(txtSubmit)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
@@ -90,6 +113,58 @@ public class RequestFunds extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void txtSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSubmitActionPerformed
+        // TODO add your handling code here:
+        try{
+            //Retreive db 
+            
+            
+        }
+        catch(Exception err){
+            System.out.println("DB connection error"+err);
+            JOptionPane.showMessageDialog(this, "Connection error, try again");
+            return;
+            
+        }
+
+        try{
+            String amount = txtAmount.getText();
+            String desc = txtDesc.getText();
+ 
+
+            if(!validations.lengthCheck(amount) || !validations.lengthCheck(desc)){
+                JOptionPane.showMessageDialog(this, "Enter valid details for Report");
+                return;
+            }
+            
+            if(!validations.numberCheck(amount)){
+                JOptionPane.showMessageDialog(this, "Enter valid amount value");
+                return;
+            }
+
+            FundRequest fundRequest = requestFundsDirectory.addFundRequest();
+            
+            String uniqueField = UUID.randomUUID().toString();
+            
+            fundRequest.setFundRequestId(uniqueField);
+            fundRequest.setAmount(Integer.parseInt(amount));
+            fundRequest.setDescription(desc);
+            
+            //save report directory in the db
+
+            JOptionPane.showMessageDialog(this, "Funds requested");
+        }
+        catch(Exception err){
+            JOptionPane.showMessageDialog(this, "Issue while submitting request, try again");
+            return;
+        }
+        
+    }//GEN-LAST:event_txtSubmitActionPerformed
+
+    private void txtAmountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAmountActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtAmountActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
@@ -97,7 +172,7 @@ public class RequestFunds extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JTextField txtAmount;
     private javax.swing.JButton txtBack;
-    private javax.swing.JTextField txtDescription;
+    private javax.swing.JTextField txtDesc;
     private javax.swing.JButton txtSubmit;
     // End of variables declaration//GEN-END:variables
 }

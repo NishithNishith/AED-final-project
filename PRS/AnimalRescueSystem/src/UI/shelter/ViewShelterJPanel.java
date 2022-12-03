@@ -13,8 +13,10 @@ public class ViewShelterJPanel extends javax.swing.JPanel {
     /**
      * Creates new form ViewShelterJPanel
      */
-    public ViewShelterJPanel() {
+    javax.swing.JSplitPane splitpane;
+    public ViewShelterJPanel(javax.swing.JSplitPane splitpane) {
         initComponents();
+        this.splitpane = splitpane;
     }
 
     /**

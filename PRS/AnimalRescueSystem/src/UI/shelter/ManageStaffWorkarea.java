@@ -285,7 +285,6 @@ public class ManageStaffWorkarea extends javax.swing.JPanel {
         ViewStaffJPanel panel = new ViewStaffJPanel();
         splitpane.setRightComponent(panel);
         
-        
     }//GEN-LAST:event_txtViewStaffActionPerformed
 
 

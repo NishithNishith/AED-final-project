@@ -13,8 +13,10 @@ public class ManageDonationsWorkarea extends javax.swing.JPanel {
     /**
      * Creates new form ManageDonationsWorkarea
      */
-    public ManageDonationsWorkarea() {
+    javax.swing.JSplitPane splitpane;
+    public ManageDonationsWorkarea(javax.swing.JSplitPane splitpane) {
         initComponents();
+        this.splitpane = splitpane;
     }
 
     /**
