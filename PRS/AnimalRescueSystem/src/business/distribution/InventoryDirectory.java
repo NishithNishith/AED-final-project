@@ -31,8 +31,8 @@ public class InventoryDirectory {
         inventoryDirectory.remove(inventory);
     }
     
-    public Inventory addInventory(String name, int quantity, String status){
-        Inventory inventory = new Inventory(name, quantity, status);
+    public Inventory addInventory(){
+        Inventory inventory = new Inventory();
         inventoryDirectory.add(inventory);
         return inventory;
     }

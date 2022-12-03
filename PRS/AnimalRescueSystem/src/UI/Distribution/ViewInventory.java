@@ -4,6 +4,14 @@
  */
 package UI.Distribution;
 
+import business.distribution.Inventory;
+import business.distribution.InventoryDirectory;
+import com.db4o.Db4oEmbedded;
+import com.db4o.ObjectContainer;
+import com.db4o.ObjectSet;
+import java.nio.file.Paths;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author adity
@@ -15,6 +23,7 @@ public class ViewInventory extends javax.swing.JPanel {
      */
     public ViewInventory() {
         initComponents();
+        populateTable();
     }
 
     /**
@@ -130,6 +139,39 @@ public class ViewInventory extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+          private void populateTable(){
+         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        
+        model.setRowCount(0);
+        
+               String DBFILENAME = Paths.get("ARSDatabank.db4o").toAbsolutePath().toString();
+       
+        ObjectContainer db = Db4oEmbedded.openFile(Db4oEmbedded
+ .newConfiguration(), DBFILENAME);
+        
+        ObjectSet result = db.query(InventoryDirectory.class);
+        
+
+
+//        
+//        for(Inventory i : result) {
+//            
+//            Object[] row = new Object[8];
+//            row[0] = p;
+////          row[1] = e.getPatientName();
+//            row[1] = p.getAge();
+//            row[2] = p.getUserName();
+//            row[3] = p.getPassword();
+//            row[4] = p.currentPlaceOfStay.getHouseName();
+//            row[5] = p.currentPlaceOfStay.getStreetAddress();
+//            row[6] = p.currentPlaceOfStay.getCommunityName();
+//            row[7] = p.currentPlaceOfStay.getCities();
+//            
+//            model.addRow(row);
+//            
+//            
+//        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Update;

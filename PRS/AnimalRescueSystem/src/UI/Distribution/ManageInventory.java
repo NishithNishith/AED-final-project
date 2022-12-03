@@ -4,6 +4,8 @@
  */
 package UI.Distribution;
 
+
+
 /**
  *
  * @author adity
@@ -13,6 +15,7 @@ public class ManageInventory extends javax.swing.JFrame {
     /**
      * Creates new form ManageInventory
      */
+
     public ManageInventory() {
         initComponents();
     }
@@ -94,6 +97,9 @@ public class ManageInventory extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        
+        CreateInventory createInventory = new CreateInventory();
+        jSplitPane1.setRightComponent(createInventory);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
