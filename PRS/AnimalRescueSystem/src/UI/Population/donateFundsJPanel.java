@@ -8,12 +8,12 @@ package UI.Population;
  *
  * @author nishi
  */
-public class donateFundsJPanel extends javax.swing.JPanel {
+public class DonateFundsJPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form donateFundsJPanel
      */
-    public donateFundsJPanel() {
+    public DonateFundsJPanel() {
         initComponents();
     }
 

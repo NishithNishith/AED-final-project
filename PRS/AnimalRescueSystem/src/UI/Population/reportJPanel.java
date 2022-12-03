@@ -4,6 +4,7 @@
  */
 package UI.Population;
 
+import UI.shelter.ShelterAdmin;
 import business.population.Report;
 import business.population.ReportDirectory;
 import business.validations.Validations;
@@ -15,7 +16,7 @@ import java.util.UUID;
  *
  * @author nishi
  */
-public class reportJPanel extends javax.swing.JPanel {
+public class ReportJPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form reportJPanel
@@ -23,10 +24,12 @@ public class reportJPanel extends javax.swing.JPanel {
     
     Validations validations;
     ReportDirectory reportDirectory;
+    javax.swing.JSplitPane splitpane;
     
-    public reportJPanel() {
+    public ReportJPanel(javax.swing.JSplitPane splitpane) {
         initComponents();
         validations = new Validations();
+        this.splitpane = splitpane;
     }
 
     /**
@@ -79,8 +82,18 @@ public class reportJPanel extends javax.swing.JPanel {
         });
 
         txtDonate.setText("Donate");
+        txtDonate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDonateActionPerformed(evt);
+            }
+        });
 
         txtHistory.setText("View History");
+        txtHistory.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtHistoryActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -197,6 +210,20 @@ public class reportJPanel extends javax.swing.JPanel {
         }
         
     }//GEN-LAST:event_btnSubmitActionPerformed
+
+    private void txtDonateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDonateActionPerformed
+        // TODO add your handling code here:
+        DonateFundsJPanel panel = new DonateFundsJPanel();
+        splitpane.setRightComponent(panel);
+
+    }//GEN-LAST:event_txtDonateActionPerformed
+
+    private void txtHistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHistoryActionPerformed
+        // TODO add your handling code here:
+        ReportHistoryJPanel panel = new ReportHistoryJPanel();
+        splitpane.setRightComponent(panel);
+
+    }//GEN-LAST:event_txtHistoryActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
