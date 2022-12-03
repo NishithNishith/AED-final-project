@@ -14,27 +14,27 @@ import com.db4o.*;
 
 public class SampleDB4O  {
     
- final static String DB4OFILENAME =
- System.getProperty("user.home")
- + "/formula1.db4o";
+ final static String DB4OFILENAME = System.getProperty("user.home")+ "/formula1.db4o";
  public static void main(String[] args) {
- new File(DB4OFILENAME).delete();
- accessDb4o();
- new File(DB4OFILENAME).delete();
- ObjectContainer db = Db4oEmbedded.openFile(Db4oEmbedded
- .newConfiguration(), DB4OFILENAME);
- try {
- storeFirstPilot(db);
- storeSecondPilot(db);
- retrieveAllPilots(db);
- retrievePilotByName(db);
- retrievePilotByExactPoints(db);
- updatePilot(db);
- deleteFirstPilotByName(db);
- deleteSecondPilotByName(db);
- } finally {
- db.close();
- }
+     
+        new File(DB4OFILENAME).delete();
+ 
+        accessDb4o();
+        new File(DB4OFILENAME).delete();
+        ObjectContainer db = Db4oEmbedded.openFile(Db4oEmbedded
+        .newConfiguration(), DB4OFILENAME);
+        try {
+        storeFirstPilot(db);
+        storeSecondPilot(db);
+        retrieveAllPilots(db);
+        retrievePilotByName(db);
+        retrievePilotByExactPoints(db);
+        updatePilot(db);
+        deleteFirstPilotByName(db);
+        deleteSecondPilotByName(db);
+        } finally {
+        db.close();
+        }
  }
  public static void accessDb4o() {
  ObjectContainer db = Db4oEmbedded.openFile(Db4oEmbedded
