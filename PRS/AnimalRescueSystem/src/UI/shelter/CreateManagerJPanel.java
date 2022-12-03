@@ -9,6 +9,8 @@ import business.ecosystem.UserAccountDirectory;
 import business.population.Report;
 import business.shelter.ShelterManager;
 import business.shelter.ShelterManagerDirectory;
+import business.shelter.ShelterStaff;
+import business.shelter.ShelterStaffDirectory;
 import business.validations.Validations;
 import java.util.UUID;
 import javax.swing.JOptionPane;
@@ -24,7 +26,7 @@ public class CreateManagerJPanel extends javax.swing.JPanel {
      */
     
     Validations validations;
-    ShelterManagerDirectory shelterManagerDirectory;
+    ShelterStaffDirectory shelterStaffDirectory;
     UserAccountDirectory userAccountDirectory;
     
     public CreateManagerJPanel() {
@@ -252,7 +254,7 @@ public class CreateManagerJPanel extends javax.swing.JPanel {
             
             
 
-            ShelterManager shelterManager = shelterManagerDirectory.addShelterManager();
+            ShelterStaff shelterStaff = shelterStaffDirectory.addShelterStaff();
             
             
             
@@ -261,17 +263,17 @@ public class CreateManagerJPanel extends javax.swing.JPanel {
             UserAccount userAccount = userAccountDirectory.addNewUserAccount();
             userAccount.setEmail(email);
             userAccount.setPassword(password);
-            userAccount.setRole("ShelterManager");
+            userAccount.setRole("ShelterStaff");
             userAccount.setUserAccountId(uniqueField);
             
-            shelterManager.setShelterManagerId(uniqueField);
-            shelterManager.setFirstName(firstname);
-            shelterManager.setLastName(lastname);
-            shelterManager.setAge(Integer.parseInt(age));
-            shelterManager.setGender(gender);
-            shelterManager.setYearsOfExperience(Integer.parseInt(exp));
-            shelterManager.setPhoneNumber(phonenumber);
-            shelterManager.setSalary(Integer.parseInt(salary));
+            shelterStaff.setShelterStaffId(uniqueField);
+            shelterStaff.setFirstName(firstname);
+            shelterStaff.setLastName(lastname);
+            shelterStaff.setAge(Integer.parseInt(age));
+            shelterStaff.setGender(gender);
+            shelterStaff.setYearsOfExperience(Integer.parseInt(exp));
+            shelterStaff.setPhoneNumber(phonenumber);
+            shelterStaff.setSalary(Integer.parseInt(salary));
 
             JOptionPane.showMessageDialog(this, "Manager created");
         }

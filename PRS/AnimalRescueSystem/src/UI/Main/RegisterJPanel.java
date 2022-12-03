@@ -206,13 +206,7 @@ public class RegisterJPanel extends javax.swing.JPanel {
                 
                 JOptionPane.showMessageDialog(this, "User registered");
             }
-            
-            
-            
-            
-            
-            
-            
+             
             
         }
         catch(Exception e){

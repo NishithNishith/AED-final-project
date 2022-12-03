@@ -5,6 +5,7 @@
 package UI.Main;
 
 import UI.Population.ReportJPanel;
+import UI.shelter.ManageStaffWorkarea;
 import UI.shelter.ShelterAdmin;
 
 /**
@@ -33,6 +34,7 @@ public class MainJFrame extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         txtShelterAdmin = new javax.swing.JButton();
         txtShelterAdmin1 = new javax.swing.JButton();
+        txtShelterAdmin2 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         txtLogin = new javax.swing.JButton();
@@ -54,6 +56,13 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
 
+        txtShelterAdmin2.setText("Shelter Manager");
+        txtShelterAdmin2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtShelterAdmin2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -62,7 +71,8 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtShelterAdmin)
-                    .addComponent(txtShelterAdmin1))
+                    .addComponent(txtShelterAdmin1)
+                    .addComponent(txtShelterAdmin2))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -72,7 +82,9 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addComponent(txtShelterAdmin)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtShelterAdmin1)
-                .addContainerGap(201, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtShelterAdmin2)
+                .addContainerGap(166, Short.MAX_VALUE))
         );
 
         splitpane.setLeftComponent(jPanel1);
@@ -140,6 +152,12 @@ public class MainJFrame extends javax.swing.JFrame {
         splitpane.setRightComponent(reportPanel);
     }//GEN-LAST:event_txtShelterAdmin1ActionPerformed
 
+    private void txtShelterAdmin2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtShelterAdmin2ActionPerformed
+        // TODO add your handling code here:
+        ManageStaffWorkarea panel = new ManageStaffWorkarea(splitpane);
+        splitpane.setRightComponent(panel);
+    }//GEN-LAST:event_txtShelterAdmin2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -184,5 +202,6 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JButton txtRegister;
     private javax.swing.JButton txtShelterAdmin;
     private javax.swing.JButton txtShelterAdmin1;
+    private javax.swing.JButton txtShelterAdmin2;
     // End of variables declaration//GEN-END:variables
 }

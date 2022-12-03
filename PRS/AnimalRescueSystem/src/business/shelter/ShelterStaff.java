@@ -14,8 +14,8 @@ public class ShelterStaff extends Person {
     
     String shelterStaffId;
     int yearsOfExperience;
-    int phoneNumber;
-    float salary;
+    String phoneNumber;
+    int salary;
 
     public String getShelterStaffId() {
         return shelterStaffId;
@@ -33,11 +33,11 @@ public class ShelterStaff extends Person {
         this.yearsOfExperience = yearsOfExperience;
     }
 
-    public int getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(int phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
@@ -46,7 +46,7 @@ public class ShelterStaff extends Person {
     }
 
     public void setSalary(float salary) {
-        this.salary = salary;
+        this.salary = (int) salary;
     }
     
 }
