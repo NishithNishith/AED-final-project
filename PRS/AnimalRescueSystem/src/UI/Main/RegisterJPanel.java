@@ -123,7 +123,7 @@ public class RegisterJPanel extends javax.swing.JPanel {
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGap(79, 79, 79)
                         .addComponent(jLabel1)))
-                .addContainerGap())
+                .addContainerGap(107, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -160,7 +160,7 @@ public class RegisterJPanel extends javax.swing.JPanel {
                     .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(36, 36, 36)
                 .addComponent(btnRegister)
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
