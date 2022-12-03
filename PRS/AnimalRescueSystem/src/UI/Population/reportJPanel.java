@@ -180,6 +180,19 @@ public class ReportJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         
         try{
+            //Retreive db 
+            
+            
+        }
+        catch(Exception err){
+            System.out.println("DB connection error"+err);
+            JOptionPane.showMessageDialog(this, "Connection error, try again");
+            return;
+            
+        }
+        
+        
+        try{
             String animal = txtAnimal.getText();
             String desc = txtDesc.getText();
             String condition = txtCondition.getText();
@@ -202,6 +215,8 @@ public class ReportJPanel extends javax.swing.JPanel {
             report.setCommunity(community);
             report.setLocation("");
             report.setStatus("PENDING");
+            
+            //save report directory in the db
 
             JOptionPane.showMessageDialog(this, "Incident reported");
         }

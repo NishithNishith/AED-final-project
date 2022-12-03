@@ -8,7 +8,7 @@ package business.population;
  *
  * @author nishi
  */
-public class fundDonation {
+public class FundDonation {
     
     int amount;
     String status;
