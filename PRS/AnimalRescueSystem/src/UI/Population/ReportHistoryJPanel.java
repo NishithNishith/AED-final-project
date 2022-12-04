@@ -73,7 +73,7 @@ public class ReportHistoryJPanel extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                "Id", "Animal", "Condition", "Status"
+                "reportId", "Animal", "Condition", "Status"
             }
         ));
         jScrollPane1.setViewportView(jTable1);

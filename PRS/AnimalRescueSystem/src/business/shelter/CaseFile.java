@@ -1,4 +1,4 @@
-/*
+ /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
@@ -10,19 +10,20 @@ package business.shelter;
  */
 public class CaseFile {
     
-    String animalId;
+    String reportId;
     String staffId;
     String status;
     String desciption;
     String date;
 
-    public String getAnimalId() {
-        return animalId;
+    public String getReportId() {
+        return reportId;
     }
 
-    public void setAnimalId(String animalId) {
-        this.animalId = animalId;
+    public void setReportId(String reportId) {
+        this.reportId = reportId;
     }
+
 
     public String getStaffId() {
         return staffId;
