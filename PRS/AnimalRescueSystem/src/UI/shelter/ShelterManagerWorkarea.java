@@ -66,7 +66,7 @@ public class ShelterManagerWorkarea extends javax.swing.JPanel {
             }
         });
 
-        txtStaff1.setText("Manage Staff");
+        txtStaff1.setText("Manage Accountant");
         txtStaff1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtStaff1ActionPerformed(evt);
@@ -136,6 +136,8 @@ public class ShelterManagerWorkarea extends javax.swing.JPanel {
 
     private void txtStaff1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtStaff1ActionPerformed
         // TODO add your handling code here:
+        ManageAccountantWorkarea panel = new ManageAccountantWorkarea(splitpane);
+        splitpane.setRightComponent(panel);
     }//GEN-LAST:event_txtStaff1ActionPerformed
 
 

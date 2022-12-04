@@ -104,8 +104,18 @@ public class MainJFrame extends javax.swing.JFrame {
         jLabel1.setText("Animal Rescue System");
 
         txtLogin.setText("Login");
+        txtLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtLoginActionPerformed(evt);
+            }
+        });
 
         txtRegister.setText("Register");
+        txtRegister.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtRegisterActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -175,6 +185,18 @@ public class MainJFrame extends javax.swing.JFrame {
         StaffWorkarea panel = new StaffWorkarea(splitpane);
         splitpane.setRightComponent(panel);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void txtLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLoginActionPerformed
+        // TODO add your handling code here:
+        LoginJPanel panel = new LoginJPanel(splitpane);
+        splitpane.setRightComponent(panel);
+    }//GEN-LAST:event_txtLoginActionPerformed
+
+    private void txtRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRegisterActionPerformed
+        // TODO add your handling code here:
+        RegisterJPanel panel = new RegisterJPanel(splitpane);
+        splitpane.setRightComponent(panel);
+    }//GEN-LAST:event_txtRegisterActionPerformed
 
     /**
      * @param args the command line arguments
