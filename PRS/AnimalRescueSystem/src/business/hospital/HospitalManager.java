@@ -6,7 +6,7 @@ package business.hospital;
 
 /**
  *
- * @author nishi
+ * @author sinchanakumar
  */
 public class HospitalManager {
     
@@ -14,5 +14,39 @@ public class HospitalManager {
     int yearsOfExperience;
     int phoneNumber;
     float salary;
+
+    public String getHospitalManagerId() {
+        return hospitalManagerId;
+    }
+
+    public int getYearsOfExperience() {
+        return yearsOfExperience;
+    }
+
+    public int getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public float getSalary() {
+        return salary;
+    }
+
+    public void setHospitalManagerId(String hospitalManagerId) {
+        this.hospitalManagerId = hospitalManagerId;
+    }
+
+    public void setYearsOfExperience(int yearsOfExperience) {
+        this.yearsOfExperience = yearsOfExperience;
+    }
+
+    public void setPhoneNumber(int phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public void setSalary(float salary) {
+        this.salary = salary;
+    }
+    
+    
     
 }

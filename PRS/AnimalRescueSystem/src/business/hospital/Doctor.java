@@ -8,7 +8,7 @@ import business.population.Person;
 
 /**
  *
- * @author nishi
+ * @author sinchanakumar
  */
 public class Doctor extends Person {
     
@@ -16,5 +16,39 @@ public class Doctor extends Person {
     int yearsOfExperience;
     int phoneNumber;
     float salary;
+
+    public String getDoctorId() {
+        return doctorId;
+    }
+
+    public int getYearsOfExperience() {
+        return yearsOfExperience;
+    }
+
+    public int getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public float getSalary() {
+        return salary;
+    }
+
+    public void setDoctorId(String doctorId) {
+        this.doctorId = doctorId;
+    }
+
+    public void setYearsOfExperience(int yearsOfExperience) {
+        this.yearsOfExperience = yearsOfExperience;
+    }
+
+    public void setPhoneNumber(int phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public void setSalary(float salary) {
+        this.salary = salary;
+    }
+    
+    
     
 }
