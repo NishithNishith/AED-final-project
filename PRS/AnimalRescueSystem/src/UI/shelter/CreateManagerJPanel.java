@@ -26,7 +26,7 @@ public class CreateManagerJPanel extends javax.swing.JPanel {
      */
     
     Validations validations;
-    ShelterStaffDirectory shelterStaffDirectory;
+    ShelterManagerDirectory shelterManagerDirectory;
     UserAccountDirectory userAccountDirectory;
     
     public CreateManagerJPanel() {
@@ -254,7 +254,7 @@ public class CreateManagerJPanel extends javax.swing.JPanel {
             
             
 
-            ShelterStaff shelterStaff = shelterStaffDirectory.addShelterStaff();
+            ShelterManager shelterManager = shelterManagerDirectory.addShelterManager();
             
             
             
@@ -263,17 +263,17 @@ public class CreateManagerJPanel extends javax.swing.JPanel {
             UserAccount userAccount = userAccountDirectory.addNewUserAccount();
             userAccount.setEmail(email);
             userAccount.setPassword(password);
-            userAccount.setRole("ShelterStaff");
+            userAccount.setRole("Manager");
             userAccount.setUserAccountId(uniqueField);
             
-            shelterStaff.setShelterStaffId(uniqueField);
-            shelterStaff.setFirstName(firstname);
-            shelterStaff.setLastName(lastname);
-            shelterStaff.setAge(Integer.parseInt(age));
-            shelterStaff.setGender(gender);
-            shelterStaff.setYearsOfExperience(Integer.parseInt(exp));
-            shelterStaff.setPhoneNumber(phonenumber);
-            shelterStaff.setSalary(Integer.parseInt(salary));
+            shelterManager.setShelterManagerId(uniqueField);
+            shelterManager.setFirstName(firstname);
+            shelterManager.setLastName(lastname);
+            shelterManager.setAge(Integer.parseInt(age));
+            shelterManager.setGender(gender);
+            shelterManager.setYearsOfExperience(Integer.parseInt(exp));
+            shelterManager.setPhoneNumber(phonenumber);
+            shelterManager.setSalary(Integer.parseInt(salary));
 
             JOptionPane.showMessageDialog(this, "Manager created");
         }

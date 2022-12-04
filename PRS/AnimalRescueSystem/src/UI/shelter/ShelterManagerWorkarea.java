@@ -34,6 +34,7 @@ public class ShelterManagerWorkarea extends javax.swing.JPanel {
         txtDonations = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         txtShelter = new javax.swing.JButton();
+        txtStaff1 = new javax.swing.JButton();
 
         jLabel1.setText("Shelter Manager");
 
@@ -65,6 +66,13 @@ public class ShelterManagerWorkarea extends javax.swing.JPanel {
             }
         });
 
+        txtStaff1.setText("Manage Staff");
+        txtStaff1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtStaff1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -76,6 +84,7 @@ public class ShelterManagerWorkarea extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtStaff1)
                     .addComponent(txtShelter)
                     .addComponent(jButton3)
                     .addComponent(txtDonations)
@@ -95,7 +104,9 @@ public class ShelterManagerWorkarea extends javax.swing.JPanel {
                 .addComponent(jButton3)
                 .addGap(29, 29, 29)
                 .addComponent(txtShelter)
-                .addContainerGap(198, Short.MAX_VALUE))
+                .addGap(27, 27, 27)
+                .addComponent(txtStaff1)
+                .addContainerGap(148, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -123,6 +134,10 @@ public class ShelterManagerWorkarea extends javax.swing.JPanel {
         splitpane.setRightComponent(panel);
     }//GEN-LAST:event_txtDonationsActionPerformed
 
+    private void txtStaff1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtStaff1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtStaff1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton3;
@@ -130,5 +145,6 @@ public class ShelterManagerWorkarea extends javax.swing.JPanel {
     private javax.swing.JButton txtDonations;
     private javax.swing.JButton txtShelter;
     private javax.swing.JButton txtStaff;
+    private javax.swing.JButton txtStaff1;
     // End of variables declaration//GEN-END:variables
 }

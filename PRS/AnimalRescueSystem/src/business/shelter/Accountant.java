@@ -4,11 +4,13 @@
  */
 package business.shelter;
 
+import business.population.Person;
+
 /**
  *
  * @author nishi
  */
-public class Accountant {
+public class Accountant extends Person{
     String accountantId;
     int yearsOfExperience;
     String phoneNumber;

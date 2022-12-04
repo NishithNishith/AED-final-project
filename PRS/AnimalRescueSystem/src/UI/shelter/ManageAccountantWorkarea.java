@@ -6,9 +6,8 @@ package UI.shelter;
 
 import business.ecosystem.UserAccount;
 import business.ecosystem.UserAccountDirectory;
-import business.shelter.ShelterManager;
-import business.shelter.ShelterManagerDirectory;
-import business.shelter.ShelterStaff;
+import business.shelter.Accountant;
+import business.shelter.AccountantDirectory;
 import business.shelter.ShelterStaffDirectory;
 import business.validations.Validations;
 import java.util.UUID;
@@ -18,18 +17,17 @@ import javax.swing.JOptionPane;
  *
  * @author nishi
  */
-public class ManageStaffWorkarea extends javax.swing.JPanel {
+public class ManageAccountantWorkarea extends javax.swing.JPanel {
 
     /**
-     * Creates new form ManageStaffWorkarea
+     * Creates new form ManageAccountantWorkarea
      */
-    
-    Validations validations;
-    ShelterStaffDirectory shelterStaffDirectory;
-    UserAccountDirectory userAccountDirectory;
     javax.swing.JSplitPane splitpane;
+    Validations validations;
+    UserAccountDirectory userAccountDirectory;
+    AccountantDirectory accountantDirectory;
     
-    public ManageStaffWorkarea(javax.swing.JSplitPane splitpane) {
+    public ManageAccountantWorkarea(javax.swing.JSplitPane splitpane) {
         initComponents();
         this.splitpane = splitpane;
     }
@@ -43,52 +41,61 @@ public class ManageStaffWorkarea extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        txtLastname = new javax.swing.JTextField();
-        txtFirstname = new javax.swing.JTextField();
-        txtAge = new javax.swing.JTextField();
-        txtGender = new javax.swing.JTextField();
-        txtExp = new javax.swing.JTextField();
         txtPhno = new javax.swing.JTextField();
-        txtSalary = new javax.swing.JTextField();
-        btnSave = new javax.swing.JButton();
-        txtViewStaff = new javax.swing.JButton();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        txtEmail = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        txtExp = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        txtAge = new javax.swing.JTextField();
+        txtFirstname = new javax.swing.JTextField();
         txtPassword = new javax.swing.JPasswordField();
-
-        jLabel1.setText("Manage staff");
-
-        jLabel2.setText("Create staff");
-
-        jLabel3.setText("Firstname");
+        txtLastname = new javax.swing.JTextField();
+        txtEmail = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        txtViewStaff = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        btnSave = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        txtSalary = new javax.swing.JTextField();
+        txtGender = new javax.swing.JTextField();
 
         jLabel4.setText("Lastname");
 
-        jLabel5.setText("Age");
+        jLabel3.setText("Firstname");
 
-        jLabel6.setText("Gender");
+        jLabel2.setText("Create Accountant");
 
-        jLabel7.setText("Experience");
-
-        jLabel8.setText("Phone Number");
-
-        jLabel9.setText("Salary");
+        jLabel1.setText("Manage Accounant");
 
         txtFirstname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtFirstnameActionPerformed(evt);
             }
         });
+
+        jLabel9.setText("Salary");
+
+        jLabel11.setText("Password");
+
+        jLabel8.setText("Phone Number");
+
+        jLabel10.setText("Email");
+
+        jLabel7.setText("Experience");
+
+        txtViewStaff.setText("View Accountant");
+        txtViewStaff.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtViewStaffActionPerformed(evt);
+            }
+        });
+
+        jLabel6.setText("Gender");
 
         btnSave.setText("Save");
         btnSave.addActionListener(new java.awt.event.ActionListener() {
@@ -97,16 +104,7 @@ public class ManageStaffWorkarea extends javax.swing.JPanel {
             }
         });
 
-        txtViewStaff.setText("View Staff");
-        txtViewStaff.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtViewStaffActionPerformed(evt);
-            }
-        });
-
-        jLabel10.setText("Email");
-
-        jLabel11.setText("Password");
+        jLabel5.setText("Age");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -209,7 +207,7 @@ public class ManageStaffWorkarea extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel11)
                             .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(15, Short.MAX_VALUE))
+                        .addContainerGap(12, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnSave)
@@ -219,7 +217,17 @@ public class ManageStaffWorkarea extends javax.swing.JPanel {
 
     private void txtFirstnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFirstnameActionPerformed
         // TODO add your handling code here:
+        ViewAccountantJPanel panel = new ViewAccountantJPanel();
+        splitpane.setRightComponent(panel);
+        
     }//GEN-LAST:event_txtFirstnameActionPerformed
+
+    private void txtViewStaffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtViewStaffActionPerformed
+        // TODO add your handling code here:
+        ViewStaffJPanel panel = new ViewStaffJPanel();
+        splitpane.setRightComponent(panel);
+
+    }//GEN-LAST:event_txtViewStaffActionPerformed
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         // TODO add your handling code here:
@@ -235,59 +243,48 @@ public class ManageStaffWorkarea extends javax.swing.JPanel {
             String password = txtPassword.getText();
 
             if(!validations.lengthCheck(firstname) ||!validations.lengthCheck(lastname) ||
-                    !validations.lengthCheck(age) ||!validations.lengthCheck(gender)
-                    || !validations.lengthCheck(exp) || !validations.lengthCheck(phonenumber)
-                    || !validations.lengthCheck(salary) || !validations.lengthCheck(email) 
-                    || !validations.lengthCheck(password))
+                !validations.lengthCheck(age) ||!validations.lengthCheck(gender)
+                || !validations.lengthCheck(exp) || !validations.lengthCheck(phonenumber)
+                || !validations.lengthCheck(salary) || !validations.lengthCheck(email)
+                || !validations.lengthCheck(password))
             {
                 JOptionPane.showMessageDialog(this, "Enter valid details for Manager");
                 return;
             }
-            
+
             if(!validations.numberCheck(age) || !validations.numberCheck(exp) || !validations.numberCheck(salary) ){
                 JOptionPane.showMessageDialog(this, "Enter valid details for Manager");
                 return;
             }
-            
-            //Unique Check
-            
-            
 
-            ShelterStaff shelterStaff = shelterStaffDirectory.addShelterStaff();
-            
-            
-            
+            //Unique Check
+
+            Accountant accountant = accountantDirectory.addAccountant();
+
             String uniqueField = UUID.randomUUID().toString();
-            
+
             UserAccount userAccount = userAccountDirectory.addNewUserAccount();
             userAccount.setEmail(email);
             userAccount.setPassword(password);
-            userAccount.setRole("ShelterStaff");
+            userAccount.setRole("Accountant");
             userAccount.setUserAccountId(uniqueField);
-            
-            shelterStaff.setShelterStaffId(uniqueField);
-            shelterStaff.setFirstName(firstname);
-            shelterStaff.setLastName(lastname);
-            shelterStaff.setAge(Integer.parseInt(age));
-            shelterStaff.setGender(gender);
-            shelterStaff.setYearsOfExperience(Integer.parseInt(exp));
-            shelterStaff.setPhoneNumber(phonenumber);
-            shelterStaff.setSalary(Integer.parseInt(salary));
+
+            accountant.setAccountantId(uniqueField);
+            accountant.setFirstName(firstname);
+            accountant.setLastName(lastname);
+            accountant.setAge(Integer.parseInt(age));
+            accountant.setGender(gender);
+            accountant.setYearsOfExperience(Integer.parseInt(exp));
+            accountant.setPhoneNumber(phonenumber);
+            accountant.setSalary(Integer.parseInt(salary));
 
             JOptionPane.showMessageDialog(this, "Staff created");
         }
         catch(Exception err){
             JOptionPane.showMessageDialog(this, "Issue while creating staff, try again");
         }
-        
-    }//GEN-LAST:event_btnSaveActionPerformed
 
-    private void txtViewStaffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtViewStaffActionPerformed
-        // TODO add your handling code here:
-        ViewStaffJPanel panel = new ViewStaffJPanel();
-        splitpane.setRightComponent(panel);
-        
-    }//GEN-LAST:event_txtViewStaffActionPerformed
+    }//GEN-LAST:event_btnSaveActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
