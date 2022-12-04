@@ -2,24 +2,24 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package business.Government;
+package business.shelter;
 
 /**
  *
  * @author nishi
  */
-public class GovernmentManager {
-    String governmentManagerId;
+public class Accountant {
+    String accountantId;
     int yearsOfExperience;
-    int phoneNumber;
-    float salary;
+    String phoneNumber;
+    int salary;
 
-    public String getGovernmentManagerId() {
-        return governmentManagerId;
+    public String getAccountantId() {
+        return accountantId;
     }
 
-    public void setGovernmentManagerId(String governmentManagerId) {
-        this.governmentManagerId = governmentManagerId;
+    public void setAccountantId(String accountantId) {
+        this.accountantId = accountantId;
     }
 
     public int getYearsOfExperience() {
@@ -30,20 +30,23 @@ public class GovernmentManager {
         this.yearsOfExperience = yearsOfExperience;
     }
 
-    public int getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(int phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
-    public float getSalary() {
+    public int getSalary() {
         return salary;
     }
 
-    public void setSalary(float salary) {
+    public void setSalary(int salary) {
         this.salary = salary;
     }
+    
+    
+    
     
 }
