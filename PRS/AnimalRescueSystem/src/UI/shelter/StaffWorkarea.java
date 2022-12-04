@@ -5,6 +5,9 @@
 package UI.shelter;
 
 import business.population.Report;
+import business.shelter.CaseFile;
+import business.shelter.CaseFileDirectory;
+import java.util.UUID;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -18,6 +21,8 @@ public class StaffWorkarea extends javax.swing.JPanel {
      * Creates new form StaffWorkarea
      */
     javax.swing.JSplitPane splitpane;
+    CaseFileDirectory caseFileDirectory;
+    
     public StaffWorkarea(javax.swing.JSplitPane splitpane) {
         initComponents();
         this.splitpane = splitpane;
@@ -266,6 +271,28 @@ public class StaffWorkarea extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "Please select a row to be updated");
             return;
         }
+        
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        Report selectedProfile = (Report)model.getValueAt(selectRowIndex,0  );
+        
+        CaseFile caseFile = caseFileDirectory.addCaseFile();
+        
+        String uniqueField = UUID.randomUUID().toString();
+        
+        String reportId =selectedProfile.getId();
+        String staffId = "";
+        String reportDiscription =selectedProfile.getDescription() ;
+        String date = "";
+        
+        caseFile.setCaseId(uniqueField);
+        caseFile.setReportId(reportId);
+        caseFile.setStaffId(staffId);
+        caseFile.setStatus("Active");
+        caseFile.setDesciption(reportDiscription);
+        caseFile.setDate(date);
+        
+        JOptionPane.showMessageDialog(this, "Job accepted");
+
         
         
     }//GEN-LAST:event_txtServiceRequestActionPerformed

@@ -10,11 +10,20 @@ package business.shelter;
  */
 public class CaseFile {
     
+    String caseId;
     String reportId;
     String staffId;
     String status;
     String desciption;
     String date;
+
+    public String getCaseId() {
+        return caseId;
+    }
+
+    public void setCaseId(String caseId) {
+        this.caseId = caseId;
+    }
 
     public String getReportId() {
         return reportId;
