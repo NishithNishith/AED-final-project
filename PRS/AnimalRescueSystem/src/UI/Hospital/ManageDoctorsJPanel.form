@@ -11,7 +11,7 @@
     <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
     <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
-    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,3,-23,0,0,5,-70"/>
+    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,3,92,0,0,5,20"/>
   </AuxValues>
 
   <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
@@ -28,28 +28,26 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
-                  <EmptySpace min="65" pref="65" max="-2" attributes="0"/>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="53" pref="53" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="jTabbedPane1" min="-2" pref="1202" max="-2" attributes="0"/>
                       <Group type="102" attributes="0">
                           <Component id="btnBack" min="-2" pref="114" max="-2" attributes="0"/>
-                          <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="jLabel1" min="-2" pref="1155" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="jTabbedPane1" min="-2" pref="1359" max="-2" attributes="0"/>
                   </Group>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="23" pref="23" max="-2" attributes="0"/>
-                          <Component id="btnBack" min="-2" pref="38" max="-2" attributes="0"/>
-                      </Group>
-                      <Component id="jLabel1" min="-2" pref="73" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabel1" alignment="3" min="-2" pref="73" max="-2" attributes="0"/>
+                      <Component id="btnBack" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
                   <Component id="jTabbedPane1" min="-2" pref="910" max="-2" attributes="0"/>
@@ -433,120 +431,122 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                          <Component id="jScrollPane1" min="-2" pref="539" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
-                          <Component id="jLabel3" min="-2" pref="192" max="-2" attributes="0"/>
-                          <EmptySpace min="66" pref="66" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="DocID1" min="-2" pref="133" max="-2" attributes="0"/>
-                              <Component id="name9" min="-2" pref="133" max="-2" attributes="0"/>
-                              <Component id="name10" min="-2" pref="133" max="-2" attributes="0"/>
-                              <Component id="name11" min="-2" pref="133" max="-2" attributes="0"/>
-                              <Component id="name12" min="-2" pref="133" max="-2" attributes="0"/>
-                              <Component id="name13" min="-2" pref="133" max="-2" attributes="0"/>
-                              <Component id="name14" min="-2" pref="133" max="-2" attributes="0"/>
-                              <Component id="name15" min="-2" max="-2" attributes="0"/>
-                              <Component id="name16" min="-2" pref="133" max="-2" attributes="0"/>
-                              <Component id="name17" min="-2" pref="133" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Group type="102" alignment="1" attributes="0">
+                                  <EmptySpace min="-2" pref="138" max="-2" attributes="0"/>
+                                  <Component id="btnView" min="-2" pref="119" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="btnDelete" min="-2" pref="121" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jScrollPane1" min="-2" pref="539" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                                  <Component id="jLabel3" min="-2" pref="190" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
-                          <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="txtDocID8" min="-2" pref="225" max="-2" attributes="0"/>
-                              <Component id="txtDocID9" min="-2" pref="225" max="-2" attributes="0"/>
-                              <Component id="txtDocID10" min="-2" pref="225" max="-2" attributes="0"/>
-                              <Component id="txtDocID11" min="-2" pref="225" max="-2" attributes="0"/>
-                              <Component id="txtAge1" min="-2" max="-2" attributes="0"/>
-                              <Component id="drpGender1" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtDocID12" min="-2" pref="225" max="-2" attributes="0"/>
-                              <Component id="txtDocID13" min="-2" pref="225" max="-2" attributes="0"/>
-                              <Component id="txtDocID14" min="-2" pref="225" max="-2" attributes="0"/>
-                              <Component id="txtDocID15" min="-2" pref="225" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="DocID1" min="-2" pref="133" max="-2" attributes="0"/>
+                                      <Component id="name9" min="-2" pref="133" max="-2" attributes="0"/>
+                                      <Component id="name10" min="-2" pref="133" max="-2" attributes="0"/>
+                                      <Component id="name11" min="-2" pref="133" max="-2" attributes="0"/>
+                                      <Component id="name12" min="-2" pref="133" max="-2" attributes="0"/>
+                                      <Component id="name13" min="-2" pref="133" max="-2" attributes="0"/>
+                                      <Component id="name14" min="-2" pref="133" max="-2" attributes="0"/>
+                                      <Component id="name15" min="-2" max="-2" attributes="0"/>
+                                      <Component id="name16" min="-2" pref="133" max="-2" attributes="0"/>
+                                      <Component id="name17" min="-2" pref="133" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="txtDocID8" min="-2" pref="225" max="-2" attributes="0"/>
+                                      <Component id="txtDocID9" min="-2" pref="225" max="-2" attributes="0"/>
+                                      <Component id="txtDocID10" min="-2" pref="225" max="-2" attributes="0"/>
+                                      <Component id="txtDocID11" min="-2" pref="225" max="-2" attributes="0"/>
+                                      <Component id="txtAge1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="drpGender1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtDocID12" min="-2" pref="225" max="-2" attributes="0"/>
+                                      <Component id="txtDocID13" min="-2" pref="225" max="-2" attributes="0"/>
+                                      <Component id="txtDocID14" min="-2" pref="225" max="-2" attributes="0"/>
+                                      <Component id="txtDocID15" min="-2" pref="225" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="85" pref="85" max="-2" attributes="0"/>
+                                  <Component id="jButton2" min="-2" pref="149" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="-2" pref="155" max="-2" attributes="0"/>
-                          <Component id="btnView" min="-2" pref="119" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="btnDelete" min="-2" pref="121" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="561" max="-2" attributes="0"/>
-                          <Component id="jButton2" min="-2" pref="149" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="146" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <EmptySpace min="80" pref="80" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLabel3" min="-2" pref="409" max="-2" attributes="0"/>
-                                      <Group type="102" attributes="0">
-                                          <EmptySpace min="5" pref="5" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Group type="102" attributes="0">
-                                                  <Component id="DocID1" min="-2" pref="23" max="-2" attributes="0"/>
-                                                  <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
-                                                  <Component id="name9" min="-2" pref="23" max="-2" attributes="0"/>
-                                                  <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
-                                                  <Component id="name10" min="-2" pref="23" max="-2" attributes="0"/>
-                                                  <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
-                                                  <Component id="name11" min="-2" pref="23" max="-2" attributes="0"/>
-                                                  <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
-                                                  <Component id="name12" min="-2" pref="23" max="-2" attributes="0"/>
-                                                  <EmptySpace min="21" pref="21" max="-2" attributes="0"/>
-                                                  <Component id="name13" min="-2" pref="23" max="-2" attributes="0"/>
-                                                  <EmptySpace min="13" pref="13" max="-2" attributes="0"/>
-                                                  <Component id="name14" min="-2" pref="23" max="-2" attributes="0"/>
-                                                  <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
-                                                  <Component id="name15" min="-2" pref="23" max="-2" attributes="0"/>
-                                                  <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
-                                                  <Component id="name16" min="-2" pref="23" max="-2" attributes="0"/>
-                                                  <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
-                                                  <Component id="name17" min="-2" pref="23" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Group type="102" attributes="0">
-                                                  <Component id="txtDocID8" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
-                                                  <Component id="txtDocID9" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
-                                                  <Component id="txtDocID10" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
-                                                  <Component id="txtDocID11" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
-                                                  <Component id="txtAge1" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
-                                                  <Component id="drpGender1" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
-                                                  <Component id="txtDocID12" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
-                                                  <Component id="txtDocID13" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
-                                                  <Component id="txtDocID14" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
-                                                  <Component id="txtDocID15" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                      </Group>
-                                  </Group>
-                              </Group>
                               <Group type="102" alignment="1" attributes="0">
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jScrollPane1" min="-2" pref="394" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                                  <Component id="jButton2" min="-2" pref="32" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Component id="jScrollPane1" min="-2" pref="394" max="-2" attributes="0"/>
+                                      <Component id="jLabel3" alignment="1" min="-2" pref="421" max="-2" attributes="0"/>
+                                  </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="btnView" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                                       <Component id="btnDelete" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                                   </Group>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="DocID1" min="-2" pref="23" max="-2" attributes="0"/>
+                                          <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
+                                          <Component id="name9" min="-2" pref="23" max="-2" attributes="0"/>
+                                          <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
+                                          <Component id="name10" min="-2" pref="23" max="-2" attributes="0"/>
+                                          <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
+                                          <Component id="name11" min="-2" pref="23" max="-2" attributes="0"/>
+                                          <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
+                                          <Component id="name12" min="-2" pref="23" max="-2" attributes="0"/>
+                                          <EmptySpace min="21" pref="21" max="-2" attributes="0"/>
+                                          <Component id="name13" min="-2" pref="23" max="-2" attributes="0"/>
+                                          <EmptySpace min="13" pref="13" max="-2" attributes="0"/>
+                                          <Component id="name14" min="-2" pref="23" max="-2" attributes="0"/>
+                                          <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
+                                          <Component id="name15" min="-2" pref="23" max="-2" attributes="0"/>
+                                          <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
+                                          <Component id="name16" min="-2" pref="23" max="-2" attributes="0"/>
+                                          <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
+                                          <Component id="name17" min="-2" pref="23" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="txtDocID8" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
+                                          <Component id="txtDocID9" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
+                                          <Component id="txtDocID10" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
+                                          <Component id="txtDocID11" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
+                                          <Component id="txtAge1" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
+                                          <Component id="drpGender1" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
+                                          <Component id="txtDocID12" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
+                                          <Component id="txtDocID13" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
+                                          <Component id="txtDocID14" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
+                                          <Component id="txtDocID15" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                                  <Component id="jButton2" min="-2" pref="32" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
