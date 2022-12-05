@@ -4,17 +4,29 @@
  */
 package UI.Hospital;
 
+import business.ecosystem.UserAccount;
+import business.ecosystem.UserAccountDirectory;
+import business.hospital.Doctor;
+import business.hospital.DoctorDirectory;
+import business.validations.Validations;
+import java.util.UUID;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author sinchanakumar
  */
 public class ManageDoctorsJPanel extends javax.swing.JPanel {
 
+    Validations validations;
+    DoctorDirectory doctorDirectory;
+    UserAccountDirectory userAccountDirectory;
     /**
      * Creates new form ManageDoctorsJPanel
      */
     public ManageDoctorsJPanel() {
         initComponents();
+        validations = new Validations();
     }
 
     /**
@@ -32,27 +44,27 @@ public class ManageDoctorsJPanel extends javax.swing.JPanel {
         jPanel2 = new javax.swing.JPanel();
         medicalIcon = new javax.swing.JLabel();
         DocID = new javax.swing.JLabel();
-        txtDocID = new javax.swing.JTextField();
+        txtFirstName = new javax.swing.JTextField();
         name = new javax.swing.JLabel();
-        txtDocID1 = new javax.swing.JTextField();
+        txtLastName = new javax.swing.JTextField();
         name1 = new javax.swing.JLabel();
         name2 = new javax.swing.JLabel();
-        txtDocID2 = new javax.swing.JTextField();
-        txtDocID3 = new javax.swing.JTextField();
+        txtUsername = new javax.swing.JTextField();
+        txtGender = new javax.swing.JTextField();
         name3 = new javax.swing.JLabel();
         name4 = new javax.swing.JLabel();
         name5 = new javax.swing.JLabel();
         name6 = new javax.swing.JLabel();
-        txtAge = new javax.swing.JSpinner();
-        drpGender = new javax.swing.JComboBox<>();
-        txtDocID4 = new javax.swing.JTextField();
-        txtDocID5 = new javax.swing.JTextField();
+        txtSpecilization = new javax.swing.JTextField();
+        txtYearsofexp = new javax.swing.JTextField();
         name7 = new javax.swing.JLabel();
         name8 = new javax.swing.JLabel();
-        txtDocID6 = new javax.swing.JTextField();
-        txtDocID7 = new javax.swing.JTextField();
+        txtPhno = new javax.swing.JTextField();
+        txtEmail = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        txtAge = new javax.swing.JTextField();
+        txtPassword = new javax.swing.JPasswordField();
         jPanel3 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         DocID1 = new javax.swing.JLabel();
@@ -94,127 +106,173 @@ public class ManageDoctorsJPanel extends javax.swing.JPanel {
         jTabbedPane1.setForeground(new java.awt.Color(17, 53, 81));
         jTabbedPane1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
 
-        jPanel2.setLayout(null);
-
         medicalIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/Images/medicalLogo.png"))); // NOI18N
         medicalIcon.setText("jLabel3");
-        jPanel2.add(medicalIcon);
-        medicalIcon.setBounds(852, 135, 192, 377);
 
         DocID.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
         DocID.setForeground(new java.awt.Color(1, 77, 78));
         DocID.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        DocID.setText("Doctor ID:");
-        jPanel2.add(DocID);
-        DocID.setBounds(239, 105, 133, 23);
-        jPanel2.add(txtDocID);
-        txtDocID.setBounds(390, 105, 225, 23);
+        DocID.setText("First Name:");
+
+        txtFirstName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtFirstNameActionPerformed(evt);
+            }
+        });
 
         name.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
         name.setForeground(new java.awt.Color(1, 77, 78));
         name.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        name.setText("Name:");
-        jPanel2.add(name);
-        name.setBounds(239, 146, 133, 23);
-        jPanel2.add(txtDocID1);
-        txtDocID1.setBounds(390, 146, 225, 23);
+        name.setText("Last Name:");
 
         name1.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
         name1.setForeground(new java.awt.Color(1, 77, 78));
         name1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         name1.setText("Username:");
-        jPanel2.add(name1);
-        name1.setBounds(239, 187, 133, 23);
 
         name2.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
         name2.setForeground(new java.awt.Color(1, 77, 78));
         name2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         name2.setText("Password:");
-        jPanel2.add(name2);
-        name2.setBounds(239, 228, 133, 23);
-        jPanel2.add(txtDocID2);
-        txtDocID2.setBounds(390, 187, 225, 23);
-        jPanel2.add(txtDocID3);
-        txtDocID3.setBounds(390, 228, 225, 23);
 
         name3.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
         name3.setForeground(new java.awt.Color(1, 77, 78));
         name3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         name3.setText("Age:");
-        jPanel2.add(name3);
-        name3.setBounds(239, 271, 133, 23);
 
         name4.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
         name4.setForeground(new java.awt.Color(1, 77, 78));
         name4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         name4.setText("Gender:");
-        jPanel2.add(name4);
-        name4.setBounds(239, 315, 133, 23);
 
         name5.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
         name5.setForeground(new java.awt.Color(1, 77, 78));
         name5.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         name5.setText("Specilization:");
-        jPanel2.add(name5);
-        name5.setBounds(239, 351, 133, 23);
 
         name6.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
         name6.setForeground(new java.awt.Color(1, 77, 78));
         name6.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         name6.setText("Years of Experience:");
-        jPanel2.add(name6);
-        name6.setBounds(239, 386, 133, 23);
-
-        txtAge.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
-        txtAge.setModel(new javax.swing.SpinnerNumberModel(18, 18, 60, 1));
-        jPanel2.add(txtAge);
-        txtAge.setBounds(390, 269, 64, 26);
-
-        drpGender.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
-        drpGender.setForeground(new java.awt.Color(1, 77, 78));
-        drpGender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female", "Others" }));
-        drpGender.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                drpGenderActionPerformed(evt);
-            }
-        });
-        jPanel2.add(drpGender);
-        drpGender.setBounds(390, 313, 84, 26);
-        jPanel2.add(txtDocID4);
-        txtDocID4.setBounds(390, 351, 225, 23);
-        jPanel2.add(txtDocID5);
-        txtDocID5.setBounds(390, 386, 225, 23);
 
         name7.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
         name7.setForeground(new java.awt.Color(1, 77, 78));
         name7.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         name7.setText("Phone No:");
-        jPanel2.add(name7);
-        name7.setBounds(239, 427, 133, 23);
 
         name8.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
         name8.setForeground(new java.awt.Color(1, 77, 78));
         name8.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         name8.setText("Email:");
-        jPanel2.add(name8);
-        name8.setBounds(239, 468, 133, 23);
-        jPanel2.add(txtDocID6);
-        txtDocID6.setBounds(390, 427, 225, 23);
-        jPanel2.add(txtDocID7);
-        txtDocID7.setBounds(390, 468, 225, 23);
 
         jButton1.setBackground(new java.awt.Color(17, 53, 81));
         jButton1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("  Register");
-        jPanel2.add(jButton1);
-        jButton1.setBounds(390, 520, 220, 30);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton3.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jButton3.setForeground(new java.awt.Color(17, 53, 81));
         jButton3.setText("Reset");
-        jPanel2.add(jButton3);
-        jButton3.setBounds(230, 520, 110, 30);
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(239, 239, 239)
+                .addComponent(DocID, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(txtFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(239, 239, 239)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(name1, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(name2, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(name3, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(name4, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(name5, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(name6)
+                    .addComponent(name7, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(name8, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtLastName, javax.swing.GroupLayout.DEFAULT_SIZE, 225, Short.MAX_VALUE)
+                    .addComponent(txtUsername)
+                    .addComponent(txtAge)
+                    .addComponent(txtGender)
+                    .addComponent(txtSpecilization)
+                    .addComponent(txtYearsofexp)
+                    .addComponent(txtPhno)
+                    .addComponent(txtEmail)
+                    .addComponent(txtPassword))
+                .addGap(182, 182, 182)
+                .addComponent(medicalIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(230, 230, 230)
+                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(50, 50, 50)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(105, 105, 105)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(DocID, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(7, 7, 7)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(medicalIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(11, 11, 11)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(name1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(name2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(20, 20, 20)
+                                .addComponent(name3, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(21, 21, 21)
+                                .addComponent(name4, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(13, 13, 13)
+                                .addComponent(name5, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(12, 12, 12)
+                                .addComponent(name6, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(name7, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(name8, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(txtLastName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(20, 20, 20)
+                                .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(17, 17, 17)
+                                .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(17, 17, 17)
+                                .addComponent(txtGender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtSpecilization, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(12, 12, 12)
+                                .addComponent(txtYearsofexp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtPhno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(8, 8, 8)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
 
         jTabbedPane1.addTab("Create Doctor", jPanel2);
 
@@ -464,13 +522,73 @@ public class ManageDoctorsJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnBackActionPerformed
 
-    private void drpGenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_drpGenderActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_drpGenderActionPerformed
-
     private void drpGender1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_drpGender1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_drpGender1ActionPerformed
+
+    private void txtFirstNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFirstNameActionPerformed
+       
+// TODO add your handling code here:
+    }//GEN-LAST:event_txtFirstNameActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+      
+        
+        try{
+            String firstname = txtFirstName.getText();
+            String lastname = txtLastName.getText();
+            String username = txtUsername.getText();
+            String age = txtAge.getText();
+            String gender = txtGender.getText();
+            String exp = txtYearsofexp.getText();
+            String phonenumber = txtPhno.getText();
+            String specilization = txtSpecilization.getText();
+            String email = txtEmail.getText();
+            String password = txtPassword.getText();
+
+            if(!validations.lengthCheck(firstname) ||!validations.lengthCheck(lastname) || !validations.lengthCheck(username) ||
+                    !validations.lengthCheck(age) ||!validations.lengthCheck(gender)
+                    || !validations.lengthCheck(exp) || !validations.lengthCheck(phonenumber)
+                    || !validations.lengthCheck(specilization) || !validations.lengthCheck(email) 
+                    || !validations.lengthCheck(password)) 
+            {
+                JOptionPane.showMessageDialog(this, "Enter valid details for Doctor");
+                return;
+            }
+            
+            if(!validations.numberCheck(age) || !validations.numberCheck(exp) ){
+                JOptionPane.showMessageDialog(this, "Enter valid details for Doctor");
+                return;
+            }
+                
+            //Unique check
+            
+            Doctor doctor = doctorDirectory.addNewDoctor();
+
+             String uniqueField = UUID.randomUUID().toString();
+            
+            UserAccount userAccount = userAccountDirectory.addNewUserAccount();
+            userAccount.setEmail(email);
+            userAccount.setPassword(password);
+            userAccount.setRole("Doctor");
+            userAccount.setUserAccountId(uniqueField);
+            
+            doctor.setDoctorId(uniqueField);
+            doctor.setFirstName(firstname);
+            doctor.setLastName(lastname);
+            doctor.setUserName(username);
+            doctor.setAge(Integer.parseInt(age));
+            doctor.setGender(gender);
+            doctor.setYearsOfExperience(Integer.parseInt(exp));
+            doctor.setPhoneNumber(Integer.parseInt(phonenumber));
+            doctor.setSpecilization(specilization);
+
+            JOptionPane.showMessageDialog(this, "Doctor created");
+        }
+        catch(Exception err){
+            JOptionPane.showMessageDialog(this, "Issue while creating doctor, try again");
+        }// TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -479,7 +597,6 @@ public class ManageDoctorsJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnView;
-    private javax.swing.JComboBox<String> drpGender;
     private javax.swing.JComboBox<String> drpGender1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -511,23 +628,24 @@ public class ManageDoctorsJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel name7;
     private javax.swing.JLabel name8;
     private javax.swing.JLabel name9;
-    private javax.swing.JSpinner txtAge;
+    private javax.swing.JTextField txtAge;
     private javax.swing.JSpinner txtAge1;
-    private javax.swing.JTextField txtDocID;
-    private javax.swing.JTextField txtDocID1;
     private javax.swing.JTextField txtDocID10;
     private javax.swing.JTextField txtDocID11;
     private javax.swing.JTextField txtDocID12;
     private javax.swing.JTextField txtDocID13;
     private javax.swing.JTextField txtDocID14;
     private javax.swing.JTextField txtDocID15;
-    private javax.swing.JTextField txtDocID2;
-    private javax.swing.JTextField txtDocID3;
-    private javax.swing.JTextField txtDocID4;
-    private javax.swing.JTextField txtDocID5;
-    private javax.swing.JTextField txtDocID6;
-    private javax.swing.JTextField txtDocID7;
     private javax.swing.JTextField txtDocID8;
     private javax.swing.JTextField txtDocID9;
+    private javax.swing.JTextField txtEmail;
+    private javax.swing.JTextField txtFirstName;
+    private javax.swing.JTextField txtGender;
+    private javax.swing.JTextField txtLastName;
+    private javax.swing.JPasswordField txtPassword;
+    private javax.swing.JTextField txtPhno;
+    private javax.swing.JTextField txtSpecilization;
+    private javax.swing.JTextField txtUsername;
+    private javax.swing.JTextField txtYearsofexp;
     // End of variables declaration//GEN-END:variables
 }

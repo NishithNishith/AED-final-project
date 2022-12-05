@@ -20,4 +20,15 @@ public class Validations {
         return true;
     }
     
+    
+     public boolean numberCheck(String val) {
+
+        try {
+            int temp = Integer.parseInt(val);
+        } catch (Exception err) {
+            return false;
+        }
+
+        return true;
+    }
 }
