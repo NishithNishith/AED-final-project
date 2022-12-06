@@ -7,8 +7,11 @@ package business.ecosystem;
 import business.hospital.DoctorDirectory;
 import business.hospital.EncounterHistory;
 import business.hospital.HospitalManagerDirectory;
+import business.distribution.InventoryDirectory;
+import business.distribution.DeliveryAssociateDirectory;
 import business.population.PersonDirectory;
 import business.population.ReportDirectory;
+
 
 /**
  *
@@ -23,6 +26,8 @@ public class Business {
     EncounterHistory encounterHistory;
     UserAccountDirectory userAccountDirectory;
     ReportDirectory reportDirectory;
+    InventoryDirectory inventoryDirectory;
+    DeliveryAssociateDirectory deliveryAssociateDirectory;
 
     public Business getBusiness() {
         return business;
@@ -62,6 +67,22 @@ public class Business {
 
     public void setEncounterHistory(EncounterHistory encounterHistory) {
         this.encounterHistory = encounterHistory;
+    }
+    
+    public InventoryDirectory getInventoryDirectory() {
+        return inventoryDirectory;
+    }
+
+    public void setInventoryDirectory(InventoryDirectory inventoryDirectory) {
+        this.inventoryDirectory = inventoryDirectory;
+    }
+    
+    public DeliveryAssociateDirectory getDeliveryAssociateDirectory() {
+        return deliveryAssociateDirectory;
+    }
+
+    public void setDeliveryAssociateDirectory(DeliveryAssociateDirectory deliveryAssociateDirectory) {
+        this.deliveryAssociateDirectory = deliveryAssociateDirectory;
     }
 
     public UserAccountDirectory getUserAccountDirectory() {
