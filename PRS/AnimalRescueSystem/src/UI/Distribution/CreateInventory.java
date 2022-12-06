@@ -6,11 +6,9 @@ package UI.Distribution;
 
 import business.distribution.Inventory;
 import business.distribution.InventoryDirectory;
-import com.db4o.Db4oEmbedded;
-import com.db4o.ObjectContainer;
-import com.db4o.ObjectSet;
+import com.db4o.*;
+import com.db4o.query.Predicate;
 import java.nio.file.Paths;
-
 /**
  *
  * @author adity
@@ -22,9 +20,10 @@ public class CreateInventory extends javax.swing.JPanel {
      */
 
 
-
-    public CreateInventory() {
+InventoryDirectory inventoryDirectory;
+    public CreateInventory(InventoryDirectory inventoryDirectory) {
         initComponents();
+        this.inventoryDirectory = inventoryDirectory;
     }
 
     /**
@@ -106,33 +105,34 @@ public class CreateInventory extends javax.swing.JPanel {
         String name = txtName.getText();
         Integer quantity = Integer.valueOf(txtQuantity.getText());
         String status = txtStatus.getText();
-        
+
+       
+
+     Inventory i = inventoryDirectory.addInventory();
+     
+     i.setName(name);
+     i.setQuantity(quantity);
+     i.setStatus(status);
+     
+             
        String DBFILENAME = Paths.get("ARSDatabank.db4o").toAbsolutePath().toString();
        
         ObjectContainer db = Db4oEmbedded.openFile(Db4oEmbedded
  .newConfiguration(), DBFILENAME);
-        
-  
-        InventoryDirectory inventoryDirectory = new InventoryDirectory();
-        
-        
-        
-       Inventory inventory = inventoryDirectory.addInventory();
-       
-        
-        inventory.setName(name);
-         inventory.setQuantity(quantity);
-          inventory.setStatus(status);
           
-          db.store(inventory);
           db.store(inventoryDirectory);
+          
+
+         
+          
+ 
+      
+   
+
+  
+          db.close();
         
-        ObjectSet result = db.queryByExample(InventoryDirectory.class);
-        System.out.println(result);
-        
-        db.close();
-        
-        
+     
         
         txtName.setText("");
         txtQuantity.setText("");
@@ -141,6 +141,13 @@ public class CreateInventory extends javax.swing.JPanel {
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    
+   public static void listResult(ObjectSet result){
+
+       while(result.hasNext()) {
+       System.out.println(result.next());
+       }
+   }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

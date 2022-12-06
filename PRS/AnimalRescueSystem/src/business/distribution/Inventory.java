@@ -14,15 +14,6 @@ public class Inventory {
       public Integer quantity;
       public String status;
       
-      public Inventory(String name, int quantity, String status){
-        
-
-        this.name = name;
-        this.quantity = quantity;
-        this.status = status;
-
-    }
-
     public String getName() {
         return name;
     }
@@ -45,6 +36,11 @@ public class Inventory {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+    
+        @Override
+    public String toString(){
+        return name;
     }
 
 }
