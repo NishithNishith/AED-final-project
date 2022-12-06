@@ -4,6 +4,13 @@
  */
 package UI.Distribution;
 
+import business.distribution.DeliveryAssociate;
+import business.distribution.DeliveryAssociateDirectory;
+import business.distribution.Inventory;
+import com.db4o.Db4oEmbedded;
+import com.db4o.ObjectContainer;
+import java.nio.file.Paths;
+
 /**
  *
  * @author adity
@@ -27,13 +34,13 @@ public class CreateDeliveryAssociate extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtName = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        txtDeliverAssociateId = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
+        txtPhoneNumber = new javax.swing.JTextField();
+        txtWorkStatus = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
 
         jLabel1.setText("Name:");
@@ -64,10 +71,10 @@ public class CreateDeliveryAssociate extends javax.swing.JPanel {
                     .addComponent(jLabel1))
                 .addGap(61, 61, 61)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField1)
-                    .addComponent(jTextField2)
-                    .addComponent(jTextField3)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE))
+                    .addComponent(txtName)
+                    .addComponent(txtDeliverAssociateId)
+                    .addComponent(txtPhoneNumber)
+                    .addComponent(txtWorkStatus, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE))
                 .addContainerGap(132, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -80,19 +87,19 @@ public class CreateDeliveryAssociate extends javax.swing.JPanel {
                 .addGap(120, 120, 120)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(43, 43, 43)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtDeliverAssociateId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(45, 45, 45)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(46, 46, 46)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtWorkStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(60, 60, 60)
                 .addComponent(jButton1)
                 .addContainerGap(75, Short.MAX_VALUE))
@@ -101,6 +108,54 @@ public class CreateDeliveryAssociate extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        
+        String name = txtName.toString();
+        Integer deliveryAssociateId = Integer.valueOf(txtDeliverAssociateId.getText());
+        String phoneNumber = txtPhoneNumber.toString();
+        String workStatus = txtWorkStatus.toString();
+        
+        DeliveryAssociateDirectory deliveryAssociateDirectory = new DeliveryAssociateDirectory();
+        
+        
+        
+        DeliveryAssociate deliveryAssociate = deliveryAssociateDirectory.addDeliveryAssociate();
+        
+        deliveryAssociate.setNameOfDA(name);
+        deliveryAssociate.setDeliveryAssociateID(deliveryAssociateId);
+        deliveryAssociate.setPhoneNumber(phoneNumber);
+        deliveryAssociate.setWorkStatus(workStatus);
+        
+        
+        
+               String DBFILENAME = Paths.get("ARSDatabank.db4o").toAbsolutePath().toString();
+       
+        ObjectContainer db = Db4oEmbedded.openFile(Db4oEmbedded
+ .newConfiguration(), DBFILENAME);
+          
+          db.store(deliveryAssociateDirectory);
+          
+
+         
+          
+ 
+      
+   
+
+  
+          db.close();
+        
+     
+        
+        txtName.setText("");
+        txtDeliverAssociateId.setText("");
+        txtPhoneNumber.setText("");
+        txtWorkStatus.setText("");
+        
+        
+   
+        
+        
+                                     
     }//GEN-LAST:event_jButton1ActionPerformed
 
 
@@ -110,9 +165,9 @@ public class CreateDeliveryAssociate extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField txtDeliverAssociateId;
+    private javax.swing.JTextField txtName;
+    private javax.swing.JTextField txtPhoneNumber;
+    private javax.swing.JTextField txtWorkStatus;
     // End of variables declaration//GEN-END:variables
 }
