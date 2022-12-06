@@ -21,8 +21,10 @@ public class ViewInventory extends javax.swing.JPanel {
     /**
      * Creates new form ViewInventory
      */
-    public ViewInventory() {
+    InventoryDirectory inventoryDirectory;
+    public ViewInventory(InventoryDirectory inventoryDirectory) {
         initComponents();
+        this.inventoryDirectory = inventoryDirectory;
         populateTable();
     }
 
@@ -147,30 +149,27 @@ public class ViewInventory extends javax.swing.JPanel {
                String DBFILENAME = Paths.get("ARSDatabank.db4o").toAbsolutePath().toString();
        
         ObjectContainer db = Db4oEmbedded.openFile(Db4oEmbedded
- .newConfiguration(), DBFILENAME);
-        
-        ObjectSet result = db.query(InventoryDirectory.class);
+     .newConfiguration(), DBFILENAME);
         
 
+        
+        ObjectSet result = db.queryByExample(InventoryDirectory.class);
+        
+                InventoryDirectory id;
+               
+        id = (InventoryDirectory) result;         
+        for(Inventory i : id.getInventory()) {
+            
+            Object[] row = new Object[3];
+            row[0] = i;
+//          row[1] = e.getPatientName();
+            row[1] = i.getQuantity();
+            row[2] = i.getStatus();
+            
+            model.addRow(row);           
+        }
 
-//        
-//        for(Inventory i : result) {
-//            
-//            Object[] row = new Object[8];
-//            row[0] = p;
-////          row[1] = e.getPatientName();
-//            row[1] = p.getAge();
-//            row[2] = p.getUserName();
-//            row[3] = p.getPassword();
-//            row[4] = p.currentPlaceOfStay.getHouseName();
-//            row[5] = p.currentPlaceOfStay.getStreetAddress();
-//            row[6] = p.currentPlaceOfStay.getCommunityName();
-//            row[7] = p.currentPlaceOfStay.getCities();
-//            
-//            model.addRow(row);
-//            
-//            
-//        }
+      db.close();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
