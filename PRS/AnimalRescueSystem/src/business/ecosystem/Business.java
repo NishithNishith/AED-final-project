@@ -41,7 +41,16 @@ public class Business {
     CaseFileDirectory caseFileDirectory;
     FundRequestDirectory fundRequestDirectory;
     ShelterManagerDirectory ShelterManagerDirectory;
-    ShelterStaffDirectory ShelterStaffDirectory;
+    ShelterStaffDirectory shelterStaffDirectory;
+    
+    public Business (){
+        personDirectory = new PersonDirectory();
+        doctorDirectory = new DoctorDirectory();
+        hospitalManagerDirectory = new HospitalManagerDirectory();
+        shelterStaffDirectory = new ShelterStaffDirectory();
+        
+    }
+    
 
     public FundDonationDirectory getFundDonationDirectory() {
         return fundDonationDirectory;
@@ -92,11 +101,11 @@ public class Business {
     }
 
     public ShelterStaffDirectory getShelterStaffDirectory() {
-        return ShelterStaffDirectory;
+        return shelterStaffDirectory;
     }
 
     public void setShelterStaffDirectory(ShelterStaffDirectory ShelterStaffDirectory) {
-        this.ShelterStaffDirectory = ShelterStaffDirectory;
+        this.shelterStaffDirectory = ShelterStaffDirectory;
     }
     
     
