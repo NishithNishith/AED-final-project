@@ -96,7 +96,7 @@ public class MainJFrame extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(226, 226, 226)
+                .addGap(256, 256, 256)
                 .addComponent(txtShelterAdmin)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtShelterAdmin1)
@@ -104,7 +104,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addComponent(txtShelterAdmin2)
                 .addGap(18, 18, 18)
                 .addComponent(jButton1)
-                .addContainerGap(125, Short.MAX_VALUE))
+                .addContainerGap(95, Short.MAX_VALUE))
         );
 
         splitpane.setLeftComponent(jPanel1);
