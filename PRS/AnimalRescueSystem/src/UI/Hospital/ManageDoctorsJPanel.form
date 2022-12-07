@@ -431,16 +431,16 @@
                                   </Group>
                                   <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="txtDocID8" min="-2" pref="225" max="-2" attributes="0"/>
-                                      <Component id="txtDocID9" min="-2" pref="225" max="-2" attributes="0"/>
-                                      <Component id="txtDocID10" min="-2" pref="225" max="-2" attributes="0"/>
-                                      <Component id="txtDocID11" min="-2" pref="225" max="-2" attributes="0"/>
-                                      <Component id="txtAge1" min="-2" max="-2" attributes="0"/>
-                                      <Component id="drpGender1" min="-2" max="-2" attributes="0"/>
-                                      <Component id="txtDocID12" min="-2" pref="225" max="-2" attributes="0"/>
-                                      <Component id="txtDocID13" min="-2" pref="225" max="-2" attributes="0"/>
-                                      <Component id="txtDocID14" min="-2" pref="225" max="-2" attributes="0"/>
-                                      <Component id="txtDocID15" min="-2" pref="225" max="-2" attributes="0"/>
+                                      <Component id="txtFirstname" min="-2" pref="225" max="-2" attributes="0"/>
+                                      <Component id="txtLastname" min="-2" pref="225" max="-2" attributes="0"/>
+                                      <Component id="txtUserName" min="-2" pref="225" max="-2" attributes="0"/>
+                                      <Component id="txtPassword1" min="-2" pref="225" max="-2" attributes="0"/>
+                                      <Component id="txtSpecilization1" min="-2" pref="225" max="-2" attributes="0"/>
+                                      <Component id="txtYearsofexp1" min="-2" pref="225" max="-2" attributes="0"/>
+                                      <Component id="txtPhno1" min="-2" pref="225" max="-2" attributes="0"/>
+                                      <Component id="txtEmail1" min="-2" pref="225" max="-2" attributes="0"/>
+                                      <Component id="txtAge2" max="32767" attributes="0"/>
+                                      <Component id="txtGender1" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
@@ -479,9 +479,15 @@
                                           <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
                                           <Component id="name11" min="-2" pref="23" max="-2" attributes="0"/>
                                           <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
-                                          <Component id="name12" min="-2" pref="23" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="3" attributes="0">
+                                              <Component id="name12" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
+                                              <Component id="txtAge2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          </Group>
                                           <EmptySpace min="21" pref="21" max="-2" attributes="0"/>
-                                          <Component id="name13" min="-2" pref="23" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="3" attributes="0">
+                                              <Component id="name13" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
+                                              <Component id="txtGender1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          </Group>
                                           <EmptySpace min="13" pref="13" max="-2" attributes="0"/>
                                           <Component id="name14" min="-2" pref="23" max="-2" attributes="0"/>
                                           <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
@@ -492,25 +498,21 @@
                                           <Component id="name17" min="-2" pref="23" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
-                                          <Component id="txtDocID8" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtFirstname" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
-                                          <Component id="txtDocID9" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtLastname" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
-                                          <Component id="txtDocID10" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtUserName" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
-                                          <Component id="txtDocID11" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
-                                          <Component id="txtAge1" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
-                                          <Component id="drpGender1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtPassword1" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="100" max="-2" attributes="0"/>
+                                          <Component id="txtSpecilization1" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
-                                          <Component id="txtDocID12" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
-                                          <Component id="txtDocID13" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtYearsofexp1" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
-                                          <Component id="txtDocID14" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtPhno1" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
-                                          <Component id="txtDocID15" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtEmail1" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
@@ -539,10 +541,10 @@
                       <Color blue="4e" green="4d" red="1" type="rgb"/>
                     </Property>
                     <Property name="horizontalAlignment" type="int" value="2"/>
-                    <Property name="text" type="java.lang.String" value="Doctor ID:"/>
+                    <Property name="text" type="java.lang.String" value="First Name:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="txtDocID8">
+                <Component class="javax.swing.JTextField" name="txtFirstname">
                 </Component>
                 <Component class="javax.swing.JLabel" name="name9">
                   <Properties>
@@ -553,12 +555,12 @@
                       <Color blue="4e" green="4d" red="1" type="rgb"/>
                     </Property>
                     <Property name="horizontalAlignment" type="int" value="2"/>
-                    <Property name="text" type="java.lang.String" value="Name:"/>
+                    <Property name="text" type="java.lang.String" value="Last Name:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="txtDocID9">
+                <Component class="javax.swing.JTextField" name="txtLastname">
                 </Component>
-                <Component class="javax.swing.JTextField" name="txtDocID10">
+                <Component class="javax.swing.JTextField" name="txtUserName">
                 </Component>
                 <Component class="javax.swing.JLabel" name="name10">
                   <Properties>
@@ -656,48 +658,15 @@
                     <Property name="text" type="java.lang.String" value="Email:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="txtDocID11">
+                <Component class="javax.swing.JTextField" name="txtPassword1">
                 </Component>
-                <Component class="javax.swing.JSpinner" name="txtAge1">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Times New Roman" size="16" style="0"/>
-                    </Property>
-                    <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
-                      <SpinnerModel initial="18" maximum="60" minimum="18" numberType="java.lang.Integer" stepSize="1" type="number"/>
-                    </Property>
-                  </Properties>
+                <Component class="javax.swing.JTextField" name="txtSpecilization1">
                 </Component>
-                <Component class="javax.swing.JComboBox" name="drpGender1">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Times New Roman" size="16" style="0"/>
-                    </Property>
-                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="4e" green="4d" red="1" type="rgb"/>
-                    </Property>
-                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="3">
-                        <StringItem index="0" value="Male"/>
-                        <StringItem index="1" value="Female"/>
-                        <StringItem index="2" value="Others"/>
-                      </StringArray>
-                    </Property>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="drpGender1ActionPerformed"/>
-                  </Events>
-                  <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-                  </AuxValues>
+                <Component class="javax.swing.JTextField" name="txtYearsofexp1">
                 </Component>
-                <Component class="javax.swing.JTextField" name="txtDocID12">
+                <Component class="javax.swing.JTextField" name="txtPhno1">
                 </Component>
-                <Component class="javax.swing.JTextField" name="txtDocID13">
-                </Component>
-                <Component class="javax.swing.JTextField" name="txtDocID14">
-                </Component>
-                <Component class="javax.swing.JTextField" name="txtDocID15">
+                <Component class="javax.swing.JTextField" name="txtEmail1">
                 </Component>
                 <Component class="javax.swing.JButton" name="jButton2">
                   <Properties>
@@ -712,6 +681,9 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Update"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
+                  </Events>
                 </Component>
                 <Container class="javax.swing.JScrollPane" name="jScrollPane1">
                   <AuxValues>
@@ -730,10 +702,10 @@
                         </Property>
                         <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                           <Table columnCount="4" rowCount="4">
-                            <Column editable="true" title="Doctor ID" type="java.lang.Object"/>
                             <Column editable="true" title="Name" type="java.lang.Object"/>
                             <Column editable="true" title="Specializaition" type="java.lang.Object"/>
                             <Column editable="true" title="Years of Experience" type="java.lang.Object"/>
+                            <Column editable="true" title="Phone No" type="java.lang.Object"/>
                           </Table>
                         </Property>
                         <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -780,6 +752,9 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="View"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnViewActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="btnDelete">
                   <Properties>
@@ -794,6 +769,13 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Delete"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDeleteActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtAge2">
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtGender1">
                 </Component>
               </SubComponents>
             </Container>
