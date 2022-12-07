@@ -36,5 +36,13 @@ public class UserAccountDirectory {
         userAccountList.remove(userAccount);
     }
     
+    public UserAccount userCheck(String email, String password){
+        for (UserAccount user : userAccountList)
+            if (user.getEmail().equals(email) && user.getPassword().equals(password)){
+                return user;
+            }
+        return null;
+    }
+    
     
 }

@@ -26,10 +26,12 @@ public class RegisterJPanel extends javax.swing.JPanel {
     Validations validations;
     ReporterDirectory reporterDirectory;
     UserAccountDirectory userAccountDirectory;
+    javax.swing.JSplitPane splitpane;
     
-    public RegisterJPanel() {
+    public RegisterJPanel(javax.swing.JSplitPane splitpane) {
         initComponents();
         validations = new Validations();
+        this.splitpane = splitpane;
     }
 
     /**
@@ -123,7 +125,7 @@ public class RegisterJPanel extends javax.swing.JPanel {
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGap(79, 79, 79)
                         .addComponent(jLabel1)))
-                .addContainerGap())
+                .addContainerGap(155, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -206,17 +208,14 @@ public class RegisterJPanel extends javax.swing.JPanel {
                 
                 JOptionPane.showMessageDialog(this, "User registered");
             }
-            
-            
-            
-            
-            
-            
-            
+             
             
         }
         catch(Exception e){
             System.out.println("Register Error, enter valid values "+e);
+            JOptionPane.showMessageDialog(this, "Registration Error, try again");
+            return;
+            
         }
         
         

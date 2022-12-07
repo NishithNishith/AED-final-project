@@ -4,6 +4,15 @@
  */
 package UI.Main;
 
+import UI.shelter.ManageStaffWorkarea;
+import UI.shelter.StaffWorkarea;
+import business.ecosystem.UserAccount;
+import business.ecosystem.UserAccountDirectory;
+import business.population.Reporter;
+import business.validations.Validations;
+import java.util.UUID;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author nishi
@@ -13,8 +22,14 @@ public class LoginJPanel extends javax.swing.JPanel {
     /**
      * Creates new form LoginJPanel
      */
-    public LoginJPanel() {
+    
+    javax.swing.JSplitPane splitpane;
+    Validations validations;
+    UserAccountDirectory userAccountDirectory;
+    
+    public LoginJPanel(javax.swing.JSplitPane splitpane) {
         initComponents();
+        this.splitpane = splitpane;
     }
 
     /**
@@ -27,29 +42,139 @@ public class LoginJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        txtEmail = new javax.swing.JTextField();
+        txtPassword = new javax.swing.JPasswordField();
+        jButton1 = new javax.swing.JButton();
 
         jLabel1.setText("Login");
+
+        jLabel2.setText("Email");
+
+        jLabel3.setText("Password");
+
+        jButton1.setText("Login");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(178, 178, 178)
-                .addComponent(jLabel1)
-                .addContainerGap(193, Short.MAX_VALUE))
+                .addGap(97, 97, 97)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton1)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel2))
+                        .addGap(30, 30, 30)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1)
+                            .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(158, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(55, 55, 55)
                 .addComponent(jLabel1)
-                .addContainerGap(229, Short.MAX_VALUE))
+                .addGap(53, 53, 53)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(32, 32, 32)
+                .addComponent(jButton1)
+                .addContainerGap(59, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        
+        try{
+            
+            String email = txtEmail.getText();
+            String password = txtPassword.getText();
+            
+            if(!validations.lengthCheck(email) ||!validations.lengthCheck(password))
+            {
+                JOptionPane.showMessageDialog(this, "Invalid Credentials");
+                return;
+            }
+            UserAccount userAccount = null;
+            
+//            UserAccount userAccount = system.getUserAccountDirectory().authenticateUser(userName, password);
+      
+            if(userAccount == null){
+                System.out.println("User not found");
+                JOptionPane.showMessageDialog(this, "Invalid Credentials");
+                return;
+                
+            } 
+            else 
+            {
+                String role = userAccount.getRole();
+                
+                if(role.equals("Doctor")){
+                    
+                }
+                else if(role.equals("ShelterStaff")){
+                    StaffWorkarea panel = new StaffWorkarea(splitpane);
+                    splitpane.setRightComponent(panel);
+                }
+                else if(role.equals("Accountant")){
+                    
+                }
+                else if(role.equals("Reporter")){
+                    
+                }
+                else if(role.equals("ShelterManager")){
+                    ManageStaffWorkarea panel = new ManageStaffWorkarea(splitpane);
+                    splitpane.setRightComponent(panel);
+                }
+                else if(role.equals("ShelterAdmin")){
+                    
+                }
+                else if(role.equals("HospitalAdmin")){
+                    
+                }
+                else if(role.equals("DistributionAdmin")){
+                    
+                }
+                
+                
+            }
+
+            
+        }
+        catch(Exception e){
+            System.out.println("Login Error, try again "+e);
+            JOptionPane.showMessageDialog(this, "Login Error, try again");
+            return;
+        }
+           
+        
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JTextField txtEmail;
+    private javax.swing.JPasswordField txtPassword;
     // End of variables declaration//GEN-END:variables
 }
