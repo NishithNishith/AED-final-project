@@ -16,6 +16,25 @@ public class Doctor extends Person {
     int yearsOfExperience;
     int phoneNumber;
     float salary;
+    String userName;
+    String Specilization;
+
+    public String getSpecilization() {
+        return Specilization;
+    }
+
+    public void setSpecilization(String Specilization) {
+        this.Specilization = Specilization;
+    }
+    
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+    
 
     public String getDoctorId() {
         return doctorId;

@@ -15,9 +15,10 @@ public class HospitalAdminJPanel extends javax.swing.JPanel {
     /**
      * Creates new form HospitalAdminJPanel
      */
+    javax.swing.JSplitPane splitpane;
     public HospitalAdminJPanel() {
         initComponents();
-        
+        this.splitpane = splitpane;
     }
 
     /**
@@ -74,11 +75,11 @@ public class HospitalAdminJPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1300, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 860, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -87,7 +88,9 @@ public class HospitalAdminJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_btnManageEncounterActionPerformed
 
     private void btnManageDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageDocActionPerformed
-       // TODO add your handling code here:
+        ManageDoctorsJPanel panel = new ManageDoctorsJPanel(splitpane);
+        splitpane.setRightComponent(panel);
+        // TODO add your handling code here:
     }//GEN-LAST:event_btnManageDocActionPerformed
 
 

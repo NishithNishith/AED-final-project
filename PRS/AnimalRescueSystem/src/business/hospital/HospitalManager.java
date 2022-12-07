@@ -4,17 +4,28 @@
  */
 package business.hospital;
 
+import business.population.Person;
+
 /**
  *
  * @author sinchanakumar
  */
-public class HospitalManager {
+public class HospitalManager extends Person{
     
     String hospitalManagerId;
     int yearsOfExperience;
     int phoneNumber;
     float salary;
+    String userName;
 
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+   
     public String getHospitalManagerId() {
         return hospitalManagerId;
     }

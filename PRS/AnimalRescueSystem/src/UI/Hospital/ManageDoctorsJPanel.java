@@ -26,8 +26,10 @@ public class ManageDoctorsJPanel extends javax.swing.JPanel {
     /**
      * Creates new form ManageDoctorsJPanel
      */
-    public ManageDoctorsJPanel() {
+    javax.swing.JSplitPane splitpane;
+    public ManageDoctorsJPanel(javax.swing.JSplitPane splitpane) {
         initComponents();
+        this.splitpane = splitpane;
         validations = new Validations();
         //this.doctorDirectory=null;
     }
@@ -662,12 +664,12 @@ public class ManageDoctorsJPanel extends javax.swing.JPanel {
                     || !validations.lengthCheck(specilization) || !validations.lengthCheck(email) 
                     || !validations.lengthCheck(password))
             {
-                JOptionPane.showMessageDialog(this, "Enter valid details for doctors");
+                JOptionPane.showMessageDialog(this, "Enter valid details for Doctors");
                 return;
             }
             
             if(!validations.numberCheck(age) || !validations.numberCheck(exp) ){
-                JOptionPane.showMessageDialog(this, "Enter valid details for Staff");
+                JOptionPane.showMessageDialog(this, "Enter valid details for Doctors");
                 return;
             }
             
