@@ -224,8 +224,8 @@ public class ManageAccountantWorkarea extends javax.swing.JPanel {
 
     private void txtViewStaffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtViewStaffActionPerformed
         // TODO add your handling code here:
-        ViewStaffJPanel panel = new ViewStaffJPanel();
-        splitpane.setRightComponent(panel);
+//        ViewStaffJPanel panel = new ViewStaffJPanel();
+//        splitpane.setRightComponent(panel);
 
     }//GEN-LAST:event_txtViewStaffActionPerformed
 

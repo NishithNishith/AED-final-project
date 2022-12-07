@@ -92,14 +92,12 @@ public class AccountingWorkarea extends javax.swing.JPanel {
 
     private void txtDonationsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDonationsActionPerformed
         // TODO add your handling code here:
-        ManageDonationsWorkarea panel = new ManageDonationsWorkarea(splitpane);
-        splitpane.setRightComponent(panel);
+        
     }//GEN-LAST:event_txtDonationsActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        ManageStaffWorkarea panel = new ManageStaffWorkarea(splitpane);
-        splitpane.setRightComponent(panel);
+        
     }//GEN-LAST:event_jButton3ActionPerformed
 
 

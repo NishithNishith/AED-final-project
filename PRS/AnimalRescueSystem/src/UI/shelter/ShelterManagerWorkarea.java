@@ -4,6 +4,8 @@
  */
 package UI.shelter;
 
+import business.ecosystem.Business;
+
 /**
  *
  * @author nishi
@@ -15,9 +17,11 @@ public class ShelterManagerWorkarea extends javax.swing.JPanel {
      */
     
     javax.swing.JSplitPane splitpane;
-    public ShelterManagerWorkarea(javax.swing.JSplitPane splitpane) {
+    Business system;
+    public ShelterManagerWorkarea(javax.swing.JSplitPane splitpane, Business system) {
         initComponents();
         this.splitpane = splitpane;
+        this.system = system;
     }
 
     /**
@@ -118,7 +122,7 @@ public class ShelterManagerWorkarea extends javax.swing.JPanel {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        ManageStaffWorkarea panel = new ManageStaffWorkarea(splitpane);
+        ManageStaffWorkarea panel = new ManageStaffWorkarea(splitpane, system);
         splitpane.setRightComponent(panel);
     }//GEN-LAST:event_jButton3ActionPerformed
 

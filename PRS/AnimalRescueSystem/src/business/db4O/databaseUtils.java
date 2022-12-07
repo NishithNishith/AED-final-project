@@ -17,14 +17,14 @@ import com.db4o.config.EmbeddedConfiguration;
 import com.db4o.ta.TransparentPersistenceSupport;
 import java.nio.file.Paths;
 
-public class databaseUtils {
+public class DatabaseUtils {
     
     private static final String FILENAME = Paths.get("Databank.db4o").toAbsolutePath().toString();// path to the data store
-    private static databaseUtils dB4OUtil;
+    private static DatabaseUtils dB4OUtil;
     
-     public synchronized static databaseUtils getInstance() {
+     public synchronized static DatabaseUtils getInstance() {
         if (dB4OUtil == null) {
-            dB4OUtil = new databaseUtils();
+            dB4OUtil = new DatabaseUtils();
         }
         return dB4OUtil;
     }

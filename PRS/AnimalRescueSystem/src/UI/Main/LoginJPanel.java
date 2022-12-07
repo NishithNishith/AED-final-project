@@ -6,12 +6,16 @@ package UI.Main;
 
 import UI.shelter.ManageStaffWorkarea;
 import UI.shelter.StaffWorkarea;
+import business.db4O.DatabaseUtils;
+import business.ecosystem.Business;
+import business.ecosystem.ConfigSystem;
 import business.ecosystem.UserAccount;
 import business.ecosystem.UserAccountDirectory;
 import business.population.Reporter;
 import business.validations.Validations;
 import java.util.UUID;
 import javax.swing.JOptionPane;
+
 
 /**
  *
@@ -26,10 +30,19 @@ public class LoginJPanel extends javax.swing.JPanel {
     javax.swing.JSplitPane splitpane;
     Validations validations;
     UserAccountDirectory userAccountDirectory;
+    Business system;
+    DatabaseUtils dB4OUtil;
+    ConfigSystem config;
     
     public LoginJPanel(javax.swing.JSplitPane splitpane) {
         initComponents();
         this.splitpane = splitpane;
+//        this.system = dB4OUtil.retrieveSystem();
+//        UserAccount user = this.system.getUserAccountDirectory().addNewUserAccount();
+//        user.setEmail("email");
+//        user.setPassword("pass");
+//        
+        this.system = new Business();
     }
 
     /**
@@ -47,6 +60,7 @@ public class LoginJPanel extends javax.swing.JPanel {
         txtEmail = new javax.swing.JTextField();
         txtPassword = new javax.swing.JPasswordField();
         jButton1 = new javax.swing.JButton();
+        txtShelterAdmin2 = new javax.swing.JButton();
 
         jLabel1.setText("Login");
 
@@ -61,29 +75,43 @@ public class LoginJPanel extends javax.swing.JPanel {
             }
         });
 
+        txtShelterAdmin2.setText("Shelter Manager");
+        txtShelterAdmin2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtShelterAdmin2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(97, 97, 97)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(97, 97, 97)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel2))
-                        .addGap(30, 30, 30)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1)
-                            .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jButton1)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel2))
+                                .addGap(30, 30, 30)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel1)
+                                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(txtShelterAdmin2)))
                 .addContainerGap(158, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(55, 55, 55)
+                .addGap(26, 26, 26)
+                .addComponent(txtShelterAdmin2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1)
                 .addGap(53, 53, 53)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -140,7 +168,7 @@ public class LoginJPanel extends javax.swing.JPanel {
                     
                 }
                 else if(role.equals("ShelterManager")){
-                    ManageStaffWorkarea panel = new ManageStaffWorkarea(splitpane);
+                    ManageStaffWorkarea panel = new ManageStaffWorkarea(splitpane, system);
                     splitpane.setRightComponent(panel);
                 }
                 else if(role.equals("ShelterAdmin")){
@@ -168,6 +196,12 @@ public class LoginJPanel extends javax.swing.JPanel {
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void txtShelterAdmin2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtShelterAdmin2ActionPerformed
+        // TODO add your handling code here:
+        ManageStaffWorkarea panel = new ManageStaffWorkarea(splitpane, system);
+        splitpane.setRightComponent(panel);
+    }//GEN-LAST:event_txtShelterAdmin2ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
@@ -176,5 +210,6 @@ public class LoginJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JPasswordField txtPassword;
+    private javax.swing.JButton txtShelterAdmin2;
     // End of variables declaration//GEN-END:variables
 }
