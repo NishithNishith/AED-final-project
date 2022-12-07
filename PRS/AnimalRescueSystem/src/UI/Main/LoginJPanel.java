@@ -143,9 +143,9 @@ public class LoginJPanel extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(this, "Invalid Credentials");
                 return;
             }
-            UserAccount userAccount = null;
+
             
-//            UserAccount userAccount = system.getUserAccountDirectory().authenticateUser(userName, password);
+          UserAccount userAccount = system.getUserAccountDirectory().userCheck(email, password);
       
             if(userAccount == null){
                 System.out.println("User not found");

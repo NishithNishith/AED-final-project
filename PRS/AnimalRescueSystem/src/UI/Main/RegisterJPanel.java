@@ -4,6 +4,8 @@
  */
 package UI.Main;
 
+import business.db4O.DatabaseUtils;
+import business.ecosystem.Business;
 import business.ecosystem.UserAccount;
 import business.ecosystem.UserAccountDirectory;
 import business.population.ReportDirectory;
@@ -25,13 +27,17 @@ public class RegisterJPanel extends javax.swing.JPanel {
     
     Validations validations;
     ReporterDirectory reporterDirectory;
-    UserAccountDirectory userAccountDirectory;
+//    UserAccountDirectory userAccountDirectory;
     javax.swing.JSplitPane splitpane;
+    
+    Business system;
+    DatabaseUtils dB4OUtil = DatabaseUtils.getInstance();
     
     public RegisterJPanel(javax.swing.JSplitPane splitpane) {
         initComponents();
         validations = new Validations();
         this.splitpane = splitpane;
+        this.system = dB4OUtil.retrieveSystem();
     }
 
     /**
@@ -108,24 +114,26 @@ public class RegisterJPanel extends javax.swing.JPanel {
                             .addComponent(jLabel8))
                         .addGap(26, 26, 26)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(txtFirstname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtLastname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtGender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtPhno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(txtFirstname)
+                                    .addComponent(txtLastname)
+                                    .addComponent(txtAge)
+                                    .addComponent(txtGender)
+                                    .addComponent(txtPhno))
+                                .addGap(6, 6, 6))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(6, 6, 6)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addComponent(txtPassword)
+                                    .addComponent(txtEmail)))))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGap(60, 60, 60)
                         .addComponent(btnRegister))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGap(79, 79, 79)
                         .addComponent(jLabel1)))
-                .addContainerGap(155, Short.MAX_VALUE))
+                .addGap(155, 155, 155))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -180,11 +188,35 @@ public class RegisterJPanel extends javax.swing.JPanel {
             
             //Validations
             
+            if(!validations.lengthCheck(firstname) ||!validations.lengthCheck(lastname) ||
+                    !validations.lengthCheck(age) ||!validations.lengthCheck(gender)
+                     || !validations.lengthCheck(phonenumber) || !validations.lengthCheck(email) 
+                    || !validations.lengthCheck(password))
+            {
+                JOptionPane.showMessageDialog(this, "Enter valid details ");
+                return;
+            }
             
-            //Unique check
-            if(false){
+            if(!validations.numberCheck(age) ){
+                JOptionPane.showMessageDialog(this, "Enter valid details for age");
+                return;
+            }
+            
+            
+            
+             //Unique check
+            int uniqueFlag = 0;
+            UserAccount ua = system.getUserAccountDirectory().userCheck(email, password);
+            if(ua != null){
+                uniqueFlag = 1;
+            }
+            
+            
+           
+            if(uniqueFlag == 1){
                 System.out.println("User Account is present");
                 JOptionPane.showMessageDialog(this, "Email already present");
+                return;
 
             }
             else{
@@ -192,13 +224,13 @@ public class RegisterJPanel extends javax.swing.JPanel {
                 
                 String uniqueField = UUID.randomUUID().toString();
                 
-                UserAccount userAccount = userAccountDirectory.addNewUserAccount();
+                UserAccount userAccount = system.getUserAccountDirectory().addNewUserAccount();
                 userAccount.setEmail(email);
                 userAccount.setPassword(password);
                 userAccount.setRole("Reporter");
                 userAccount.setUserAccountId(uniqueField);
                 
-                Reporter reporter = reporterDirectory.addNewReporter();
+                Reporter reporter = system.getReporterDirectory().addNewReporter();
                 reporter.setReporterId(uniqueField);
                 reporter.setFirstName(firstname);
                 reporter.setLastName(lastname);
@@ -207,6 +239,7 @@ public class RegisterJPanel extends javax.swing.JPanel {
                 reporter.setPhoneNumber(phonenumber);
                 
                 JOptionPane.showMessageDialog(this, "User registered");
+                dB4OUtil.storeSystem(system);
             }
              
             

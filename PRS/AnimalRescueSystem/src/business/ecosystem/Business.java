@@ -4,6 +4,7 @@
  */
 package business.ecosystem;
 
+import business.Government.GovernmentManager;
 import business.hospital.DoctorDirectory;
 import business.hospital.EncounterHistory;
 import business.hospital.HospitalManagerDirectory;
@@ -42,13 +43,36 @@ public class Business {
     FundRequestDirectory fundRequestDirectory;
     ShelterManagerDirectory ShelterManagerDirectory;
     ShelterStaffDirectory shelterStaffDirectory;
+    GovernmentManager governmentManager;
     
     public Business (){
         personDirectory = new PersonDirectory();
         doctorDirectory = new DoctorDirectory();
         hospitalManagerDirectory = new HospitalManagerDirectory();
+        encounterHistory = new EncounterHistory();
+        userAccountDirectory = new UserAccountDirectory();
+        reportDirectory = new ReportDirectory();
+        inventoryDirectory =new InventoryDirectory();
+        deliveryAssociateDirectory = new DeliveryAssociateDirectory();
+        fundDonationDirectory = new FundDonationDirectory();
+        reporterDirectory = new ReporterDirectory();
+        accountantDirectory = new AccountantDirectory();
+        caseFileDirectory= new CaseFileDirectory();
+        fundRequestDirectory = new FundRequestDirectory();
+        ShelterManagerDirectory = new ShelterManagerDirectory();
+                
         shelterStaffDirectory = new ShelterStaffDirectory();
+        governmentManager = new GovernmentManager();
         
+        
+    }
+
+    public GovernmentManager getGovernmentManager() {
+        return governmentManager;
+    }
+
+    public void setGovernmentManager(GovernmentManager governmentManager) {
+        this.governmentManager = governmentManager;
     }
     
 
