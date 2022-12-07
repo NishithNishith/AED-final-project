@@ -31,18 +31,21 @@ public class LoginJPanel extends javax.swing.JPanel {
     Validations validations;
     UserAccountDirectory userAccountDirectory;
     Business system;
-    DatabaseUtils dB4OUtil;
+    DatabaseUtils dB4OUtil = DatabaseUtils.getInstance();
     ConfigSystem config;
     
     public LoginJPanel(javax.swing.JSplitPane splitpane) {
         initComponents();
         this.splitpane = splitpane;
-//        this.system = dB4OUtil.retrieveSystem();
+//        this.dB4OUtil
+        this.system = dB4OUtil.retrieveSystem();
 //        UserAccount user = this.system.getUserAccountDirectory().addNewUserAccount();
 //        user.setEmail("email");
 //        user.setPassword("pass");
 //        
-        this.system = new Business();
+//        this.system = new Business();
+        
+        
     }
 
     /**
