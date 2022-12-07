@@ -8,6 +8,7 @@ import UI.Population.ReportJPanel;
 import UI.shelter.ManageStaffWorkarea;
 import UI.shelter.ShelterAdmin;
 import UI.shelter.StaffWorkarea;
+import business.db4O.DatabaseUtils;
 import business.ecosystem.Business;
 
 /**
@@ -19,9 +20,13 @@ public class MainJFrame extends javax.swing.JFrame {
     /**
      * Creates new form MainJFrame
      */
-    Business business;
+    
+    DatabaseUtils dB4OUtil;
+    Business system;
     public MainJFrame() {
         initComponents();
+        
+//        this.system = dB4OUtil.retrieveSystem();
         
     }
 
@@ -173,13 +178,13 @@ public class MainJFrame extends javax.swing.JFrame {
     private void txtShelterAdmin1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtShelterAdmin1ActionPerformed
         // TODO add your handling code here:
         
-        ReportJPanel reportPanel = new ReportJPanel(splitpane);
-        splitpane.setRightComponent(reportPanel);
+//        ReportJPanel reportPanel = new ReportJPanel(splitpane);
+//        splitpane.setRightComponent(reportPanel);
     }//GEN-LAST:event_txtShelterAdmin1ActionPerformed
 
     private void txtShelterAdmin2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtShelterAdmin2ActionPerformed
         // TODO add your handling code here:
-        ManageStaffWorkarea panel = new ManageStaffWorkarea(splitpane);
+        ManageStaffWorkarea panel = new ManageStaffWorkarea(splitpane, system);
         splitpane.setRightComponent(panel);
     }//GEN-LAST:event_txtShelterAdmin2ActionPerformed
 

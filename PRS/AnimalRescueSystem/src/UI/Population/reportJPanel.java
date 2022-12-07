@@ -228,8 +228,8 @@ public class ReportJPanel extends javax.swing.JPanel {
 
     private void txtDonateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDonateActionPerformed
         // TODO add your handling code here:
-        DonateFundsJPanel panel = new DonateFundsJPanel();
-        splitpane.setRightComponent(panel);
+//        DonateFundsJPanel panel = new DonateFundsJPanel();
+//        splitpane.setRightComponent(panel);
 
     }//GEN-LAST:event_txtDonateActionPerformed
 
