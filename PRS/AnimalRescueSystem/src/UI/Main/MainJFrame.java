@@ -8,6 +8,7 @@ import UI.Population.ReportJPanel;
 import UI.shelter.ManageStaffWorkarea;
 import UI.shelter.ShelterAdmin;
 import UI.shelter.StaffWorkarea;
+import business.ecosystem.Business;
 
 /**
  *
@@ -18,8 +19,10 @@ public class MainJFrame extends javax.swing.JFrame {
     /**
      * Creates new form MainJFrame
      */
+    Business business;
     public MainJFrame() {
         initComponents();
+        
     }
 
     /**

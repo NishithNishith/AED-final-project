@@ -9,8 +9,15 @@ import business.hospital.EncounterHistory;
 import business.hospital.HospitalManagerDirectory;
 import business.distribution.InventoryDirectory;
 import business.distribution.DeliveryAssociateDirectory;
+import business.population.FundDonationDirectory;
 import business.population.PersonDirectory;
 import business.population.ReportDirectory;
+import business.population.ReporterDirectory;
+import business.shelter.AccountantDirectory;
+import business.shelter.CaseFileDirectory;
+import business.shelter.FundRequestDirectory;
+import business.shelter.ShelterManagerDirectory;
+import business.shelter.ShelterStaffDirectory;
 
 
 /**
@@ -19,7 +26,7 @@ import business.population.ReportDirectory;
  */
 public class Business {
     
-    Business business;
+    static Business business;
     PersonDirectory personDirectory;
     DoctorDirectory doctorDirectory;
     HospitalManagerDirectory hospitalManagerDirectory;
@@ -28,6 +35,72 @@ public class Business {
     ReportDirectory reportDirectory;
     InventoryDirectory inventoryDirectory;
     DeliveryAssociateDirectory deliveryAssociateDirectory;
+    FundDonationDirectory fundDonationDirectory; 
+    ReporterDirectory reporterDirectory;
+    AccountantDirectory accountantDirectory;
+    CaseFileDirectory caseFileDirectory;
+    FundRequestDirectory fundRequestDirectory;
+    ShelterManagerDirectory ShelterManagerDirectory;
+    ShelterStaffDirectory ShelterStaffDirectory;
+
+    public FundDonationDirectory getFundDonationDirectory() {
+        return fundDonationDirectory;
+    }
+
+    public void setFundDonationDirectory(FundDonationDirectory fundDonationDirectory) {
+        this.fundDonationDirectory = fundDonationDirectory;
+    }
+
+    public ReporterDirectory getReporterDirectory() {
+        return reporterDirectory;
+    }
+
+    public void setReporterDirectory(ReporterDirectory reporterDirectory) {
+        this.reporterDirectory = reporterDirectory;
+    }
+
+    public AccountantDirectory getAccountantDirectory() {
+        return accountantDirectory;
+    }
+
+    public void setAccountantDirectory(AccountantDirectory accountantDirectory) {
+        this.accountantDirectory = accountantDirectory;
+    }
+
+    public CaseFileDirectory getCaseFileDirectory() {
+        return caseFileDirectory;
+    }
+
+    public void setCaseFileDirectory(CaseFileDirectory caseFileDirectory) {
+        this.caseFileDirectory = caseFileDirectory;
+    }
+
+    public FundRequestDirectory getFundRequestDirectory() {
+        return fundRequestDirectory;
+    }
+
+    public void setFundRequestDirectory(FundRequestDirectory fundRequestDirectory) {
+        this.fundRequestDirectory = fundRequestDirectory;
+    }
+
+    public ShelterManagerDirectory getShelterManagerDirectory() {
+        return ShelterManagerDirectory;
+    }
+
+    public void setShelterManagerDirectory(ShelterManagerDirectory ShelterManagerDirectory) {
+        this.ShelterManagerDirectory = ShelterManagerDirectory;
+    }
+
+    public ShelterStaffDirectory getShelterStaffDirectory() {
+        return ShelterStaffDirectory;
+    }
+
+    public void setShelterStaffDirectory(ShelterStaffDirectory ShelterStaffDirectory) {
+        this.ShelterStaffDirectory = ShelterStaffDirectory;
+    }
+    
+    
+    
 
     public Business getBusiness() {
         return business;
@@ -100,6 +173,14 @@ public class Business {
     public void setReportDirectory(ReportDirectory reportDirectory) {
         this.reportDirectory = reportDirectory;
     }
+    
+    public static Business getInstance() {
+        if (business == null) {
+            business = new Business();
+        }
+        return business;
+    }
+
     
     
     
