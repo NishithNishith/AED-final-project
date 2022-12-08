@@ -152,6 +152,9 @@ public class LoginJPanel extends javax.swing.JPanel {
             {
                 String role = userAccount.getRole();
                 
+                system.setCurrentUserEmail(userAccount.getEmail());
+                system.setCurrentUserId(userAccount.getUserAccountId());
+                
                 if(role.equals("Doctor")){
 //                    ManageEncounterJPanel panel = new ManageEncounterJPanel(splitpane);
 //                    splitpane.setRightComponent(panel);

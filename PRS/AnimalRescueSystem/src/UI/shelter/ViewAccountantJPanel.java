@@ -4,6 +4,7 @@
  */
 package UI.shelter;
 
+import business.ecosystem.Business;
 import business.ecosystem.UserAccount;
 import business.ecosystem.UserAccountDirectory;
 import business.shelter.Accountant;
@@ -25,13 +26,20 @@ public class ViewAccountantJPanel extends javax.swing.JPanel {
      * Creates new form ViewAccountantJPanel
      */
     
-    AccountantDirectory accountantList;
+
     Accountant updateProfile;
     Validations validations;
-    UserAccountDirectory userAccountDirectory;
+
+    javax.swing.JSplitPane splitpane;
+    Business system;
+
     
-    public ViewAccountantJPanel() {
+    public ViewAccountantJPanel(javax.swing.JSplitPane splitpane, Business system) {
         initComponents();
+        this.splitpane = splitpane;
+        this.system = system;
+        this.validations = new Validations();
+        populate();
     }
 
     /**
@@ -263,22 +271,22 @@ public class ViewAccountantJPanel extends javax.swing.JPanel {
                 || !validations.lengthCheck(salary) || !validations.lengthCheck(email)
                 || !validations.lengthCheck(password))
             {
-                JOptionPane.showMessageDialog(this, "Enter valid details for Staff");
+                JOptionPane.showMessageDialog(this, "Enter valid details for Accountant");
                 return;
             }
 
             if(!validations.numberCheck(age) || !validations.numberCheck(exp) || !validations.numberCheck(salary) ){
-                JOptionPane.showMessageDialog(this, "Enter valid details for Staff");
+                JOptionPane.showMessageDialog(this, "Enter valid details for Accountant");
                 return;
             }
 
             //Unique Check
 
-            Accountant account = accountantList.addAccountant();
+            Accountant account = system.getAccountantDirectory().addAccountant();
 
             String uniqueField = UUID.randomUUID().toString();
 
-            UserAccount userAccount = userAccountDirectory.addNewUserAccount();
+            UserAccount userAccount = system.getUserAccountDirectory().addNewUserAccount();
             userAccount.setEmail(email);
             userAccount.setPassword(password);
             userAccount.setRole("Accountant");
@@ -316,7 +324,8 @@ public class ViewAccountantJPanel extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         Accountant selectedProfile = (Accountant)model.getValueAt(selectRowIndex,0  );
 
-        accountantList.removeAccountant(selectedProfile);
+//        accountantList.removeAccountant(selectedProfile);
+        system.getAccountantDirectory().removeAccountant(updateProfile);
         JOptionPane.showMessageDialog(this, "Accountant has been deleted");
 
         populate();
@@ -378,7 +387,7 @@ public class ViewAccountantJPanel extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         model.setRowCount(0);
 
-        for(Accountant pro: accountantList.getAccountant()){
+        for(Accountant pro: system.getAccountantDirectory().getAccountant()){
 
             Object[] row = new Object[4];
             row[0] = pro;

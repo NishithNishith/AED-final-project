@@ -333,12 +333,12 @@ public class ViewManagerJPanel extends javax.swing.JPanel {
             shelterManager.setPhoneNumber(phonenumber);
             shelterManager.setSalary(Integer.parseInt(salary));
 
-            JOptionPane.showMessageDialog(this, "Staff updated");
+            JOptionPane.showMessageDialog(this, "Manager updated");
 
             populate();
         }
         catch(Exception err){
-            JOptionPane.showMessageDialog(this, "Issue while updating staff, try again");
+            JOptionPane.showMessageDialog(this, "Issue while updating Manager, try again");
         }
 
     }//GEN-LAST:event_btnUpdateActionPerformed

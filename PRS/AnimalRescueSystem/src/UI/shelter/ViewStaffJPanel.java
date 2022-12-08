@@ -336,7 +336,7 @@ public class ViewStaffJPanel extends javax.swing.JPanel {
             UserAccount userAccount = system.getUserAccountDirectory().addNewUserAccount();
             userAccount.setEmail(email);
             userAccount.setPassword(password);
-            userAccount.setRole("ShelterManager");
+            userAccount.setRole("ShelterStaff");
             userAccount.setUserAccountId(uniqueField);
             
             shelterStaff.setShelterStaffId(uniqueField);

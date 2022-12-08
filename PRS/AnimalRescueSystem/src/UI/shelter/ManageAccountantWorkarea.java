@@ -4,6 +4,7 @@
  */
 package UI.shelter;
 
+import business.ecosystem.Business;
 import business.ecosystem.UserAccount;
 import business.ecosystem.UserAccountDirectory;
 import business.shelter.Accountant;
@@ -23,13 +24,15 @@ public class ManageAccountantWorkarea extends javax.swing.JPanel {
      * Creates new form ManageAccountantWorkarea
      */
     javax.swing.JSplitPane splitpane;
+    Business system;
     Validations validations;
-    UserAccountDirectory userAccountDirectory;
-    AccountantDirectory accountantDirectory;
+
     
-    public ManageAccountantWorkarea(javax.swing.JSplitPane splitpane) {
+    public ManageAccountantWorkarea(javax.swing.JSplitPane splitpane, Business system) {
         initComponents();
         this.splitpane = splitpane;
+        this.system = system;
+        this.validations = new Validations();
     }
 
     /**
@@ -217,15 +220,12 @@ public class ManageAccountantWorkarea extends javax.swing.JPanel {
 
     private void txtFirstnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFirstnameActionPerformed
         // TODO add your handling code here:
-        ViewAccountantJPanel panel = new ViewAccountantJPanel();
-        splitpane.setRightComponent(panel);
-        
     }//GEN-LAST:event_txtFirstnameActionPerformed
 
     private void txtViewStaffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtViewStaffActionPerformed
         // TODO add your handling code here:
-//        ViewStaffJPanel panel = new ViewStaffJPanel();
-//        splitpane.setRightComponent(panel);
+        ViewAccountantJPanel panel = new ViewAccountantJPanel(splitpane, system);
+        splitpane.setRightComponent(panel);
 
     }//GEN-LAST:event_txtViewStaffActionPerformed
 
@@ -248,22 +248,22 @@ public class ManageAccountantWorkarea extends javax.swing.JPanel {
                 || !validations.lengthCheck(salary) || !validations.lengthCheck(email)
                 || !validations.lengthCheck(password))
             {
-                JOptionPane.showMessageDialog(this, "Enter valid details for Manager");
+                JOptionPane.showMessageDialog(this, "Enter valid details for Accountant");
                 return;
             }
 
             if(!validations.numberCheck(age) || !validations.numberCheck(exp) || !validations.numberCheck(salary) ){
-                JOptionPane.showMessageDialog(this, "Enter valid details for Manager");
+                JOptionPane.showMessageDialog(this, "Enter valid details for Accountant");
                 return;
             }
 
             //Unique Check
 
-            Accountant accountant = accountantDirectory.addAccountant();
+            Accountant accountant = system.getAccountantDirectory().addAccountant();
 
             String uniqueField = UUID.randomUUID().toString();
 
-            UserAccount userAccount = userAccountDirectory.addNewUserAccount();
+            UserAccount userAccount = system.getUserAccountDirectory().addNewUserAccount();
             userAccount.setEmail(email);
             userAccount.setPassword(password);
             userAccount.setRole("Accountant");
@@ -278,10 +278,10 @@ public class ManageAccountantWorkarea extends javax.swing.JPanel {
             accountant.setPhoneNumber(phonenumber);
             accountant.setSalary(Integer.parseInt(salary));
 
-            JOptionPane.showMessageDialog(this, "Staff created");
+            JOptionPane.showMessageDialog(this, "Accountant created");
         }
         catch(Exception err){
-            JOptionPane.showMessageDialog(this, "Issue while creating staff, try again");
+            JOptionPane.showMessageDialog(this, "Issue while creating Accountant, try again");
         }
 
     }//GEN-LAST:event_btnSaveActionPerformed

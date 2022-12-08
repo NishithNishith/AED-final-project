@@ -184,6 +184,9 @@ public class MainJFrame extends javax.swing.JFrame {
         LoginJPanel panel = new LoginJPanel(splitpane);
         splitpane.setRightComponent(panel);
         
+        system.setCurrentUserEmail("");
+        system.setCurrentUserId("");
+        
         try{
             dB4OUtil.storeSystem(system);
         }
