@@ -4,6 +4,8 @@
  */
 package UI.Main;
 
+import UI.Hospital.ManageEncounterJPanel;
+import UI.Population.ReportJPanel;
 import UI.shelter.ManageStaffWorkarea;
 import UI.shelter.StaffWorkarea;
 import business.db4O.DatabaseUtils;
@@ -38,13 +40,8 @@ public class LoginJPanel extends javax.swing.JPanel {
         initComponents();
         this.splitpane = splitpane;
 //        this.dB4OUtil
-        this.system = dB4OUtil.retrieveSystem();
-//        UserAccount user = this.system.getUserAccountDirectory().addNewUserAccount();
-//        user.setEmail("email");
-//        user.setPassword("pass");
-//        
-//        this.system = new Business();
-        
+        this.system = dB4OUtil.retrieveSystem();    
+        this.validations = new Validations();
         
     }
 
@@ -101,13 +98,13 @@ public class LoginJPanel extends javax.swing.JPanel {
                                     .addComponent(jLabel2))
                                 .addGap(30, 30, 30)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtEmail)
                                     .addComponent(jLabel1)
-                                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addComponent(txtPassword)))))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(txtShelterAdmin2)))
-                .addContainerGap(158, Short.MAX_VALUE))
+                .addGap(158, 158, 158))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -158,7 +155,8 @@ public class LoginJPanel extends javax.swing.JPanel {
                 String role = userAccount.getRole();
                 
                 if(role.equals("Doctor")){
-                    
+//                    ManageEncounterJPanel panel = new ManageEncounterJPanel(splitpane);
+//                    splitpane.setRightComponent(panel);
                 }
                 else if(role.equals("ShelterStaff")){
                     StaffWorkarea panel = new StaffWorkarea(splitpane);
@@ -168,6 +166,8 @@ public class LoginJPanel extends javax.swing.JPanel {
                     
                 }
                 else if(role.equals("Reporter")){
+                    ReportJPanel panel = new ReportJPanel(splitpane, system);
+                    splitpane.setRightComponent(panel);
                     
                 }
                 else if(role.equals("ShelterManager")){
@@ -178,7 +178,7 @@ public class LoginJPanel extends javax.swing.JPanel {
                     
                 }
                 else if(role.equals("HospitalAdmin")){
-                    
+                     
                 }
                 else if(role.equals("DistributionAdmin")){
                     

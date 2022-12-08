@@ -4,6 +4,9 @@
  */
 package UI.Population;
 
+import business.ecosystem.Business;
+import business.validations.Validations;
+
 /**
  *
  * @author nishi
@@ -13,8 +16,16 @@ public class DonateFundsJPanel extends javax.swing.JPanel {
     /**
      * Creates new form donateFundsJPanel
      */
-    public DonateFundsJPanel() {
+    
+    Business system;
+    Validations validations;
+    javax.swing.JSplitPane splitpane;
+    
+    public DonateFundsJPanel(javax.swing.JSplitPane splitpane, Business system) {
         initComponents();
+        validations = new Validations();
+        this.splitpane = splitpane;
+        this.system = system;
     }
 
     /**

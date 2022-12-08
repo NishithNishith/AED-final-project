@@ -4,6 +4,7 @@
  */
 package UI.Main;
 
+import UI.shelter.StaffWorkarea;
 import business.db4O.DatabaseUtils;
 import business.ecosystem.Business;
 import business.ecosystem.UserAccount;
@@ -240,6 +241,9 @@ public class RegisterJPanel extends javax.swing.JPanel {
                 
                 JOptionPane.showMessageDialog(this, "User registered");
                 dB4OUtil.storeSystem(system);
+                
+                LoginJPanel panel = new LoginJPanel(splitpane);
+                splitpane.setRightComponent(panel);
             }
              
             

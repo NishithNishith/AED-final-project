@@ -5,6 +5,7 @@
 package UI.Population;
 
 import UI.shelter.ShelterAdmin;
+import business.ecosystem.Business;
 import business.population.Report;
 import business.population.ReportDirectory;
 import business.validations.Validations;
@@ -25,11 +26,14 @@ public class ReportJPanel extends javax.swing.JPanel {
     Validations validations;
     ReportDirectory reportDirectory;
     javax.swing.JSplitPane splitpane;
+    Business system;
     
-    public ReportJPanel(javax.swing.JSplitPane splitpane) {
+    public ReportJPanel(javax.swing.JSplitPane splitpane, Business system) {
         initComponents();
         validations = new Validations();
         this.splitpane = splitpane;
+        this.system = system;
+        
     }
 
     /**
@@ -228,14 +232,14 @@ public class ReportJPanel extends javax.swing.JPanel {
 
     private void txtDonateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDonateActionPerformed
         // TODO add your handling code here:
-//        DonateFundsJPanel panel = new DonateFundsJPanel();
-//        splitpane.setRightComponent(panel);
+        DonateFundsJPanel panel = new DonateFundsJPanel(splitpane, system);
+        splitpane.setRightComponent(panel);
 
     }//GEN-LAST:event_txtDonateActionPerformed
 
     private void txtHistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHistoryActionPerformed
         // TODO add your handling code here:
-        ReportHistoryJPanel panel = new ReportHistoryJPanel();
+        ReportHistoryJPanel panel = new ReportHistoryJPanel(splitpane, system);
         splitpane.setRightComponent(panel);
 
     }//GEN-LAST:event_txtHistoryActionPerformed
