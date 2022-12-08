@@ -4,6 +4,7 @@
  */
 package UI.shelter;
 
+import business.ecosystem.Business;
 import business.ecosystem.UserAccount;
 import business.ecosystem.UserAccountDirectory;
 import business.population.Report;
@@ -25,13 +26,15 @@ public class CreateManagerJPanel extends javax.swing.JPanel {
      * Creates new form CreateManagerJPanel
      */
     
+    Business system;
+    javax.swing.JSplitPane splitpane;
     Validations validations;
-    ShelterManagerDirectory shelterManagerDirectory;
-    UserAccountDirectory userAccountDirectory;
     
-    public CreateManagerJPanel() {
+    public CreateManagerJPanel(javax.swing.JSplitPane splitpane, Business system) {
         initComponents();
         validations = new Validations();
+        this.splitpane = splitpane;
+        this.system = system;
     }
 
     /**
@@ -250,17 +253,25 @@ public class CreateManagerJPanel extends javax.swing.JPanel {
                 return;
             }
             
+            if(!validations.emailCheck(email)){
+                JOptionPane.showMessageDialog(this, "Enter valid details for Email");
+                return;
+            }
+            
+            if(!validations.passwordCheck(password)){
+                JOptionPane.showMessageDialog(this, "Enter valid details for Password");
+                return;
+            }
             //Unique Check
             
-            
-
-            ShelterManager shelterManager = shelterManagerDirectory.addShelterManager();
+           
+            ShelterManager shelterManager = system.getShelterManagerDirectory().addShelterManager();
             
             
             
             String uniqueField = UUID.randomUUID().toString();
             
-            UserAccount userAccount = userAccountDirectory.addNewUserAccount();
+            UserAccount userAccount = system.getUserAccountDirectory().addNewUserAccount();
             userAccount.setEmail(email);
             userAccount.setPassword(password);
             userAccount.setRole("Manager");

@@ -4,6 +4,7 @@
  */
 package UI.Main;
 
+import UI.shelter.StaffWorkarea;
 import business.db4O.DatabaseUtils;
 import business.ecosystem.Business;
 import business.ecosystem.UserAccount;
@@ -175,6 +176,7 @@ public class RegisterJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
+
         // TODO add your handling code here:
         
         try{
@@ -240,6 +242,9 @@ public class RegisterJPanel extends javax.swing.JPanel {
                 
                 JOptionPane.showMessageDialog(this, "User registered");
                 dB4OUtil.storeSystem(system);
+                
+                LoginJPanel panel = new LoginJPanel(splitpane);
+                splitpane.setRightComponent(panel);
             }
              
             

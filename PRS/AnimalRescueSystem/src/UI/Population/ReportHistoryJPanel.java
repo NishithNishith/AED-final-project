@@ -4,8 +4,10 @@
  */
 package UI.Population;
 
+import business.ecosystem.Business;
 import business.population.Report;
 import business.population.ReportDirectory;
+import business.validations.Validations;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -21,10 +23,16 @@ public class ReportHistoryJPanel extends javax.swing.JPanel {
      */
     
     ReportDirectory reportHistory;
-    public ReportHistoryJPanel() {
+    Business system;
+    javax.swing.JSplitPane splitpane;
+    Validations validations;
+    
+    public ReportHistoryJPanel(javax.swing.JSplitPane splitpane, Business system) {
         initComponents();
         populate();
-        // report history init
+        this.splitpane = splitpane;
+        this.system = system;
+
     }
 
     /**

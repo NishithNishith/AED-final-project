@@ -4,6 +4,13 @@
  */
 package UI.Population;
 
+import business.ecosystem.Business;
+import business.population.FundDonation;
+import business.population.Report;
+import business.validations.Validations;
+import java.util.UUID;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author nishi
@@ -13,8 +20,16 @@ public class DonateFundsJPanel extends javax.swing.JPanel {
     /**
      * Creates new form donateFundsJPanel
      */
-    public DonateFundsJPanel() {
+    
+    Business system;
+    Validations validations;
+    javax.swing.JSplitPane splitpane;
+    
+    public DonateFundsJPanel(javax.swing.JSplitPane splitpane, Business system) {
         initComponents();
+        validations = new Validations();
+        this.splitpane = splitpane;
+        this.system = system;
     }
 
     /**
@@ -109,6 +124,37 @@ public class DonateFundsJPanel extends javax.swing.JPanel {
 
     private void btnDonateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDonateActionPerformed
         // TODO add your handling code here:
+        
+        try{
+            String amount = txtAmount.getText();
+            String msg = txtMsg.getText();
+            
+            if(!validations.lengthCheck(amount) || !validations.lengthCheck(msg)){
+                JOptionPane.showMessageDialog(this, "Enter valid details for Donations");
+                return;
+            }
+            
+            if(!validations.numberCheck(amount)){
+                JOptionPane.showMessageDialog(this, "Enter valid details for amount");
+                return;
+            }
+
+            FundDonation fundDonation = system.getFundDonationDirectory().addNewFundDonation();
+            
+            String uniqueField = UUID.randomUUID().toString();
+            fundDonation.setFundDonationId(uniqueField);
+            fundDonation.setAmount(Integer.parseInt(amount));
+            fundDonation.setStatus("PENDING");
+            fundDonation.setSender("");
+            fundDonation.setMessage(msg);
+
+            JOptionPane.showMessageDialog(this, "Amount Donated");
+        }
+        catch(Exception err){
+            System.out.print("ReportJPanel error "+err);
+            JOptionPane.showMessageDialog(this, "Issue while submitting donation, try again");
+            return;
+        }
     }//GEN-LAST:event_btnDonateActionPerformed
 
 

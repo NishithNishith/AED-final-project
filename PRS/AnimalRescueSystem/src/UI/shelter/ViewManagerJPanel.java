@@ -4,6 +4,9 @@
  */
 package UI.shelter;
 
+import business.ecosystem.Business;
+import business.validations.Validations;
+
 /**
  *
  * @author nishi
@@ -13,8 +16,15 @@ public class ViewManagerJPanel extends javax.swing.JPanel {
     /**
      * Creates new form ViewManagerJPanel
      */
-    public ViewManagerJPanel() {
+    Business system;
+    javax.swing.JSplitPane splitpane;
+    Validations validations;
+    
+    public ViewManagerJPanel(javax.swing.JSplitPane splitpane, Business system) {
         initComponents();
+        validations = new Validations();
+        this.splitpane = splitpane;
+        this.system = system;
     }
 
     /**
