@@ -183,6 +183,11 @@ public class ManageDoctorsJPanel extends javax.swing.JPanel {
         jButton3.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jButton3.setForeground(new java.awt.Color(17, 53, 81));
         jButton3.setText("Reset");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -200,7 +205,7 @@ public class ManageDoctorsJPanel extends javax.swing.JPanel {
                     .addComponent(name1, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(name2, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(name3, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(name4, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(name4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(name5, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(name6)
                     .addComponent(name7, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -245,9 +250,7 @@ public class ManageDoctorsJPanel extends javax.swing.JPanel {
                                 .addComponent(name2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(20, 20, 20)
                                 .addComponent(name3, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(21, 21, 21)
-                                .addComponent(name4, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(13, 13, 13)
+                                .addGap(57, 57, 57)
                                 .addComponent(name5, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(12, 12, 12)
                                 .addComponent(name6, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -264,7 +267,9 @@ public class ManageDoctorsJPanel extends javax.swing.JPanel {
                                 .addGap(17, 17, 17)
                                 .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(17, 17, 17)
-                                .addComponent(txtGender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(txtGender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(name4, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
                                 .addComponent(txtSpecilization, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(12, 12, 12)
@@ -274,9 +279,10 @@ public class ManageDoctorsJPanel extends javax.swing.JPanel {
                                 .addGap(18, 18, 18)
                                 .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(8, 8, 8)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(16, 16, 16))
         );
 
         jTabbedPane1.addTab("Create Doctor", jPanel2);
@@ -567,7 +573,7 @@ public class ManageDoctorsJPanel extends javax.swing.JPanel {
                 
             //Unique check
             
-            Doctor doctor = doctorDirectory.addNewDoctor();
+           /* Doctor doctor = doctorDirectory.addNewDoctor();
 
              String uniqueField = UUID.randomUUID().toString();
             
@@ -585,13 +591,14 @@ public class ManageDoctorsJPanel extends javax.swing.JPanel {
             doctor.setGender(gender);
             doctor.setYearsOfExperience(Integer.parseInt(exp));
             doctor.setPhoneNumber(Integer.parseInt(phonenumber));
-            doctor.setSpecilization(specilization);
+            doctor.setSpecilization(specilization);*/
 
             JOptionPane.showMessageDialog(this, "Doctor created");
         }
         catch(Exception err){
             JOptionPane.showMessageDialog(this, "Issue while creating doctor, try again");
-        }// TODO add your handling code here:
+        }
+    //populate();// TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewActionPerformed
@@ -617,6 +624,7 @@ public class ManageDoctorsJPanel extends javax.swing.JPanel {
         txtPhno1.setText(String.valueOf(selectedProfile.getPhoneNumber()));
         
         updateProfile = selectedProfile;
+        //populate();
 // TODO add your handling code here:
     }//GEN-LAST:event_btnViewActionPerformed
 
@@ -677,7 +685,7 @@ public class ManageDoctorsJPanel extends javax.swing.JPanel {
             
             
 
-            Doctor doctor = doctorDirectory.addNewDoctor();
+            /*Doctor doctor = doctorDirectory.addNewDoctor();
             
             
             
@@ -698,15 +706,19 @@ public class ManageDoctorsJPanel extends javax.swing.JPanel {
             doctor.setYearsOfExperience(Integer.parseInt(exp));
             doctor.setPhoneNumber(Integer.parseInt(phonenumber));
             doctor.setSpecilization(specilization);
-            
+            */
             JOptionPane.showMessageDialog(this, "Doctor updated");
 
-        populate();
+        //populate();
         }
         catch(Exception err){
             JOptionPane.showMessageDialog(this, "Issue while updating doctor, try again");
         }// TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -774,7 +786,7 @@ public class ManageDoctorsJPanel extends javax.swing.JPanel {
          for(Doctor pro: doctorDirectory.getDoctorList()){
               
              Object[] row = new Object[4];
-             row[0] = pro;
+             row[0] = pro.getFirstName();
              row[1] = pro.getSpecilization();
              row[2] = pro.getYearsOfExperience();
              row[3] = pro.getPhoneNumber();

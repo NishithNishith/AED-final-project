@@ -17,6 +17,7 @@ public class HospitalManager extends Person{
     int phoneNumber;
     float salary;
     String userName;
+    //public Object getUserName;
 
     public String getUserName() {
         return userName;
@@ -57,7 +58,6 @@ public class HospitalManager extends Person{
     public void setSalary(float salary) {
         this.salary = salary;
     }
-    
     
     
 }

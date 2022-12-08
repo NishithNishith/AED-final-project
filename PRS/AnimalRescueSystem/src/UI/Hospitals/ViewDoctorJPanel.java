@@ -447,7 +447,7 @@ public class ViewDoctorJPanel extends javax.swing.JPanel {
          for(Doctor pro: doctorDirectory.getDoctorList()){
               System.out.println("profile "+pro);
              Object[] row = new Object[4];
-             row[0] = pro;
+             row[0] = pro.getFirstName();
              row[1] = pro.getSpecilization();
              row[2] = pro.getYearsOfExperience();
              row[3] = pro.getPhoneNumber();

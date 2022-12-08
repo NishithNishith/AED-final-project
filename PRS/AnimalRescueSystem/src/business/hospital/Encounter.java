@@ -8,7 +8,7 @@ package business.hospital;
  *
  * @author sinchanakumar
  */
-public class Encounter {
+public class Encounter extends VitalSigns{
     String id;
     String patientId;
     String desc;

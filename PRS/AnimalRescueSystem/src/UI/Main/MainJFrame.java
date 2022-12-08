@@ -7,6 +7,7 @@ package UI.Main;
 import UI.Hospital.HospitalAdminJPanel;
 import UI.Hospital.ManageDoctorsJPanel;
 import UI.Hospitals.CreateDoctorJPanel;
+import UI.Hospitals.CreateEncounterJPanel;
 import UI.Hospitals.ViewDoctorJPanel;
 import business.ecosystem.Business;
 
@@ -137,7 +138,9 @@ public class MainJFrame extends javax.swing.JFrame {
     private void hospitaladminbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hospitaladminbtnActionPerformed
 //       HospitalAdminJPanel adminPanel = new HospitalAdminJPanel();
 //        splitpane.setRightComponent(adminPanel);// TODO add your handling code here:
-      CreateDoctorJPanel panel = new CreateDoctorJPanel(splitpane, system);
+     // CreateDoctorJPanel panel = new CreateDoctorJPanel(splitpane, system);
+       // splitpane.setRightComponent(panel);
+         CreateEncounterJPanel panel = new CreateEncounterJPanel(splitpane, system);
         splitpane.setRightComponent(panel);
     }//GEN-LAST:event_hospitaladminbtnActionPerformed
 
