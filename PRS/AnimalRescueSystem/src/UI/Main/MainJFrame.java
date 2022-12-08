@@ -10,6 +10,7 @@ import UI.shelter.ShelterAdmin;
 import UI.shelter.StaffWorkarea;
 import business.db4O.DatabaseUtils;
 import business.ecosystem.Business;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -21,7 +22,7 @@ public class MainJFrame extends javax.swing.JFrame {
      * Creates new form MainJFrame
      */
     
-    DatabaseUtils dB4OUtil;
+    DatabaseUtils dB4OUtil = DatabaseUtils.getInstance();
     Business system;
     public MainJFrame() {
         initComponents();
@@ -45,6 +46,7 @@ public class MainJFrame extends javax.swing.JFrame {
         txtShelterAdmin1 = new javax.swing.JButton();
         txtShelterAdmin2 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         txtLogin = new javax.swing.JButton();
@@ -80,6 +82,13 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
 
+        jButton2.setText("Logout");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -90,7 +99,8 @@ public class MainJFrame extends javax.swing.JFrame {
                     .addComponent(txtShelterAdmin)
                     .addComponent(txtShelterAdmin1)
                     .addComponent(txtShelterAdmin2)
-                    .addComponent(jButton1))
+                    .addComponent(jButton1)
+                    .addComponent(jButton2))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -104,7 +114,9 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addComponent(txtShelterAdmin2)
                 .addGap(18, 18, 18)
                 .addComponent(jButton1)
-                .addContainerGap(95, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jButton2)
+                .addContainerGap(54, Short.MAX_VALUE))
         );
 
         splitpane.setLeftComponent(jPanel1);
@@ -171,7 +183,7 @@ public class MainJFrame extends javax.swing.JFrame {
     private void txtShelterAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtShelterAdminActionPerformed
         // TODO add your handling code here:
         
-        ShelterAdmin adminPanel = new ShelterAdmin();
+        ShelterAdmin adminPanel = new ShelterAdmin(splitpane, system);
         splitpane.setRightComponent(adminPanel);
     }//GEN-LAST:event_txtShelterAdminActionPerformed
 
@@ -205,6 +217,21 @@ public class MainJFrame extends javax.swing.JFrame {
         RegisterJPanel panel = new RegisterJPanel(splitpane);
         splitpane.setRightComponent(panel);
     }//GEN-LAST:event_txtRegisterActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        
+        LoginJPanel panel = new LoginJPanel(splitpane);
+        splitpane.setRightComponent(panel);
+        
+        try{
+            dB4OUtil.storeSystem(system);
+        }
+        catch(Exception err){
+            System.out.println("Error during logout "+err);
+            JOptionPane.showMessageDialog(this, "Error during logout");
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -243,6 +270,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

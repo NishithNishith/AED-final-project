@@ -4,6 +4,10 @@
  */
 package UI.shelter;
 
+import UI.Population.ReportJPanel;
+import business.ecosystem.Business;
+import business.validations.Validations;
+
 /**
  *
  * @author nishi
@@ -13,8 +17,16 @@ public class ShelterAdmin extends javax.swing.JPanel {
     /**
      * Creates new form ShelterAdmin
      */
-    public ShelterAdmin() {
+    
+    Business system;
+    javax.swing.JSplitPane splitpane;
+    Validations validations;
+    
+    public ShelterAdmin(javax.swing.JSplitPane splitpane, Business system) {
         initComponents();
+        validations = new Validations();
+        this.splitpane = splitpane;
+        this.system = system;
     }
 
     /**
@@ -48,6 +60,11 @@ public class ShelterAdmin extends javax.swing.JPanel {
         });
 
         jButton1.setText("Manage Staff");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -86,11 +103,22 @@ public class ShelterAdmin extends javax.swing.JPanel {
 
     private void txtViewManagerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtViewManagerActionPerformed
         // TODO add your handling code here:
+        ViewManagerJPanel panel = new ViewManagerJPanel(splitpane, system);
+        splitpane.setRightComponent(panel);
     }//GEN-LAST:event_txtViewManagerActionPerformed
 
     private void txtCreateManagerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCreateManagerActionPerformed
         // TODO add your handling code here:
+        CreateManagerJPanel panel = new CreateManagerJPanel(splitpane, system);
+        splitpane.setRightComponent(panel);
+        
     }//GEN-LAST:event_txtCreateManagerActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        ManageStaffWorkarea panel = new ManageStaffWorkarea(splitpane, system);
+        splitpane.setRightComponent(panel);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
