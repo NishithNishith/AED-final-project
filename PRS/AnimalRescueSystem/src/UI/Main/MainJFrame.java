@@ -5,6 +5,11 @@
 package UI.Main;
 
 import UI.Hospital.HospitalAdminJPanel;
+import UI.Hospital.ManageDoctorsJPanel;
+import UI.Hospitals.CreateDoctorJPanel;
+import UI.Hospitals.ViewDoctorJPanel;
+import business.ecosystem.Business;
+
 
 /**
  *
@@ -12,12 +17,13 @@ import UI.Hospital.HospitalAdminJPanel;
  */
 public class MainJFrame extends javax.swing.JFrame {
 
-    
+    Business system;
     /**
      * Creates new form MainJFrame
      */
     public MainJFrame() {
         initComponents();
+        
     }
 
     /**
@@ -29,9 +35,10 @@ public class MainJFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jSplitPane1 = new javax.swing.JSplitPane();
+        splitpane = new javax.swing.JSplitPane();
         jPanel1 = new javax.swing.JPanel();
         hospitaladminbtn = new javax.swing.JButton();
+        hospitaladminbtn1 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         txtLogin = new javax.swing.JButton();
@@ -46,13 +53,24 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
 
+        hospitaladminbtn1.setText("View");
+        hospitaladminbtn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                hospitaladminbtn1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(hospitaladminbtn)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(hospitaladminbtn))
+                    .addComponent(hospitaladminbtn1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -60,10 +78,12 @@ public class MainJFrame extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(762, Short.MAX_VALUE)
                 .addComponent(hospitaladminbtn)
-                .addGap(216, 216, 216))
+                .addGap(18, 18, 18)
+                .addComponent(hospitaladminbtn1)
+                .addGap(175, 175, 175))
         );
 
-        jSplitPane1.setLeftComponent(jPanel1);
+        splitpane.setLeftComponent(jPanel1);
 
         jLabel1.setText("Animal Rescue System");
 
@@ -98,26 +118,33 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addGap(32, 32, 32))
         );
 
-        jSplitPane1.setRightComponent(jPanel2);
+        splitpane.setRightComponent(jPanel2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(splitpane, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(splitpane, javax.swing.GroupLayout.Alignment.TRAILING)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void hospitaladminbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hospitaladminbtnActionPerformed
-       HospitalAdminJPanel adminPanel = new HospitalAdminJPanel();
-        jSplitPane1.setRightComponent(adminPanel);// TODO add your handling code here:
+//       HospitalAdminJPanel adminPanel = new HospitalAdminJPanel();
+//        splitpane.setRightComponent(adminPanel);// TODO add your handling code here:
+      CreateDoctorJPanel panel = new CreateDoctorJPanel(splitpane, system);
+        splitpane.setRightComponent(panel);
     }//GEN-LAST:event_hospitaladminbtnActionPerformed
+
+    private void hospitaladminbtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hospitaladminbtn1ActionPerformed
+//       ViewDoctorJPanel panel = new ViewDoctorJPanel(system, doctorDirectory);
+//        splitpane.setRightComponent(panel); // TODO add your handling code here:
+    }//GEN-LAST:event_hospitaladminbtn1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -156,10 +183,11 @@ public class MainJFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton hospitaladminbtn;
+    private javax.swing.JButton hospitaladminbtn1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JSplitPane jSplitPane1;
+    private javax.swing.JSplitPane splitpane;
     private javax.swing.JButton txtLogin;
     private javax.swing.JButton txtRegister;
     // End of variables declaration//GEN-END:variables
