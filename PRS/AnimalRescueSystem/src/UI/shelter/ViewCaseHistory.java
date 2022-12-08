@@ -4,7 +4,9 @@
  */
 package UI.shelter;
 
+import business.ecosystem.Business;
 import business.shelter.CaseFile;
+import business.validations.Validations;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -17,8 +19,15 @@ public class ViewCaseHistory extends javax.swing.JPanel {
     /**
      * Creates new form ViewCaseHistory
      */
-    public ViewCaseHistory() {
+    javax.swing.JSplitPane splitpane;
+    Business system;
+    Validations validations;
+    
+    public ViewCaseHistory(javax.swing.JSplitPane splitpane, Business system) {
         initComponents();
+        this.splitpane = splitpane;
+        this.system = system;
+        this.validations = new Validations();
     }
 
     /**
