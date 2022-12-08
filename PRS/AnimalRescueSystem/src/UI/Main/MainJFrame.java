@@ -43,10 +43,8 @@ public class MainJFrame extends javax.swing.JFrame {
         splitpane = new javax.swing.JSplitPane();
         jPanel1 = new javax.swing.JPanel();
         txtShelterAdmin = new javax.swing.JButton();
-        txtShelterAdmin1 = new javax.swing.JButton();
-        txtShelterAdmin2 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         txtLogin = new javax.swing.JButton();
@@ -61,31 +59,17 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
 
-        txtShelterAdmin1.setText("Population");
-        txtShelterAdmin1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtShelterAdmin1ActionPerformed(evt);
-            }
-        });
-
-        txtShelterAdmin2.setText("Shelter Manager");
-        txtShelterAdmin2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtShelterAdmin2ActionPerformed(evt);
-            }
-        });
-
-        jButton1.setText("Shelter Staff");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
         jButton2.setText("Logout");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("Homepage");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
             }
         });
 
@@ -95,26 +79,21 @@ public class MainJFrame extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtShelterAdmin)
-                    .addComponent(txtShelterAdmin1)
-                    .addComponent(txtShelterAdmin2)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jButton1)
-                    .addComponent(jButton2))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(txtShelterAdmin)
+                        .addComponent(jButton2)))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(256, 256, 256)
-                .addComponent(txtShelterAdmin)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtShelterAdmin1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtShelterAdmin2)
-                .addGap(18, 18, 18)
+                .addGap(207, 207, 207)
                 .addComponent(jButton1)
-                .addGap(18, 18, 18)
+                .addGap(26, 26, 26)
+                .addComponent(txtShelterAdmin)
+                .addGap(123, 123, 123)
                 .addComponent(jButton2)
                 .addContainerGap(54, Short.MAX_VALUE))
         );
@@ -187,25 +166,6 @@ public class MainJFrame extends javax.swing.JFrame {
         splitpane.setRightComponent(adminPanel);
     }//GEN-LAST:event_txtShelterAdminActionPerformed
 
-    private void txtShelterAdmin1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtShelterAdmin1ActionPerformed
-        // TODO add your handling code here:
-        
-//        ReportJPanel reportPanel = new ReportJPanel(splitpane);
-//        splitpane.setRightComponent(reportPanel);
-    }//GEN-LAST:event_txtShelterAdmin1ActionPerformed
-
-    private void txtShelterAdmin2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtShelterAdmin2ActionPerformed
-        // TODO add your handling code here:
-        ManageStaffWorkarea panel = new ManageStaffWorkarea(splitpane, system);
-        splitpane.setRightComponent(panel);
-    }//GEN-LAST:event_txtShelterAdmin2ActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        StaffWorkarea panel = new StaffWorkarea(splitpane);
-        splitpane.setRightComponent(panel);
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     private void txtLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLoginActionPerformed
         // TODO add your handling code here:
         LoginJPanel panel = new LoginJPanel(splitpane);
@@ -232,6 +192,12 @@ public class MainJFrame extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Error during logout");
         }
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        LoginJPanel panel = new LoginJPanel(splitpane);
+        splitpane.setRightComponent(panel);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -278,7 +244,5 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JButton txtLogin;
     private javax.swing.JButton txtRegister;
     private javax.swing.JButton txtShelterAdmin;
-    private javax.swing.JButton txtShelterAdmin1;
-    private javax.swing.JButton txtShelterAdmin2;
     // End of variables declaration//GEN-END:variables
 }

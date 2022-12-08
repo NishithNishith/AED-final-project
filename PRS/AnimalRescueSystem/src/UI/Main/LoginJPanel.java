@@ -7,6 +7,7 @@ package UI.Main;
 import UI.Hospital.ManageEncounterJPanel;
 import UI.Population.ReportJPanel;
 import UI.shelter.ManageStaffWorkarea;
+import UI.shelter.ShelterAdmin;
 import UI.shelter.StaffWorkarea;
 import business.db4O.DatabaseUtils;
 import business.ecosystem.Business;
@@ -61,6 +62,7 @@ public class LoginJPanel extends javax.swing.JPanel {
         txtPassword = new javax.swing.JPasswordField();
         jButton1 = new javax.swing.JButton();
         txtShelterAdmin2 = new javax.swing.JButton();
+        txtShelterAdmin3 = new javax.swing.JButton();
 
         jLabel1.setText("Login");
 
@@ -79,6 +81,13 @@ public class LoginJPanel extends javax.swing.JPanel {
         txtShelterAdmin2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtShelterAdmin2ActionPerformed(evt);
+            }
+        });
+
+        txtShelterAdmin3.setText("Shelter Admin");
+        txtShelterAdmin3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtShelterAdmin3ActionPerformed(evt);
             }
         });
 
@@ -104,13 +113,17 @@ public class LoginJPanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(txtShelterAdmin2)))
-                .addGap(158, 158, 158))
+                .addGap(28, 28, 28)
+                .addComponent(txtShelterAdmin3)
+                .addGap(14, 14, 14))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(26, 26, 26)
-                .addComponent(txtShelterAdmin2)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtShelterAdmin2)
+                    .addComponent(txtShelterAdmin3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1)
                 .addGap(53, 53, 53)
@@ -205,6 +218,12 @@ public class LoginJPanel extends javax.swing.JPanel {
         splitpane.setRightComponent(panel);
     }//GEN-LAST:event_txtShelterAdmin2ActionPerformed
 
+    private void txtShelterAdmin3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtShelterAdmin3ActionPerformed
+        // TODO add your handling code here:
+        ShelterAdmin panel = new ShelterAdmin(splitpane, system);
+        splitpane.setRightComponent(panel);
+    }//GEN-LAST:event_txtShelterAdmin3ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
@@ -214,5 +233,6 @@ public class LoginJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField txtEmail;
     private javax.swing.JPasswordField txtPassword;
     private javax.swing.JButton txtShelterAdmin2;
+    private javax.swing.JButton txtShelterAdmin3;
     // End of variables declaration//GEN-END:variables
 }
