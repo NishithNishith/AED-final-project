@@ -25,19 +25,16 @@ public class ViewStaffJPanel extends javax.swing.JPanel {
      * Creates new form ViewStaffJPanel
      */
     
-    ShelterStaffDirectory shelterStaffList;
     ShelterStaff updateProfile;
     Validations validations;
-    UserAccountDirectory userAccountDirectory;
     Business system;
+    javax.swing.JSplitPane splitpane;
     
-    public ViewStaffJPanel(Business system, ShelterStaffDirectory shelterStaffList) {
+    public ViewStaffJPanel(javax.swing.JSplitPane splitpane, Business system) {
         initComponents();
         
         this.system = system;
-//        this.shelterStaffList = system.getShelterStaffDirectory();
-        this.shelterStaffList = shelterStaffList;
-        System.out.print(shelterStaffList);
+        this.splitpane = splitpane;
         populate();
     }
 
@@ -283,7 +280,8 @@ public class ViewStaffJPanel extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         ShelterStaff selectedProfile = (ShelterStaff)model.getValueAt(selectRowIndex,0  );
 
-        shelterStaffList.removeShelterStaff(selectedProfile);
+//        shelterStaffList.removeShelterStaff(selectedProfile);
+        system.getShelterStaffDirectory().removeShelterStaff(selectedProfile);
         JOptionPane.showMessageDialog(this, "Staff has been deleted");
 
         populate();
@@ -328,16 +326,17 @@ public class ViewStaffJPanel extends javax.swing.JPanel {
             
             
 
-            ShelterStaff shelterStaff = shelterStaffList.addShelterStaff();
+            ShelterStaff shelterStaff = system.getShelterStaffDirectory().addShelterStaff();
+              
             
             
             
             String uniqueField = UUID.randomUUID().toString();
             
-            UserAccount userAccount = userAccountDirectory.addNewUserAccount();
+            UserAccount userAccount = system.getUserAccountDirectory().addNewUserAccount();
             userAccount.setEmail(email);
             userAccount.setPassword(password);
-            userAccount.setRole("ShelterManager");
+            userAccount.setRole("ShelterStaff");
             userAccount.setUserAccountId(uniqueField);
             
             shelterStaff.setShelterStaffId(uniqueField);
@@ -392,9 +391,9 @@ public class ViewStaffJPanel extends javax.swing.JPanel {
     private void populate() {
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
          model.setRowCount(0);
-         System.out.println("shelter "+shelterStaffList);
-         for(ShelterStaff pro: shelterStaffList.getShelterStaff()){
-              System.out.println("profile "+pro);
+
+         for(ShelterStaff pro: system.getShelterStaffDirectory().getShelterStaff()){
+
              Object[] row = new Object[4];
              row[0] = pro;
              row[1] = pro.getSalary();

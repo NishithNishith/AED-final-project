@@ -45,6 +45,11 @@ public class Business {
     ShelterStaffDirectory shelterStaffDirectory;
     GovernmentManager governmentManager;
     
+    //Current user
+    String currentUserId;
+    String currentUserName;
+    String currentUserEmail;
+    
     public Business (){
         personDirectory = new PersonDirectory();
         doctorDirectory = new DoctorDirectory();
@@ -65,6 +70,36 @@ public class Business {
         governmentManager = new GovernmentManager();
         
         
+        //Current user init
+        this.currentUserId = "";
+        this.currentUserEmail = "";
+        this.currentUserName = "";
+        
+        
+    }
+
+    public String getCurrentUserId() {
+        return currentUserId;
+    }
+
+    public void setCurrentUserId(String currentUserId) {
+        this.currentUserId = currentUserId;
+    }
+
+    public String getCurrentUserName() {
+        return currentUserName;
+    }
+
+    public void setCurrentUserName(String currentUserName) {
+        this.currentUserName = currentUserName;
+    }
+
+    public String getCurrentUserEmail() {
+        return currentUserEmail;
+    }
+
+    public void setCurrentUserEmail(String currentUserEmail) {
+        this.currentUserEmail = currentUserEmail;
     }
 
     public GovernmentManager getGovernmentManager() {

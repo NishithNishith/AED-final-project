@@ -26,8 +26,7 @@ public class ManageStaffWorkarea extends javax.swing.JPanel {
      */
     
     Validations validations;
-    ShelterStaffDirectory shelterStaffDirectory;
-    UserAccountDirectory userAccountDirectory;
+
     javax.swing.JSplitPane splitpane;
     Business system;
     
@@ -37,8 +36,7 @@ public class ManageStaffWorkarea extends javax.swing.JPanel {
         this.system = system;
         this.validations = new Validations();
 //        this.shelterStaffDirectory = system.getShelterStaffDirectory();
-       this.shelterStaffDirectory = new ShelterStaffDirectory();
-       this.userAccountDirectory = new UserAccountDirectory();
+
     }
 
     /**
@@ -261,13 +259,13 @@ public class ManageStaffWorkarea extends javax.swing.JPanel {
 //            ShelterStaff shelterStaff = system.getShelterStaffDirectory().addShelterStaff();
             
 
-            ShelterStaff shelterStaff = shelterStaffDirectory.addShelterStaff();
+            ShelterStaff shelterStaff = system.getShelterStaffDirectory().addShelterStaff();
             
             
             
             String uniqueField = UUID.randomUUID().toString();
             
-            UserAccount userAccount = userAccountDirectory.addNewUserAccount();
+            UserAccount userAccount = system.getUserAccountDirectory().addNewUserAccount();
             userAccount.setEmail(email);
             userAccount.setPassword(password);
             userAccount.setRole("ShelterStaff");
@@ -292,7 +290,7 @@ public class ManageStaffWorkarea extends javax.swing.JPanel {
 
     private void txtViewStaffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtViewStaffActionPerformed
         // TODO add your handling code here:
-        ViewStaffJPanel panel = new ViewStaffJPanel(system, shelterStaffDirectory);
+        ViewStaffJPanel panel = new ViewStaffJPanel(splitpane, system);
         splitpane.setRightComponent(panel);
         
     }//GEN-LAST:event_txtViewStaffActionPerformed

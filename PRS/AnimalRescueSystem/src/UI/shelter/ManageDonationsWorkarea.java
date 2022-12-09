@@ -4,6 +4,9 @@
  */
 package UI.shelter;
 
+import business.ecosystem.Business;
+import business.validations.Validations;
+
 /**
  *
  * @author nishi
@@ -13,10 +16,16 @@ public class ManageDonationsWorkarea extends javax.swing.JPanel {
     /**
      * Creates new form ManageDonationsWorkarea
      */
+    Validations validations;
+
     javax.swing.JSplitPane splitpane;
-    public ManageDonationsWorkarea(javax.swing.JSplitPane splitpane) {
+    Business system;
+    
+    public ManageDonationsWorkarea(javax.swing.JSplitPane splitpane, Business system) {
         initComponents();
         this.splitpane = splitpane;
+        this.system = system;
+        this.validations = new Validations();
     }
 
     /**
