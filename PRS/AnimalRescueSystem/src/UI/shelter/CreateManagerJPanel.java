@@ -276,8 +276,9 @@ public class CreateManagerJPanel extends javax.swing.JPanel {
             UserAccount userAccount = system.getUserAccountDirectory().addNewUserAccount();
             userAccount.setEmail(email);
             userAccount.setPassword(password);
-            userAccount.setRole("Manager");
+            userAccount.setRole("ShelterManager");
             userAccount.setUserAccountId(uniqueField);
+//            JOptionPane.showMessageDialog(this, "Manager role "+userAccount.getRole());
             
             shelterManager.setShelterManagerId(uniqueField);
             shelterManager.setFirstName(firstname);
