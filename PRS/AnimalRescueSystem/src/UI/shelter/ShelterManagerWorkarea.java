@@ -128,19 +128,19 @@ public class ShelterManagerWorkarea extends javax.swing.JPanel {
 
     private void txtStaffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtStaffActionPerformed
         // TODO add your handling code here:
-        RequestFunds panel = new RequestFunds(splitpane);
+        RequestFunds panel = new RequestFunds(splitpane, system);
         splitpane.setRightComponent(panel);
     }//GEN-LAST:event_txtStaffActionPerformed
 
     private void txtDonationsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDonationsActionPerformed
         // TODO add your handling code here:
-        ManageDonationsWorkarea panel = new ManageDonationsWorkarea(splitpane);
+        ManageDonationsWorkarea panel = new ManageDonationsWorkarea(splitpane, system);
         splitpane.setRightComponent(panel);
     }//GEN-LAST:event_txtDonationsActionPerformed
 
     private void txtStaff1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtStaff1ActionPerformed
         // TODO add your handling code here:
-        ManageAccountantWorkarea panel = new ManageAccountantWorkarea(splitpane);
+        ManageAccountantWorkarea panel = new ManageAccountantWorkarea(splitpane, system);
         splitpane.setRightComponent(panel);
     }//GEN-LAST:event_txtStaff1ActionPerformed
 

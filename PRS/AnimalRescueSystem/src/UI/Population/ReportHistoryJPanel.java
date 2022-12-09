@@ -22,16 +22,16 @@ public class ReportHistoryJPanel extends javax.swing.JPanel {
      * 
      */
     
-    ReportDirectory reportHistory;
     Business system;
     javax.swing.JSplitPane splitpane;
     Validations validations;
     
     public ReportHistoryJPanel(javax.swing.JSplitPane splitpane, Business system) {
         initComponents();
-        populate();
         this.splitpane = splitpane;
         this.system = system;
+        populate();
+        
 
     }
 
@@ -236,7 +236,7 @@ public class ReportHistoryJPanel extends javax.swing.JPanel {
         int selectRowIndex = jTable1.getSelectedRow();
 
         if(selectRowIndex < 0){
-            JOptionPane.showMessageDialog(this, "Please select a row to be updated");
+            JOptionPane.showMessageDialog(this, "Please select a row to be Viewed");
             return;
         }
 
@@ -289,7 +289,7 @@ public class ReportHistoryJPanel extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         model.setRowCount(0);
 
-        for(Report pro: reportHistory.getReportList()){
+        for(Report pro: system.getReportDirectory().getReportList()){
 
             Object[] row = new Object[4];
             row[0] = pro;

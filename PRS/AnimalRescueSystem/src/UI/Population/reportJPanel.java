@@ -59,6 +59,7 @@ public class ReportJPanel extends javax.swing.JPanel {
         btnSubmit = new javax.swing.JButton();
         txtDonate = new javax.swing.JButton();
         txtHistory = new javax.swing.JButton();
+        btnDonateHistory = new javax.swing.JButton();
 
         jLabel1.setText("Report");
 
@@ -96,6 +97,13 @@ public class ReportJPanel extends javax.swing.JPanel {
         txtHistory.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtHistoryActionPerformed(evt);
+            }
+        });
+
+        btnDonateHistory.setText("Donation History");
+        btnDonateHistory.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDonateHistoryActionPerformed(evt);
             }
         });
 
@@ -142,13 +150,17 @@ public class ReportJPanel extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(txtDonate)
-                .addGap(136, 136, 136))
+                .addGap(37, 37, 37)
+                .addComponent(btnDonateHistory)
+                .addGap(24, 24, 24))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(21, 21, 21)
-                .addComponent(txtDonate)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtDonate)
+                    .addComponent(btnDonateHistory))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
@@ -213,7 +225,7 @@ public class ReportJPanel extends javax.swing.JPanel {
             
             //save report directory in the db
 
-            JOptionPane.showMessageDialog(this, "Incident reported");
+            JOptionPane.showMessageDialog(this, "Incident reported "+report);
         }
         catch(Exception err){
             System.out.print("ReportJPanel error "+err);
@@ -237,8 +249,15 @@ public class ReportJPanel extends javax.swing.JPanel {
 
     }//GEN-LAST:event_txtHistoryActionPerformed
 
+    private void btnDonateHistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDonateHistoryActionPerformed
+        // TODO add your handling code here:
+        DonationHistory panel = new DonationHistory(splitpane, system);
+        splitpane.setRightComponent(panel);
+    }//GEN-LAST:event_btnDonateHistoryActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnDonateHistory;
     private javax.swing.JButton btnSubmit;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

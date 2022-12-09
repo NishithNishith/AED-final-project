@@ -69,6 +69,11 @@ public class DonateFundsJPanel extends javax.swing.JPanel {
         });
 
         btnBack.setText("Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -77,21 +82,24 @@ public class DonateFundsJPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(95, 95, 95)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jLabel1)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jLabel3)
-                            .addGap(48, 48, 48)
-                            .addComponent(txtMsg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addGap(59, 59, 59)
-                            .addComponent(jLabel2)
-                            .addGap(50, 50, 50)
-                            .addComponent(txtAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel1)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(55, 55, 55)
+                                .addComponent(jLabel3)
+                                .addGap(48, 48, 48)
+                                .addComponent(txtMsg))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGap(59, 59, 59)
+                                .addComponent(jLabel2)
+                                .addGap(50, 50, 50)
+                                .addComponent(txtAmount)))
+                        .addGap(8, 8, 8))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(180, 180, 180)
                         .addComponent(btnDonate)))
-                .addContainerGap(235, Short.MAX_VALUE))
+                .addGap(235, 235, 235))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(btnBack)
@@ -128,7 +136,7 @@ public class DonateFundsJPanel extends javax.swing.JPanel {
         try{
             String amount = txtAmount.getText();
             String msg = txtMsg.getText();
-            
+            JOptionPane.showMessageDialog(this, "amount "+amount);
             if(!validations.lengthCheck(amount) || !validations.lengthCheck(msg)){
                 JOptionPane.showMessageDialog(this, "Enter valid details for Donations");
                 return;
@@ -148,7 +156,8 @@ public class DonateFundsJPanel extends javax.swing.JPanel {
             fundDonation.setSender("");
             fundDonation.setMessage(msg);
 
-            JOptionPane.showMessageDialog(this, "Amount Donated");
+            System.out.println("fund doantion "+fundDonation);
+            JOptionPane.showMessageDialog(this, "Amount Donated "+amount+" "+msg+" "+fundDonation);
         }
         catch(Exception err){
             System.out.print("ReportJPanel error "+err);
@@ -156,6 +165,11 @@ public class DonateFundsJPanel extends javax.swing.JPanel {
             return;
         }
     }//GEN-LAST:event_btnDonateActionPerformed
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(this, "back");
+    }//GEN-LAST:event_btnBackActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

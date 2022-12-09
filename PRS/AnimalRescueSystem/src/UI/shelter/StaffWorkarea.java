@@ -4,9 +4,11 @@
  */
 package UI.shelter;
 
+import business.ecosystem.Business;
 import business.population.Report;
 import business.shelter.CaseFile;
 import business.shelter.CaseFileDirectory;
+import business.validations.Validations;
 import java.util.UUID;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -21,11 +23,14 @@ public class StaffWorkarea extends javax.swing.JPanel {
      * Creates new form StaffWorkarea
      */
     javax.swing.JSplitPane splitpane;
-    CaseFileDirectory caseFileDirectory;
+    Business system;
+    Validations validations;
     
-    public StaffWorkarea(javax.swing.JSplitPane splitpane) {
+    public StaffWorkarea(javax.swing.JSplitPane splitpane, Business system) {
         initComponents();
         this.splitpane = splitpane;
+        this.system = system;
+        this.validations = new Validations();
     }
 
     /**
@@ -258,7 +263,7 @@ public class StaffWorkarea extends javax.swing.JPanel {
     private void txtViewCaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtViewCaseActionPerformed
         // TODO add your handling code here:
         
-        ViewCaseHistory panel = new ViewCaseHistory();
+        ViewCaseHistory panel = new ViewCaseHistory(splitpane, system);
         splitpane.setRightComponent(panel);
     }//GEN-LAST:event_txtViewCaseActionPerformed
 
@@ -275,7 +280,7 @@ public class StaffWorkarea extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         Report selectedProfile = (Report)model.getValueAt(selectRowIndex,0  );
         
-        CaseFile caseFile = caseFileDirectory.addCaseFile();
+        CaseFile caseFile = system.getCaseFileDirectory().addCaseFile();
         
         String uniqueField = UUID.randomUUID().toString();
         

@@ -4,6 +4,7 @@
  */
 package UI.shelter;
 
+import business.ecosystem.Business;
 import business.population.Report;
 import business.shelter.FundRequest;
 import business.shelter.FundRequestDirectory;
@@ -20,13 +21,16 @@ public class RequestFunds extends javax.swing.JPanel {
     /**
      * Creates new form RequestFunds
      */
-    javax.swing.JSplitPane splitpane;
-    FundRequestDirectory requestFundsDirectory;
     Validations validations;
+
+    javax.swing.JSplitPane splitpane;
+    Business system;
     
-    public RequestFunds(javax.swing.JSplitPane splitpane) {
+    public RequestFunds(javax.swing.JSplitPane splitpane, Business system) {
         initComponents();
         this.splitpane = splitpane;
+        this.system = system;
+        this.validations = new Validations();
     }
 
     /**
@@ -142,7 +146,7 @@ public class RequestFunds extends javax.swing.JPanel {
                 return;
             }
 
-            FundRequest fundRequest = requestFundsDirectory.addFundRequest();
+            FundRequest fundRequest = system.getFundRequestDirectory().addFundRequest();
             
             String uniqueField = UUID.randomUUID().toString();
             
