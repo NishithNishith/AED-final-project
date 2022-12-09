@@ -26,6 +26,7 @@ public class MainJFrame extends javax.swing.JFrame {
     Business system;
     public MainJFrame() {
         initComponents();
+        this.system = dB4OUtil.retrieveSystem();
         
 //        this.system = dB4OUtil.retrieveSystem();
         
@@ -168,7 +169,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void txtLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLoginActionPerformed
         // TODO add your handling code here:
-        LoginJPanel panel = new LoginJPanel(splitpane);
+        LoginJPanel panel = new LoginJPanel(splitpane, system);
         splitpane.setRightComponent(panel);
     }//GEN-LAST:event_txtLoginActionPerformed
 
@@ -181,7 +182,7 @@ public class MainJFrame extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         
-        LoginJPanel panel = new LoginJPanel(splitpane);
+        LoginJPanel panel = new LoginJPanel(splitpane,system);
         splitpane.setRightComponent(panel);
         
         system.setCurrentUserEmail("");
@@ -198,7 +199,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        LoginJPanel panel = new LoginJPanel(splitpane);
+        LoginJPanel panel = new LoginJPanel(splitpane,system);
         splitpane.setRightComponent(panel);
     }//GEN-LAST:event_jButton1ActionPerformed
 

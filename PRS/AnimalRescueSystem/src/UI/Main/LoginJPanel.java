@@ -37,11 +37,12 @@ public class LoginJPanel extends javax.swing.JPanel {
     DatabaseUtils dB4OUtil = DatabaseUtils.getInstance();
     ConfigSystem config;
     
-    public LoginJPanel(javax.swing.JSplitPane splitpane) {
+    public LoginJPanel(javax.swing.JSplitPane splitpane, Business system) {
         initComponents();
         this.splitpane = splitpane;
-//        this.dB4OUtil
-        this.system = dB4OUtil.retrieveSystem();    
+        this.system = system;
+
+//        this.system = dB4OUtil.retrieveSystem();    
         this.validations = new Validations();
         
     }

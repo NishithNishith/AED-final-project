@@ -69,6 +69,11 @@ public class DonateFundsJPanel extends javax.swing.JPanel {
         });
 
         btnBack.setText("Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -131,7 +136,7 @@ public class DonateFundsJPanel extends javax.swing.JPanel {
         try{
             String amount = txtAmount.getText();
             String msg = txtMsg.getText();
-            
+            JOptionPane.showMessageDialog(this, "amount "+amount);
             if(!validations.lengthCheck(amount) || !validations.lengthCheck(msg)){
                 JOptionPane.showMessageDialog(this, "Enter valid details for Donations");
                 return;
@@ -151,7 +156,8 @@ public class DonateFundsJPanel extends javax.swing.JPanel {
             fundDonation.setSender("");
             fundDonation.setMessage(msg);
 
-            JOptionPane.showMessageDialog(this, "Amount Donated");
+            System.out.println("fund doantion "+fundDonation);
+            JOptionPane.showMessageDialog(this, "Amount Donated "+amount+" "+msg+" "+fundDonation);
         }
         catch(Exception err){
             System.out.print("ReportJPanel error "+err);
@@ -159,6 +165,11 @@ public class DonateFundsJPanel extends javax.swing.JPanel {
             return;
         }
     }//GEN-LAST:event_btnDonateActionPerformed
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(this, "back");
+    }//GEN-LAST:event_btnBackActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

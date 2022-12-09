@@ -243,7 +243,7 @@ public class RegisterJPanel extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(this, "User registered");
                 dB4OUtil.storeSystem(system);
                 
-                LoginJPanel panel = new LoginJPanel(splitpane);
+                LoginJPanel panel = new LoginJPanel(splitpane,system);
                 splitpane.setRightComponent(panel);
             }
              
