@@ -181,7 +181,6 @@ public class LoginJPanel extends javax.swing.JPanel {
                      
                 }
                 else if(role.equals("DistributionAdmin")){
-                    
                 }
                 
                 

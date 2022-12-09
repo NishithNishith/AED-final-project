@@ -1,6 +1,9 @@
 package UI.Distribution;
 
+import business.db4O.DatabaseUtils;
 import business.distribution.InventoryDirectory;
+import business.ecosystem.Business;
+javax.swing.JSplitPane splitpane;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -17,6 +20,10 @@ public class DistributionAdmin extends javax.swing.JFrame {
     /**
      * Creates new form DistributionAdmin
      */
+    
+    DatabaseUtils dB4OUtil = DatabaseUtils.getInstance();
+    Business system;
+    
     
     public DistributionAdmin() {
         initComponents();
@@ -91,7 +98,7 @@ public class DistributionAdmin extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         
-                ManageDeliveryAssociates manageDeliveryAssociate = new ManageDeliveryAssociates();
+        ManageDeliveryAssociates manageDeliveryAssociate = new ManageDeliveryAssociates();
         manageDeliveryAssociate.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
