@@ -5,6 +5,7 @@
 package UI.shelter;
 
 import business.ecosystem.Business;
+import business.population.Report;
 import business.shelter.CaseFile;
 import business.validations.Validations;
 import javax.swing.JOptionPane;
@@ -28,6 +29,7 @@ public class ViewCaseHistory extends javax.swing.JPanel {
         this.splitpane = splitpane;
         this.system = system;
         this.validations = new Validations();
+        populate();
     }
 
     /**
@@ -93,9 +95,6 @@ public class ViewCaseHistory extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnSelect)
-                        .addGap(90, 90, 90))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 642, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(82, 82, 82)
@@ -122,7 +121,11 @@ public class ViewCaseHistory extends javax.swing.JPanel {
                                 .addComponent(jLabel7)
                                 .addGap(18, 18, 18)
                                 .addComponent(txtStaffId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(134, 134, 134)))
+                        .addGap(134, 134, 134))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnSelect)
+                        .addGap(8, 8, 8)))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -200,4 +203,21 @@ public class ViewCaseHistory extends javax.swing.JPanel {
     private javax.swing.JTextField txtStaffId;
     private javax.swing.JTextField txtStatus;
     // End of variables declaration//GEN-END:variables
+
+    private void populate() {
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        model.setRowCount(0);
+
+        for(CaseFile pro: system.getCaseFileDirectory().getCaseFile()){
+
+            Object[] row = new Object[4];
+            row[0] = pro;
+            row[1] = pro.getStaffId();
+            row[2] = pro.getStatus();
+            row[3] = pro.getDate();
+
+            model.addRow(row );
+
+        }
+    }
 }
