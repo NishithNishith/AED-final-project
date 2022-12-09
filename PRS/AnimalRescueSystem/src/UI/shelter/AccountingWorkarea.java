@@ -4,6 +4,9 @@
  */
 package UI.shelter;
 
+import business.ecosystem.Business;
+import business.validations.Validations;
+
 /**
  *
  * @author nishi
@@ -14,9 +17,16 @@ public class AccountingWorkarea extends javax.swing.JPanel {
      * Creates new form AccountingWorkarea
      */
     javax.swing.JSplitPane splitpane;
-    public AccountingWorkarea(javax.swing.JSplitPane splitpane) {
+    Validations validations;
+    Business system;
+    
+    public AccountingWorkarea(javax.swing.JSplitPane splitpane, Business system) {
         initComponents();
         this.splitpane = splitpane;
+        this.system = system;
+   
+        this.validations = new Validations();
+        lblFunds.setText(String.valueOf(this.system.getCurAmount()));
     }
 
     /**
@@ -32,6 +42,8 @@ public class AccountingWorkarea extends javax.swing.JPanel {
         txtDonations = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        lblFunds = new javax.swing.JLabel();
 
         jLabel1.setText("Accounting");
 
@@ -51,19 +63,25 @@ public class AccountingWorkarea extends javax.swing.JPanel {
 
         jButton1.setText("View Expenses");
 
+        jLabel2.setText("Current Funds :");
+
+        lblFunds.setText("0");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(171, 171, 171)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblFunds, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(137, 137, 137)
-                        .addComponent(jButton1)))
-                .addContainerGap(157, Short.MAX_VALUE))
+                    .addComponent(jButton1))
+                .addContainerGap(193, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(134, 134, 134)
@@ -75,8 +93,15 @@ public class AccountingWorkarea extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addComponent(jLabel1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(lblFunds))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 164, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addGap(66, 66, 66))
@@ -92,11 +117,16 @@ public class AccountingWorkarea extends javax.swing.JPanel {
 
     private void txtDonationsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDonationsActionPerformed
         // TODO add your handling code here:
+        ManageDonationsWorkarea panel = new ManageDonationsWorkarea(splitpane, system);
+        splitpane.setRightComponent(panel);
         
     }//GEN-LAST:event_txtDonationsActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
+        RequestFunds panel = new RequestFunds(splitpane, system);
+        splitpane.setRightComponent(panel);
+        
         
     }//GEN-LAST:event_jButton3ActionPerformed
 
@@ -105,6 +135,8 @@ public class AccountingWorkarea extends javax.swing.JPanel {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel lblFunds;
     private javax.swing.JButton txtDonations;
     // End of variables declaration//GEN-END:variables
 }
