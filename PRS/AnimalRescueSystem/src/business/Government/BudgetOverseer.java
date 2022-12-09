@@ -13,7 +13,7 @@ import business.population.Person;
 public class BudgetOverseer extends Person{
     String budgetOverseerId;
     int yearsOfExperience;
-    int phoneNumber;
+    String phoneNumber;
     float salary;
 
     public String getBudgetOverseerId() {
@@ -32,11 +32,11 @@ public class BudgetOverseer extends Person{
         this.yearsOfExperience = yearsOfExperience;
     }
 
-    public int getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(int phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 

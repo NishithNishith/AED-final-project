@@ -5,8 +5,8 @@
 package business.ecosystem;
 
 import business.Government.BudgetOverseerDirectory;
-import business.Government.GovernmentManager;
-import business.Government.GovernmentManagerDirectory;
+import business.Government.AnalyticsManager;
+import business.Government.AnalyticsManagerDirectory;
 import business.hospital.DoctorDirectory;
 import business.hospital.EncounterHistory;
 import business.hospital.HospitalManagerDirectory;
@@ -45,7 +45,7 @@ public class Business {
     FundRequestDirectory fundRequestDirectory;
     ShelterManagerDirectory ShelterManagerDirectory;
     ShelterStaffDirectory shelterStaffDirectory;
-    GovernmentManagerDirectory governmentManagerDirectory;
+    AnalyticsManagerDirectory analyticsManagerDirectory;
     BudgetOverseerDirectory budgetOverseerDirectory;
     
     //Current user
@@ -73,7 +73,7 @@ public class Business {
         ShelterManagerDirectory = new ShelterManagerDirectory();
                 
         shelterStaffDirectory = new ShelterStaffDirectory();
-        governmentManagerDirectory = new GovernmentManagerDirectory();
+        analyticsManagerDirectory = new AnalyticsManagerDirectory();
         budgetOverseerDirectory = new BudgetOverseerDirectory();       
 
         
@@ -87,12 +87,12 @@ public class Business {
         
     }
 
-    public GovernmentManagerDirectory getGovernmentManagerDirectory() {
-        return governmentManagerDirectory;
+    public AnalyticsManagerDirectory getAnalyticsManagerDirectory() {
+        return analyticsManagerDirectory;
     }
 
-    public void setGovernmentManagerDirectory(GovernmentManagerDirectory governmentManagerDirectory) {
-        this.governmentManagerDirectory = governmentManagerDirectory;
+    public void setAnalyticsManagerDirectory(AnalyticsManagerDirectory analyticsManagerDirectory) {
+        this.analyticsManagerDirectory = analyticsManagerDirectory;
     }
 
     public BudgetOverseerDirectory getBudgetOverseerDirectory() {

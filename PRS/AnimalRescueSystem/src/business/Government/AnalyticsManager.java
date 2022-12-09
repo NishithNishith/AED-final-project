@@ -10,18 +10,18 @@ import business.population.Person;
  *
  * @author nishi
  */
-public class GovernmentManager extends Person{
-    String governmentManagerId;
+public class AnalyticsManager extends Person{
+    String analyticsManagerId;
     int yearsOfExperience;
     String phoneNumber;
     float salary;
 
-    public String getGovernmentManagerId() {
-        return governmentManagerId;
+    public String getAnalyticsManagerId() {
+        return analyticsManagerId;
     }
 
-    public void setGovernmentManagerId(String governmentManagerId) {
-        this.governmentManagerId = governmentManagerId;
+    public void setAnalyticsManagerId(String analyticsManagerId) {
+        this.analyticsManagerId = analyticsManagerId;
     }
 
     public int getYearsOfExperience() {

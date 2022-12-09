@@ -4,7 +4,8 @@
  */
 package UI.Government;
 
-import business.Government.GovernmentManager;
+import business.Government.AnalyticsManager;
+import business.db4O.DatabaseUtils;
 import business.ecosystem.Business;
 import business.ecosystem.UserAccount;
 import business.ecosystem.UserAccountDirectory;
@@ -24,6 +25,7 @@ public class CreateAnalyticsManager extends javax.swing.JPanel {
     javax.swing.JSplitPane splitpane;
     Validations validations;
     Business system;
+    DatabaseUtils dB4OUtil = DatabaseUtils.getInstance();
     
     public CreateAnalyticsManager(javax.swing.JSplitPane splitpane, Business system) {
         initComponents();
@@ -119,6 +121,7 @@ public class CreateAnalyticsManager extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
+                                .addGap(36, 36, 36)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel8)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -225,30 +228,17 @@ public class CreateAnalyticsManager extends javax.swing.JPanel {
         // TODO add your handling code here:
 
         try{
-            String firstname = txtFirstname.getText();
-            String lastname = txtLastname.getText();
-            String age = txtAge.getText();
-            String gender = txtGender.getText();
-            String exp = txtExp.getText();
-            String phonenumber = txtPhno.getText();
-            String salary = txtSalary.getText();
+            String firstname;
+            String lastname;
+            Integer age ;
+            String gender ;
+            String exp ;
+            String phonenumber ;
+            String salary ;
             String email = txtEmail.getText();
             String password = txtPassword.getText();
 
-            if(!validations.lengthCheck(firstname) ||!validations.lengthCheck(lastname) ||
-                !validations.lengthCheck(age) ||!validations.lengthCheck(gender)
-                || !validations.lengthCheck(exp) || !validations.lengthCheck(phonenumber)
-                || !validations.lengthCheck(salary) || !validations.lengthCheck(email)
-                || !validations.lengthCheck(password))
-            {
-                JOptionPane.showMessageDialog(this, "Enter valid details for Manager");
-                return;
-            }
 
-            if(!validations.numberCheck(age) || !validations.numberCheck(exp) || !validations.numberCheck(salary) ){
-                JOptionPane.showMessageDialog(this, "Enter valid details for Manager");
-                return;
-            }
 
             if(!validations.emailCheck(email)){
                 JOptionPane.showMessageDialog(this, "Enter valid details for Email");
@@ -259,28 +249,86 @@ public class CreateAnalyticsManager extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(this, "Enter valid details for Password");
                 return;
             }
-            //Unique Check
+   
+            if(!validations.checkStringAndNumber(txtFirstname.getText()) || txtFirstname.getText().isEmpty() || !validations.lengthCheck(txtFirstname.getText()))
+            {
+                JOptionPane.showMessageDialog(this, "Enter valid first name ");
+                return;
+            }
+            else
+                 firstname = txtFirstname.getText();
+            
+            if(!validations.checkStringAndNumber(txtLastname.getText()) || txtLastname.getText().isEmpty() ||!validations.lengthCheck(txtLastname.getText()))
+            {
+                JOptionPane.showMessageDialog(this, "Enter valid last name ");
+                return;
+            }
+            else
+                 lastname = txtLastname.getText();
+            
+            if(!validations.checkStringAndNumber(txtGender.getText()) || txtGender.getText().isEmpty() ||!validations.lengthCheck(txtGender.getText()))
+            {
+                JOptionPane.showMessageDialog(this, "Enter valid gender ");
+                return;
+            }
+            else
+                 gender = txtGender.getText();
+            
+            if(!validations.checkNumber(txtAge.getText()) || txtAge.getText().isEmpty())
+            {
+                JOptionPane.showMessageDialog(this, "Enter valid age ");
+                return;
+            }
+            else
+              
+                age = Integer.valueOf(txtAge.getText());
+            if(!validations.checkStringAndNumber(txtExp.getText()) || txtExp.getText().isEmpty() || !validations.lengthCheck(txtExp.getText()))
+            {
+                JOptionPane.showMessageDialog(this, "Enter valid experience ");
+                return;
+            }
+            else
+                 exp = txtExp.getText();
+            
+            if(!validations.checkStringAndNumber(txtPhno.getText()) || txtPhno.getText().isEmpty() || !validations.lengthCheck(txtPhno.getText()))
+            {
+                JOptionPane.showMessageDialog(this, "Enter valid phone number ");
+                return;
+            }
+            else
+                 phonenumber = txtPhno.getText();
+            
+            if(!validations.checkStringAndNumber(txtSalary.getText()) || txtSalary.getText().isEmpty() || !validations.lengthCheck(txtSalary.getText()))
+            {
+                JOptionPane.showMessageDialog(this, "Enter valid salary ");
+                return;
+            }
+            else
+                 salary = txtPhno.getText();            
 
-            GovernmentManager shelterManager = system.getGovernmentManagerDirectory().addNewGovernmentManager();
+            AnalyticsManager analyticsManager = system.getAnalyticsManagerDirectory().addNewAnalyticsManager();
 
             String uniqueField = UUID.randomUUID().toString();
 
             UserAccount userAccount = system.getUserAccountDirectory().addNewUserAccount();
             userAccount.setEmail(email);
             userAccount.setPassword(password);
-            userAccount.setRole("GovernmentManager");
+            userAccount.setRole("AnalyticsManager");
             userAccount.setUserAccountId(uniqueField);
 
-            shelterManager.setGovernmentManagerId(uniqueField);
-            shelterManager.setFirstName(firstname);
-            shelterManager.setLastName(lastname);
-            shelterManager.setAge(Integer.parseInt(age));
-            shelterManager.setGender(gender);
-            shelterManager.setYearsOfExperience(Integer.parseInt(exp));
-            shelterManager.setPhoneNumber(phonenumber);
-            shelterManager.setSalary(Integer.parseInt(salary));
+            analyticsManager.setAnalyticsManagerId(uniqueField);
+            analyticsManager.setFirstName(firstname);
+            analyticsManager.setLastName(lastname);
+            analyticsManager.setAge(age);
+            analyticsManager.setGender(gender);
+            analyticsManager.setYearsOfExperience(Integer.parseInt(exp));
+            analyticsManager.setPhoneNumber(phonenumber);
+            analyticsManager.setSalary(Integer.parseInt(salary));
+
 
             JOptionPane.showMessageDialog(this, "Manager created");
+            
+            dB4OUtil.storeSystem(system);
         }
         catch(Exception err){
             JOptionPane.showMessageDialog(this, "Issue while creating manager, try again");
