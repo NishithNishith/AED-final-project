@@ -4,6 +4,9 @@
  */
 package UI.Government;
 
+import UI.shelter.StaffWorkarea;
+import business.ecosystem.Business;
+
 /**
  *
  * @author nishi
@@ -13,8 +16,14 @@ public class GovernmentAdmin extends javax.swing.JPanel {
     /**
      * Creates new form GovernmentAdmin
      */
-    public GovernmentAdmin() {
+    
+    Business system;
+    javax.swing.JSplitPane splitpane;
+    public GovernmentAdmin(javax.swing.JSplitPane splitpane, Business system) {
         initComponents();
+        this.splitpane = splitpane;
+        this.system = system;
+
     }
 
     /**
@@ -27,29 +36,111 @@ public class GovernmentAdmin extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
+        btnAnaManager = new javax.swing.JButton();
+        btnAnaManager1 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         jLabel1.setText("Government Admin");
+
+        btnAnaManager.setText("Create  Analytics Manager");
+        btnAnaManager.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAnaManagerActionPerformed(evt);
+            }
+        });
+
+        btnAnaManager1.setText("Create  Overseer");
+        btnAnaManager1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAnaManager1ActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("View Analytics Manager");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("View Overseer");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(182, 182, 182)
-                .addComponent(jLabel1)
-                .addContainerGap(270, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(219, 219, 219)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(158, 158, 158)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnAnaManager)
+                            .addComponent(btnAnaManager1, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(47, 47, 47)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton2)
+                            .addComponent(jButton1))))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(30, 30, 30)
+                .addGap(29, 29, 29)
                 .addComponent(jLabel1)
-                .addContainerGap(370, Short.MAX_VALUE))
+                .addGap(86, 86, 86)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAnaManager)
+                    .addComponent(jButton1))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(38, 38, 38)
+                        .addComponent(btnAnaManager1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(jButton2)))
+                .addContainerGap(201, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnAnaManagerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnaManagerActionPerformed
+        // TODO add your handling code here:
+        CreateAnalyticsManager panel = new CreateAnalyticsManager(splitpane, system);
+        splitpane.setRightComponent(panel);
+    }//GEN-LAST:event_btnAnaManagerActionPerformed
+
+    private void btnAnaManager1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnaManager1ActionPerformed
+        // TODO add your handling code here:
+        CreateOverseer panel = new CreateOverseer(splitpane, system);
+        splitpane.setRightComponent(panel);
+    }//GEN-LAST:event_btnAnaManager1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        ViewOverseer panel = new ViewOverseer(splitpane, system);
+        splitpane.setRightComponent(panel);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        ViewAnalyticsManager panel = new ViewAnalyticsManager(splitpane, system);
+        splitpane.setRightComponent(panel);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAnaManager;
+    private javax.swing.JButton btnAnaManager1;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

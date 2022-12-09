@@ -4,7 +4,9 @@
  */
 package business.ecosystem;
 
+import business.Government.BudgetOverseerDirectory;
 import business.Government.GovernmentManager;
+import business.Government.GovernmentManagerDirectory;
 import business.hospital.DoctorDirectory;
 import business.hospital.EncounterHistory;
 import business.hospital.HospitalManagerDirectory;
@@ -43,12 +45,16 @@ public class Business {
     FundRequestDirectory fundRequestDirectory;
     ShelterManagerDirectory ShelterManagerDirectory;
     ShelterStaffDirectory shelterStaffDirectory;
-    GovernmentManager governmentManager;
+    GovernmentManagerDirectory governmentManagerDirectory;
+    BudgetOverseerDirectory budgetOverseerDirectory;
     
     //Current user
     String currentUserId;
     String currentUserName;
     String currentUserEmail;
+    
+    //Funding
+    int curAmount;
     
     public Business (){
         personDirectory = new PersonDirectory();
@@ -67,15 +73,42 @@ public class Business {
         ShelterManagerDirectory = new ShelterManagerDirectory();
                 
         shelterStaffDirectory = new ShelterStaffDirectory();
-        governmentManager = new GovernmentManager();
+        governmentManagerDirectory = new GovernmentManagerDirectory();
+        budgetOverseerDirectory = new BudgetOverseerDirectory();       
+
         
         
         //Current user init
         this.currentUserId = "";
         this.currentUserEmail = "";
         this.currentUserName = "";
+        this.curAmount = 0;
         
         
+    }
+
+    public GovernmentManagerDirectory getGovernmentManagerDirectory() {
+        return governmentManagerDirectory;
+    }
+
+    public void setGovernmentManagerDirectory(GovernmentManagerDirectory governmentManagerDirectory) {
+        this.governmentManagerDirectory = governmentManagerDirectory;
+    }
+
+    public BudgetOverseerDirectory getBudgetOverseerDirectory() {
+        return budgetOverseerDirectory;
+    }
+
+    public void setBudgetOverseerDirectory(BudgetOverseerDirectory budgetOverseerDirectory) {
+        this.budgetOverseerDirectory = budgetOverseerDirectory;
+    }
+
+    public int getCurAmount() {
+        return curAmount;
+    }
+
+    public void setCurAmount(int curAmount) {
+        this.curAmount = curAmount;
     }
 
     public String getCurrentUserId() {
@@ -102,15 +135,7 @@ public class Business {
         this.currentUserEmail = currentUserEmail;
     }
 
-    public GovernmentManager getGovernmentManager() {
-        return governmentManager;
-    }
-
-    public void setGovernmentManager(GovernmentManager governmentManager) {
-        this.governmentManager = governmentManager;
-    }
     
-
     public FundDonationDirectory getFundDonationDirectory() {
         return fundDonationDirectory;
     }

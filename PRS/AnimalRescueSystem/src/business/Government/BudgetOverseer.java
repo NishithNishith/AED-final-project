@@ -10,18 +10,18 @@ import business.population.Person;
  *
  * @author nishi
  */
-public class GovernmentManager extends Person{
-    String governmentManagerId;
+public class BudgetOverseer extends Person{
+    String budgetOverseerId;
     int yearsOfExperience;
-    String phoneNumber;
+    int phoneNumber;
     float salary;
 
-    public String getGovernmentManagerId() {
-        return governmentManagerId;
+    public String getBudgetOverseerId() {
+        return budgetOverseerId;
     }
 
-    public void setGovernmentManagerId(String governmentManagerId) {
-        this.governmentManagerId = governmentManagerId;
+    public void setBudgetOverseerId(String budgetOverseerId) {
+        this.budgetOverseerId = budgetOverseerId;
     }
 
     public int getYearsOfExperience() {
@@ -32,11 +32,11 @@ public class GovernmentManager extends Person{
         this.yearsOfExperience = yearsOfExperience;
     }
 
-    public String getPhoneNumber() {
+    public int getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
+    public void setPhoneNumber(int phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
@@ -47,5 +47,6 @@ public class GovernmentManager extends Person{
     public void setSalary(float salary) {
         this.salary = salary;
     }
+    
     
 }
