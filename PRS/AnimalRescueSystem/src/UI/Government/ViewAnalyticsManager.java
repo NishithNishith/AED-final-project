@@ -27,12 +27,12 @@ public class ViewAnalyticsManager extends javax.swing.JPanel {
      * Creates new form ViewAnalyticsManager
      */
     Business system;
-    javax.swing.JSplitPane splitpane;
       DatabaseUtils dB4OUtil = DatabaseUtils.getInstance();
       Validations validations;
-    public ViewAnalyticsManager(javax.swing.JSplitPane splitpane, Business system) {
+      javax.swing.JSplitPane splitpane;
+    public ViewAnalyticsManager(javax.swing.JSplitPane splitpane,Business system) {
         initComponents();
-        this.splitpane = splitpane;
+this.splitpane = splitpane;
         this.system = system;
         validations = new Validations();
     }

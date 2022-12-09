@@ -185,6 +185,7 @@ public class LoginJPanel extends javax.swing.JPanel {
                      
                 }
                 else if(role.equals("DistributionAdmin")){
+                    
                 }
                 else if(role.equals("GovernmentAdmin")){
                     GovernmentAdmin panel = new GovernmentAdmin(splitpane, system);
