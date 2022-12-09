@@ -25,9 +25,8 @@ public class DistributionAdmin extends javax.swing.JFrame {
     Business system;
     
     
-    public DistributionAdmin(Business system) {
+    public DistributionAdmin() {
         initComponents();
-        this.system = system;
 
     }
 
@@ -99,7 +98,7 @@ public class DistributionAdmin extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         
-                ManageDeliveryAssociates manageDeliveryAssociate = new ManageDeliveryAssociates();
+        ManageDeliveryAssociates manageDeliveryAssociate = new ManageDeliveryAssociates();
         manageDeliveryAssociate.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -107,7 +106,7 @@ public class DistributionAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         
-        ManageInventory manageInventory = new ManageInventory(system);
+        ManageInventory manageInventory = new ManageInventory();
         manageInventory.setVisible(true);
         
         
