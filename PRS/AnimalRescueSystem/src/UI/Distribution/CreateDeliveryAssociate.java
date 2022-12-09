@@ -4,12 +4,15 @@
  */
 package UI.Distribution;
 
+import business.db4O.DatabaseUtils;
 import business.distribution.DeliveryAssociate;
 import business.distribution.DeliveryAssociateDirectory;
-import business.distribution.Inventory;
+import business.ecosystem.Business;
+import business.validations.Validations;
 import com.db4o.Db4oEmbedded;
 import com.db4o.ObjectContainer;
 import java.nio.file.Paths;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -20,8 +23,14 @@ public class CreateDeliveryAssociate extends javax.swing.JPanel {
     /**
      * Creates new form CreateDeliveryAssociate
      */
-    public CreateDeliveryAssociate() {
+    
+    Business system;
+    DatabaseUtils dB4OUtil = DatabaseUtils.getInstance();
+    Validations validations;
+    public CreateDeliveryAssociate(Business system) {
         initComponents();
+        this.system = system; 
+        validations = new Validations();
     }
 
     /**
@@ -109,40 +118,81 @@ public class CreateDeliveryAssociate extends javax.swing.JPanel {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         
-        String name = txtName.toString();
-        Integer deliveryAssociateId = Integer.valueOf(txtDeliverAssociateId.getText());
-        String phoneNumber = txtPhoneNumber.toString();
-        String workStatus = txtWorkStatus.toString();
+        String name;
+        Integer deliveryAssociateId;
+        String phoneNumber;
+        String workStatus;
         
-        DeliveryAssociateDirectory deliveryAssociateDirectory = new DeliveryAssociateDirectory();
-        
-        
-        
-        DeliveryAssociate deliveryAssociate = deliveryAssociateDirectory.addDeliveryAssociate();
-        
-        deliveryAssociate.setNameOfDA(name);
-        deliveryAssociate.setDeliveryAssociateID(deliveryAssociateId);
-        deliveryAssociate.setPhoneNumber(phoneNumber);
-        deliveryAssociate.setWorkStatus(workStatus);
-        
-        
-        
-               String DBFILENAME = Paths.get("ARSDatabank.db4o").toAbsolutePath().toString();
        
-        ObjectContainer db = Db4oEmbedded.openFile(Db4oEmbedded
- .newConfiguration(), DBFILENAME);
-          
-          db.store(deliveryAssociateDirectory);
-          
+        if(!validations.checkStringAndNumber(txtName.getText()) || txtName.getText().isEmpty())
+            {
+                JOptionPane.showMessageDialog(this, "Enter valid name ");
+                return;
+            }
+        else
+                 name = txtName.getText();
+        
+        if(!validations.checkStringAndNumber(txtPhoneNumber.getText()) || txtPhoneNumber.getText().isEmpty())
+            {
+                JOptionPane.showMessageDialog(this, "Enter valid Phone Number ");
+                return;
+            }
+        else
+                phoneNumber = txtPhoneNumber.getText();
+        
+        if(!validations.checkNumber(txtDeliverAssociateId.getText()) || txtDeliverAssociateId.getText().isEmpty())
+            {
+                JOptionPane.showMessageDialog(this, "Enter valid deliveryAssociateID ");
+                return;
+            }
+        else
+                
+                deliveryAssociateId = Integer.valueOf(txtDeliverAssociateId.getText());
+        
+        if(!validations.checkStringAndNumber(txtWorkStatus.getText()) || txtWorkStatus.getText().isEmpty())
+            {
+                JOptionPane.showMessageDialog(this, "Enter valid Work Status ");
+                return;
+            }
+        else
+               workStatus = txtWorkStatus.getText();
+        
+        
+         DeliveryAssociate existingDeliveryAssociate = system.getDeliveryAssociateDirectory().checkDeliveryAssociate(deliveryAssociateId);
 
-         
-          
- 
       
-   
+        
+        
+        
+        if(existingDeliveryAssociate != null){
+            system.getDeliveryAssociateDirectory().deleteDeliveryAsociate(existingDeliveryAssociate);
+            DeliveryAssociate d = system.getDeliveryAssociateDirectory().addDeliveryAssociate();
+     
+        d.setNameOfDA(name);
+        d.setDeliveryAssociateID(deliveryAssociateId);
+        d.setPhoneNumber(phoneNumber);
+        d.setWorkStatus(workStatus);
+            
+        }
+        else{
+            
+         DeliveryAssociate d = system.getDeliveryAssociateDirectory().addDeliveryAssociate();
 
-  
-          db.close();
+        d.setNameOfDA(name);
+        d.setDeliveryAssociateID(deliveryAssociateId);
+        d.setPhoneNumber(phoneNumber);
+        d.setWorkStatus(workStatus);
+            
+        }
+
+
+      
+          
+        dB4OUtil.storeSystem(system);
+        
+        
+        
+
         
      
         

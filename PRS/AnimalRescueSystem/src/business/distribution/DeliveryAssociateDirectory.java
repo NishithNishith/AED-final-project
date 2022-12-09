@@ -38,4 +38,13 @@ public class DeliveryAssociateDirectory {
         return deliveryAssociate;
     }
     
+    public DeliveryAssociate checkDeliveryAssociate(Integer deliveryAssociateID){
+        DeliveryAssociate da = new DeliveryAssociate();
+        for (DeliveryAssociate d : deliveryAssociateDirectory)
+            if (d.getDeliveryAssociateID() == deliveryAssociateID){
+                 da = d;
+            }               
+        return da;
+    }
+    
 }

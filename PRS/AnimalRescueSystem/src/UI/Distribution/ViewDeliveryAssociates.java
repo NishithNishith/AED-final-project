@@ -4,10 +4,11 @@
  */
 package UI.Distribution;
 
+import business.db4O.DatabaseUtils;
 import business.distribution.DeliveryAssociate;
 import business.distribution.DeliveryAssociateDirectory;
-import business.distribution.Inventory;
-import business.distribution.InventoryDirectory;
+import business.ecosystem.Business;
+import business.validations.Validations;
 import com.db4o.Db4oEmbedded;
 import com.db4o.ObjectContainer;
 import com.db4o.ObjectSet;
@@ -24,8 +25,14 @@ public class ViewDeliveryAssociates extends javax.swing.JPanel {
     /**
      * Creates new form ViewDeliveryAssociates
      */
-    public ViewDeliveryAssociates() {
+    
+        Business system;
+    DatabaseUtils dB4OUtil = DatabaseUtils.getInstance();
+    Validations validations;
+    public ViewDeliveryAssociates(Business system) {
         initComponents();
+        this.system = system;
+        validations = new Validations();
         populateTable();
     }
 
@@ -62,7 +69,7 @@ public class ViewDeliveryAssociates extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                "Delivery Associate ID", "Name", "Phone Number", "Work Status"
+                "Name", "Delivery Associate Id", "Phone Number", "Work Status"
             }
         ));
         jScrollPane1.setViewportView(deliveryAssociateTable);
@@ -77,6 +84,11 @@ public class ViewDeliveryAssociates extends javax.swing.JPanel {
         });
 
         jButton2.setText("Delete");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("Name:");
 
@@ -166,6 +178,105 @@ public class ViewDeliveryAssociates extends javax.swing.JPanel {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel) deliveryAssociateTable.getModel();
+        
+         if(deliveryAssociateTable.getSelectedRowCount()==1)
+        {
+          
+            
+        String name;
+        Integer deliveryAssociateId;
+        String phoneNumber;
+        String workStatus;
+        
+       
+        if(!validations.checkStringAndNumber(txtName.getText()) || txtName.getText().isEmpty())
+            {
+                JOptionPane.showMessageDialog(this, "Enter valid name ");
+                return;
+            }
+        else
+                 name = txtName.getText();
+        
+        if(!validations.checkStringAndNumber(txtPhoneNumber.getText()) || txtPhoneNumber.getText().isEmpty())
+            {
+                JOptionPane.showMessageDialog(this, "Enter valid Phone Number ");
+                return;
+            }
+        else
+                phoneNumber = txtPhoneNumber.getText();
+        
+        if(!validations.checkNumber(txtDeliveryAssociateID.getText()) || txtDeliveryAssociateID.getText().isEmpty())
+            {
+                JOptionPane.showMessageDialog(this, "Enter valid deliveryAssociateID ");
+                return;
+            }
+        else
+                
+                deliveryAssociateId = Integer.valueOf(txtDeliveryAssociateID.getText());
+        
+        if(!validations.checkStringAndNumber(txtWorkStatus.getText()) || txtWorkStatus.getText().isEmpty())
+            {
+                JOptionPane.showMessageDialog(this, "Enter valid Work Status ");
+                return;
+            }
+        else
+               workStatus = txtWorkStatus.getText();
+        
+        
+            model.setValueAt(deliveryAssociateId, deliveryAssociateTable.getSelectedRow(), 0);
+            model.setValueAt(name, deliveryAssociateTable.getSelectedRow(), 1);
+            model.setValueAt(phoneNumber, deliveryAssociateTable.getSelectedRow(), 2);
+            model.setValueAt(workStatus, deliveryAssociateTable.getSelectedRow(), 3);
+
+            
+            JOptionPane.showMessageDialog(this, "Updated information");
+        
+        
+                 DeliveryAssociate existingDeliveryAssociate = system.getDeliveryAssociateDirectory().checkDeliveryAssociate(deliveryAssociateId);
+
+      
+        
+        
+        
+        if(existingDeliveryAssociate != null){
+            system.getDeliveryAssociateDirectory().deleteDeliveryAsociate(existingDeliveryAssociate);
+            DeliveryAssociate d = system.getDeliveryAssociateDirectory().addDeliveryAssociate();
+     
+        d.setNameOfDA(name);
+        d.setDeliveryAssociateID(deliveryAssociateId);
+        d.setPhoneNumber(phoneNumber);
+        d.setWorkStatus(workStatus);
+            
+        }
+        else{
+            
+         DeliveryAssociate d = system.getDeliveryAssociateDirectory().addDeliveryAssociate();
+
+        d.setNameOfDA(name);
+        d.setDeliveryAssociateID(deliveryAssociateId);
+        d.setPhoneNumber(phoneNumber);
+        d.setWorkStatus(workStatus);
+            
+        }
+
+
+      
+          
+        dB4OUtil.storeSystem(system);
+        
+        
+        
+
+        
+     
+        
+        txtName.setText("");
+        txtDeliveryAssociateID.setText("");
+        txtPhoneNumber.setText("");
+        txtWorkStatus.setText("");
+        
+        }
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -188,6 +299,26 @@ public class ViewDeliveryAssociates extends javax.swing.JPanel {
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        
+                int selectedRowIndex = deliveryAssociateTable.getSelectedRow();
+        
+        if(selectedRowIndex<0){
+            JOptionPane.showMessageDialog(this, "Please select a row to delete");
+            return;
+        }
+        
+        DefaultTableModel model = (DefaultTableModel) deliveryAssociateTable.getModel();
+        DeliveryAssociate deleteDeliveryAssociate =(DeliveryAssociate) model.getValueAt(selectedRowIndex, 0);
+               
+        system.getDeliveryAssociateDirectory().deleteDeliveryAsociate(deleteDeliveryAssociate);
+        
+        JOptionPane.showMessageDialog(this, "Delivery Associate information deleted");
+        
+        populateTable();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
 
     
     private void populateTable(){
@@ -196,20 +327,9 @@ public class ViewDeliveryAssociates extends javax.swing.JPanel {
         
         model.setRowCount(0);
         
-        String DBFILENAME = Paths.get("ARSDatabank.db4o").toAbsolutePath().toString();
-       
-        ObjectContainer db = Db4oEmbedded.openFile(Db4oEmbedded.newConfiguration(), DBFILENAME);
-        
-
-        
-        ObjectSet result = db.queryByExample(DeliveryAssociateDirectory.class);
-        
-        DeliveryAssociateDirectory dad;
-         
                 
-        for(var i=0; i<=result.size() - 1; i++){            
-            dad = (DeliveryAssociateDirectory) result.get(i);         
-            for(DeliveryAssociate da : dad.getDeliveryAssociate()) {
+     
+            for(DeliveryAssociate da : system.getDeliveryAssociateDirectory().getDeliveryAssociate()) {
 
                 Object[] row = new Object[4];
                 row[0] = da;
@@ -220,10 +340,9 @@ public class ViewDeliveryAssociates extends javax.swing.JPanel {
 
                 model.addRow(row);           
             }
-        }
-
-        db.close();
     }
+
+
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable deliveryAssociateTable;

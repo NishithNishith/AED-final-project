@@ -4,6 +4,9 @@
  */
 package UI.Distribution;
 
+import business.db4O.DatabaseUtils;
+import business.ecosystem.Business;
+
 /**
  *
  * @author adity
@@ -13,8 +16,11 @@ public class ManageDeliveryAssociates extends javax.swing.JFrame {
     /**
      * Creates new form ManageDeliveryAssociates
      */
+           Business system;
+    DatabaseUtils dB4OUtil = DatabaseUtils.getInstance();
     public ManageDeliveryAssociates() {
         initComponents();
+         this.system = dB4OUtil.retrieveSystem(); 
     }
 
     /**
@@ -99,14 +105,14 @@ public class ManageDeliveryAssociates extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        CreateDeliveryAssociate cda = new CreateDeliveryAssociate();
+        CreateDeliveryAssociate cda = new CreateDeliveryAssociate(system);
         jSplitPane1.setRightComponent(cda);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         
-                ViewDeliveryAssociates vda = new ViewDeliveryAssociates();
+                ViewDeliveryAssociates vda = new ViewDeliveryAssociates(system);
         jSplitPane1.setRightComponent(vda);
     }//GEN-LAST:event_jButton2ActionPerformed
 
