@@ -30,7 +30,9 @@ public class ManageDonationsWorkarea extends javax.swing.JPanel {
         this.splitpane = splitpane;
         this.system = system;
         this.validations = new Validations();
+        this.updateProfile = null;
         lblFunds.setText(String.valueOf(this.system.getCurAmount()));
+        populate();
     }
 
     /**
@@ -215,6 +217,8 @@ public class ManageDonationsWorkarea extends javax.swing.JPanel {
         txtAmount.setText(String.valueOf(selectedProfile.getAmount()));
         txtStatus.setText(String.valueOf(selectedProfile.getStatus()));
         txtMessage.setText(String.valueOf(selectedProfile.getMessage()));
+        
+        updateProfile = selectedProfile;
     }//GEN-LAST:event_btnSelectActionPerformed
 
     private void btnAcceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcceptActionPerformed
