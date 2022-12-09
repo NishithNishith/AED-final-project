@@ -4,26 +4,31 @@
  */
 package UI.Distribution;
 
+import business.db4O.DatabaseUtils;
 import business.distribution.Inventory;
 import business.distribution.InventoryDirectory;
+import business.ecosystem.Business;
+import business.validations.Validations;
 import com.db4o.*;
 import com.db4o.query.Predicate;
 import java.nio.file.Paths;
+import javax.swing.JOptionPane;
 /**
  *
  * @author adity
  */
 public class CreateInventory extends javax.swing.JPanel {
 
+    Business system;
+    DatabaseUtils dB4OUtil = DatabaseUtils.getInstance();
+    Validations validations;
     /**
      * Creates new form CreateInventory
      */
-
-
-InventoryDirectory inventoryDirectory;
-    public CreateInventory(InventoryDirectory inventoryDirectory) {
+    public CreateInventory(Business system) {
         initComponents();
-        this.inventoryDirectory = inventoryDirectory;
+        this.system = system; 
+        validations = new Validations();
     }
 
     /**
@@ -102,38 +107,68 @@ InventoryDirectory inventoryDirectory;
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         
-        String name = txtName.getText();
-        Integer quantity = Integer.valueOf(txtQuantity.getText());
-        String status = txtStatus.getText();
+        String name;
 
-       
+        Integer quantity;
+        String status;
+        
+        
+        if(!validations.checkStringAndNumber(txtName.getText()) || txtName.getText().isEmpty())
+            {
+                JOptionPane.showMessageDialog(this, "Enter valid name ");
+                return;
+            }
+        else
+                 name = txtName.getText();
+        
+        if(!validations.checkStringAndNumber(txtStatus.getText()) || txtStatus.getText().isEmpty())
+            {
+                JOptionPane.showMessageDialog(this, "Enter valid status ");
+                return;
+            }
+        else
+                status = txtStatus.getText();
+        
+        if(!validations.checkNumber(txtQuantity.getText()) || txtQuantity.getText().isEmpty())
+            {
+                JOptionPane.showMessageDialog(this, "Enter valid quanity ");
+                return;
+            }
+        else
+                
+                quantity = Integer.valueOf(txtQuantity.getText());
+        
+        
 
-     Inventory i = inventoryDirectory.addInventory();
+        Inventory existingInventory = system.getInventoryDirectory().checkInventory(name, quantity);
+        
+        if(existingInventory != null){
+            system.getInventoryDirectory().deleteInventory(existingInventory);
+            Inventory i = system.getInventoryDirectory().addInventory();
      
-     i.setName(name);
-     i.setQuantity(quantity);
-     i.setStatus(status);
-     
-             
-       String DBFILENAME = Paths.get("ARSDatabank.db4o").toAbsolutePath().toString();
-       
-        ObjectContainer db = Db4oEmbedded.openFile(Db4oEmbedded
- .newConfiguration(), DBFILENAME);
+        i.setName(name);
+        i.setQuantity(quantity);
+        i.setStatus(status);
+            
+        }
+        else{
+            
+        Inventory i = system.getInventoryDirectory().addInventory();
+
+        i.setName(name);
+        i.setQuantity(quantity);
+        i.setStatus(status);
+            
+        }
+
+
+      
           
-          db.store(inventoryDirectory);
+        dB4OUtil.storeSystem(system);
           
 
          
-          
- 
-      
-   
-
-  
-          db.close();
-        
-     
-        
+         
         txtName.setText("");
         txtQuantity.setText("");
         txtStatus.setText("");
@@ -142,12 +177,6 @@ InventoryDirectory inventoryDirectory;
     }//GEN-LAST:event_jButton1ActionPerformed
 
     
-   public static void listResult(ObjectSet result){
-
-       while(result.hasNext()) {
-       System.out.println(result.next());
-       }
-   }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

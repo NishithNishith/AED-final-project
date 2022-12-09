@@ -4,6 +4,9 @@
  */
 package business.validations;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 /**
  *
  * @author nishi
@@ -48,4 +51,28 @@ public class Validations {
         return true;
     }
     
+    
+    public boolean checkStringAndNumber(String toCheck){
+        var PATTERN = "^[a-zA-Z0-9]+$";
+        Pattern patt = Pattern.compile(PATTERN);
+        Matcher match = patt.matcher(toCheck);
+ 
+        if(!match.matches()){
+            return false;
+        }
+        else
+         return true;
+    }
+    
+    public boolean checkNumber(String toCheck){
+                        var PATTERN = "[0-9]+";
+        Pattern patt = Pattern.compile(PATTERN);
+        Matcher match = patt.matcher(toCheck);
+        if(!match.matches()){
+            return false;
+        }
+        else
+         return true;
+    } 
+    }
 }

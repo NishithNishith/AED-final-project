@@ -62,7 +62,10 @@ public class DeliveryAssociate extends Person{
         this.nameOfDA = nameOfDA;
     }
     
-    
+            @Override
+    public String toString(){
+        return nameOfDA;
+    }
     
 
 }

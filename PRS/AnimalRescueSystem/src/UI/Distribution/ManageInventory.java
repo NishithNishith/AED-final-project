@@ -4,7 +4,9 @@
  */
 package UI.Distribution;
 
+import business.db4O.DatabaseUtils;
 import business.distribution.InventoryDirectory;
+import business.ecosystem.Business;
 
 /**
  *
@@ -15,10 +17,12 @@ public class ManageInventory extends javax.swing.JFrame {
     /**
      * Creates new form ManageInventory
      */
-    InventoryDirectory inventoryDirectory;
+       Business system;
+    DatabaseUtils dB4OUtil = DatabaseUtils.getInstance();
     public ManageInventory( ) {
         initComponents();
-        inventoryDirectory = new InventoryDirectory();
+        this.system = dB4OUtil.retrieveSystem(); 
+        
     }
 
     /**
@@ -105,13 +109,13 @@ public class ManageInventory extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         
-        CreateInventory c = new CreateInventory(inventoryDirectory);
+        CreateInventory c = new CreateInventory(system);
         jSplitPane1.setRightComponent(c);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-                ViewInventory c = new ViewInventory(inventoryDirectory);
+                ViewInventory c = new ViewInventory(system);
         jSplitPane1.setRightComponent(c);
         
     }//GEN-LAST:event_jButton2ActionPerformed
