@@ -46,45 +46,36 @@ public class ManageDonationsWorkarea extends javax.swing.JPanel {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        txtId = new javax.swing.JTextField();
-        txtStatus = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        txtAmount = new javax.swing.JTextField();
-        txtMessage = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        btnSelect = new javax.swing.JButton();
+        txtCurrentFunds = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         lblFunds = new javax.swing.JLabel();
         btnAccept = new javax.swing.JButton();
         btnReject = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
+        txtId = new javax.swing.JTextField();
+        txtStatus = new javax.swing.JTextField();
+        txtAmount = new javax.swing.JTextField();
+        txtMessage = new javax.swing.JTextField();
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(17, 53, 81));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Manage Donations");
+        add(jLabel1);
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(17, 53, 81));
-        jLabel2.setText("Current Funds::");
+        jLabel2.setText("Current Funds:");
+        add(jLabel2);
 
-        jLabel3.setText("Id");
-
-        jLabel4.setText("Status");
-
-        jLabel7.setText("Amount");
-
-        jLabel8.setText("Message");
-
-        btnSelect.setText("Select");
-        btnSelect.addActionListener(new java.awt.event.ActionListener() {
+        txtCurrentFunds.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
+        txtCurrentFunds.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSelectActionPerformed(evt);
             }
         });
+        add(txtCurrentFunds);
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -99,63 +90,37 @@ public class ManageDonationsWorkarea extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        lblFunds.setText("0");
+        add(jScrollPane1);
 
-        txtCurrentFunds.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
+        lblFunds.setBackground(new java.awt.Color(17, 53, 81));
+        lblFunds.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        lblFunds.setForeground(new java.awt.Color(255, 255, 255));
+        lblFunds.setText("Back");
+        add(lblFunds);
+
         btnAccept.setText("Accept");
         btnAccept.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAcceptActionPerformed(evt);
             }
         });
+        add(btnAccept);
 
-        txtButton.setBackground(new java.awt.Color(17, 53, 81));
-        txtButton.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        txtButton.setForeground(new java.awt.Color(255, 255, 255));
         btnReject.setText("Reject");
         btnReject.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRejectActionPerformed(evt);
             }
         });
+        add(btnReject);
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/Images/charity.jpeg"))); // NOI18N
         jLabel3.setText("jLabel3");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(78, 78, 78)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(txtButton, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(57, 57, 57)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 824, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(255, 255, 255))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtCurrentFunds, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(519, 519, 519))))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(549, 549, 549)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txtCurrentFunds, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 188, Short.MAX_VALUE)
-                .addComponent(txtButton)
-                .addGap(29, 29, 29))
-        );
+        add(jLabel3);
+        add(txtId);
+        add(txtStatus);
+        add(txtAmount);
+        add(txtMessage);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelectActionPerformed
@@ -239,11 +204,17 @@ public class ManageDonationsWorkarea extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAccept;
     private javax.swing.JButton btnReject;
-    private javax.swing.JButton btnSelect;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JButton txtButton;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JLabel lblFunds;
+    private javax.swing.JTextField txtAmount;
     private javax.swing.JTextField txtCurrentFunds;
+    private javax.swing.JTextField txtId;
+    private javax.swing.JTextField txtMessage;
+    private javax.swing.JTextField txtStatus;
     // End of variables declaration//GEN-END:variables
 
     private void populate() {

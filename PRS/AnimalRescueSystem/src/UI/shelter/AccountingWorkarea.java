@@ -42,9 +42,8 @@ public class AccountingWorkarea extends javax.swing.JPanel {
         txtDonations = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         lblFunds = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -82,13 +81,11 @@ public class AccountingWorkarea extends javax.swing.JPanel {
         jButton1.setText("View Expenses");
         add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 450, 208, 38));
 
-        jLabel2.setText("Current Funds :");
+        jLabel3.setText("Current Funds :");
+        add(jLabel3);
 
         lblFunds.setText("0");
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/Images/Accounting.png"))); // NOI18N
-        jLabel2.setText("jLabel2");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 1300, 640));
+        add(lblFunds);
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtDonationsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDonationsActionPerformed
@@ -111,8 +108,7 @@ public class AccountingWorkarea extends javax.swing.JPanel {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel lblFunds;
     private javax.swing.JButton txtDonations;
     // End of variables declaration//GEN-END:variables
