@@ -119,17 +119,7 @@ public class RequestFunds extends javax.swing.JPanel {
 
     private void txtSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSubmitActionPerformed
         // TODO add your handling code here:
-        try{
-            //Retreive db 
-            
-            
-        }
-        catch(Exception err){
-            System.out.println("DB connection error"+err);
-            JOptionPane.showMessageDialog(this, "Connection error, try again");
-            return;
-            
-        }
+
 
         try{
             String amount = txtAmount.getText();
