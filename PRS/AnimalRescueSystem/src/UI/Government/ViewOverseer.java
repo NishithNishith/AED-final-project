@@ -4,7 +4,16 @@
  */
 package UI.Government;
 
+import business.Government.BudgetOverseer;
+import business.db4O.DatabaseUtils;
 import business.ecosystem.Business;
+import business.ecosystem.UserAccount;
+import business.validations.Validations;
+import java.util.UUID;
+import javax.swing.JOptionPane;
+import javax.swing.RowFilter;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 
 /**
  *
@@ -17,6 +26,8 @@ public class ViewOverseer extends javax.swing.JPanel {
      */
     Business system;
     javax.swing.JSplitPane splitpane;
+          DatabaseUtils dB4OUtil = DatabaseUtils.getInstance();
+      Validations validations;
     public ViewOverseer(javax.swing.JSplitPane splitpane, Business system) {
         initComponents();
         this.splitpane = splitpane;
@@ -32,30 +43,541 @@ public class ViewOverseer extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        txtPassword = new javax.swing.JPasswordField();
+        txtSalary = new javax.swing.JTextField();
+        btnSelect = new javax.swing.JButton();
+        txtExp = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        txtAge = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        txtFirstname = new javax.swing.JTextField();
+        txtPhno = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        txtGender = new javax.swing.JTextField();
+        btnDelete = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        btnUpdate = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        txtEmail = new javax.swing.JTextField();
+        jTextField1 = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jLabel12 = new javax.swing.JLabel();
+        txtLastname = new javax.swing.JTextField();
+        txtPassword1 = new javax.swing.JPasswordField();
+        txtSalary1 = new javax.swing.JTextField();
+        btnSelect1 = new javax.swing.JButton();
+        txtExp1 = new javax.swing.JTextField();
+        txtAge1 = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
+        txtFirstname1 = new javax.swing.JTextField();
+        txtPhno1 = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
+        txtGender1 = new javax.swing.JTextField();
+        btnDelete1 = new javax.swing.JButton();
+        jLabel16 = new javax.swing.JLabel();
+        btnUpdate1 = new javax.swing.JButton();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        txtEmail1 = new javax.swing.JTextField();
+        txtSearch = new javax.swing.JTextField();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
+        jLabel23 = new javax.swing.JLabel();
+        txtLastname1 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
 
-        jLabel1.setText("View Overseer");
+        btnSelect.setText("View");
+
+        jLabel8.setText("Gender");
+
+        jLabel7.setText("Lastname");
+
+        jLabel10.setText("Phone Number");
+
+        btnDelete.setText("Delete");
+
+        jLabel4.setText("Salary");
+
+        btnUpdate.setText("Update");
+
+        jLabel3.setText("Experience");
+
+        jLabel2.setText("View Analytics Managers");
+
+        jLabel5.setText("Email");
+
+        jLabel6.setText("Password");
+
+        jLabel9.setText("Age");
+
+        jLabel11.setText("Firstname");
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "First name", "Last Name", "Age", "Experience", "Phone Number", "Salary"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        jLabel12.setText("Search");
+
+        btnSelect1.setText("View");
+        btnSelect1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSelect1ActionPerformed(evt);
+            }
+        });
+
+        jLabel14.setText("Lastname");
+
+        jLabel15.setText("Phone Number");
+
+        txtGender1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtGender1ActionPerformed(evt);
+            }
+        });
+
+        btnDelete1.setText("Delete");
+        btnDelete1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDelete1ActionPerformed(evt);
+            }
+        });
+
+        jLabel16.setText("Salary");
+
+        btnUpdate1.setText("Update");
+        btnUpdate1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdate1ActionPerformed(evt);
+            }
+        });
+
+        jLabel17.setText("Experience");
+
+        jLabel18.setText("View Overseer");
+
+        jLabel19.setText("Email");
+
+        jLabel20.setText("Password");
+
+        jLabel21.setText("Age");
+
+        jLabel22.setText("Firstname");
+
+        txtSearch.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtSearchKeyReleased(evt);
+            }
+        });
+
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "First name", "Last Name", "Age", "Experience", "Phone Number", "Salary"
+            }
+        ));
+        jScrollPane2.setViewportView(jTable2);
+
+        jLabel23.setText("Search");
+
+        jLabel1.setText("Gender");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(173, 173, 173)
-                .addComponent(jLabel1)
-                .addContainerGap(152, Short.MAX_VALUE))
+                .addGap(97, 97, 97)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel21)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtAge1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLabel17)
+                                .addComponent(jLabel22))
+                            .addComponent(jLabel16))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txtFirstname1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGap(30, 30, 30)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtSalary1, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(txtExp1))))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel19)
+                    .addComponent(jLabel15)
+                    .addComponent(jLabel20)
+                    .addComponent(jLabel14)
+                    .addComponent(jLabel1))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtEmail1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtPassword1, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(209, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtGender1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(txtPhno1, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(87, 87, 87)
+                                .addComponent(btnUpdate1))
+                            .addComponent(txtLastname1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(41, 41, 41))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32)
+                .addComponent(jLabel23)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnSelect1)
+                .addGap(34, 34, 34)
+                .addComponent(btnDelete1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(276, 276, 276)
+                .addComponent(jLabel18)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
-                .addContainerGap(278, Short.MAX_VALUE))
+                .addComponent(jLabel18)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnSelect1)
+                    .addComponent(btnDelete1)
+                    .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel23))
+                .addGap(27, 27, 27)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel22)
+                    .addComponent(jLabel14)
+                    .addComponent(txtFirstname1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtLastname1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel21)
+                            .addComponent(txtAge1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(33, 33, 33))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtGender1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1))
+                        .addGap(18, 18, 18)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel15)
+                    .addComponent(txtExp1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtPhno1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel17)
+                    .addComponent(btnUpdate1))
+                .addGap(32, 32, 32)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel16)
+                    .addComponent(txtSalary1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel19)
+                    .addComponent(txtEmail1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel20)
+                    .addComponent(txtPassword1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnSelect1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelect1ActionPerformed
 
+        int selectRowIndex = jTable1.getSelectedRow();
+
+        if(selectRowIndex < 0){
+            JOptionPane.showMessageDialog(this, "Please select a row to be updated");
+            return;
+        }
+
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        BudgetOverseer selectedProfile = (BudgetOverseer)model.getValueAt(selectRowIndex,0  );
+
+        txtFirstname1.setText(String.valueOf(selectedProfile.getFirstName()));
+        txtLastname1.setText(String.valueOf(selectedProfile.getLastName()));
+        txtAge1.setText(String.valueOf(selectedProfile.getAge()));
+        txtGender1.setText(String.valueOf(selectedProfile.getGender()));
+        txtExp1.setText(String.valueOf(selectedProfile.getYearsOfExperience()));
+        txtSalary1.setText(String.valueOf(selectedProfile.getSalary()));
+
+        txtPhno1.setText(String.valueOf(selectedProfile.getPhoneNumber()));
+    }//GEN-LAST:event_btnSelect1ActionPerformed
+
+    private void btnDelete1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDelete1ActionPerformed
+        // TODO add your handling code here:
+
+        int selectRowIndex = jTable1.getSelectedRow();
+
+        if(selectRowIndex < 0){
+            JOptionPane.showMessageDialog(this, "Please select a row to be deleted");
+            return;
+        }
+
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        BudgetOverseer selectedProfile = (BudgetOverseer)model.getValueAt(selectRowIndex,0  );
+
+        //        shelterStaffList.removeShelterStaff(selectedProfile);
+        system.getBudgetOverseerDirectory().removeBudgetOverseer(selectedProfile);
+        JOptionPane.showMessageDialog(this, "Staff has been deleted");
+
+        populateTable();
+    }//GEN-LAST:event_btnDelete1ActionPerformed
+
+    private void btnUpdate1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdate1ActionPerformed
+        // TODO add your handling code here:
+
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        if(jTable1.getSelectedRowCount()==1)
+        {
+
+            String firstname;
+            String lastname;
+            Integer age ;
+            String gender ;
+            String exp ;
+            String phonenumber ;
+            String salary ;
+            String email = txtEmail.getText();
+            String password = txtPassword.getText();
+
+            if(!validations.emailCheck(email)){
+                JOptionPane.showMessageDialog(this, "Enter valid details for Email");
+                return;
+            }
+
+            if(!validations.passwordCheck(password)){
+                JOptionPane.showMessageDialog(this, "Enter valid details for Password");
+                return;
+            }
+
+            if(!validations.checkStringAndNumber(txtFirstname1.getText()) || txtFirstname1.getText().isEmpty() || !validations.lengthCheck(txtFirstname1.getText()))
+            {
+                JOptionPane.showMessageDialog(this, "Enter valid first name ");
+                return;
+            }
+            else
+                firstname = txtFirstname1.getText();
+
+            if(!validations.checkStringAndNumber(txtLastname1.getText()) || txtLastname1.getText().isEmpty() ||!validations.lengthCheck(txtLastname1.getText()))
+            {
+                JOptionPane.showMessageDialog(this, "Enter valid last name ");
+                return;
+            }
+            else
+                lastname = txtLastname1.getText();
+
+            if(!validations.checkStringAndNumber(txtGender1.getText()) || txtGender1.getText().isEmpty() ||!validations.lengthCheck(txtGender1.getText()))
+            {
+                JOptionPane.showMessageDialog(this, "Enter valid gender ");
+                return;
+            }
+            else
+                gender = txtGender1.getText();
+
+            if(!validations.checkNumber(txtAge1.getText()) || txtAge1.getText().isEmpty())
+            {
+                JOptionPane.showMessageDialog(this, "Enter valid age ");
+                return;
+            }
+            else
+
+                 age = Integer.valueOf(txtAge1.getText());
+            if(!validations.checkStringAndNumber(txtExp1.getText()) || txtExp1.getText().isEmpty() || !validations.lengthCheck(txtExp1.getText()))
+            {
+                JOptionPane.showMessageDialog(this, "Enter valid experience ");
+                return;
+            }
+            else
+                exp = txtExp1.getText();
+
+            if(!validations.checkStringAndNumber(txtPhno1.getText()) || txtPhno1.getText().isEmpty() || !validations.lengthCheck(txtPhno1.getText()))
+            {
+                JOptionPane.showMessageDialog(this, "Enter valid phone number ");
+                return;
+            }
+            else
+                phonenumber = txtPhno1.getText();
+
+            if(!validations.checkStringAndNumber(txtSalary1.getText()) || txtSalary1.getText().isEmpty() || !validations.lengthCheck(txtSalary1.getText()))
+            {
+                JOptionPane.showMessageDialog(this, "Enter valid salary ");
+                return;
+            }
+            else
+                salary = txtSalary1.getText();
+
+            model.setValueAt(firstname, jTable1.getSelectedRow(), 0);
+            model.setValueAt(lastname, jTable1.getSelectedRow(), 1);
+            model.setValueAt(age, jTable1.getSelectedRow(), 2);
+            model.setValueAt(exp, jTable1.getSelectedRow(), 3);
+            model.setValueAt(phonenumber, jTable1.getSelectedRow(), 4);
+            model.setValueAt(salary, jTable1.getSelectedRow(), 5);
+
+            JOptionPane.showMessageDialog(this, "Updated information");
+
+            BudgetOverseer analyticsManager = system.getBudgetOverseerDirectory().addNewBudgetOverseer();
+
+            String uniqueField = UUID.randomUUID().toString();
+
+            UserAccount userAccount = system.getUserAccountDirectory().addNewUserAccount();
+            userAccount.setEmail(email);
+            userAccount.setPassword(password);
+            userAccount.setRole("AnalyticsManager");
+            userAccount.setUserAccountId(uniqueField);
+
+            analyticsManager.setBudgetOverseerId(uniqueField);
+            analyticsManager.setFirstName(firstname);
+            analyticsManager.setLastName(lastname);
+            analyticsManager.setAge(age);
+            analyticsManager.setGender(gender);
+            analyticsManager.setYearsOfExperience(Integer.parseInt(exp));
+            analyticsManager.setPhoneNumber(phonenumber);
+            analyticsManager.setSalary(Integer.parseInt(salary));
+
+            JOptionPane.showMessageDialog(this, "Manager created");
+
+            dB4OUtil.storeSystem(system);
+        }
+
+    }//GEN-LAST:event_btnUpdate1ActionPerformed
+
+    private void txtGender1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtGender1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtGender1ActionPerformed
+
+    private void txtSearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchKeyReleased
+        // TODO add your handling code here:
+        
+                        String searchString = txtSearch.getText();
+        Search(searchString);
+    }//GEN-LAST:event_txtSearchKeyReleased
+
+         private void populateTable(){
+        
+         DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
+        
+        model.setRowCount(0);
+        
+                
+     
+            for(BudgetOverseer da : system.getBudgetOverseerDirectory().getBudgetOverseerList()) {
+
+                Object[] row = new Object[6];
+                row[0] = da;
+                row[1] = da.getLastName();
+                row[2] = da.getAge();
+                row[3] = da.getYearsOfExperience();
+                row[4] = da.getPhoneNumber();
+                row[5] = da.getSalary();
+                
+
+                model.addRow(row);           
+            }
+    }
+         
+             private void Search(String str){
+        DefaultTableModel model = (DefaultTableModel) jTable2.getModel(); 
+        TableRowSorter<DefaultTableModel> trs = new TableRowSorter<>(model);
+        
+        jTable2.setRowSorter(trs);
+        trs.setRowFilter(RowFilter.regexFilter(str));
+        
+    }
+
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnDelete;
+    private javax.swing.JButton btnDelete1;
+    private javax.swing.JButton btnSelect;
+    private javax.swing.JButton btnSelect1;
+    private javax.swing.JButton btnUpdate;
+    private javax.swing.JButton btnUpdate1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable2;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField txtAge;
+    private javax.swing.JTextField txtAge1;
+    private javax.swing.JTextField txtEmail;
+    private javax.swing.JTextField txtEmail1;
+    private javax.swing.JTextField txtExp;
+    private javax.swing.JTextField txtExp1;
+    private javax.swing.JTextField txtFirstname;
+    private javax.swing.JTextField txtFirstname1;
+    private javax.swing.JTextField txtGender;
+    private javax.swing.JTextField txtGender1;
+    private javax.swing.JTextField txtLastname;
+    private javax.swing.JTextField txtLastname1;
+    private javax.swing.JPasswordField txtPassword;
+    private javax.swing.JPasswordField txtPassword1;
+    private javax.swing.JTextField txtPhno;
+    private javax.swing.JTextField txtPhno1;
+    private javax.swing.JTextField txtSalary;
+    private javax.swing.JTextField txtSalary1;
+    private javax.swing.JTextField txtSearch;
     // End of variables declaration//GEN-END:variables
 }

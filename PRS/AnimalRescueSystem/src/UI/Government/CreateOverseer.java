@@ -4,8 +4,13 @@
  */
 package UI.Government;
 
+import business.Government.BudgetOverseer;
+import business.db4O.DatabaseUtils;
 import business.ecosystem.Business;
+import business.ecosystem.UserAccount;
 import business.validations.Validations;
+import java.util.UUID;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -19,6 +24,7 @@ public class CreateOverseer extends javax.swing.JPanel {
     javax.swing.JSplitPane splitpane;
     Validations validations;
     Business system;
+    DatabaseUtils dB4OUtil = DatabaseUtils.getInstance();
     
     public CreateOverseer(javax.swing.JSplitPane splitpane, Business system) {
         initComponents();
@@ -36,29 +42,323 @@ public class CreateOverseer extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
+        txtSalary = new javax.swing.JTextField();
+        txtBack = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        txtLastname = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        txtExp = new javax.swing.JTextField();
+        btnSave = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        txtPhno = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        txtFirstname = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        txtAge = new javax.swing.JTextField();
+        txtEmail = new javax.swing.JTextField();
+        txtPassword = new javax.swing.JPasswordField();
+        jLabel5 = new javax.swing.JLabel();
+        txtGender = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
 
         jLabel1.setText("Overseer");
+
+        txtBack.setText("Back");
+        txtBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtBackActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setText("Firstname");
+
+        jLabel6.setText("Gender");
+
+        btnSave.setText("Save");
+        btnSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveActionPerformed(evt);
+            }
+        });
+
+        jLabel4.setText("Lastname");
+
+        jLabel7.setText("Experience");
+
+        jLabel8.setText("Phone Number");
+
+        jLabel2.setText("email");
+
+        txtFirstname.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtFirstnameActionPerformed(evt);
+            }
+        });
+
+        jLabel10.setText("password");
+
+        txtEmail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtEmailActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setText("Age");
+
+        jLabel9.setText("Salary");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(161, 161, 161)
+                .addGap(163, 163, 163)
                 .addComponent(jLabel1)
-                .addContainerGap(192, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnSave)
+                .addGap(20, 20, 20))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(11, 11, 11)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel8)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel2)
+                                .addComponent(jLabel9))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel10)
+                                .addGap(3, 3, 3)))
+                        .addGap(85, 85, 85)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtEmail)
+                            .addComponent(txtPassword)
+                            .addComponent(txtSalary)
+                            .addComponent(txtPhno)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(4, 4, 4)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel5))
+                        .addGap(85, 85, 85)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtAge)
+                            .addComponent(txtLastname)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(txtFirstname, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 85, Short.MAX_VALUE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel7))
+                        .addGap(85, 85, 85)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtGender)
+                            .addComponent(txtExp))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtBack))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(23, 23, 23)
+                .addContainerGap()
                 .addComponent(jLabel1)
-                .addContainerGap(261, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(383, 383, 383)
+                        .addComponent(btnSave))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3)
+                            .addComponent(txtFirstname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel4)
+                            .addComponent(txtLastname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel5)
+                            .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel6)
+                            .addComponent(txtGender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel7)
+                            .addComponent(txtExp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel8)
+                            .addComponent(txtPhno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel9)
+                                    .addComponent(txtSalary, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(txtBack)
+                                .addGap(28, 28, 28)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel10)
+                            .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void txtBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBackActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtBackActionPerformed
+
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+        // TODO add your handling code here:
+
+        try{
+            String firstname;
+            String lastname;
+            Integer age ;
+            String gender ;
+            String exp ;
+            String phonenumber ;
+            String salary ;
+            String email = txtEmail.getText();
+            String password = txtPassword.getText();
+
+            if(!validations.emailCheck(email)){
+                JOptionPane.showMessageDialog(this, "Enter valid details for Email");
+                return;
+            }
+
+            if(!validations.passwordCheck(password)){
+                JOptionPane.showMessageDialog(this, "Enter valid details for Password");
+                return;
+            }
+
+            if(!validations.checkStringAndNumber(txtFirstname.getText()) || txtFirstname.getText().isEmpty() || !validations.lengthCheck(txtFirstname.getText()))
+            {
+                JOptionPane.showMessageDialog(this, "Enter valid first name ");
+                return;
+            }
+            else
+                 firstname = txtFirstname.getText();
+
+            if(!validations.checkStringAndNumber(txtLastname.getText()) || txtLastname.getText().isEmpty() ||!validations.lengthCheck(txtLastname.getText()))
+            {
+                JOptionPane.showMessageDialog(this, "Enter valid last name ");
+                return;
+            }
+            else
+                 lastname = txtLastname.getText();
+ 
+            if(!validations.checkStringAndNumber(txtGender.getText()) || txtGender.getText().isEmpty() ||!validations.lengthCheck(txtGender.getText()))
+            {
+                JOptionPane.showMessageDialog(this, "Enter valid gender ");
+                return;
+            }
+            else
+                gender = txtGender.getText();
+
+            if(!validations.checkNumber(txtAge.getText()) || txtAge.getText().isEmpty())
+            {
+                JOptionPane.showMessageDialog(this, "Enter valid age ");
+                return;
+            }
+            else
+
+                age = Integer.valueOf(txtAge.getText());
+            if(!validations.checkStringAndNumber(txtExp.getText()) || txtExp.getText().isEmpty() || !validations.lengthCheck(txtExp.getText()))
+            {
+                JOptionPane.showMessageDialog(this, "Enter valid experience ");
+                return;
+            }
+            else
+                exp = txtExp.getText();
+
+            if(!validations.checkStringAndNumber(txtPhno.getText()) || txtPhno.getText().isEmpty() || !validations.lengthCheck(txtPhno.getText()))
+            {
+                JOptionPane.showMessageDialog(this, "Enter valid phone number ");
+                return;
+            }
+            else
+                phonenumber = txtPhno.getText();
+
+            if(!validations.checkStringAndNumber(txtSalary.getText()) || txtSalary.getText().isEmpty() || !validations.lengthCheck(txtSalary.getText()))
+            {
+                JOptionPane.showMessageDialog(this, "Enter valid salary ");
+                return;
+            }
+            else
+                salary = txtPhno.getText();
+
+            BudgetOverseer analyticsManager = system.getBudgetOverseerDirectory().addNewBudgetOverseer();
+
+            String uniqueField = UUID.randomUUID().toString();
+
+            UserAccount userAccount = system.getUserAccountDirectory().addNewUserAccount();
+            userAccount.setEmail(email);
+            userAccount.setPassword(password);
+            userAccount.setRole("AnalyticsManager");
+            userAccount.setUserAccountId(uniqueField);
+
+            analyticsManager.setBudgetOverseerId(uniqueField);
+            analyticsManager.setFirstName(firstname);
+            analyticsManager.setLastName(lastname);
+            analyticsManager.setAge(age);
+            analyticsManager.setGender(gender);
+            analyticsManager.setYearsOfExperience(Integer.parseInt(exp));
+            analyticsManager.setPhoneNumber(phonenumber);
+            analyticsManager.setSalary(Integer.parseInt(salary));
+
+            JOptionPane.showMessageDialog(this, "Manager created");
+
+            dB4OUtil.storeSystem(system);
+        }
+        catch(Exception err){
+            JOptionPane.showMessageDialog(this, "Issue while creating manager, try again");
+        }
+    }//GEN-LAST:event_btnSaveActionPerformed
+
+    private void txtFirstnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFirstnameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtFirstnameActionPerformed
+
+    private void txtEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtEmailActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnSave;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JTextField txtAge;
+    private javax.swing.JButton txtBack;
+    private javax.swing.JTextField txtEmail;
+    private javax.swing.JTextField txtExp;
+    private javax.swing.JTextField txtFirstname;
+    private javax.swing.JTextField txtGender;
+    private javax.swing.JTextField txtLastname;
+    private javax.swing.JPasswordField txtPassword;
+    private javax.swing.JTextField txtPhno;
+    private javax.swing.JTextField txtSalary;
     // End of variables declaration//GEN-END:variables
 }
