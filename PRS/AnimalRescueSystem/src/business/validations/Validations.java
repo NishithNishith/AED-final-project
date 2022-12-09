@@ -20,6 +20,7 @@ public class Validations {
         return true;
     }
     
+
     
      public boolean numberCheck(String val) {
 
@@ -31,4 +32,20 @@ public class Validations {
 
         return true;
     }
+
+    
+    public boolean emailCheck(String val) {
+
+        
+
+        return true;
+    }
+    
+    public boolean passwordCheck(String val) {
+
+        
+
+        return true;
+    }
+    
 }

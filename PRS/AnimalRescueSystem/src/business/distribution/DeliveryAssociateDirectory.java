@@ -32,8 +32,8 @@ public class DeliveryAssociateDirectory {
         deliveryAssociateDirectory.remove(deliveryAssociate);
     }
     
-    public DeliveryAssociate addDeliveryAssociate(String personID, String name, int age, String gender, String dateOfBirth, int deliveryAssociateID, String phoneNumber, String workStatus, String nameOfDA){
-        DeliveryAssociate deliveryAssociate = new DeliveryAssociate(personID, name, age, gender, dateOfBirth, deliveryAssociateID, phoneNumber, workStatus, nameOfDA);
+    public DeliveryAssociate addDeliveryAssociate(){
+        DeliveryAssociate deliveryAssociate = new DeliveryAssociate();
         deliveryAssociateDirectory.add(deliveryAssociate);
         return deliveryAssociate;
     }

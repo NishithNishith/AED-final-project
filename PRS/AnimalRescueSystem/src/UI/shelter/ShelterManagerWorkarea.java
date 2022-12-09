@@ -4,6 +4,8 @@
  */
 package UI.shelter;
 
+import business.ecosystem.Business;
+
 /**
  *
  * @author nishi
@@ -13,8 +15,13 @@ public class ShelterManagerWorkarea extends javax.swing.JPanel {
     /**
      * Creates new form ShelterManagerWorkarea
      */
-    public ShelterManagerWorkarea() {
+    
+    javax.swing.JSplitPane splitpane;
+    Business system;
+    public ShelterManagerWorkarea(javax.swing.JSplitPane splitpane, Business system) {
         initComponents();
+        this.splitpane = splitpane;
+        this.system = system;
     }
 
     /**
@@ -31,19 +38,42 @@ public class ShelterManagerWorkarea extends javax.swing.JPanel {
         txtDonations = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         txtShelter = new javax.swing.JButton();
+        txtStaff1 = new javax.swing.JButton();
 
         jLabel1.setText("Shelter Manager");
 
         txtStaff.setText("Manage Staff");
+        txtStaff.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtStaffActionPerformed(evt);
+            }
+        });
 
         txtDonations.setText("Manage Donations");
+        txtDonations.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDonationsActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Request Funds");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         txtShelter.setText("View Shelter");
         txtShelter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtShelterActionPerformed(evt);
+            }
+        });
+
+        txtStaff1.setText("Manage Accountant");
+        txtStaff1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtStaff1ActionPerformed(evt);
             }
         });
 
@@ -58,6 +88,7 @@ public class ShelterManagerWorkarea extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtStaff1)
                     .addComponent(txtShelter)
                     .addComponent(jButton3)
                     .addComponent(txtDonations)
@@ -77,13 +108,41 @@ public class ShelterManagerWorkarea extends javax.swing.JPanel {
                 .addComponent(jButton3)
                 .addGap(29, 29, 29)
                 .addComponent(txtShelter)
-                .addContainerGap(198, Short.MAX_VALUE))
+                .addGap(27, 27, 27)
+                .addComponent(txtStaff1)
+                .addContainerGap(148, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtShelterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtShelterActionPerformed
         // TODO add your handling code here:
+        ViewShelterJPanel panel = new ViewShelterJPanel(splitpane);
+        splitpane.setRightComponent(panel);
     }//GEN-LAST:event_txtShelterActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        ManageStaffWorkarea panel = new ManageStaffWorkarea(splitpane, system);
+        splitpane.setRightComponent(panel);
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void txtStaffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtStaffActionPerformed
+        // TODO add your handling code here:
+        RequestFunds panel = new RequestFunds(splitpane);
+        splitpane.setRightComponent(panel);
+    }//GEN-LAST:event_txtStaffActionPerformed
+
+    private void txtDonationsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDonationsActionPerformed
+        // TODO add your handling code here:
+        ManageDonationsWorkarea panel = new ManageDonationsWorkarea(splitpane);
+        splitpane.setRightComponent(panel);
+    }//GEN-LAST:event_txtDonationsActionPerformed
+
+    private void txtStaff1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtStaff1ActionPerformed
+        // TODO add your handling code here:
+        ManageAccountantWorkarea panel = new ManageAccountantWorkarea(splitpane);
+        splitpane.setRightComponent(panel);
+    }//GEN-LAST:event_txtStaff1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -92,5 +151,6 @@ public class ShelterManagerWorkarea extends javax.swing.JPanel {
     private javax.swing.JButton txtDonations;
     private javax.swing.JButton txtShelter;
     private javax.swing.JButton txtStaff;
+    private javax.swing.JButton txtStaff1;
     // End of variables declaration//GEN-END:variables
 }

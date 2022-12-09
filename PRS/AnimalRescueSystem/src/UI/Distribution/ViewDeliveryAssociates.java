@@ -4,6 +4,17 @@
  */
 package UI.Distribution;
 
+import business.distribution.DeliveryAssociate;
+import business.distribution.DeliveryAssociateDirectory;
+import business.distribution.Inventory;
+import business.distribution.InventoryDirectory;
+import com.db4o.Db4oEmbedded;
+import com.db4o.ObjectContainer;
+import com.db4o.ObjectSet;
+import java.nio.file.Paths;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author adity
@@ -15,6 +26,7 @@ public class ViewDeliveryAssociates extends javax.swing.JPanel {
      */
     public ViewDeliveryAssociates() {
         initComponents();
+        populateTable();
     }
 
     /**
@@ -27,22 +39,22 @@ public class ViewDeliveryAssociates extends javax.swing.JPanel {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        deliveryAssociateTable = new javax.swing.JTable();
         jTextField1 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jTextField2 = new javax.swing.JTextField();
+        txtName = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        txtDeliveryAssociateID = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        txtPhoneNumber = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        txtWorkStatus = new javax.swing.JTextField();
         jButton3 = new javax.swing.JButton();
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        deliveryAssociateTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -53,11 +65,16 @@ public class ViewDeliveryAssociates extends javax.swing.JPanel {
                 "Delivery Associate ID", "Name", "Phone Number", "Work Status"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(deliveryAssociateTable);
 
         jLabel1.setText("Search");
 
         jButton1.setText("View");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Delete");
 
@@ -95,8 +112,8 @@ public class ViewDeliveryAssociates extends javax.swing.JPanel {
                             .addComponent(jLabel2))
                         .addGap(41, 41, 41)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField2)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE))))
+                            .addComponent(txtName)
+                            .addComponent(txtDeliveryAssociateID, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE))))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -110,8 +127,8 @@ public class ViewDeliveryAssociates extends javax.swing.JPanel {
                             .addComponent(jLabel4))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField4)
-                            .addComponent(jTextField5, javax.swing.GroupLayout.DEFAULT_SIZE, 98, Short.MAX_VALUE))))
+                            .addComponent(txtPhoneNumber)
+                            .addComponent(txtWorkStatus, javax.swing.GroupLayout.DEFAULT_SIZE, 98, Short.MAX_VALUE))))
                 .addGap(25, 25, 25))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -131,16 +148,16 @@ public class ViewDeliveryAssociates extends javax.swing.JPanel {
                     .addComponent(jButton2))
                 .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2)
                     .addComponent(jLabel4)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(53, 53, 53)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtDeliveryAssociateID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtWorkStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
                 .addComponent(jButton3)
                 .addGap(14, 14, 14))
@@ -151,8 +168,65 @@ public class ViewDeliveryAssociates extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        
+                        int selectedRowIndex = deliveryAssociateTable.getSelectedRow();
+        
+        if(selectedRowIndex<0){
+            JOptionPane.showMessageDialog(this, "Please select a row to display information");
+            return;
+        }
+        
+        DefaultTableModel model = (DefaultTableModel) deliveryAssociateTable.getModel();
+        DeliveryAssociate deliveryAssociate =(DeliveryAssociate) model.getValueAt(selectedRowIndex, 0 );
+        
+                txtName.setText(String.valueOf(deliveryAssociate.getNameOfDA())) ;
+                txtDeliveryAssociateID.setText(String.valueOf(deliveryAssociate.getDeliveryAssociateID()));
+                txtPhoneNumber.setText(String.valueOf(deliveryAssociate.getPhoneNumber())) ;  
+                txtWorkStatus.setText(String.valueOf(deliveryAssociate.getWorkStatus())) ; 
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
 
+
+    
+    private void populateTable(){
+        
+         DefaultTableModel model = (DefaultTableModel) deliveryAssociateTable.getModel();
+        
+        model.setRowCount(0);
+        
+        String DBFILENAME = Paths.get("ARSDatabank.db4o").toAbsolutePath().toString();
+       
+        ObjectContainer db = Db4oEmbedded.openFile(Db4oEmbedded.newConfiguration(), DBFILENAME);
+        
+
+        
+        ObjectSet result = db.queryByExample(DeliveryAssociateDirectory.class);
+        
+        DeliveryAssociateDirectory dad;
+         
+                
+        for(var i=0; i<=result.size() - 1; i++){            
+            dad = (DeliveryAssociateDirectory) result.get(i);         
+            for(DeliveryAssociate da : dad.getDeliveryAssociate()) {
+
+                Object[] row = new Object[4];
+                row[0] = da;
+    //          row[1] = e.getPatientName();
+                row[1] = da.getDeliveryAssociateID();
+                row[2] = da.getPhoneNumber();
+                row[3] = da.getWorkStatus();
+
+                model.addRow(row);           
+            }
+        }
+
+        db.close();
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable deliveryAssociateTable;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -162,11 +236,10 @@ public class ViewDeliveryAssociates extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField txtDeliveryAssociateID;
+    private javax.swing.JTextField txtName;
+    private javax.swing.JTextField txtPhoneNumber;
+    private javax.swing.JTextField txtWorkStatus;
     // End of variables declaration//GEN-END:variables
 }

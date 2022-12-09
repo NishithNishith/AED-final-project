@@ -4,6 +4,7 @@
  */
 package UI.Main;
 
+<<<<<<< HEAD
 import UI.Hospital.HospitalAdminJPanel;
 import UI.Hospital.ManageDoctorsJPanel;
 import UI.Hospitals.CreateDoctorJPanel;
@@ -11,6 +12,15 @@ import UI.Hospitals.CreateEncounterJPanel;
 import UI.Hospitals.ViewDoctorJPanel;
 import business.ecosystem.Business;
 
+=======
+import UI.Population.ReportJPanel;
+import UI.shelter.ManageStaffWorkarea;
+import UI.shelter.ShelterAdmin;
+import UI.shelter.StaffWorkarea;
+import business.db4O.DatabaseUtils;
+import business.ecosystem.Business;
+import javax.swing.JOptionPane;
+>>>>>>> c4667302192db8820613e994706bbe16288a777a
 
 /**
  *
@@ -22,9 +32,17 @@ public class MainJFrame extends javax.swing.JFrame {
     /**
      * Creates new form MainJFrame
      */
+    
+    DatabaseUtils dB4OUtil = DatabaseUtils.getInstance();
+    Business system;
     public MainJFrame() {
         initComponents();
         
+<<<<<<< HEAD
+=======
+//        this.system = dB4OUtil.retrieveSystem();
+        
+>>>>>>> c4667302192db8820613e994706bbe16288a777a
     }
 
     /**
@@ -38,8 +56,16 @@ public class MainJFrame extends javax.swing.JFrame {
 
         splitpane = new javax.swing.JSplitPane();
         jPanel1 = new javax.swing.JPanel();
+<<<<<<< HEAD
         hospitaladminbtn = new javax.swing.JButton();
         hospitaladminbtn1 = new javax.swing.JButton();
+=======
+        txtShelterAdmin = new javax.swing.JButton();
+        txtShelterAdmin1 = new javax.swing.JButton();
+        txtShelterAdmin2 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+>>>>>>> c4667302192db8820613e994706bbe16288a777a
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         txtLogin = new javax.swing.JButton();
@@ -47,6 +73,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+<<<<<<< HEAD
         hospitaladminbtn.setText("Hospital Admin");
         hospitaladminbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -58,6 +85,40 @@ public class MainJFrame extends javax.swing.JFrame {
         hospitaladminbtn1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 hospitaladminbtn1ActionPerformed(evt);
+=======
+        txtShelterAdmin.setText("Shelter admin");
+        txtShelterAdmin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtShelterAdminActionPerformed(evt);
+            }
+        });
+
+        txtShelterAdmin1.setText("Population");
+        txtShelterAdmin1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtShelterAdmin1ActionPerformed(evt);
+            }
+        });
+
+        txtShelterAdmin2.setText("Shelter Manager");
+        txtShelterAdmin2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtShelterAdmin2ActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("Shelter Staff");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("Logout");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+>>>>>>> c4667302192db8820613e994706bbe16288a777a
             }
         });
 
@@ -68,6 +129,7 @@ public class MainJFrame extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+<<<<<<< HEAD
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(hospitaladminbtn))
@@ -82,6 +144,29 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(hospitaladminbtn1)
                 .addGap(175, 175, 175))
+=======
+                    .addComponent(txtShelterAdmin)
+                    .addComponent(txtShelterAdmin1)
+                    .addComponent(txtShelterAdmin2)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(256, 256, 256)
+                .addComponent(txtShelterAdmin)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtShelterAdmin1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtShelterAdmin2)
+                .addGap(18, 18, 18)
+                .addComponent(jButton1)
+                .addGap(18, 18, 18)
+                .addComponent(jButton2)
+                .addContainerGap(54, Short.MAX_VALUE))
+>>>>>>> c4667302192db8820613e994706bbe16288a777a
         );
 
         splitpane.setLeftComponent(jPanel1);
@@ -89,8 +174,18 @@ public class MainJFrame extends javax.swing.JFrame {
         jLabel1.setText("Animal Rescue System");
 
         txtLogin.setText("Login");
+        txtLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtLoginActionPerformed(evt);
+            }
+        });
 
         txtRegister.setText("Register");
+        txtRegister.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtRegisterActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -135,6 +230,7 @@ public class MainJFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+<<<<<<< HEAD
     private void hospitaladminbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hospitaladminbtnActionPerformed
 //       HospitalAdminJPanel adminPanel = new HospitalAdminJPanel();
 //        splitpane.setRightComponent(adminPanel);// TODO add your handling code here:
@@ -148,6 +244,60 @@ public class MainJFrame extends javax.swing.JFrame {
 //       ViewDoctorJPanel panel = new ViewDoctorJPanel(system, doctorDirectory);
 //        splitpane.setRightComponent(panel); // TODO add your handling code here:
     }//GEN-LAST:event_hospitaladminbtn1ActionPerformed
+=======
+    private void txtShelterAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtShelterAdminActionPerformed
+        // TODO add your handling code here:
+        
+        ShelterAdmin adminPanel = new ShelterAdmin(splitpane, system);
+        splitpane.setRightComponent(adminPanel);
+    }//GEN-LAST:event_txtShelterAdminActionPerformed
+
+    private void txtShelterAdmin1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtShelterAdmin1ActionPerformed
+        // TODO add your handling code here:
+        
+//        ReportJPanel reportPanel = new ReportJPanel(splitpane);
+//        splitpane.setRightComponent(reportPanel);
+    }//GEN-LAST:event_txtShelterAdmin1ActionPerformed
+
+    private void txtShelterAdmin2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtShelterAdmin2ActionPerformed
+        // TODO add your handling code here:
+        ManageStaffWorkarea panel = new ManageStaffWorkarea(splitpane, system);
+        splitpane.setRightComponent(panel);
+    }//GEN-LAST:event_txtShelterAdmin2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        StaffWorkarea panel = new StaffWorkarea(splitpane);
+        splitpane.setRightComponent(panel);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void txtLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLoginActionPerformed
+        // TODO add your handling code here:
+        LoginJPanel panel = new LoginJPanel(splitpane);
+        splitpane.setRightComponent(panel);
+    }//GEN-LAST:event_txtLoginActionPerformed
+
+    private void txtRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRegisterActionPerformed
+        // TODO add your handling code here:
+        RegisterJPanel panel = new RegisterJPanel(splitpane);
+        splitpane.setRightComponent(panel);
+    }//GEN-LAST:event_txtRegisterActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        
+        LoginJPanel panel = new LoginJPanel(splitpane);
+        splitpane.setRightComponent(panel);
+        
+        try{
+            dB4OUtil.storeSystem(system);
+        }
+        catch(Exception err){
+            System.out.println("Error during logout "+err);
+            JOptionPane.showMessageDialog(this, "Error during logout");
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
+>>>>>>> c4667302192db8820613e994706bbe16288a777a
 
     /**
      * @param args the command line arguments
@@ -185,13 +335,21 @@ public class MainJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+<<<<<<< HEAD
     private javax.swing.JButton hospitaladminbtn;
     private javax.swing.JButton hospitaladminbtn1;
+=======
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+>>>>>>> c4667302192db8820613e994706bbe16288a777a
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSplitPane splitpane;
     private javax.swing.JButton txtLogin;
     private javax.swing.JButton txtRegister;
+    private javax.swing.JButton txtShelterAdmin;
+    private javax.swing.JButton txtShelterAdmin1;
+    private javax.swing.JButton txtShelterAdmin2;
     // End of variables declaration//GEN-END:variables
 }

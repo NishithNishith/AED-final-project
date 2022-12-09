@@ -4,6 +4,16 @@
  */
 package UI.Distribution;
 
+import business.distribution.Inventory;
+import business.distribution.InventoryDirectory;
+import com.db4o.Db4oEmbedded;
+import com.db4o.ObjectContainer;
+import com.db4o.ObjectSet;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author adity
@@ -13,8 +23,11 @@ public class ViewInventory extends javax.swing.JPanel {
     /**
      * Creates new form ViewInventory
      */
-    public ViewInventory() {
+    InventoryDirectory inventoryDirectory;
+    public ViewInventory(InventoryDirectory inventoryDirectory) {
         initComponents();
+        this.inventoryDirectory = inventoryDirectory;
+        populateTable();
     }
 
     /**
@@ -27,20 +40,20 @@ public class ViewInventory extends javax.swing.JPanel {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        inventoryTable = new javax.swing.JTable();
         jTextField1 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        txtName = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        txtQuantity = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        txtStatus = new javax.swing.JTextField();
         Update = new javax.swing.JButton();
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        inventoryTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -51,13 +64,23 @@ public class ViewInventory extends javax.swing.JPanel {
                 "Name", "Quantity", "Status"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(inventoryTable);
 
         jLabel1.setText("Search");
 
         jButton1.setText("View");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Delete");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("Name:");
 
@@ -66,12 +89,17 @@ public class ViewInventory extends javax.swing.JPanel {
         jLabel4.setText("Status:");
 
         Update.setText("Update");
+        Update.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UpdateActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -85,19 +113,17 @@ public class ViewInventory extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton1)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton2)
-                        .addGap(34, 34, 34))
+                        .addComponent(jButton2))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(47, 47, 47)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(94, 94, 94)
-                                .addComponent(jLabel4)
-                                .addGap(39, 39, 39)
-                                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(104, Short.MAX_VALUE))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtQuantity, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE)
+                            .addComponent(txtName))
+                        .addGap(40, 40, 40)
+                        .addComponent(jLabel4)
+                        .addGap(39, 39, 39)
+                        .addComponent(txtStatus)))
+                .addGap(34, 34, 34))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(Update)
@@ -117,22 +143,125 @@ public class ViewInventory extends javax.swing.JPanel {
                 .addGap(58, 58, 58)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(43, 43, 43)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
                 .addComponent(Update)
                 .addGap(40, 40, 40))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        
+                int selectedRowIndex = inventoryTable.getSelectedRow();
+        
+        if(selectedRowIndex<0){
+            JOptionPane.showMessageDialog(this, "Please select a row to display information");
+            return;
+        }
+        
+        DefaultTableModel model = (DefaultTableModel) inventoryTable.getModel();
+        Inventory inventory =(Inventory) model.getValueAt(selectedRowIndex, 0 );
+        
+                txtName.setText(String.valueOf(inventory.getName())) ;
+                txtQuantity.setText(String.valueOf(inventory.getQuantity()));
+                txtStatus.setText(String.valueOf(inventory.getStatus())) ;               
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        
+        int selectedRowIndex = inventoryTable.getSelectedRow();
+        
+        if(selectedRowIndex<0){
+            JOptionPane.showMessageDialog(this, "Please select a row to delete");
+            return;
+        }
+        
+        DefaultTableModel model = (DefaultTableModel) inventoryTable.getModel();
+        Inventory deleteInventory =(Inventory) model.getValueAt(selectedRowIndex, 0);
+       
+        String DBFILENAME = Paths.get("ARSDatabank.db4o").toAbsolutePath().toString();
+       
+        ObjectContainer db = Db4oEmbedded.openFile(Db4oEmbedded.newConfiguration(), DBFILENAME);
+        
+        
+        ObjectSet result = db.queryByExample(InventoryDirectory.class);
+        
+        InventoryDirectory id = new InventoryDirectory();
+        
+        for(var i=0; i<-result.size() - 1; i++){
+           id = (InventoryDirectory) result.get(i);
+           for(Inventory inv : id.getInventory()) {
+                   inv = id.addInventory();
+                   inv.setName(inv.name);
+                   inv.setQuantity(inv.getQuantity());
+                   inv.setStatus(inv.status);
+           }
+        }
+      
+      
+ 
+            
+        id.deleteInventory(deleteInventory);
+        
+        db.store(id);
+        
+        db.close();
+        
+        JOptionPane.showMessageDialog(this, "Employee information deleted");
+        
+        populateTable();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void UpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateActionPerformed
+        // TODO add your handling code here
+        
+    }//GEN-LAST:event_UpdateActionPerformed
+
+    private void populateTable(){
+        
+         DefaultTableModel model = (DefaultTableModel) inventoryTable.getModel();
+        
+        model.setRowCount(0);
+        
+        String DBFILENAME = Paths.get("ARSDatabank.db4o").toAbsolutePath().toString();
+       
+        ObjectContainer db = Db4oEmbedded.openFile(Db4oEmbedded.newConfiguration(), DBFILENAME);
+        
+
+        
+        ObjectSet result = db.queryByExample(InventoryDirectory.class);
+        
+        InventoryDirectory id;
+         
+                
+        for(var i=0; i<=result.size() - 1; i++){            
+            id = (InventoryDirectory) result.get(i);         
+            for(Inventory inv : id.getInventory()) {
+
+                Object[] row = new Object[3];
+                row[0] = inv;
+    //          row[1] = e.getPatientName();
+                row[1] = inv.getQuantity();
+                row[2] = inv.getStatus();
+
+                model.addRow(row);           
+            }
+        }
+
+        db.close();
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Update;
+    private javax.swing.JTable inventoryTable;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
@@ -140,10 +269,9 @@ public class ViewInventory extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField txtName;
+    private javax.swing.JTextField txtQuantity;
+    private javax.swing.JTextField txtStatus;
     // End of variables declaration//GEN-END:variables
 }
