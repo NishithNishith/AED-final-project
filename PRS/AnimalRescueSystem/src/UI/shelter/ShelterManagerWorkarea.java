@@ -39,9 +39,16 @@ public class ShelterManagerWorkarea extends javax.swing.JPanel {
         jButton3 = new javax.swing.JButton();
         txtShelter = new javax.swing.JButton();
         txtStaff1 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(17, 53, 81));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Shelter Manager");
 
+        txtStaff.setBackground(new java.awt.Color(17, 53, 81));
+        txtStaff.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        txtStaff.setForeground(new java.awt.Color(255, 255, 255));
         txtStaff.setText("Manage Staff");
         txtStaff.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -49,6 +56,9 @@ public class ShelterManagerWorkarea extends javax.swing.JPanel {
             }
         });
 
+        txtDonations.setBackground(new java.awt.Color(17, 53, 81));
+        txtDonations.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        txtDonations.setForeground(new java.awt.Color(255, 255, 255));
         txtDonations.setText("Manage Donations");
         txtDonations.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -56,6 +66,9 @@ public class ShelterManagerWorkarea extends javax.swing.JPanel {
             }
         });
 
+        jButton3.setBackground(new java.awt.Color(17, 53, 81));
+        jButton3.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(255, 255, 255));
         jButton3.setText("Request Funds");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -63,6 +76,9 @@ public class ShelterManagerWorkarea extends javax.swing.JPanel {
             }
         });
 
+        txtShelter.setBackground(new java.awt.Color(17, 53, 81));
+        txtShelter.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        txtShelter.setForeground(new java.awt.Color(255, 255, 255));
         txtShelter.setText("View Shelter");
         txtShelter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -70,6 +86,9 @@ public class ShelterManagerWorkarea extends javax.swing.JPanel {
             }
         });
 
+        txtStaff1.setBackground(new java.awt.Color(17, 53, 81));
+        txtStaff1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        txtStaff1.setForeground(new java.awt.Color(255, 255, 255));
         txtStaff1.setText("Manage Accountant");
         txtStaff1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -77,40 +96,47 @@ public class ShelterManagerWorkarea extends javax.swing.JPanel {
             }
         });
 
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/Images/Shelter.png"))); // NOI18N
+        jLabel2.setText("jLabel2");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(258, 258, 258)
-                .addComponent(jLabel1)
-                .addContainerGap(236, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(299, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtStaff1)
-                    .addComponent(txtShelter)
-                    .addComponent(jButton3)
-                    .addComponent(txtDonations)
-                    .addComponent(txtStaff))
-                .addGap(63, 63, 63))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(txtDonations, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtStaff, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtShelter, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtStaff1, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(194, 194, 194)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 497, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(185, 185, 185))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(44, 44, 44)
-                .addComponent(jLabel1)
-                .addGap(61, 61, 61)
-                .addComponent(txtStaff)
-                .addGap(18, 18, 18)
-                .addComponent(txtDonations)
-                .addGap(26, 26, 26)
-                .addComponent(jButton3)
-                .addGap(29, 29, 29)
-                .addComponent(txtShelter)
-                .addGap(27, 27, 27)
-                .addComponent(txtStaff1)
-                .addContainerGap(148, Short.MAX_VALUE))
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(47, 47, 47)
+                        .addComponent(txtStaff, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(35, 35, 35)
+                        .addComponent(txtDonations, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(141, 141, 141)
+                        .addComponent(txtShelter, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(40, 40, 40)
+                        .addComponent(txtStaff1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(89, 89, 89)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(445, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -148,6 +174,7 @@ public class ShelterManagerWorkarea extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JButton txtDonations;
     private javax.swing.JButton txtShelter;
     private javax.swing.JButton txtStaff;
