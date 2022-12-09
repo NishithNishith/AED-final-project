@@ -3,7 +3,6 @@ package UI.Distribution;
 import business.db4O.DatabaseUtils;
 import business.distribution.InventoryDirectory;
 import business.ecosystem.Business;
-javax.swing.JSplitPane splitpane;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
