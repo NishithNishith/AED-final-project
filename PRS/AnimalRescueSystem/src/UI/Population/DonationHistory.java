@@ -56,6 +56,8 @@ public class DonationHistory extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(231, 250, 254));
+
         jLabel7.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(17, 53, 81));
         jLabel7.setText("Amount:");
