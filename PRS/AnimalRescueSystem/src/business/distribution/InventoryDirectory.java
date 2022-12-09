@@ -37,4 +37,13 @@ public class InventoryDirectory {
         return inventory;
     }
     
+    public Inventory checkInventory(String name, Integer quantity){
+        Inventory inv = new Inventory();
+        for (Inventory inventory : inventoryDirectory)
+            if (inventory.getName().equals(name)){
+                 inv = inventory;
+                 
+        }
+        return inv;
+    }
 }

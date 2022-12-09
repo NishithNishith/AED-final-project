@@ -1,6 +1,9 @@
 package UI.Distribution;
 
+import business.db4O.DatabaseUtils;
 import business.distribution.InventoryDirectory;
+import business.ecosystem.Business;
+javax.swing.JSplitPane splitpane;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -18,8 +21,13 @@ public class DistributionAdmin extends javax.swing.JFrame {
      * Creates new form DistributionAdmin
      */
     
-    public DistributionAdmin() {
+    DatabaseUtils dB4OUtil = DatabaseUtils.getInstance();
+    Business system;
+    
+    
+    public DistributionAdmin(Business system) {
         initComponents();
+        this.system = system;
 
     }
 
@@ -99,7 +107,7 @@ public class DistributionAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         
-        ManageInventory manageInventory = new ManageInventory();
+        ManageInventory manageInventory = new ManageInventory(system);
         manageInventory.setVisible(true);
         
         

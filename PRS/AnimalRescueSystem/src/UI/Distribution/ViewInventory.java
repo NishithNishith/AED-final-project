@@ -4,15 +4,21 @@
  */
 package UI.Distribution;
 
+import business.db4O.DatabaseUtils;
 import business.distribution.Inventory;
 import business.distribution.InventoryDirectory;
+import business.ecosystem.Business;
+import business.validations.Validations;
 import com.db4o.Db4oEmbedded;
 import com.db4o.ObjectContainer;
 import com.db4o.ObjectSet;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Date;
 import javax.swing.JOptionPane;
+import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 
 /**
  *
@@ -23,10 +29,13 @@ public class ViewInventory extends javax.swing.JPanel {
     /**
      * Creates new form ViewInventory
      */
-    InventoryDirectory inventoryDirectory;
-    public ViewInventory(InventoryDirectory inventoryDirectory) {
+    Business system;
+    DatabaseUtils dB4OUtil = DatabaseUtils.getInstance();
+    Validations validations;
+    public ViewInventory(Business system) {
         initComponents();
-        this.inventoryDirectory = inventoryDirectory;
+        this.system = system;
+        validations = new Validations();
         populateTable();
     }
 
@@ -41,7 +50,7 @@ public class ViewInventory extends javax.swing.JPanel {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         inventoryTable = new javax.swing.JTable();
-        jTextField1 = new javax.swing.JTextField();
+        txtSearch = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -65,6 +74,12 @@ public class ViewInventory extends javax.swing.JPanel {
             }
         ));
         jScrollPane1.setViewportView(inventoryTable);
+
+        txtSearch.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtSearchKeyReleased(evt);
+            }
+        });
 
         jLabel1.setText("Search");
 
@@ -105,7 +120,7 @@ public class ViewInventory extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel3)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(38, 38, 38)
@@ -136,7 +151,7 @@ public class ViewInventory extends javax.swing.JPanel {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1)
                     .addComponent(jButton1)
                     .addComponent(jButton2))
@@ -186,34 +201,8 @@ public class ViewInventory extends javax.swing.JPanel {
         
         DefaultTableModel model = (DefaultTableModel) inventoryTable.getModel();
         Inventory deleteInventory =(Inventory) model.getValueAt(selectedRowIndex, 0);
-       
-        String DBFILENAME = Paths.get("ARSDatabank.db4o").toAbsolutePath().toString();
-       
-        ObjectContainer db = Db4oEmbedded.openFile(Db4oEmbedded.newConfiguration(), DBFILENAME);
-        
-        
-        ObjectSet result = db.queryByExample(InventoryDirectory.class);
-        
-        InventoryDirectory id = new InventoryDirectory();
-        
-        for(var i=0; i<-result.size() - 1; i++){
-           id = (InventoryDirectory) result.get(i);
-           for(Inventory inv : id.getInventory()) {
-                   inv = id.addInventory();
-                   inv.setName(inv.name);
-                   inv.setQuantity(inv.getQuantity());
-                   inv.setStatus(inv.status);
-           }
-        }
-      
-      
- 
-            
-        id.deleteInventory(deleteInventory);
-        
-        db.store(id);
-        
-        db.close();
+               
+        system.getInventoryDirectory().deleteInventory(deleteInventory);
         
         JOptionPane.showMessageDialog(this, "Employee information deleted");
         
@@ -222,29 +211,110 @@ public class ViewInventory extends javax.swing.JPanel {
 
     private void UpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateActionPerformed
         // TODO add your handling code here
+                      DefaultTableModel model = (DefaultTableModel) inventoryTable.getModel();
         
+        if(inventoryTable.getSelectedRowCount()==1)
+        {
+         String name;
+
+        Integer quantity;
+        String status;
+        
+        
+        if(!validations.checkStringAndNumber(txtName.getText()) || txtName.getText().isEmpty())
+            {
+                JOptionPane.showMessageDialog(this, "Enter valid name ");
+                return;
+            }
+        else
+                 name = txtName.getText();
+        
+        if(!validations.checkStringAndNumber(txtStatus.getText()) || txtStatus.getText().isEmpty())
+            {
+                JOptionPane.showMessageDialog(this, "Enter valid status ");
+                return;
+            }
+        else
+                status = txtStatus.getText();
+        
+        if(!validations.checkNumber(txtQuantity.getText()) || txtQuantity.getText().isEmpty())
+            {
+                JOptionPane.showMessageDialog(this, "Enter valid quanity ");
+                return;
+            }
+        else
+                
+                quantity = Integer.valueOf(txtQuantity.getText());
+
+            
+            
+            model.setValueAt(name, inventoryTable.getSelectedRow(), 0);
+            model.setValueAt(quantity, inventoryTable.getSelectedRow(), 1);
+            model.setValueAt(status, inventoryTable.getSelectedRow(), 2);
+
+            
+            JOptionPane.showMessageDialog(this, "Updated information");
+            
+            
+            Inventory existingInventory = system.getInventoryDirectory().checkInventory(name, quantity);
+        
+        if(existingInventory != null){
+            system.getInventoryDirectory().deleteInventory(existingInventory);
+            Inventory i = system.getInventoryDirectory().addInventory();
+     
+        i.setName(name);
+        i.setQuantity(quantity);
+        i.setStatus(status);
+            
+        }
+        else{
+            
+        Inventory i = system.getInventoryDirectory().addInventory();
+
+        i.setName(name);
+        i.setQuantity(quantity);
+        i.setStatus(status);
+            
+        }
+
+
+      
+          
+        dB4OUtil.storeSystem(system);
+          
+
+         
+         
+        txtName.setText("");
+        txtQuantity.setText("");
+        txtStatus.setText("");
+            
+                   
+        }        
+        else{
+            if(inventoryTable.getRowCount()==0)
+                JOptionPane.showMessageDialog(this, "Table is Empty");
+            else
+                JOptionPane.showMessageDialog(this, "Please select single row  update");
+                
+                
+        }
     }//GEN-LAST:event_UpdateActionPerformed
+
+    private void txtSearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchKeyReleased
+        // TODO add your handling code here:
+                String searchString = txtSearch.getText();
+        Search(searchString);
+    }//GEN-LAST:event_txtSearchKeyReleased
 
     private void populateTable(){
         
          DefaultTableModel model = (DefaultTableModel) inventoryTable.getModel();
         
         model.setRowCount(0);
-        
-        String DBFILENAME = Paths.get("ARSDatabank.db4o").toAbsolutePath().toString();
-       
-        ObjectContainer db = Db4oEmbedded.openFile(Db4oEmbedded.newConfiguration(), DBFILENAME);
-        
-
-        
-        ObjectSet result = db.queryByExample(InventoryDirectory.class);
-        
-        InventoryDirectory id;
-         
-                
-        for(var i=0; i<=result.size() - 1; i++){            
-            id = (InventoryDirectory) result.get(i);         
-            for(Inventory inv : id.getInventory()) {
+            
+                      
+            for(Inventory inv : system.getInventoryDirectory().getInventory()) {
 
                 Object[] row = new Object[3];
                 row[0] = inv;
@@ -256,9 +326,14 @@ public class ViewInventory extends javax.swing.JPanel {
             }
         }
 
-        db.close();
+    private void Search(String str){
+        DefaultTableModel model = (DefaultTableModel) inventoryTable.getModel(); 
+        TableRowSorter<DefaultTableModel> trs = new TableRowSorter<>(model);
+        
+        inventoryTable.setRowSorter(trs);
+        trs.setRowFilter(RowFilter.regexFilter(str));
+        
     }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Update;
     private javax.swing.JTable inventoryTable;
@@ -269,9 +344,9 @@ public class ViewInventory extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField txtName;
     private javax.swing.JTextField txtQuantity;
+    private javax.swing.JTextField txtSearch;
     private javax.swing.JTextField txtStatus;
     // End of variables declaration//GEN-END:variables
 }
