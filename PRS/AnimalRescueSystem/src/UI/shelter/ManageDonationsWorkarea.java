@@ -23,6 +23,7 @@ public class ManageDonationsWorkarea extends javax.swing.JPanel {
 
     javax.swing.JSplitPane splitpane;
     Business system;
+    FundDonation updateProfile;
     
     public ManageDonationsWorkarea(javax.swing.JSplitPane splitpane, Business system) {
         initComponents();
@@ -55,6 +56,8 @@ public class ManageDonationsWorkarea extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         lblFunds = new javax.swing.JLabel();
+        btnAccept = new javax.swing.JButton();
+        btnReject = new javax.swing.JButton();
 
         jLabel1.setText("Manage Donations");
 
@@ -89,6 +92,20 @@ public class ManageDonationsWorkarea extends javax.swing.JPanel {
         jScrollPane1.setViewportView(jTable1);
 
         lblFunds.setText("0");
+
+        btnAccept.setText("Accept");
+        btnAccept.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAcceptActionPerformed(evt);
+            }
+        });
+
+        btnReject.setText("Reject");
+        btnReject.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRejectActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -129,8 +146,16 @@ public class ManageDonationsWorkarea extends javax.swing.JPanel {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel8)
                                 .addGap(18, 18, 18)
-                                .addComponent(txtMessage)
-                                .addGap(81, 81, 81))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(6, 6, 6)
+                                        .addComponent(btnAccept)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(btnReject)
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(txtMessage)
+                                        .addGap(81, 81, 81))))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(449, 449, 449)
                         .addComponent(btnSelect)))
@@ -166,7 +191,11 @@ public class ManageDonationsWorkarea extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel8)
                             .addComponent(txtMessage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(45, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAccept)
+                    .addComponent(btnReject))
+                .addContainerGap(10, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -188,8 +217,67 @@ public class ManageDonationsWorkarea extends javax.swing.JPanel {
         txtMessage.setText(String.valueOf(selectedProfile.getMessage()));
     }//GEN-LAST:event_btnSelectActionPerformed
 
+    private void btnAcceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcceptActionPerformed
+        // TODO add your handling code here:
+
+        if(updateProfile == null){
+            JOptionPane.showMessageDialog(this, "Please select a row to be Accepted");
+            return;
+        }
+
+        try{
+
+            if(updateProfile.getStatus().equals("PENDING")){
+                updateProfile.setStatus("ACCEPTED");
+            
+                int updateAmt = updateProfile.getAmount();
+                int curAmt = system.getCurAmount();
+                int newAmt = updateAmt + curAmt;
+                system.setCurAmount(newAmt);
+                lblFunds.setText(String.valueOf(this.system.getCurAmount()));
+                populate();
+            }
+            else{
+                JOptionPane.showMessageDialog(this, "This request has already been served");
+                return;
+            }
+            
+        }
+        catch(Exception err){
+            JOptionPane.showMessageDialog(this, "Issue while Accepting Amount, try again");
+        }
+    }//GEN-LAST:event_btnAcceptActionPerformed
+
+    private void btnRejectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRejectActionPerformed
+        // TODO add your handling code here:
+        if(updateProfile == null){
+            JOptionPane.showMessageDialog(this, "Please select a row to be Accepted");
+            return;
+        }
+
+        try{
+            
+            if(updateProfile.getStatus().equals("PENDING")){
+                updateProfile.setStatus("REJECTED");
+                populate();
+            }
+            else{
+                JOptionPane.showMessageDialog(this, "This request has already been served");
+                return;
+            }
+            
+            
+        }
+        catch(Exception err){
+            JOptionPane.showMessageDialog(this, "Issue while Accepting Amount, try again");
+        }
+        
+    }//GEN-LAST:event_btnRejectActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAccept;
+    private javax.swing.JButton btnReject;
     private javax.swing.JButton btnSelect;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -205,4 +293,21 @@ public class ManageDonationsWorkarea extends javax.swing.JPanel {
     private javax.swing.JTextField txtMessage;
     private javax.swing.JTextField txtStatus;
     // End of variables declaration//GEN-END:variables
+
+    private void populate() {
+       DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        model.setRowCount(0);
+
+        for(FundDonation pro: system.getFundDonationDirectory().getFundDonationList()){
+
+            Object[] row = new Object[4];
+            row[0] = pro;
+            row[1] = pro.getAmount();
+            row[2] = pro.getStatus();
+            row[3] = pro.getMessage();
+
+            model.addRow(row );
+
+        }
+    }
 }
