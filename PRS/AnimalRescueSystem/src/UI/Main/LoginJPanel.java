@@ -7,6 +7,7 @@ package UI.Main;
 import UI.Government.GovernmentAdmin;
 import UI.Hospital.ManageEncounterJPanel;
 import UI.Population.ReportJPanel;
+import UI.shelter.AccountingWorkarea;
 import UI.shelter.ManageStaffWorkarea;
 import UI.shelter.ShelterAdmin;
 import UI.shelter.StaffWorkarea;
@@ -166,7 +167,8 @@ public class LoginJPanel extends javax.swing.JPanel {
                     splitpane.setRightComponent(panel);
                 }
                 else if(role.equals("Accountant")){
-                    
+                    AccountingWorkarea panel = new AccountingWorkarea(splitpane, system);
+                    splitpane.setRightComponent(panel);
                 }
                 else if(role.equals("Reporter")){
                     ReportJPanel panel = new ReportJPanel(splitpane, system);
