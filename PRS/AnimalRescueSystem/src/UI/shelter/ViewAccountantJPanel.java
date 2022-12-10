@@ -58,11 +58,9 @@ public class ViewAccountantJPanel extends javax.swing.JPanel {
         txtPassword = new javax.swing.JPasswordField();
         jLabel1 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        txtEmail = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         txtGender = new javax.swing.JTextField();
@@ -98,8 +96,6 @@ public class ViewAccountantJPanel extends javax.swing.JPanel {
         jLabel6.setText("Password");
 
         jLabel3.setText("Experience");
-
-        jLabel5.setText("Email");
 
         jLabel4.setText("Salary");
 
@@ -179,19 +175,15 @@ public class ViewAccountantJPanel extends javax.swing.JPanel {
                                 .addGap(115, 115, 115)
                                 .addComponent(jButton2)
                                 .addGap(41, 41, 41))
-                            .addGroup(layout.createSequentialGroup()
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel5)
                                     .addComponent(jLabel10)
                                     .addComponent(jLabel6))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtPhno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(6, 6, 6)
-                                        .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(196, 196, 196))))))
+                                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtPhno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(202, 202, 202))))))
             .addGroup(layout.createSequentialGroup()
                 .addGap(261, 261, 261)
                 .addComponent(jLabel1)
@@ -236,13 +228,9 @@ public class ViewAccountantJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(txtSalary, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5)
-                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -262,13 +250,13 @@ public class ViewAccountantJPanel extends javax.swing.JPanel {
             String exp = txtExp.getText();
             String phonenumber = txtPhno.getText();
             String salary = txtSalary.getText();
-            String email = txtEmail.getText();
+            
             String password = txtPassword.getText();
 
             if(!validations.lengthCheck(firstname) ||!validations.lengthCheck(lastname) ||
                 !validations.lengthCheck(age) ||!validations.lengthCheck(gender)
                 || !validations.lengthCheck(exp) || !validations.lengthCheck(phonenumber)
-                || !validations.lengthCheck(salary) || !validations.lengthCheck(email)
+                || !validations.lengthCheck(salary) 
                 || !validations.lengthCheck(password))
             {
                 JOptionPane.showMessageDialog(this, "Enter valid details for Accountant");
@@ -279,27 +267,27 @@ public class ViewAccountantJPanel extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(this, "Enter valid details for Accountant");
                 return;
             }
+            
+            if(!validations.passwordCheck(password)){
+                JOptionPane.showMessageDialog(this, "Enter valid details for Password");
+                return;
+            }
 
             //Unique Check
+            UserAccount userAccount = system.getUserAccountDirectory().findAccount(updateProfile.getAccountantId());
 
-            Accountant account = system.getAccountantDirectory().addAccountant();
 
-            String uniqueField = UUID.randomUUID().toString();
-
-            UserAccount userAccount = system.getUserAccountDirectory().addNewUserAccount();
-            userAccount.setEmail(email);
-            userAccount.setPassword(password);
-            userAccount.setRole("Accountant");
-            userAccount.setUserAccountId(uniqueField);
-
-            account.setAccountantId(uniqueField);
-            account.setFirstName(firstname);
-            account.setLastName(lastname);
-            account.setAge(Integer.parseInt(age));
-            account.setGender(gender);
-            account.setYearsOfExperience(Integer.parseInt(exp));
-            account.setPhoneNumber(phonenumber);
-            account.setSalary(Integer.parseInt(salary));
+            if(userAccount!=null){
+                userAccount.setPassword(password);
+            }
+        
+            updateProfile.setFirstName(firstname);
+            updateProfile.setLastName(lastname);
+            updateProfile.setAge(Integer.parseInt(age));
+            updateProfile.setGender(gender);
+            updateProfile.setYearsOfExperience(Integer.parseInt(exp));
+            updateProfile.setPhoneNumber(phonenumber);
+            updateProfile.setSalary(Integer.parseInt(salary));
 
             JOptionPane.showMessageDialog(this, "Accountant updated");
 
@@ -351,6 +339,12 @@ public class ViewAccountantJPanel extends javax.swing.JPanel {
         txtSalary.setText(String.valueOf(selectedProfile.getSalary()));
 
         txtPhno.setText(String.valueOf(selectedProfile.getPhoneNumber()));
+        
+        UserAccount userAccount = system.getUserAccountDirectory().findAccount(selectedProfile.getAccountantId());
+
+        if(userAccount!=null){
+            txtPassword.setText(userAccount.getPassword());
+        }
 
         updateProfile = selectedProfile;
     }//GEN-LAST:event_btnSelectActionPerformed
@@ -365,7 +359,6 @@ public class ViewAccountantJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -373,7 +366,6 @@ public class ViewAccountantJPanel extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField txtAge;
-    private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtExp;
     private javax.swing.JTextField txtFirstname;
     private javax.swing.JTextField txtGender;

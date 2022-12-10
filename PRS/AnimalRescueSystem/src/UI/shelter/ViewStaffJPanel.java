@@ -67,9 +67,7 @@ public class ViewStaffJPanel extends javax.swing.JPanel {
         jLabel10 = new javax.swing.JLabel();
         btnDelete = new javax.swing.JButton();
         btnUpdate = new javax.swing.JButton();
-        jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        txtEmail = new javax.swing.JTextField();
         txtPassword = new javax.swing.JPasswordField();
 
         jLabel1.setText("Staff Details");
@@ -121,8 +119,6 @@ public class ViewStaffJPanel extends javax.swing.JPanel {
                 btnUpdateActionPerformed(evt);
             }
         });
-
-        jLabel5.setText("Email");
 
         jLabel6.setText("Password");
 
@@ -181,13 +177,10 @@ public class ViewStaffJPanel extends javax.swing.JPanel {
                                         .addGap(122, 122, 122))))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel5)
                                     .addComponent(jLabel10)
                                     .addComponent(jLabel6))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(122, 122, 122))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addComponent(jLabel8)
@@ -235,9 +228,7 @@ public class ViewStaffJPanel extends javax.swing.JPanel {
                 .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(txtSalary, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5)
-                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtSalary, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
@@ -266,6 +257,13 @@ public class ViewStaffJPanel extends javax.swing.JPanel {
         txtSalary.setText(String.valueOf(selectedProfile.getSalary()));
 
         txtPhno.setText(String.valueOf(selectedProfile.getPhoneNumber()));
+        
+        UserAccount userAccount = system.getUserAccountDirectory().findAccount(selectedProfile.getShelterStaffId());
+
+        if(userAccount!=null){
+            txtPassword.setText(userAccount.getPassword());
+        }
+
         
         updateProfile = selectedProfile;
 
@@ -308,13 +306,12 @@ public class ViewStaffJPanel extends javax.swing.JPanel {
             String exp = txtExp.getText();
             String phonenumber = txtPhno.getText();
             String salary = txtSalary.getText();
-            String email = txtEmail.getText();
             String password = txtPassword.getText();
 
             if(!validations.lengthCheck(firstname) ||!validations.lengthCheck(lastname) ||
                     !validations.lengthCheck(age) ||!validations.lengthCheck(gender)
                     || !validations.lengthCheck(exp) || !validations.lengthCheck(phonenumber)
-                    || !validations.lengthCheck(salary) || !validations.lengthCheck(email) 
+                    || !validations.lengthCheck(salary) 
                     || !validations.lengthCheck(password))
             {
                 JOptionPane.showMessageDialog(this, "Enter valid details for Staff");
@@ -326,31 +323,31 @@ public class ViewStaffJPanel extends javax.swing.JPanel {
                 return;
             }
             
-            //Unique Check
-            
-            
+            if(!validations.passwordCheck(password)){
+                JOptionPane.showMessageDialog(this, "Enter valid details for Password");
+                return;
+            }
 
-            ShelterStaff shelterStaff = system.getShelterStaffDirectory().addShelterStaff();
-              
+            //Unique Check
+            UserAccount userAccount = system.getUserAccountDirectory().findAccount(updateProfile.getShelterStaffId());
+
+
+            if(userAccount!=null){
+                userAccount.setPassword(password);
+            }
             
-            
-            
-            String uniqueField = UUID.randomUUID().toString();
-            
-            UserAccount userAccount = system.getUserAccountDirectory().addNewUserAccount();
-            userAccount.setEmail(email);
+            //Unique Check
+
+
             userAccount.setPassword(password);
-            userAccount.setRole("ShelterStaff");
-            userAccount.setUserAccountId(uniqueField);
-            
-            shelterStaff.setShelterStaffId(uniqueField);
-            shelterStaff.setFirstName(firstname);
-            shelterStaff.setLastName(lastname);
-            shelterStaff.setAge(Integer.parseInt(age));
-            shelterStaff.setGender(gender);
-            shelterStaff.setYearsOfExperience(Integer.parseInt(exp));
-            shelterStaff.setPhoneNumber(phonenumber);
-            shelterStaff.setSalary(Integer.parseInt(salary));
+
+            updateProfile.setFirstName(firstname);
+            updateProfile.setLastName(lastname);
+            updateProfile.setAge(Integer.parseInt(age));
+            updateProfile.setGender(gender);
+            updateProfile.setYearsOfExperience(Integer.parseInt(exp));
+            updateProfile.setPhoneNumber(phonenumber);
+            updateProfile.setSalary(Integer.parseInt(salary));
 
             JOptionPane.showMessageDialog(this, "Staff updated");
 
@@ -374,7 +371,6 @@ public class ViewStaffJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -382,7 +378,6 @@ public class ViewStaffJPanel extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField txtAge;
-    private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtExp;
     private javax.swing.JTextField txtFirstname;
     private javax.swing.JTextField txtGender;
