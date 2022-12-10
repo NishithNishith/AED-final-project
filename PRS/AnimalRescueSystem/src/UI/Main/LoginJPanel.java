@@ -4,7 +4,9 @@
  */
 package UI.Main;
 
+import UI.Government.AnalyticsJPanel;
 import UI.Government.GovernmentAdmin;
+import UI.Government.ManageFundsJPanel;
 import UI.Hospital.ManageEncounterJPanel;
 import UI.Population.ReportJPanel;
 import UI.shelter.AccountingWorkarea;
@@ -192,6 +194,15 @@ public class LoginJPanel extends javax.swing.JPanel {
                     GovernmentAdmin panel = new GovernmentAdmin(splitpane, system);
                     splitpane.setRightComponent(panel);
                 }
+                else if(role.equals("AnalyticsManager")){
+                    AnalyticsJPanel panel = new AnalyticsJPanel(splitpane, system);
+                    splitpane.setRightComponent(panel);
+                }
+                else if(role.equals("Overseer")){
+                    ManageFundsJPanel panel = new ManageFundsJPanel(splitpane, system);
+                    splitpane.setRightComponent(panel);
+                }
+                
                 
                 
             }

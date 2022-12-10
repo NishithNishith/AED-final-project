@@ -31,7 +31,7 @@ public class ManageDonationsWorkarea extends javax.swing.JPanel {
         this.system = system;
         this.validations = new Validations();
         this.updateProfile = null;
-        lblFunds.setText(String.valueOf(this.system.getCurAmount()));
+        lblCurrentFunds.setText(String.valueOf(this.system.getCurAmount()));
         populate();
     }
 
@@ -46,10 +46,10 @@ public class ManageDonationsWorkarea extends javax.swing.JPanel {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        txtCurrentFunds = new javax.swing.JTextField();
+        lblCurrentFunds = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        lblFunds = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         btnAccept = new javax.swing.JButton();
         btnReject = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
@@ -69,13 +69,8 @@ public class ManageDonationsWorkarea extends javax.swing.JPanel {
         jLabel2.setText("Current Funds:");
         add(jLabel2);
 
-        txtCurrentFunds.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
-        txtCurrentFunds.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSelectActionPerformed(evt);
-            }
-        });
-        add(txtCurrentFunds);
+        lblCurrentFunds.setText("0");
+        add(lblCurrentFunds);
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -92,11 +87,13 @@ public class ManageDonationsWorkarea extends javax.swing.JPanel {
 
         add(jScrollPane1);
 
-        lblFunds.setBackground(new java.awt.Color(17, 53, 81));
-        lblFunds.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        lblFunds.setForeground(new java.awt.Color(255, 255, 255));
-        lblFunds.setText("Back");
-        add(lblFunds);
+        jButton1.setText("Select");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        add(jButton1);
 
         btnAccept.setText("Accept");
         btnAccept.addActionListener(new java.awt.event.ActionListener() {
@@ -123,26 +120,6 @@ public class ManageDonationsWorkarea extends javax.swing.JPanel {
         add(txtMessage);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelectActionPerformed
-
-        int selectRowIndex = jTable1.getSelectedRow();
-
-        if(selectRowIndex < 0){
-            JOptionPane.showMessageDialog(this, "Please select a row");
-            return;
-        }
-
-        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-        FundDonation selectedProfile = (FundDonation)model.getValueAt(selectRowIndex,0  );
-
-        txtId.setText(String.valueOf(selectedProfile.getFundDonationId()));
-        txtAmount.setText(String.valueOf(selectedProfile.getAmount()));
-        txtStatus.setText(String.valueOf(selectedProfile.getStatus()));
-        txtMessage.setText(String.valueOf(selectedProfile.getMessage()));
-        
-        updateProfile = selectedProfile;
-    }//GEN-LAST:event_btnSelectActionPerformed
-
     private void btnAcceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcceptActionPerformed
         // TODO add your handling code here:
 
@@ -160,8 +137,9 @@ public class ManageDonationsWorkarea extends javax.swing.JPanel {
                 int curAmt = system.getCurAmount();
                 int newAmt = updateAmt + curAmt;
                 system.setCurAmount(newAmt);
-                lblFunds.setText(String.valueOf(this.system.getCurAmount()));
+                lblCurrentFunds.setText(String.valueOf(this.system.getCurAmount()));
                 populate();
+                JOptionPane.showMessageDialog(this, "The donation was accepted");
             }
             else{
                 JOptionPane.showMessageDialog(this, "This request has already been served");
@@ -185,6 +163,8 @@ public class ManageDonationsWorkarea extends javax.swing.JPanel {
             
             if(updateProfile.getStatus().equals("PENDING")){
                 updateProfile.setStatus("REJECTED");
+                JOptionPane.showMessageDialog(this, "The donation was rejected");
+                
                 populate();
             }
             else{
@@ -200,18 +180,41 @@ public class ManageDonationsWorkarea extends javax.swing.JPanel {
         
     }//GEN-LAST:event_btnRejectActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        
+        int selectRowIndex = jTable1.getSelectedRow();
+
+        if(selectRowIndex < 0){
+            JOptionPane.showMessageDialog(this, "Please select a row");
+            return;
+        }
+
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        FundDonation selectedProfile = (FundDonation)model.getValueAt(selectRowIndex,0  );
+
+        txtId.setText(String.valueOf(selectedProfile.getFundDonationId()));
+        txtAmount.setText(String.valueOf(selectedProfile.getAmount()));
+        txtStatus.setText(String.valueOf(selectedProfile.getStatus()));
+        txtMessage.setText(String.valueOf(selectedProfile.getMessage()));
+        
+        updateProfile = selectedProfile;
+        
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAccept;
     private javax.swing.JButton btnReject;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JLabel lblFunds;
+    private javax.swing.JLabel lblCurrentFunds;
     private javax.swing.JTextField txtAmount;
-    private javax.swing.JTextField txtCurrentFunds;
     private javax.swing.JTextField txtId;
     private javax.swing.JTextField txtMessage;
     private javax.swing.JTextField txtStatus;

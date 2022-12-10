@@ -355,7 +355,22 @@ public class CreateAnalyticsManager extends javax.swing.JPanel {
                 return;
             }
             else
-                 salary = txtPhno.getText();            
+                 salary = txtPhno.getText();      
+            
+            //Unique Check
+            
+            int uniqueFlag = 0;
+            UserAccount ua = system.getUserAccountDirectory().userCheck(email, password);
+            if(ua != null){
+                uniqueFlag = 1;
+            }
+
+            if(uniqueFlag == 1){
+                System.out.println("User Account is present");
+                JOptionPane.showMessageDialog(this, "Email already present");
+                return;
+
+            }
 
             AnalyticsManager analyticsManager = system.getAnalyticsManagerDirectory().addNewAnalyticsManager();
 
@@ -379,7 +394,6 @@ public class CreateAnalyticsManager extends javax.swing.JPanel {
 
             JOptionPane.showMessageDialog(this, "Manager created");
             
-            dB4OUtil.storeSystem(system);
         }
         catch(Exception err){
             JOptionPane.showMessageDialog(this, "Issue while creating manager, try again");
