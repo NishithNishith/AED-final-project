@@ -67,6 +67,8 @@ public class LoginJPanel extends javax.swing.JPanel {
         txtPassword = new javax.swing.JPasswordField();
         jButton1 = new javax.swing.JButton();
         txtShelterAdmin3 = new javax.swing.JButton();
+        txtShelterAdmin4 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         jLabel1.setText("Login");
 
@@ -88,11 +90,25 @@ public class LoginJPanel extends javax.swing.JPanel {
             }
         });
 
+        txtShelterAdmin4.setText("Government Admin");
+        txtShelterAdmin4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtShelterAdmin4ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("Analytics");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(97, 97, 97)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jButton1)
@@ -102,11 +118,14 @@ public class LoginJPanel extends javax.swing.JPanel {
                             .addComponent(jLabel2))
                         .addGap(30, 30, 30)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)
+                            .addComponent(txtEmail)
                             .addComponent(jLabel1)
                             .addComponent(txtPassword))))
                 .addGap(28, 28, 28)
-                .addComponent(txtShelterAdmin3)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton2)
+                    .addComponent(txtShelterAdmin3)
+                    .addComponent(txtShelterAdmin4))
                 .addGap(14, 14, 14))
         );
         layout.setVerticalGroup(
@@ -115,8 +134,12 @@ public class LoginJPanel extends javax.swing.JPanel {
                 .addGap(26, 26, 26)
                 .addComponent(txtShelterAdmin3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1)
-                .addGap(53, 53, 53)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(txtShelterAdmin4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton2)
+                .addGap(11, 11, 11)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -225,14 +248,28 @@ public class LoginJPanel extends javax.swing.JPanel {
         splitpane.setRightComponent(panel);
     }//GEN-LAST:event_txtShelterAdmin3ActionPerformed
 
+    private void txtShelterAdmin4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtShelterAdmin4ActionPerformed
+        // TODO add your handling code here:
+        GovernmentAdmin panel = new GovernmentAdmin(splitpane, system);
+        splitpane.setRightComponent(panel);
+    }//GEN-LAST:event_txtShelterAdmin4ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        AnalyticsJPanel panel = new AnalyticsJPanel(splitpane, system);
+        splitpane.setRightComponent(panel);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JPasswordField txtPassword;
     private javax.swing.JButton txtShelterAdmin3;
+    private javax.swing.JButton txtShelterAdmin4;
     // End of variables declaration//GEN-END:variables
 }
