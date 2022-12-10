@@ -36,12 +36,12 @@ public class AnalyticsManagerDirectory {
         analyticsManagerList.remove(analyticsManager);
     }
     
-        public AnalyticsManager userCheck(Integer id){
-        for (AnalyticsManager user : analyticsManagerList)
-            if (user.getAnalyticsManagerId() == id){
-                return user;
-            }
-        return null;
-    }
+//        public AnalyticsManager userCheck(Integer id){
+//        for (AnalyticsManager user : analyticsManagerList)
+//            if (user.getAnalyticsManagerId() == id){
+//                return user;
+//            }
+//        return null;
+//    }
     
 }
