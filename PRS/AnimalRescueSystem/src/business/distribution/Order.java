@@ -16,7 +16,7 @@ public class Order {
     public Integer quantity;
     public Integer orderID;
     public String  reciever;
-    public DeliveryAssociate deliveryAssociate;
+    public UserAccount deliveryAssociate;
     public String orderStatus;
     public String sender;
 
@@ -52,11 +52,11 @@ public class Order {
         this.reciever = reciever;
     }
 
-    public DeliveryAssociate getDeliveryAssociate() {
+    public UserAccount getDeliveryAssociate() {
         return deliveryAssociate;
     }
 
-    public void setDeliveryAssociate(DeliveryAssociate deliveryAssociate) {
+    public void setDeliveryAssociate(UserAccount deliveryAssociate) {
         this.deliveryAssociate = deliveryAssociate;
     }
 
@@ -76,5 +76,9 @@ public class Order {
         this.sender = sender;
     }
    
+            @Override
+    public String toString(){
+        return medicineName;
+    }
     
 }

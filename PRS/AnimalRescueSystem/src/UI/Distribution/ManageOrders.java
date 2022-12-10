@@ -33,12 +33,12 @@ public class ManageOrders extends javax.swing.JPanel {
         Order o  = system.getOrderDirectory().addOrder();
 
        
-        o.setMedicineName("Crocin");
+        o.setMedicineName("Remdezvir");
         o.setSender("da");
-        o.setReciever("adi.coyama@gmail.com");
-        o.setQuantity(2);
+        o.setReciever("asasma@gmail.com");
+        o.setQuantity(5);
         o.setOrderStatus("Pending");
-        o.setOrderID(1);
+        o.setOrderID(2);
         
         populateTable();
     }
@@ -145,18 +145,87 @@ public class ManageOrders extends javax.swing.JPanel {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+         int selectedRow = orderTable.getSelectedRow();
+        if(selectedRow<0){
+            JOptionPane.showMessageDialog(null, "Please select a row from the Table");
+        }
+        Order placedOrder = null;
+        int orderId = (int)orderTable.getValueAt(selectedRow,5);
+        for(Order o : system.getOrderDirectory().getOrder()){
+            Order order = o;              
+            if(o.getOrderID() == orderId ){
+                placedOrder = o;
+            }
+        }
+        
+        if(placedOrder.getOrderStatus().equals("Work In Progress"))
+            JOptionPane.showMessageDialog(null, "Order will be assigned to delivery associate and will be dispatched for delivery");
+        else if(placedOrder.getOrderStatus().equals("Pending") || placedOrder.getOrderStatus().equals("Cancelled"))
+            placedOrder.setOrderStatus("Work In Progress");
+        else{
+            JOptionPane.showMessageDialog(null, "Order in progress");
+        }
+        
+        for(Order o : system.getOrderDirectory().getOrder()){
+            Order order = o;              
+            if(o.getOrderID() == placedOrder.getOrderID() ){
+                order.setOrderStatus("Work In Progress");
+            }
+        }
+        populateTable();
         
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
+        
+        
+                 int selectedRow = orderTable.getSelectedRow();
+        if(selectedRow<0){
+            JOptionPane.showMessageDialog(null, "Please select a row from the Table");
+        }
+        Order placedOrder = null;
+        int orderId = (int)orderTable.getValueAt(selectedRow,5);
+        for(Order o : system.getOrderDirectory().getOrder()){
+            Order order = o;              
+            if(o.getOrderID() == orderId ){
+                placedOrder = o;
+            }
+        }
+        
+        if(placedOrder.getOrderStatus().equals("Work In Progress"))
+            JOptionPane.showMessageDialog(null, "Order cannot be denied");
+        else if(placedOrder.getOrderStatus().equals("Pending") || placedOrder.getOrderStatus().equals("Cancelled"))
+            placedOrder.setOrderStatus("Canceled");
+        else{
+            JOptionPane.showMessageDialog(null, "Order in progress");
+        }
+        
+//        for(Order o : system.getOrderDirectory().getOrder()){
+//            Order order = o;              
+//            if(o.getOrderID() == placedOrder.getOrderID() ){
+//                order.setOrderStatus("Canceled");
+//            }
+//        }
+        populateTable();
+      
+
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
+        int selectedRow = orderTable.getSelectedRow();
+        if(selectedRow<0){
+            JOptionPane.showMessageDialog(null, "Please select a row from the Table");
+        }
+        String medicineName  = orderTable.getValueAt(selectedRow,0).toString();
         int count = 0;
         for(Inventory inv : system.getInventoryDirectory().getInventory()){
-            count = count + inv.getQuantity();
+            if(inv.name.equals(medicineName)){
+               count = count + inv.getQuantity();
+            }
+            else
+                JOptionPane.showMessageDialog(null, "The following medicine does not exist");
         }
         
         txtStock.setText(String.valueOf(count));
@@ -165,25 +234,33 @@ public class ManageOrders extends javax.swing.JPanel {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         int selectedRow = orderTable.getSelectedRow();
-        Order placedOrder = null;
-        Order o = new Order();
-        int orderId = (int)orderTable.getValueAt(selectedRow,5);
-        o.setMedicineName("Crocin");
-        o.setSender("da");
-        o.setReciever("adi.coyama@gmail.com");
-        o.setQuantity(2);
-        o.setOrderStatus("Pending");
-        o.setOrderID(1);
         if(selectedRow<0){
             JOptionPane.showMessageDialog(null, "Please select a row from the Table");
         }
-        
-        if(o.getOrderID() == orderId ){
-            placedOrder = o;
+        Order placedOrder = null;
+        int orderId = (int)orderTable.getValueAt(selectedRow,5);
+        for(Order o : system.getOrderDirectory().getOrder()){
+            Order order = o;              
+            if(o.getOrderID() == orderId ){
+                placedOrder = o;
+            }
         }
         
-        AssignDeliveryAssociatePanel da = new AssignDeliveryAssociatePanel(splitpane,system,placedOrder);
+        if(placedOrder.getOrderStatus().equals("Work In Progress"))
+            JOptionPane.showMessageDialog(null, "Order is already assigned");
+        else if( placedOrder.getOrderStatus().equals("Cancelled"))
+            JOptionPane.showMessageDialog(null, "Cancelled order cannot be assigned to Delivery Associate");
+        else if (placedOrder.getOrderStatus().equals("Completed")){
+            JOptionPane.showMessageDialog(null, "Cancelled order cannot be assigned to Delivery Associate");
+        }
+        else{
+                    AssignDeliveryAssociatePanel da = new AssignDeliveryAssociatePanel(splitpane,system,placedOrder);
         splitpane.setRightComponent(da);
+        }
+
+
+        
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
 
@@ -194,20 +271,17 @@ public class ManageOrders extends javax.swing.JPanel {
         model.setRowCount(0);
             
        
-        
-       
-       
-        
+  
             for(Order inv : system.getOrderDirectory().getOrder()) {
 
                 Object[] row = new Object[6];
-                row[0] = "Crocin";
+                row[0] = inv;
     //          row[1] = e.getPatientName();
-                row[1] = "da";
-                row[2] = "adi.coyama@gmail.com";
-                row[3] = "Pending";
-                row[4] = 5;
-                row[5] = 1;
+                row[1] = inv.getSender();
+                row[2] = inv.getReciever();
+                row[3] = inv.getOrderStatus();
+                row[4] = inv.getQuantity();
+                row[5] = inv.getOrderID();
 
                 model.addRow(row);           
             }

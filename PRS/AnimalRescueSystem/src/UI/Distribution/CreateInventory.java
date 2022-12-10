@@ -20,16 +20,18 @@ import javax.swing.JOptionPane;
 public class CreateInventory extends javax.swing.JPanel {
 
     Business system;
-    DatabaseUtils dB4OUtil = DatabaseUtils.getInstance();
+    
     Validations validations;
+            javax.swing.JSplitPane splitpane;
     
     /**
      * Creates new form CreateInventory
      */
-    public CreateInventory(Business system) {
+    public CreateInventory(javax.swing.JSplitPane splitpane,Business system) {
         initComponents();
         this.system = system; 
         validations = new Validations();
+        this.splitpane = splitpane;
     }
 
     /**
@@ -165,7 +167,7 @@ public class CreateInventory extends javax.swing.JPanel {
 
       
           
-        dB4OUtil.storeSystem(system);
+       
           
 
          

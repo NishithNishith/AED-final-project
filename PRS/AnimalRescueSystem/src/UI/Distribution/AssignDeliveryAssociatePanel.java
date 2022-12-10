@@ -48,13 +48,13 @@ public class AssignDeliveryAssociatePanel extends javax.swing.JPanel {
 
         deliveryAssociateTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
             },
             new String [] {
-                "Name", "Delivery Associate Id", "Phone Number", "Work Status"
+                "Name", "ID"
             }
         ));
         jScrollPane1.setViewportView(deliveryAssociateTable);
@@ -100,23 +100,27 @@ public class AssignDeliveryAssociatePanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        
+      try{
  int selectedRow = deliveryAssociateTable.getSelectedRow();  
- 
- DeliveryAssociate deliveryAssociate = (DeliveryAssociate) deliveryAssociateTable.getValueAt(selectedRow,0);
- 
- Order o = new Order();
-         o.setMedicineName("Crocin");
-        o.setSender("da");
-        o.setReciever("adi.coyama@gmail.com");
-        o.setQuantity(2);
-        o.setOrderStatus("Pending");
-        o.setOrderID(1);
-        
-        if(o.getOrderID() == placedOrder.getOrderID()){
-            placedOrder.setDeliveryAssociate(deliveryAssociate);
-            JOptionPane.showMessageDialog(this, "Order Assigned");
+         if(selectedRow<0){
+            JOptionPane.showMessageDialog(null, "Please select a row from the Table");
         }
+ 
+ UserAccount deliveryAssociate = (UserAccount) deliveryAssociateTable.getValueAt(selectedRow,0);
+ 
+
+        for(Order o : system.getOrderDirectory().getOrder()){
+            Order order = o;              
+            if(order.getOrderID() == placedOrder.getOrderID() ){
+                placedOrder.setDeliveryAssociate(deliveryAssociate);
+            }
+        }
+        JOptionPane.showMessageDialog(this, "Order Assigned");
+      }
+      catch(Exception e){
+          JOptionPane.showMessageDialog(this, "Order Assigned");
+      }
+        
         
                 
  
@@ -131,16 +135,15 @@ public class AssignDeliveryAssociatePanel extends javax.swing.JPanel {
         
                 
      
-            for(DeliveryAssociate da : system.getDeliveryAssociateDirectory().getDeliveryAssociate()) {
-
-                Object[] row = new Object[4];
-                row[0] = da;
+            for(UserAccount ua : system.getUserAccountDirectory().getUserAccountList()) {
+               if(ua.getRole().equals(("DeliveryAssociate"))){
+                Object[] row = new Object[2];
+                row[0] = ua;
     //          row[1] = e.getPatientName();
-                row[1] = da.getDeliveryAssociateID();
-                row[2] = da.getPhoneNumber();
-                row[3] = da.getWorkStatus();
+                row[1] = ua.getUserAccountId();
 
                 model.addRow(row);           
+            }
             }
     }
 
