@@ -12,6 +12,7 @@ import business.hospital.EncounterHistory;
 import business.hospital.HospitalManagerDirectory;
 import business.distribution.InventoryDirectory;
 import business.distribution.DeliveryAssociateDirectory;
+import business.population.AdoptionDirectory;
 import business.population.FundDonationDirectory;
 import business.population.PersonDirectory;
 import business.population.ReportDirectory;
@@ -50,6 +51,7 @@ public class Business {
     AnalyticsManagerDirectory analyticsManagerDirectory;
     BudgetOverseerDirectory budgetOverseerDirectory;
     OrderDirectory orderDirectory;
+    AdoptionDirectory adoptionDirectory;
     
     //Current user
     String currentUserId;
@@ -80,6 +82,8 @@ public class Business {
         budgetOverseerDirectory = new BudgetOverseerDirectory();   
         orderDirectory = new OrderDirectory();
         
+        budgetOverseerDirectory = new BudgetOverseerDirectory();    
+        adoptionDirectory = new AdoptionDirectory();
 
         
         
@@ -94,6 +98,16 @@ public class Business {
     
         
 
+
+    public AdoptionDirectory getAdoptionDirectory() {
+        return adoptionDirectory;
+    }
+
+    public void setAdoptionDirectory(AdoptionDirectory adoptionDirectory) {
+        this.adoptionDirectory = adoptionDirectory;
+    }
+    
+    
 
     public AnalyticsManagerDirectory getAnalyticsManagerDirectory() {
         return analyticsManagerDirectory;

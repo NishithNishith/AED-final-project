@@ -29,6 +29,7 @@ public class MainJFrame extends javax.swing.JFrame {
         initComponents();
         this.system = dB4OUtil.retrieveSystem();
         
+        
 //        this.system = dB4OUtil.retrieveSystem();
         
     }

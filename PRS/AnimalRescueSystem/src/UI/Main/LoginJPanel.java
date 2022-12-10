@@ -6,7 +6,9 @@ package UI.Main;
 
 import UI.Distribution.AdminDistribution;
 import UI.Distribution.ManageOrders;
+import UI.Government.AnalyticsJPanel;
 import UI.Government.GovernmentAdmin;
+import UI.Government.ManageFundsJPanel;
 import UI.Hospital.ManageEncounterJPanel;
 import UI.Population.ReportJPanel;
 import UI.shelter.AccountingWorkarea;
@@ -159,7 +161,7 @@ public class LoginJPanel extends javax.swing.JPanel {
                 
                 system.setCurrentUserEmail(userAccount.getEmail());
                 system.setCurrentUserId(userAccount.getUserAccountId());
-                
+                JOptionPane.showMessageDialog(this, "role is "+role);
                 if(role.equals("Doctor")){
 //                    ManageEncounterJPanel panel = new ManageEncounterJPanel(splitpane);
 //                    splitpane.setRightComponent(panel);
@@ -196,6 +198,15 @@ public class LoginJPanel extends javax.swing.JPanel {
                     GovernmentAdmin panel = new GovernmentAdmin(splitpane, system);
                     splitpane.setRightComponent(panel);
                 }
+                else if(role.equals("AnalyticsManager")){
+                    AnalyticsJPanel panel = new AnalyticsJPanel(splitpane, system);
+                    splitpane.setRightComponent(panel);
+                }
+                else if(role.equals("Overseer")){
+                    ManageFundsJPanel panel = new ManageFundsJPanel(splitpane, system);
+                    splitpane.setRightComponent(panel);
+                }
+                
                 
                 
             }

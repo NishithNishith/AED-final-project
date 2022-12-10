@@ -44,5 +44,13 @@ public class UserAccountDirectory {
         return null;
     }
     
+    public UserAccount findAccount(String id){
+        for (UserAccount user : userAccountList)
+            if (id.equals(user.getUserAccountId())){
+                return user;
+            }
+        return null;
+    }
+    
     
 }
