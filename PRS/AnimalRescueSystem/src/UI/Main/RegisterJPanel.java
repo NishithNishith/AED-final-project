@@ -66,6 +66,8 @@ public class RegisterJPanel extends javax.swing.JPanel {
         jLabel8 = new javax.swing.JLabel();
         txtEmail = new javax.swing.JTextField();
         txtPassword = new javax.swing.JPasswordField();
+        txtRole = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
 
         jLabel1.setText("Register");
 
@@ -96,6 +98,8 @@ public class RegisterJPanel extends javax.swing.JPanel {
             }
         });
 
+        jLabel9.setText("Role");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -112,7 +116,8 @@ public class RegisterJPanel extends javax.swing.JPanel {
                                 .addComponent(jLabel6)
                                 .addComponent(jLabel5))
                             .addComponent(jLabel7)
-                            .addComponent(jLabel8))
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel9))
                         .addGap(26, 26, 26)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -127,14 +132,18 @@ public class RegisterJPanel extends javax.swing.JPanel {
                                 .addGap(6, 6, 6)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtPassword)
-                                    .addComponent(txtEmail)))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGap(60, 60, 60)
-                        .addComponent(btnRegister))
+                                    .addComponent(txtEmail)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(txtRole, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE))))))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGap(79, 79, 79)
                         .addComponent(jLabel1)))
-                .addGap(155, 155, 155))
+                .addGap(111, 111, 111))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnRegister)
+                .addGap(199, 199, 199))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -169,9 +178,13 @@ public class RegisterJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
                     .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(36, 36, 36)
+                .addGap(8, 8, 8)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtRole, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                 .addComponent(btnRegister)
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addGap(20, 20, 20))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -187,6 +200,7 @@ public class RegisterJPanel extends javax.swing.JPanel {
             String phonenumber = txtPhno.getText();
             String email = txtEmail.getText();
             String password = txtPassword.getText();
+            String role = txtRole.getText();
             
             //Validations
             
@@ -229,7 +243,7 @@ public class RegisterJPanel extends javax.swing.JPanel {
                 UserAccount userAccount = system.getUserAccountDirectory().addNewUserAccount();
                 userAccount.setEmail(email);
                 userAccount.setPassword(password);
-                userAccount.setRole("Reporter");
+                userAccount.setRole(role);
                 userAccount.setUserAccountId(uniqueField);
                 
                 Reporter reporter = system.getReporterDirectory().addNewReporter();
@@ -274,6 +288,7 @@ public class RegisterJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JTextField txtAge;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtFirstname;
@@ -281,5 +296,6 @@ public class RegisterJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField txtLastname;
     private javax.swing.JPasswordField txtPassword;
     private javax.swing.JTextField txtPhno;
+    private javax.swing.JTextField txtRole;
     // End of variables declaration//GEN-END:variables
 }

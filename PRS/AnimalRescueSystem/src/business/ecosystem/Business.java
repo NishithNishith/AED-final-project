@@ -21,12 +21,14 @@ import business.shelter.CaseFileDirectory;
 import business.shelter.FundRequestDirectory;
 import business.shelter.ShelterManagerDirectory;
 import business.shelter.ShelterStaffDirectory;
+import business.distribution.OrderDirectory;
 
 
 /**
  *
  * @author nishi
  */
+
 public class Business {
     
     static Business business;
@@ -47,6 +49,7 @@ public class Business {
     ShelterStaffDirectory shelterStaffDirectory;
     AnalyticsManagerDirectory analyticsManagerDirectory;
     BudgetOverseerDirectory budgetOverseerDirectory;
+    OrderDirectory orderDirectory;
     
     //Current user
     String currentUserId;
@@ -74,7 +77,9 @@ public class Business {
                 
         shelterStaffDirectory = new ShelterStaffDirectory();
         analyticsManagerDirectory = new AnalyticsManagerDirectory();
-        budgetOverseerDirectory = new BudgetOverseerDirectory();       
+        budgetOverseerDirectory = new BudgetOverseerDirectory();   
+        orderDirectory = new OrderDirectory();
+        
 
         
         
@@ -86,6 +91,9 @@ public class Business {
         
         
     }
+    
+        
+
 
     public AnalyticsManagerDirectory getAnalyticsManagerDirectory() {
         return analyticsManagerDirectory;
@@ -101,6 +109,14 @@ public class Business {
 
     public void setBudgetOverseerDirectory(BudgetOverseerDirectory budgetOverseerDirectory) {
         this.budgetOverseerDirectory = budgetOverseerDirectory;
+    }
+    
+    public OrderDirectory getOrderDirectory() {
+        return orderDirectory;
+    }
+
+    public void setOrderDirectory(OrderDirectory orderDirectory) {
+        this.orderDirectory = orderDirectory;
     }
 
     public int getCurAmount() {

@@ -17,6 +17,7 @@ public class ManageDeliveryAssociates extends javax.swing.JFrame {
      * Creates new form ManageDeliveryAssociates
      */
            Business system;
+           
     DatabaseUtils dB4OUtil = DatabaseUtils.getInstance();
     public ManageDeliveryAssociates() {
         initComponents();

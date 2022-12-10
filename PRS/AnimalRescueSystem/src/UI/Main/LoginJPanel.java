@@ -4,6 +4,8 @@
  */
 package UI.Main;
 
+import UI.Distribution.AdminDistribution;
+import UI.Distribution.ManageOrders;
 import UI.Government.GovernmentAdmin;
 import UI.Hospital.ManageEncounterJPanel;
 import UI.Population.ReportJPanel;
@@ -187,7 +189,8 @@ public class LoginJPanel extends javax.swing.JPanel {
                      
                 }
                 else if(role.equals("DistributionAdmin")){
-                    
+                                        AdminDistribution panel = new AdminDistribution(splitpane,system);
+                    splitpane.setRightComponent(panel);
                 }
                 else if(role.equals("GovernmentAdmin")){
                     GovernmentAdmin panel = new GovernmentAdmin(splitpane, system);

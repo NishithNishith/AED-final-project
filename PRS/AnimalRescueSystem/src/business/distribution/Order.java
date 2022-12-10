@@ -1,0 +1,80 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package business.distribution;
+
+import business.ecosystem.UserAccount;
+
+/**
+ *
+ * @author adity
+ */
+public class Order {
+    
+    public String medicineName;
+    public Integer quantity;
+    public Integer orderID;
+    public String  reciever;
+    public DeliveryAssociate deliveryAssociate;
+    public String orderStatus;
+    public String sender;
+
+    public String getMedicineName() {
+        return medicineName;
+    }
+
+    public void setMedicineName(String medicineName) {
+        this.medicineName = medicineName;
+    }
+
+    public Integer getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
+    }
+
+    public Integer getOrderID() {
+        return orderID;
+    }
+
+    public void setOrderID(Integer orderID) {
+        this.orderID = orderID;
+    }
+
+    public String getReciever() {
+        return reciever;
+    }
+
+    public void setReciever(String reciever) {
+        this.reciever = reciever;
+    }
+
+    public DeliveryAssociate getDeliveryAssociate() {
+        return deliveryAssociate;
+    }
+
+    public void setDeliveryAssociate(DeliveryAssociate deliveryAssociate) {
+        this.deliveryAssociate = deliveryAssociate;
+    }
+
+    public String getOrderStatus() {
+        return orderStatus;
+    }
+
+    public void setOrderStatus(String orderStatus) {
+        this.orderStatus = orderStatus;
+    }
+
+    public String getSender() {
+        return sender;
+    }
+
+    public void setSender(String sender) {
+        this.sender = sender;
+    }
+   
+    
+}
