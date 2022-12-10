@@ -6,6 +6,7 @@ package UI.Government;
 
 import business.ecosystem.Business;
 import business.population.FundDonation;
+import business.shelter.FundRequest;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -69,6 +70,42 @@ public class AnalyticsJPanel extends javax.swing.JPanel {
             chartFrame.setSize(600, 600);
         }
     }
+    
+    private void createFundRequestChart() {
+        DefaultPieDataset dataset = new DefaultPieDataset();
+
+        int accepted = 1;
+        int rejected = 1;
+        int pending = 1;
+        
+        for(FundRequest fund : system.getFundRequestDirectory().getFundRequest()){
+            if(fund.getStatus().equals("PENDING")){
+                pending++;
+            }
+            else if(fund.getStatus().equals("ACCEPTED")){
+                accepted++;
+            }
+            else if(fund.getStatus().equals("REJECTED")){
+                rejected++;
+            }
+        }
+        
+        if (accepted == 0 && rejected == 0 && pending==0) {
+            JOptionPane.showMessageDialog(this, "More data is needed");
+            return;
+        } else {
+            dataset.setValue("Request Pending", pending);
+            dataset.setValue("Request Accepted", accepted);
+            dataset.setValue("Request Rejected", rejected);
+
+            JFreeChart chart = ChartFactory.createPieChart3D("Donation Details",dataset,true,true,false);
+            final PiePlot3D plot = (PiePlot3D) chart.getPlot();
+
+            ChartFrame chartFrame = new ChartFrame("Fund Request Pie chart", chart);
+            chartFrame.setVisible(true);
+            chartFrame.setSize(600, 600);
+        }
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -97,6 +134,11 @@ public class AnalyticsJPanel extends javax.swing.JPanel {
         });
 
         jButton2.setText("Fund Request Status");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Shelter Case Status");
 
@@ -132,6 +174,11 @@ public class AnalyticsJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         createDonationChart();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        createFundRequestChart();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -255,6 +255,7 @@ public class RegisterJPanel extends javax.swing.JPanel {
                 reporter.setPhoneNumber(phonenumber);
                 
                 JOptionPane.showMessageDialog(this, "User registered");
+                System.out.println(email+" "+password);
                 dB4OUtil.storeSystem(system);
                 
                 LoginJPanel panel = new LoginJPanel(splitpane,system);

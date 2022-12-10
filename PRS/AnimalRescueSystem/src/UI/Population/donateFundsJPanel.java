@@ -8,6 +8,7 @@ import business.ecosystem.Business;
 import business.population.FundDonation;
 import business.population.Report;
 import business.validations.Validations;
+import java.util.Date;
 import java.util.UUID;
 import javax.swing.JOptionPane;
 
@@ -186,6 +187,7 @@ public class DonateFundsJPanel extends javax.swing.JPanel {
             fundDonation.setStatus("PENDING");
             fundDonation.setSender("");
             fundDonation.setMessage(msg);
+            fundDonation.setDate(new Date());
 
             System.out.println("fund doantion "+fundDonation);
             JOptionPane.showMessageDialog(this, "Amount Donated "+amount+" "+msg+" "+fundDonation);
