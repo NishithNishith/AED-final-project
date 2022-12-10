@@ -251,16 +251,35 @@ public class ManageStaffWorkarea extends javax.swing.JPanel {
                 return;
             }
             
+            if(!validations.emailCheck(email)){
+                JOptionPane.showMessageDialog(this, "Enter valid details for Email");
+                return;
+            }
+            
+            if(!validations.passwordCheck(password)){
+                JOptionPane.showMessageDialog(this, "Enter valid details for Password");
+                return;
+            }
+
+             //Unique check
+            int uniqueFlag = 0;
+            UserAccount ua = system.getUserAccountDirectory().userCheck(email, password);
+            if(ua != null){
+                uniqueFlag = 1;
+            }
+
+            if(uniqueFlag == 1){
+                System.out.println("User Account is present");
+                JOptionPane.showMessageDialog(this, "Email already present");
+                return;
+
+            }
             //Unique Check
-            
-            
-//            ShelterStaff shelterStaff = system.getShelterStaffDirectory().addShelterStaff();
+
             
 
             ShelterStaff shelterStaff = system.getShelterStaffDirectory().addShelterStaff();
-            
-            
-            
+
             String uniqueField = UUID.randomUUID().toString();
             
             UserAccount userAccount = system.getUserAccountDirectory().addNewUserAccount();
