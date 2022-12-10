@@ -220,9 +220,7 @@ public class RegisterJPanel extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(this, "Enter valid details for Password");
                 return;
             }
-            
-            
-            
+
              //Unique check
             int uniqueFlag = 0;
             UserAccount ua = system.getUserAccountDirectory().userCheck(email, password);
