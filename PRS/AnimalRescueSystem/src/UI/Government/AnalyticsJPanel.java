@@ -4,6 +4,8 @@
  */
 package UI.Government;
 
+import business.ecosystem.Business;
+
 /**
  *
  * @author nishi
@@ -13,8 +15,13 @@ public class AnalyticsJPanel extends javax.swing.JPanel {
     /**
      * Creates new form AnalyticsJPanel
      */
-    public AnalyticsJPanel() {
+    javax.swing.JSplitPane splitpane;
+    Business system;
+    
+    public AnalyticsJPanel(javax.swing.JSplitPane splitpane, Business system) {
         initComponents();
+        this.splitpane = splitpane;
+        this.system = system;
     }
 
     /**

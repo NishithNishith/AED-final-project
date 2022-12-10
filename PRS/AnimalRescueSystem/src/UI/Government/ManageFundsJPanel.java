@@ -4,6 +4,12 @@
  */
 package UI.Government;
 
+import UI.shelter.RequestFunds;
+import business.ecosystem.Business;
+import business.shelter.FundRequest;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author nishi
@@ -13,8 +19,16 @@ public class ManageFundsJPanel extends javax.swing.JPanel {
     /**
      * Creates new form ManageFundsJPanel
      */
-    public ManageFundsJPanel() {
+    javax.swing.JSplitPane splitpane;
+    Business system;
+    FundRequest updateProfile;
+    
+    public ManageFundsJPanel(javax.swing.JSplitPane splitpane, Business system) {
         initComponents();
+        this.splitpane = splitpane;
+        this.system = system;
+        this.updateProfile = null;
+        populate();
     }
 
     /**
@@ -27,29 +41,237 @@ public class ManageFundsJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        btnAccept1 = new javax.swing.JButton();
+        btnReject = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        txtId = new javax.swing.JTextField();
+        txtStatus = new javax.swing.JTextField();
+        txtAmount = new javax.swing.JTextField();
+        txtMessage = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(17, 53, 81));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Manage Funds");
 
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "id", "Amount", "Status", "Description"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        btnAccept1.setText("Accept");
+        btnAccept1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAccept1ActionPerformed(evt);
+            }
+        });
+
+        btnReject.setText("Reject");
+        btnReject.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRejectActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/Images/charity.jpeg"))); // NOI18N
+        jLabel3.setText("jLabel3");
+
+        jButton1.setText("Select");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1300, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(361, 361, 361))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(49, 49, 49)
+                            .addComponent(btnAccept1)
+                            .addGap(5, 5, 5)
+                            .addComponent(btnReject))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(66, 66, 66)
+                            .addComponent(jLabel3)
+                            .addGap(5, 5, 5)
+                            .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(5, 5, 5)
+                            .addComponent(txtStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(5, 5, 5)
+                            .addComponent(txtAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(5, 5, 5)
+                            .addComponent(txtMessage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(783, Short.MAX_VALUE))
+                .addGap(133, 133, 133)
+                .addComponent(jButton1)
+                .addContainerGap(489, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 427, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(202, 202, 202)
+                            .addComponent(btnAccept1))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(202, 202, 202)
+                            .addComponent(btnReject)))
+                    .addGap(5, 5, 5)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel3)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(89, 89, 89)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtMessage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnAccept1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAccept1ActionPerformed
+        // TODO add your handling code here:
+
+        if(updateProfile == null){
+            JOptionPane.showMessageDialog(this, "Please select a row");
+            return;
+        }
+
+        try{
+
+            if(updateProfile.getStatus().equals("PENDING")){
+                updateProfile.setStatus("ACCEPTED");
+
+                int updateAmt = updateProfile.getAmount();
+                int curAmt = system.getCurAmount();
+                int newAmt = updateAmt + curAmt;
+                system.setCurAmount(newAmt);
+                
+                JOptionPane.showMessageDialog(this, "This request was accepted");
+                
+
+                populate();
+            }
+            else{
+                JOptionPane.showMessageDialog(this, "This request has already been served");
+                return;
+            }
+
+        }
+        catch(Exception err){
+            JOptionPane.showMessageDialog(this, "Issue while Accepting Amount, try again");
+        }
+    }//GEN-LAST:event_btnAccept1ActionPerformed
+
+    private void btnRejectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRejectActionPerformed
+        // TODO add your handling code here:
+        if(updateProfile == null){
+            JOptionPane.showMessageDialog(this, "Please select a row to be Accepted");
+            return;
+        }
+
+        try{
+
+            if(updateProfile.getStatus().equals("PENDING")){
+                updateProfile.setStatus("REJECTED");
+                JOptionPane.showMessageDialog(this, "This request was rejected");
+                
+                populate();
+            }
+            else{
+                JOptionPane.showMessageDialog(this, "This request has already been served");
+                return;
+            }
+
+        }
+        catch(Exception err){
+            JOptionPane.showMessageDialog(this, "Issue while Accepting Amount, try again");
+        }
+
+    }//GEN-LAST:event_btnRejectActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+
+        int selectRowIndex = jTable1.getSelectedRow();
+
+        if(selectRowIndex < 0){
+            JOptionPane.showMessageDialog(this, "Please select a row");
+            return;
+        }
+
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        FundRequest selectedProfile = (FundRequest)model.getValueAt(selectRowIndex,0  );
+
+        txtId.setText(String.valueOf(selectedProfile.getFundRequestId()));
+        txtAmount.setText(String.valueOf(selectedProfile.getAmount()));
+        txtStatus.setText(String.valueOf(selectedProfile.getStatus()));
+        txtMessage.setText(String.valueOf(selectedProfile.getDescription()));
+
+        updateProfile = selectedProfile;
+
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAccept;
+    private javax.swing.JButton btnAccept1;
+    private javax.swing.JButton btnReject;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JTextField txtAmount;
+    private javax.swing.JTextField txtId;
+    private javax.swing.JTextField txtMessage;
+    private javax.swing.JTextField txtStatus;
     // End of variables declaration//GEN-END:variables
+
+    private void populate() {
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+         model.setRowCount(0);
+
+         for(FundRequest pro: system.getFundRequestDirectory().getFundRequest()){
+
+             Object[] row = new Object[4];
+             row[0] = pro;
+             row[1] = pro.getAmount();
+             row[2] = pro.getStatus();
+             row[3] = pro.getDescription();
+             
+             model.addRow(row );
+             
+         }
+    }
 }
