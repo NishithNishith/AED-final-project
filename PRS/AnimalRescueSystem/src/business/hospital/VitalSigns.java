@@ -8,11 +8,8 @@ package business.hospital;
  *
  * @author sinchanakumar
  */
-public class Encounter {
-    String id;
-    String patientId;
-    String desc;
-    String prescription;
+public class VitalSigns {
+    
     int heartRate;
     int respiratoryRate;
     int Temperature;
@@ -67,39 +64,5 @@ public class Encounter {
     public void setBloodPressure(int bloodPressure) {
         this.bloodPressure = bloodPressure;
     }
-    
-
-    public String getId() {
-        return id;
-    }
-
-    public String getPatientId() {
-        return patientId;
-    }
-
-    public String getDesc() {
-        return desc;
-    }
-
-    public String getPrescription() {
-        return prescription;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public void setPatientId(String patientId) {
-        this.patientId = patientId;
-    }
-
-    public void setDesc(String desc) {
-        this.desc = desc;
-    }
-
-    public void setPrescription(String prescription) {
-        this.prescription = prescription;
-    }
-    
     
 }
