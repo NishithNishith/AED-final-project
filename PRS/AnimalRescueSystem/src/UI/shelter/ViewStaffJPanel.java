@@ -338,9 +338,6 @@ public class ViewStaffJPanel extends javax.swing.JPanel {
             
             //Unique Check
 
-
-            userAccount.setPassword(password);
-
             updateProfile.setFirstName(firstname);
             updateProfile.setLastName(lastname);
             updateProfile.setAge(Integer.parseInt(age));
