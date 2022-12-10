@@ -20,8 +20,6 @@ import javax.swing.JOptionPane;
 public class CreateManagerJPanel extends javax.swing.JPanel {
 
     Validations validations;
-    HospitalManagerDirectory hospitalManagerDirectory;
-    UserAccountDirectory userAccountDirectory;
     javax.swing.JSplitPane splitpane;
     Business system;
     /**
@@ -32,8 +30,7 @@ public class CreateManagerJPanel extends javax.swing.JPanel {
         this.splitpane = splitpane;
         this.system = system;
         this.validations = new Validations();
-        this.hospitalManagerDirectory = new HospitalManagerDirectory();
-        this.userAccountDirectory = new UserAccountDirectory();
+       
     }
 
     /**
@@ -327,14 +324,38 @@ public class CreateManagerJPanel extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(this, "Enter valid details for Manager");
                 return;
             }
+            
+            if(!validations.emailCheck(email)){
+                JOptionPane.showMessageDialog(this, "Enter valid details for Email");
+                return;
+            }
+            
+            if(!validations.passwordCheck(password)){
+                JOptionPane.showMessageDialog(this, "Enter valid details for Password");
+                return;
+            }
 
             //Unique check
+            
+            int uniqueFlag = 0;
+            UserAccount ua = system.getUserAccountDirectory().userCheck(email, password);
+            if(ua != null){
+                uniqueFlag = 1;
+            }
 
-            HospitalManager hospitalManager = hospitalManagerDirectory.addHospitalManager();
+            if(uniqueFlag == 1){
+                System.out.println("User Account is present");
+                JOptionPane.showMessageDialog(this, "Email already present");
+                return;
+
+            }
+
+           // HospitalManager hospitalManager = hospitalManagerDirectory.addHospitalManager();
+            HospitalManager hospitalManager = system.getHospitalManagerDirectory().addHospitalManager();
 
             String uniqueField = UUID.randomUUID().toString();
 
-            UserAccount userAccount = userAccountDirectory.addNewUserAccount();
+            UserAccount userAccount = system.getUserAccountDirectory().addNewUserAccount();
             userAccount.setEmail(email);
             userAccount.setPassword(password);
             userAccount.setRole("HospitalManager");
@@ -363,8 +384,7 @@ public class CreateManagerJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewActionPerformed
-        ViewManagersJPanel panel = new ViewManagersJPanel(system, hospitalManagerDirectory);
-        splitpane.setRightComponent(panel);
+        
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btnViewActionPerformed

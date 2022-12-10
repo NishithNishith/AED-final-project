@@ -20,8 +20,6 @@ import javax.swing.JOptionPane;
 public class CreateDoctorJPanel extends javax.swing.JPanel {
 
     Validations validations;
-    DoctorDirectory doctorDirectory;
-    UserAccountDirectory userAccountDirectory;
     javax.swing.JSplitPane splitpane;
     Business system;
     /**
@@ -32,8 +30,7 @@ public class CreateDoctorJPanel extends javax.swing.JPanel {
         this.splitpane = splitpane;
         this.system = system;
         this.validations = new Validations();
-        this.doctorDirectory = new DoctorDirectory();
-       this.userAccountDirectory = new UserAccountDirectory();
+       
     }
 
     /**
@@ -341,21 +338,45 @@ public class CreateDoctorJPanel extends javax.swing.JPanel {
                 return;
             }
 
-            if(!validations.numberCheck(age) || !validations.numberCheck(exp) || !validations.numberCheck(phonenumber)){
+            if(!validations.numberCheck(age) || !validations.numberCheck(exp)){
                 JOptionPane.showMessageDialog(this, "Enter valid details for Doctor");
+                return;
+            }
+            
+            if(!validations.emailCheck(email)){
+                JOptionPane.showMessageDialog(this, "Enter valid details for Email");
+                return;
+            }
+            
+            if(!validations.passwordCheck(password)){
+                JOptionPane.showMessageDialog(this, "Enter valid details for Password");
                 return;
             }
 
             //Unique check
+            
+            int uniqueFlag = 0;
+            UserAccount ua = system.getUserAccountDirectory().userCheck(email, password);
+            if(ua != null){
+                uniqueFlag = 1;
+            }
 
-            Doctor doctor = doctorDirectory.addNewDoctor();
+            if(uniqueFlag == 1){
+                System.out.println("User Account is present");
+                JOptionPane.showMessageDialog(this, "Email already present");
+                return;
+
+            }
+
+            //Doctor doctor = doctorDirectory.addNewDoctor();
+            Doctor doctor = system.getDoctorDirectory().addNewDoctor();
 
             String uniqueField = UUID.randomUUID().toString();
 
-            UserAccount userAccount = userAccountDirectory.addNewUserAccount();
+            UserAccount userAccount = system.getUserAccountDirectory().addNewUserAccount();
             userAccount.setEmail(email);
             userAccount.setPassword(password);
-            userAccount.setRole("DoctorManager");
+            userAccount.setRole("HospitalManager");
             userAccount.setUserAccountId(uniqueField);
 
             doctor.setDoctorId(uniqueField);
@@ -371,7 +392,7 @@ public class CreateDoctorJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "Doctor created");
         }
         catch(Exception err){
-            JOptionPane.showMessageDialog(this, "Issue while creating doctor, try again"+ err);
+            JOptionPane.showMessageDialog(this, "Issue while creating doctor, try again");
         }
         //populate();// TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -381,8 +402,7 @@ public class CreateDoctorJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewActionPerformed
-        ViewDoctorJPanel panel = new ViewDoctorJPanel(system, doctorDirectory);
-        splitpane.setRightComponent(panel);
+        
 
 // TODO add your handling code here:
     }//GEN-LAST:event_btnViewActionPerformed

@@ -4,23 +4,17 @@
  */
 package UI.Hospitals;
 
-import business.ecosystem.Business;
-
 /**
  *
  * @author sinchanakumar
  */
 public class HospitalAdminJPanel extends javax.swing.JPanel {
- 
-    Business system;
-    javax.swing.JSplitPane splitpane;
+
     /**
      * Creates new form HospitalAdminJPanel
      */
     public HospitalAdminJPanel() {
         initComponents();
-        this.splitpane = splitpane;
-        this.system = system;
     }
 
     /**
@@ -33,99 +27,156 @@ public class HospitalAdminJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        btnManageDoc = new javax.swing.JButton();
-        btnManageEncounter = new javax.swing.JButton();
-        btnManageManager = new javax.swing.JButton();
-        BackgroundIcon = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        btnCreateDoc = new javax.swing.JButton();
+        btnCreateManager = new javax.swing.JButton();
+        btnCreateEncounter = new javax.swing.JButton();
+        btnViewDoctor = new javax.swing.JButton();
+        btnViewManager = new javax.swing.JButton();
+        btnViewEncounter = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
-        jPanel2.setLayout(null);
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(17, 53, 81));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Hospital Admin");
 
-        btnManageDoc.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        btnManageDoc.setForeground(new java.awt.Color(17, 53, 81));
-        btnManageDoc.setText("Manage Doctors");
-        btnManageDoc.addActionListener(new java.awt.event.ActionListener() {
+        btnCreateDoc.setBackground(new java.awt.Color(17, 53, 81));
+        btnCreateDoc.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        btnCreateDoc.setForeground(new java.awt.Color(255, 255, 255));
+        btnCreateDoc.setText("Create Doctor");
+
+        btnCreateManager.setBackground(new java.awt.Color(17, 53, 81));
+        btnCreateManager.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        btnCreateManager.setForeground(new java.awt.Color(255, 255, 255));
+        btnCreateManager.setText("Create Manager");
+        btnCreateManager.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnManageDocActionPerformed(evt);
+                btnCreateManagerActionPerformed(evt);
             }
         });
-        jPanel2.add(btnManageDoc);
-        btnManageDoc.setBounds(140, 270, 320, 70);
 
-        btnManageEncounter.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        btnManageEncounter.setForeground(new java.awt.Color(17, 53, 81));
-        btnManageEncounter.setText("Manage Encounters");
-        btnManageEncounter.addActionListener(new java.awt.event.ActionListener() {
+        btnCreateEncounter.setBackground(new java.awt.Color(17, 53, 81));
+        btnCreateEncounter.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        btnCreateEncounter.setForeground(new java.awt.Color(255, 255, 255));
+        btnCreateEncounter.setText("Create Encounter");
+        btnCreateEncounter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnManageEncounterActionPerformed(evt);
+                btnCreateEncounterActionPerformed(evt);
             }
         });
-        jPanel2.add(btnManageEncounter);
-        btnManageEncounter.setBounds(140, 370, 320, 70);
 
-        btnManageManager.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        btnManageManager.setForeground(new java.awt.Color(17, 53, 81));
-        btnManageManager.setText("Manage Managers");
-        jPanel2.add(btnManageManager);
-        btnManageManager.setBounds(140, 470, 320, 70);
+        btnViewDoctor.setBackground(new java.awt.Color(17, 53, 81));
+        btnViewDoctor.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        btnViewDoctor.setForeground(new java.awt.Color(255, 255, 255));
+        btnViewDoctor.setText("View Doctor");
 
-        BackgroundIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/Images/doc.png"))); // NOI18N
-        BackgroundIcon.setText("jLabel2");
-        jPanel2.add(BackgroundIcon);
-        BackgroundIcon.setBounds(0, 0, 1300, 860);
+        btnViewManager.setBackground(new java.awt.Color(17, 53, 81));
+        btnViewManager.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        btnViewManager.setForeground(new java.awt.Color(255, 255, 255));
+        btnViewManager.setText("View Manager");
+        btnViewManager.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewManagerActionPerformed(evt);
+            }
+        });
+
+        btnViewEncounter.setBackground(new java.awt.Color(17, 53, 81));
+        btnViewEncounter.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        btnViewEncounter.setForeground(new java.awt.Color(255, 255, 255));
+        btnViewEncounter.setText("View Encounter");
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/Images/medicalLogo.png"))); // NOI18N
+        jLabel2.setText("jLabel2");
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/Images/Staff.png"))); // NOI18N
+        jLabel3.setText("jLabel3");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 1300, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(182, 182, 182)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(127, 127, 127)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(btnViewEncounter, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnViewDoctor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnCreateEncounter, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnCreateManager, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnCreateDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnViewManager, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(122, 122, 122)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(214, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 860, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(71, 71, 71)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(btnCreateDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(42, 42, 42)
+                                .addComponent(btnCreateManager, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(37, 37, 37)
+                                .addComponent(btnCreateEncounter, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(41, 41, 41)
+                                .addComponent(btnViewDoctor, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(40, 40, 40)
+                        .addComponent(btnViewManager, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(51, 51, 51)
+                        .addComponent(btnViewEncounter, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel3))
+                .addContainerGap(196, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1300, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 860, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnManageDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageDocActionPerformed
-        //ManageDoctorsJPanel panel = new ManageDoctorsJPanel(splitpane);
-       // splitpane.setRightComponent(panel);
-//       CreateDoctorJPanel panel = new CreateDoctorJPanel(splitpane, system);
-//        splitpane.setRightComponent(panel);
+    private void btnCreateManagerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateManagerActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnManageDocActionPerformed
+    }//GEN-LAST:event_btnCreateManagerActionPerformed
 
-    private void btnManageEncounterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageEncounterActionPerformed
+    private void btnCreateEncounterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateEncounterActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnManageEncounterActionPerformed
+    }//GEN-LAST:event_btnCreateEncounterActionPerformed
+
+    private void btnViewManagerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewManagerActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnViewManagerActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel BackgroundIcon;
-    private javax.swing.JButton btnManageDoc;
-    private javax.swing.JButton btnManageEncounter;
-    private javax.swing.JButton btnManageManager;
+    private javax.swing.JButton btnCreateDoc;
+    private javax.swing.JButton btnCreateEncounter;
+    private javax.swing.JButton btnCreateManager;
+    private javax.swing.JButton btnViewDoctor;
+    private javax.swing.JButton btnViewEncounter;
+    private javax.swing.JButton btnViewManager;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 }

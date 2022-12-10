@@ -8,11 +8,66 @@ package business.hospital;
  *
  * @author sinchanakumar
  */
-public class Encounter extends VitalSigns{
+public class Encounter {
     String id;
     String patientId;
     String desc;
     String prescription;
+    int heartRate;
+    int respiratoryRate;
+    int Temperature;
+    int weight;
+    int height;
+    int bloodPressure;
+
+    public int getHeartRate() {
+        return heartRate;
+    }
+
+    public int getRespiratoryRate() {
+        return respiratoryRate;
+    }
+
+    public int getTemperature() {
+        return Temperature;
+    }
+
+    public int getWeight() {
+        return weight;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public int getBloodPressure() {
+        return bloodPressure;
+    }
+
+    public void setHeartRate(int heartRate) {
+        this.heartRate = heartRate;
+    }
+
+    public void setRespiratoryRate(int respiratoryRate) {
+        this.respiratoryRate = respiratoryRate;
+    }
+
+    public void setTemperature(int Temperature) {
+        this.Temperature = Temperature;
+    }
+
+    public void setWeight(int weight) {
+        this.weight = weight;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
+    }
+
+    public void setBloodPressure(int bloodPressure) {
+        this.bloodPressure = bloodPressure;
+    }
+    
 
     public String getId() {
         return id;
