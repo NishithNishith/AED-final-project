@@ -4,6 +4,9 @@
  */
 package UI.Main;
 
+import UI.Distribution.AdminDistribution;
+import UI.Distribution.DeliveryAssociateJPanel;
+import UI.Distribution.ManageOrders;
 import UI.Government.AnalyticsJPanel;
 import UI.Government.GovernmentAdmin;
 import UI.Government.ManageFundsJPanel;
@@ -212,6 +215,8 @@ public class LoginJPanel extends javax.swing.JPanel {
                      
                 }
                 else if(role.equals("DistributionAdmin")){
+                                        AdminDistribution panel = new AdminDistribution(splitpane,system);
+                    splitpane.setRightComponent(panel);
                 }
                 else if(role.equals("GovernmentAdmin")){
                     GovernmentAdmin panel = new GovernmentAdmin(splitpane, system);
@@ -223,6 +228,10 @@ public class LoginJPanel extends javax.swing.JPanel {
                 }
                 else if(role.equals("Overseer")){
                     ManageFundsJPanel panel = new ManageFundsJPanel(splitpane, system);
+                    splitpane.setRightComponent(panel);
+                }
+                                else if(role.equals("DeliveryAssociate")){
+                    DeliveryAssociateJPanel panel = new DeliveryAssociateJPanel(splitpane, system,userAccount);
                     splitpane.setRightComponent(panel);
                 }
                 

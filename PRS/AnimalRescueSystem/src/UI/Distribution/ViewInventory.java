@@ -30,12 +30,13 @@ public class ViewInventory extends javax.swing.JPanel {
      * Creates new form ViewInventory
      */
     Business system;
-    DatabaseUtils dB4OUtil = DatabaseUtils.getInstance();
+    javax.swing.JSplitPane splitpane;
     Validations validations;
-    public ViewInventory(Business system) {
+    public ViewInventory(javax.swing.JSplitPane splitpane,Business system) {
         initComponents();
         this.system = system;
         validations = new Validations();
+        this.splitpane = splitpane;
         populateTable();
     }
 
@@ -280,7 +281,7 @@ public class ViewInventory extends javax.swing.JPanel {
 
       
           
-        dB4OUtil.storeSystem(system);
+     
           
 
          

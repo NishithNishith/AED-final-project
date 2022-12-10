@@ -11,17 +11,25 @@ import business.population.Person;
  */
 public class DeliveryAssociate extends Person{
     
-    public int deliveryAssociateID;
-    public String phoneNumber;
-    public String workStatus;
-    public String nameOfDA;    
+    String deliveryAssociateId;
+    int yearsOfExperience;
+    String phoneNumber;
+    int salary;  
 
-    public int getDeliveryAssociateID() {
-        return deliveryAssociateID;
+    public String getDeliveryAssociateId() {
+        return deliveryAssociateId;
     }
 
-    public void setDeliveryAssociateID(int deliveryAssociateID) {
-        this.deliveryAssociateID = deliveryAssociateID;
+    public void setDeliveryAssociateId(String deliveryAssociateId) {
+        this.deliveryAssociateId = deliveryAssociateId;
+    }
+
+    public int getYearsOfExperience() {
+        return yearsOfExperience;
+    }
+
+    public void setYearsOfExperience(int yearsOfExperience) {
+        this.yearsOfExperience = yearsOfExperience;
     }
 
     public String getPhoneNumber() {
@@ -32,26 +40,15 @@ public class DeliveryAssociate extends Person{
         this.phoneNumber = phoneNumber;
     }
 
-    public String getWorkStatus() {
-        return workStatus;
+    public int getSalary() {
+        return salary;
     }
 
-    public void setWorkStatus(String workStatus) {
-        this.workStatus = workStatus;
+    public void setSalary(int salary) {
+        this.salary = salary;
     }
 
-    public String getNameOfDA() {
-        return nameOfDA;
-    }
-
-    public void setNameOfDA(String nameOfDA) {
-        this.nameOfDA = nameOfDA;
-    }
-    
-            @Override
-    public String toString(){
-        return nameOfDA;
-    }
+ 
     
 
 }
