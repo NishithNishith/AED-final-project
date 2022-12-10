@@ -27,12 +27,13 @@ public class ViewDeliveryAssociates extends javax.swing.JPanel {
      */
     
         Business system;
-    DatabaseUtils dB4OUtil = DatabaseUtils.getInstance();
     Validations validations;
-    public ViewDeliveryAssociates(Business system) {
+    javax.swing.JSplitPane splitpane;
+    public ViewDeliveryAssociates(javax.swing.JSplitPane splitpane,Business system) {
         initComponents();
         this.system = system;
         validations = new Validations();
+        this.splitpane = splitpane;
         populateTable();
     }
 

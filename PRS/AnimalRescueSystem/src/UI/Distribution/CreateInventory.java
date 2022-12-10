@@ -22,6 +22,7 @@ public class CreateInventory extends javax.swing.JPanel {
     Business system;
     DatabaseUtils dB4OUtil = DatabaseUtils.getInstance();
     Validations validations;
+    
     /**
      * Creates new form CreateInventory
      */
