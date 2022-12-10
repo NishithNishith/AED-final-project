@@ -5,8 +5,10 @@
 package UI.shelter;
 
 import business.ecosystem.Business;
+import business.population.Adoption;
 import business.shelter.CaseFile;
 import business.validations.Validations;
+import java.util.UUID;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -230,8 +232,15 @@ public class AdoptionWorkarea extends javax.swing.JPanel {
             if(updateProfile.getStatus().equals("SHELTER")){
                 updateProfile.setStatus("ADOPTED");
             
-
-                //
+                String uniqueField = UUID.randomUUID().toString();
+                 
+                Adoption adoption = system.getAdoptionDirectory().addNewAdoption();
+                adoption.setAdoptionId(uniqueField);
+                adoption.setCaseId(updateProfile.getCaseId());
+                adoption.setUser(system.getCurrentUserEmail());
+                adoption.setPetName("Petto");
+                
+                JOptionPane.showMessageDialog(this, "This animal adopted!");
                 populate();
             }
             else{
