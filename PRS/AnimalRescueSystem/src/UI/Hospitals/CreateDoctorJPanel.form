@@ -52,59 +52,52 @@
                           <Component id="jLabel2" min="-2" pref="689" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="101" max="-2" attributes="0"/>
+                          <Component id="jButton1" min="-2" pref="225" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="126" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
-                                  <EmptySpace min="452" pref="452" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="DocID" min="-2" pref="133" max="-2" attributes="0"/>
+                                      <Component id="name" min="-2" pref="133" max="-2" attributes="0"/>
+                                      <Component id="name1" min="-2" pref="133" max="-2" attributes="0"/>
+                                      <Component id="name2" min="-2" pref="133" max="-2" attributes="0"/>
+                                      <Component id="name4" min="-2" pref="133" max="-2" attributes="0"/>
+                                      <Component id="name5" alignment="1" min="-2" pref="133" max="-2" attributes="0"/>
+                                      <Component id="name6" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="name7" alignment="1" min="-2" pref="133" max="-2" attributes="0"/>
+                                      <Component id="name8" alignment="1" min="-2" pref="133" max="-2" attributes="0"/>
+                                  </Group>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" attributes="0">
+                                          <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="DocID" min="-2" pref="133" max="-2" attributes="0"/>
-                                              <Component id="name" min="-2" pref="133" max="-2" attributes="0"/>
-                                              <Component id="name1" min="-2" pref="133" max="-2" attributes="0"/>
-                                              <Component id="name2" min="-2" pref="133" max="-2" attributes="0"/>
-                                              <Component id="name4" min="-2" pref="133" max="-2" attributes="0"/>
-                                              <Component id="name5" alignment="1" min="-2" pref="133" max="-2" attributes="0"/>
-                                              <Component id="name6" alignment="1" min="-2" max="-2" attributes="0"/>
-                                              <Component id="name7" alignment="1" min="-2" pref="133" max="-2" attributes="0"/>
-                                              <Component id="name8" alignment="1" min="-2" pref="133" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Group type="102" attributes="0">
-                                                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                                                  <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Component id="txtFirstName" min="-2" pref="225" max="-2" attributes="0"/>
-                                                      <Component id="txtLastName" min="-2" pref="225" max="-2" attributes="0"/>
-                                                      <Component id="txtUsername" min="-2" pref="225" max="-2" attributes="0"/>
-                                                      <Component id="txtSpecilization" min="-2" pref="225" max="-2" attributes="0"/>
-                                                      <Component id="txtYearsofexp" min="-2" pref="225" max="-2" attributes="0"/>
-                                                      <Component id="txtPhno" min="-2" pref="225" max="-2" attributes="0"/>
-                                                      <Component id="txtEmail" min="-2" pref="225" max="-2" attributes="0"/>
-                                                  </Group>
-                                              </Group>
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                                  <Component id="txtPassword" min="-2" pref="225" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                                  <Component id="txtGender" min="-2" pref="225" max="-2" attributes="0"/>
-                                              </Group>
+                                              <Component id="txtFirstName" min="-2" pref="225" max="-2" attributes="0"/>
+                                              <Component id="txtLastName" min="-2" pref="225" max="-2" attributes="0"/>
+                                              <Component id="txtSalary" min="-2" pref="225" max="-2" attributes="0"/>
+                                              <Component id="txtSpecilization" min="-2" pref="225" max="-2" attributes="0"/>
+                                              <Component id="txtYearsofexp" min="-2" pref="225" max="-2" attributes="0"/>
+                                              <Component id="txtPhno" min="-2" pref="225" max="-2" attributes="0"/>
+                                              <Component id="txtEmail" min="-2" pref="225" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
-                                          <Component id="name3" min="-2" pref="133" max="-2" attributes="0"/>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="txtAge" min="-2" pref="225" max="-2" attributes="0"/>
+                                          <Component id="txtPassword" min="-2" pref="225" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="txtGender" min="-2" pref="225" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <EmptySpace min="-2" pref="129" max="-2" attributes="0"/>
                               </Group>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jButton1" min="-2" pref="225" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="223" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="name3" min="-2" pref="133" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="txtAge" min="-2" pref="225" max="-2" attributes="0"/>
                               </Group>
                           </Group>
+                          <EmptySpace min="-2" pref="129" max="-2" attributes="0"/>
                           <Component id="medicalIcon" min="-2" pref="192" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -145,7 +138,8 @@
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="name1" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
-                              <Component id="txtUsername" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtSalary" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jButton1" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
@@ -182,11 +176,9 @@
                               <Component id="name8" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
                               <Component id="txtEmail" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                          <Component id="jButton1" min="-2" pref="30" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace min="-2" pref="150" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="176" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -240,7 +232,7 @@
               <Color blue="4e" green="4d" red="1" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="2"/>
-            <Property name="text" type="java.lang.String" value="Username:"/>
+            <Property name="text" type="java.lang.String" value="Salary:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="name2">
@@ -255,7 +247,7 @@
             <Property name="text" type="java.lang.String" value="Password:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtUsername">
+        <Component class="javax.swing.JTextField" name="txtSalary">
         </Component>
         <Component class="javax.swing.JTextField" name="txtGender">
         </Component>
@@ -292,7 +284,7 @@
               <Color blue="4e" green="4d" red="1" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="2"/>
-            <Property name="text" type="java.lang.String" value="Specilization:"/>
+            <Property name="text" type="java.lang.String" value="Specialization:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="name6">

@@ -20,19 +20,18 @@ import javax.swing.table.DefaultTableModel;
  */
 public class ViewDoctorJPanel extends javax.swing.JPanel {
 
-    DoctorDirectory doctorDirectory;
-    Doctor updateProfile;
-    Validations validations;
-    UserAccountDirectory userAccountDirectory;
     Business system;
+    javax.swing.JSplitPane splitpane;
+    Validations validations;
+    Doctor updateProfile;
     /**
      * Creates new form ViewDoctorJPanel
      */
-    public ViewDoctorJPanel(Business system, DoctorDirectory doctorDirectory) {
+    public ViewDoctorJPanel(javax.swing.JSplitPane splitpane,Business system) {
         initComponents();
         this.system = system;
-        this.doctorDirectory = doctorDirectory;
-        System.out.print(doctorDirectory);
+        this.splitpane = splitpane;
+        validations = new Validations();
         populate();
     
     }
@@ -52,7 +51,7 @@ public class ViewDoctorJPanel extends javax.swing.JPanel {
         txtFirstName = new javax.swing.JTextField();
         name9 = new javax.swing.JLabel();
         txtLastName = new javax.swing.JTextField();
-        txtUsername = new javax.swing.JTextField();
+        txtSalary = new javax.swing.JTextField();
         name10 = new javax.swing.JLabel();
         name11 = new javax.swing.JLabel();
         name12 = new javax.swing.JLabel();
@@ -93,7 +92,7 @@ public class ViewDoctorJPanel extends javax.swing.JPanel {
         name10.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
         name10.setForeground(new java.awt.Color(1, 77, 78));
         name10.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        name10.setText("Username:");
+        name10.setText("Salary:");
 
         name11.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
         name11.setForeground(new java.awt.Color(1, 77, 78));
@@ -234,7 +233,7 @@ public class ViewDoctorJPanel extends javax.swing.JPanel {
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(txtFirstName)
                                     .addComponent(txtLastName)
-                                    .addComponent(txtUsername)
+                                    .addComponent(txtSalary)
                                     .addComponent(txtSpecilization)
                                     .addComponent(txtYearsofexp)
                                     .addComponent(txtPhno)
@@ -277,7 +276,7 @@ public class ViewDoctorJPanel extends javax.swing.JPanel {
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(name10, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(txtSalary, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(name11, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -340,7 +339,7 @@ public class ViewDoctorJPanel extends javax.swing.JPanel {
         try{
             String firstname = txtFirstName.getText();
             String lastname = txtLastName.getText();
-            String username = txtUsername.getText();
+            String salary = txtSalary.getText();
             String age = txtAge.getText();
             String gender = txtGender.getText();
             String exp = txtYearsofexp.getText();
@@ -349,7 +348,7 @@ public class ViewDoctorJPanel extends javax.swing.JPanel {
             String email = txtEmail.getText();
             String password = txtPassword.getText();
 
-            if(!validations.lengthCheck(firstname) ||!validations.lengthCheck(lastname) || !validations.lengthCheck(username) ||
+            if(!validations.lengthCheck(firstname) ||!validations.lengthCheck(lastname) || !validations.lengthCheck(salary) ||
                 !validations.lengthCheck(age) ||!validations.lengthCheck(gender)
                 || !validations.lengthCheck(exp) || !validations.lengthCheck(phonenumber)
                 || !validations.lengthCheck(specilization) || !validations.lengthCheck(email)
@@ -364,29 +363,25 @@ public class ViewDoctorJPanel extends javax.swing.JPanel {
                 return;
             }
 
-            //Unique Check
+                        //Unique Check
 
-            Doctor doctor = doctorDirectory.addNewDoctor();
+            UserAccount userAccount = system.getUserAccountDirectory().findAccount(updateProfile.getDoctorId());
 
-            String uniqueField = UUID.randomUUID().toString();
+            if(userAccount!=null){
+                userAccount.setPassword(password);
+            }
 
-            UserAccount userAccount = userAccountDirectory.addNewUserAccount();
-            userAccount.setEmail(email);
-            userAccount.setPassword(password);
-            userAccount.setRole("HospitalManager");
-            userAccount.setUserAccountId(uniqueField);
+            updateProfile.setFirstName(firstname);
+            updateProfile.setLastName(lastname);
+            updateProfile.setAge(Integer.parseInt(age));
+            updateProfile.setGender(gender);
+            updateProfile.setYearsOfExperience(Integer.parseInt(exp));
+            updateProfile.setPhoneNumber(phonenumber);
+            updateProfile.setSalary(Integer.parseInt(salary));
 
-            doctor.setDoctorId(uniqueField);
-            doctor.setFirstName(firstname);
-            doctor.setLastName(lastname);
-            doctor.setUserName(username);
-            doctor.setAge(Integer.parseInt(age));
-            doctor.setGender(gender);
-            doctor.setYearsOfExperience(Integer.parseInt(exp));
-            doctor.setPhoneNumber(Integer.parseInt(phonenumber));
-            doctor.setSpecilization(specilization);
-            
-            JOptionPane.showMessageDialog(this, "Doctor updated");
+            JOptionPane.showMessageDialog(this, "Manager updated");
+
+            populate();
 
             //populate();
         }
@@ -409,12 +404,12 @@ public class ViewDoctorJPanel extends javax.swing.JPanel {
 
         txtFirstName.setText(String.valueOf(selectedProfile.getFirstName()));
         txtLastName.setText(String.valueOf(selectedProfile.getLastName()));
-        txtUsername.setText(String.valueOf(selectedProfile.getUserName()));
+        txtSalary.setText(String.valueOf(selectedProfile.getSalary()));
         
         txtAge.setText(String.valueOf(selectedProfile.getAge()));
         txtGender.setText(String.valueOf(selectedProfile.getGender()));
         txtYearsofexp.setText(String.valueOf(selectedProfile.getYearsOfExperience()));
-        txtSpecilization.setText(String.valueOf(selectedProfile.getSpecilization()));
+        txtSpecilization.setText(String.valueOf(selectedProfile.getSpecialization()));
 
         txtPhno.setText(String.valueOf(selectedProfile.getPhoneNumber()));
         
@@ -434,7 +429,7 @@ public class ViewDoctorJPanel extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         Doctor selectedProfile = (Doctor)model.getValueAt(selectRowIndex,0  );
 
-        doctorDirectory.removeDoctor(selectedProfile);
+        system.getDoctorDirectory().removeDoctor(selectedProfile);
         JOptionPane.showMessageDialog(this, "Doctor has been deleted");
 
         populate();// TODO add your handling code here:
@@ -443,12 +438,11 @@ public class ViewDoctorJPanel extends javax.swing.JPanel {
     private void populate() {
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
          model.setRowCount(0);
-         System.out.println("doctor "+doctorDirectory);
-         for(Doctor pro: doctorDirectory.getDoctorList()){
+         for(Doctor pro: system.getDoctorDirectory().getDoctorList()){
               System.out.println("profile "+pro);
              Object[] row = new Object[4];
-             row[0] = pro.getFirstName();
-             row[1] = pro.getSpecilization();
+             row[0] = pro;
+             row[1] = pro.getSpecialization();
              row[2] = pro.getYearsOfExperience();
              row[3] = pro.getPhoneNumber();
              
@@ -485,8 +479,8 @@ public class ViewDoctorJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField txtLastName;
     private javax.swing.JPasswordField txtPassword;
     private javax.swing.JTextField txtPhno;
+    private javax.swing.JTextField txtSalary;
     private javax.swing.JTextField txtSpecilization;
-    private javax.swing.JTextField txtUsername;
     private javax.swing.JTextField txtYearsofexp;
     // End of variables declaration//GEN-END:variables
 }

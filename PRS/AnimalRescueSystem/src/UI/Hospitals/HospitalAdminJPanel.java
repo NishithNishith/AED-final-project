@@ -4,6 +4,8 @@
  */
 package UI.Hospitals;
 
+import business.ecosystem.Business;
+
 /**
  *
  * @author sinchanakumar
@@ -13,8 +15,12 @@ public class HospitalAdminJPanel extends javax.swing.JPanel {
     /**
      * Creates new form HospitalAdminJPanel
      */
-    public HospitalAdminJPanel() {
+        Business system;
+    javax.swing.JSplitPane splitpane;
+    public HospitalAdminJPanel(javax.swing.JSplitPane splitpane, Business system) {
         initComponents();
+        this.system = system;
+        this.splitpane = splitpane;
     }
 
     /**
@@ -46,6 +52,11 @@ public class HospitalAdminJPanel extends javax.swing.JPanel {
         btnCreateDoc.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         btnCreateDoc.setForeground(new java.awt.Color(255, 255, 255));
         btnCreateDoc.setText("Create Doctor");
+        btnCreateDoc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCreateDocActionPerformed(evt);
+            }
+        });
 
         btnCreateManager.setBackground(new java.awt.Color(17, 53, 81));
         btnCreateManager.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
@@ -71,6 +82,11 @@ public class HospitalAdminJPanel extends javax.swing.JPanel {
         btnViewDoctor.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         btnViewDoctor.setForeground(new java.awt.Color(255, 255, 255));
         btnViewDoctor.setText("View Doctor");
+        btnViewDoctor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewDoctorActionPerformed(evt);
+            }
+        });
 
         btnViewManager.setBackground(new java.awt.Color(17, 53, 81));
         btnViewManager.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
@@ -165,6 +181,18 @@ public class HospitalAdminJPanel extends javax.swing.JPanel {
     private void btnViewManagerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewManagerActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnViewManagerActionPerformed
+
+    private void btnCreateDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateDocActionPerformed
+        // TODO add your handling code here:
+                CreateDoctorJPanel createDoctor = new CreateDoctorJPanel(splitpane,system);
+                splitpane.setRightComponent(createDoctor);
+    }//GEN-LAST:event_btnCreateDocActionPerformed
+
+    private void btnViewDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewDoctorActionPerformed
+        // TODO add your handling code here:
+                        ViewDoctorJPanel viewDoctor = new ViewDoctorJPanel(splitpane,system);
+                splitpane.setRightComponent(viewDoctor);
+    }//GEN-LAST:event_btnViewDoctorActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
