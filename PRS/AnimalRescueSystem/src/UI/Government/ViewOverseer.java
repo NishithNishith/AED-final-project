@@ -25,13 +25,14 @@ public class ViewOverseer extends javax.swing.JPanel {
      * Creates new form ViewOverseer
      */
     Business system;
-    javax.swing.JSplitPane splitpane;
           DatabaseUtils dB4OUtil = DatabaseUtils.getInstance();
       Validations validations;
-    public ViewOverseer(javax.swing.JSplitPane splitpane, Business system) {
+      javax.swing.JSplitPane splitpane;
+    public ViewOverseer(javax.swing.JSplitPane splitpane,Business system) {
         initComponents();
-        this.splitpane = splitpane;
         this.system = system;
+        this.system = system;
+        validations = new Validations();
     }
 
     /**

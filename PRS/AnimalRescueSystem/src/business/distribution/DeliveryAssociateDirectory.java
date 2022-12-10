@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package business.distribution;
-import business.population.Person;
+
 import java.util.ArrayList;
 
 /**
@@ -38,13 +38,6 @@ public class DeliveryAssociateDirectory {
         return deliveryAssociate;
     }
     
-    public DeliveryAssociate checkDeliveryAssociate(Integer deliveryAssociateID){
-        DeliveryAssociate da = new DeliveryAssociate();
-        for (DeliveryAssociate d : deliveryAssociateDirectory)
-            if (d.getDeliveryAssociateID() == deliveryAssociateID){
-                 da = d;
-            }               
-        return da;
-    }
+
     
 }
