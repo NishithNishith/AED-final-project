@@ -172,6 +172,8 @@ public class HospitalAdminJPanel extends javax.swing.JPanel {
 
     private void btnCreateManagerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateManagerActionPerformed
         // TODO add your handling code here:
+                        CreateManagerJPanel createManager = new CreateManagerJPanel(splitpane,system);
+                splitpane.setRightComponent(createManager);
     }//GEN-LAST:event_btnCreateManagerActionPerformed
 
     private void btnCreateEncounterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateEncounterActionPerformed
@@ -180,6 +182,8 @@ public class HospitalAdminJPanel extends javax.swing.JPanel {
 
     private void btnViewManagerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewManagerActionPerformed
         // TODO add your handling code here:
+                ViewManagersJPanel viewManagers = new ViewManagersJPanel(splitpane,system);
+                splitpane.setRightComponent(viewManagers);
     }//GEN-LAST:event_btnViewManagerActionPerformed
 
     private void btnCreateDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateDocActionPerformed
