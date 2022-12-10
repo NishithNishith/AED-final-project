@@ -142,7 +142,7 @@ public class ShelterManagerWorkarea extends javax.swing.JPanel {
 
     private void txtShelterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtShelterActionPerformed
         // TODO add your handling code here:
-        ViewShelterJPanel panel = new ViewShelterJPanel(splitpane);
+        ViewCaseHistory panel = new ViewCaseHistory(splitpane, system);
         splitpane.setRightComponent(panel);
     }//GEN-LAST:event_txtShelterActionPerformed
 
