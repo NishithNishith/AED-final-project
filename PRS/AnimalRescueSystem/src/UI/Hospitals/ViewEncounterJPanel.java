@@ -290,8 +290,10 @@ public class ViewEncounterJPanel extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
          model.setRowCount(0);
         // System.out.println("doctor "+hospitalManagerDirectory);
+
          for(Encounter pro: system.getEncounterHistory().getEncounterList()){
 
+            if(system.getCurrentRole().equals("Doctor") && pro.getCreatedByID().equals(system.getCurrentUserId())) {
              Object[] row = new Object[11];
              row[0] = pro;
              row[1] = pro.getEncounterID();
@@ -306,6 +308,24 @@ public class ViewEncounterJPanel extends javax.swing.JPanel {
              row[10] = pro.getBloodPressure();
              
              model.addRow(row );
+             break;
+            }
+            else{
+                             Object[] row = new Object[11];
+             row[0] = pro;
+             row[1] = pro.getEncounterID();
+             row[2] = pro.getCaseID();
+             row[3] = pro.getQuantity();
+             row[4] = pro.getCaseStatus();
+             row[5] = pro.getHeartrate();
+             row[6] = pro.getRespiratoryRate();
+             row[7] = pro.getTemperature();
+             row[8] = pro.getWeight();
+             row[9] = pro.getWeight();
+             row[10] = pro.getBloodPressure();
+             
+             model.addRow(row );
+            }
              
          }
     }

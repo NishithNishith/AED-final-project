@@ -443,7 +443,7 @@ public class CreateEncounterJPanel extends javax.swing.JPanel {
              String uniqueField = UUID.randomUUID().toString();
              encounter.setEncounterID(uniqueField);
              encounter.setCaseID(caseID);
-            
+             encounter.setCreatedByID(system.getCurrentUserId());
             
 
            

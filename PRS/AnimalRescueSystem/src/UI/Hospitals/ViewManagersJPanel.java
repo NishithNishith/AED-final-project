@@ -344,7 +344,7 @@ public class ViewManagersJPanel extends javax.swing.JPanel {
                 return;
             }
 
-            if(!validations.numberCheck(age) || !validations.numberCheck(exp) || !validations.numberCheck(salary) ){
+            if(!validations.ageCheck(age) || !validations.numberCheck(exp) || !validations.phoneCheck(phonenumber) || !validations.numberCheck(salary)){
                 JOptionPane.showMessageDialog(this, "Enter valid details for Managers");
                 return;
             }
@@ -399,6 +399,16 @@ public class ViewManagersJPanel extends javax.swing.JPanel {
         txtSalary.setText(String.valueOf(selectedProfile.getSalary()));
 
         txtPhno.setText(String.valueOf(selectedProfile.getPhoneNumber()));
+        
+                        UserAccount userAccount = system.getUserAccountDirectory().findAccount(selectedProfile.getHospitalManagerId());
+
+        if(userAccount!=null){
+            txtPassword.setText(userAccount.getPassword());
+            txtEmail.setText(userAccount.getEmail());
+            
+        }
+         txtPassword.setEditable(false);
+         txtEmail.setEditable(false);
 
         updateProfile = selectedProfile;
 

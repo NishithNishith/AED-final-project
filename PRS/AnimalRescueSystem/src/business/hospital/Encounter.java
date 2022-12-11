@@ -11,6 +11,7 @@ package business.hospital;
 public class Encounter {
 
     public String caseID;
+    public String createdByID;
     public String encounterID;
     public int heartrate;
     public int respiratoryRate;
@@ -116,6 +117,14 @@ public class Encounter {
     @Override
     public String toString(){ 
         return this.encounterID; 
+    }
+
+    public String getCreatedByID() {
+        return createdByID;
+    }
+
+    public void setCreatedByID(String createdByID) {
+        this.createdByID = createdByID;
     }
 
     

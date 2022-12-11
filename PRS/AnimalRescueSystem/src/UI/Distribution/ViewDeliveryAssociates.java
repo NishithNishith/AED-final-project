@@ -303,7 +303,11 @@ public class ViewDeliveryAssociates extends javax.swing.JPanel {
 
         if(userAccount!=null){
             txtPassword.setText(userAccount.getPassword());
+            txtEmail.setText(userAccount.getEmail());
         }
+        
+                 txtPassword.setEditable(false);
+         txtEmail.setEditable(false);
 
         updateProfile = selectedProfile;
     }//GEN-LAST:event_btnSelectActionPerformed
@@ -311,42 +315,33 @@ public class ViewDeliveryAssociates extends javax.swing.JPanel {
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
 
-        if(updateProfile == null){
-            JOptionPane.showMessageDialog(this, "Please select a row to be updated");
-            return;
-        }
-
         try{
             String firstname = txtFirstname.getText();
             String lastname = txtLastname.getText();
+            String salary = txtSalary.getText();
             String age = txtAge.getText();
             String gender = txtGender.getText();
             String exp = txtExp.getText();
             String phonenumber = txtPhno.getText();
-            String salary = txtSalary.getText();
+            String email = txtEmail.getText();
             String password = txtPassword.getText();
 
-            if(!validations.lengthCheck(firstname) ||!validations.lengthCheck(lastname) ||
+            if(!validations.lengthCheck(firstname) ||!validations.lengthCheck(lastname) || !validations.lengthCheck(salary) ||
                 !validations.lengthCheck(age) ||!validations.lengthCheck(gender)
                 || !validations.lengthCheck(exp) || !validations.lengthCheck(phonenumber)
-                || !validations.lengthCheck(salary)
+                 || !validations.lengthCheck(email)
                 || !validations.lengthCheck(password))
             {
-                JOptionPane.showMessageDialog(this, "Enter valid details for Staff");
+                JOptionPane.showMessageDialog(this, "Enter valid details for Doctors");
                 return;
             }
 
-            if(!validations.numberCheck(age) || !validations.numberCheck(exp) || !validations.numberCheck(salary) ){
-                JOptionPane.showMessageDialog(this, "Enter valid details for Staff");
+            if(!validations.ageCheck(age) || !validations.numberCheck(exp) || !validations.phoneCheck(phonenumber) ){
+                JOptionPane.showMessageDialog(this, "Enter valid details for Doctors");
                 return;
             }
 
-            if(!validations.passwordCheck(password)){
-                JOptionPane.showMessageDialog(this, "Enter valid details for Password");
-                return;
-            }
-
-            //Unique Check
+                        //Unique Check
 
             UserAccount userAccount = system.getUserAccountDirectory().findAccount(updateProfile.getDeliveryAssociateId());
 
@@ -365,10 +360,12 @@ public class ViewDeliveryAssociates extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "Manager updated");
 
             populateTable();
+
+            //populate();
         }
         catch(Exception err){
-            JOptionPane.showMessageDialog(this, "Issue while updating Manager, try again");
-        }
+            JOptionPane.showMessageDialog(this, "Issue while updating doctor, try again");
+        }// TODO add your handling code here:
     }//GEN-LAST:event_btnUpdateActionPerformed
 
 

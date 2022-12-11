@@ -166,7 +166,7 @@ public class CreateInventory extends javax.swing.JPanel {
 
 
       
-          
+          JOptionPane.showMessageDialog(this, "Inventory has been added");
        
           
 
