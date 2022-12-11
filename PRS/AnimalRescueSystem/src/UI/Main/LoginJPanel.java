@@ -164,6 +164,8 @@ public class LoginJPanel extends javax.swing.JPanel {
             String email = txtEmail.getText();
             String password = txtPassword.getText();
             
+            System.out.println(email+" "+password);
+            
             if(!validations.lengthCheck(email) ||!validations.lengthCheck(password))
             {
                 JOptionPane.showMessageDialog(this, "Invalid Credentials");

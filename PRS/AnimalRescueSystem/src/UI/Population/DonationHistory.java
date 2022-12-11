@@ -8,8 +8,14 @@ import business.ecosystem.Business;
 import business.population.FundDonation;
 import business.population.Report;
 import business.validations.Validations;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
+import javax.swing.RowSorter;
+import javax.swing.SortOrder;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 
 /**
  *
@@ -85,7 +91,7 @@ public class DonationHistory extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                "id", "Amount", "Status", "Message"
+                "id", "Amount", "Status", "Date"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
@@ -218,6 +224,7 @@ public class DonationHistory extends javax.swing.JPanel {
 
     private void populate() {
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        
         model.setRowCount(0);
 
         for(FundDonation pro: system.getFundDonationDirectory().getFundDonationList()){
@@ -226,10 +233,19 @@ public class DonationHistory extends javax.swing.JPanel {
             row[0] = pro;
             row[1] = pro.getAmount();
             row[2] = pro.getStatus();
-            row[3] = pro.getMessage();
+            row[3] = pro.getDate();
 
             model.addRow(row );
 
         }
+        
+        TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(((DefaultTableModel) jTable1.getModel())); 
+        
+        jTable1.setRowSorter(sorter);
+        
+        List<RowSorter.SortKey> sortKeys = new ArrayList<>(25);
+        sortKeys.add(new RowSorter.SortKey(3, SortOrder.ASCENDING));
+//                sortKeys.add(new RowSorter.SortKey(0, SortOrder.ASCENDING));
+        sorter.setSortKeys(sortKeys);
     }
 }

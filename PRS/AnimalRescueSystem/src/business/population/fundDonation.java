@@ -4,6 +4,8 @@
  */
 package business.population;
 
+import java.util.Date;
+
 /**
  *
  * @author nishi
@@ -15,6 +17,16 @@ public class FundDonation {
     String status;
     String sender;
     String message;
+    Date date;
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+    
 
     public String getMessage() {
         return message;
