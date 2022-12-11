@@ -67,6 +67,8 @@ public class CreateAnalyticsManager extends javax.swing.JPanel {
         jLabel11 = new javax.swing.JLabel();
         cboGender = new javax.swing.JComboBox<>();
 
+        setBackground(new java.awt.Color(206, 229, 242));
+
         jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(17, 53, 81));
         jLabel2.setText("Email");
@@ -170,8 +172,8 @@ public class CreateAnalyticsManager extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(592, 592, 592)
                         .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(layout.createSequentialGroup()
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                             .addGap(497, 497, 497)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addGroup(layout.createSequentialGroup()
@@ -204,7 +206,7 @@ public class CreateAnalyticsManager extends javax.swing.JPanel {
                                         .addComponent(txtAge)
                                         .addComponent(txtExp, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(cboGender, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGap(83, 83, 83)
                             .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(layout.createSequentialGroup()
                             .addGap(71, 71, 71)

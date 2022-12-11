@@ -65,6 +65,8 @@ public class CreateOverseer extends javax.swing.JPanel {
         jLabel11 = new javax.swing.JLabel();
         cboGender = new javax.swing.JComboBox<>();
 
+        setBackground(new java.awt.Color(206, 229, 242));
+
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(17, 53, 81));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -201,9 +203,9 @@ public class CreateOverseer extends javax.swing.JPanel {
                                     .addGap(75, 75, 75)
                                     .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(125, 125, 125))))
-                        .addGap(106, 106, 106)
+                        .addGap(77, 77, 77)
                         .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(161, 161, 161))
+                        .addGap(190, 190, 190))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(txtBack, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(68, 68, 68)
@@ -257,7 +259,7 @@ public class CreateOverseer extends javax.swing.JPanel {
                             .addComponent(jLabel10))
                         .addGap(27, 27, 27)
                         .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(301, Short.MAX_VALUE))
+                .addContainerGap(261, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

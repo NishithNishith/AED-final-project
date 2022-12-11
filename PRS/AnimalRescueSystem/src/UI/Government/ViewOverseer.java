@@ -141,6 +141,8 @@ public class ViewOverseer extends javax.swing.JPanel {
 
         jLabel12.setText("Search");
 
+        setBackground(new java.awt.Color(206, 229, 242));
+
         txtPassword1.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
 
         txtSalary1.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
@@ -243,6 +245,7 @@ public class ViewOverseer extends javax.swing.JPanel {
         jScrollPane2.setViewportView(jTable2);
 
         jLabel23.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel23.setForeground(new java.awt.Color(17, 53, 81));
         jLabel23.setText("Search");
 
         txtLastname1.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N

@@ -77,15 +77,19 @@ public class ViewAnalyticsManager extends javax.swing.JPanel {
         jLabel12 = new javax.swing.JLabel();
         cboGender = new javax.swing.JComboBox<>();
 
+        setBackground(new java.awt.Color(206, 229, 242));
+
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(17, 53, 81));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("View Analytics Managers");
 
         jLabel6.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(17, 53, 81));
         jLabel6.setText("Password");
 
         jLabel9.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(17, 53, 81));
         jLabel9.setText("Firstname");
 
         txtEmail.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
@@ -122,11 +126,13 @@ public class ViewAnalyticsManager extends javax.swing.JPanel {
         txtExp.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
 
         jLabel8.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(17, 53, 81));
         jLabel8.setText("Gender");
 
         txtAge.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
 
         jLabel7.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(17, 53, 81));
         jLabel7.setText("Lastname");
 
         txtFirstname.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
@@ -134,6 +140,7 @@ public class ViewAnalyticsManager extends javax.swing.JPanel {
         txtPhno.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
 
         jLabel10.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(17, 53, 81));
         jLabel10.setText("Phone Number");
 
         btnDelete.setBackground(new java.awt.Color(138, 10, 20));
@@ -147,6 +154,7 @@ public class ViewAnalyticsManager extends javax.swing.JPanel {
         });
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(17, 53, 81));
         jLabel4.setText("Salary");
 
         btnUpdate.setBackground(new java.awt.Color(17, 53, 81));
@@ -160,12 +168,15 @@ public class ViewAnalyticsManager extends javax.swing.JPanel {
         });
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(17, 53, 81));
         jLabel3.setText("Experience");
 
         jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(17, 53, 81));
         jLabel5.setText("Email");
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(17, 53, 81));
         jLabel2.setText("Age");
 
         txtSearch.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -175,6 +186,7 @@ public class ViewAnalyticsManager extends javax.swing.JPanel {
         });
 
         jLabel11.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(17, 53, 81));
         jLabel11.setText("Search");
 
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/Images/Gov copy.png"))); // NOI18N
@@ -198,9 +210,9 @@ public class ViewAnalyticsManager extends javax.swing.JPanel {
                         .addGap(18, 18, 18)
                         .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 487, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(82, 82, 82)
+                .addGap(63, 63, 63)
                 .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 97, Short.MAX_VALUE)
+                .addGap(75, 75, 75)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(76, 76, 76)
@@ -228,8 +240,8 @@ public class ViewAnalyticsManager extends javax.swing.JPanel {
                                 .addComponent(txtPhno)
                                 .addComponent(txtPassword)
                                 .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(cboGender, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                .addGap(140, 140, 140))
+                                .addComponent(cboGender, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(139, Short.MAX_VALUE))
             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
@@ -242,7 +254,7 @@ public class ViewAnalyticsManager extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(88, 88, 88)
+                                .addGap(86, 86, 86)
                                 .addComponent(jLabel12)))
                         .addGap(26, 26, 26)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -288,7 +300,7 @@ public class ViewAnalyticsManager extends javax.swing.JPanel {
                             .addComponent(jLabel4))
                         .addGap(18, 18, 18)
                         .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(269, Short.MAX_VALUE))
+                .addContainerGap(268, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
