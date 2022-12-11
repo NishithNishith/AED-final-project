@@ -6,7 +6,6 @@ package UI.Main;
 
 import UI.Distribution.AdminDistribution;
 import UI.Government.GovernmentAdmin;
-import UI.Hospital.HospitalAdminJPanel;
 import UI.Hospitals.HospitalAdminJPanel;
 import UI.Population.ReportJPanel;
 import UI.shelter.ManageStaffWorkarea;
