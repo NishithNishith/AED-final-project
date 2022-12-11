@@ -61,4 +61,9 @@ public class Reporter extends Person {
     String reporterId;
     String phoneNumber;
     
+    @Override
+    public String toString(){ 
+        return this.reporterId; 
+    }
+    
 }

@@ -48,5 +48,10 @@ public class BudgetOverseer extends Person{
         this.salary = salary;
     }
     
+    @Override
+    public String toString(){ 
+        return this.budgetOverseerId; 
+    }
+    
     
 }

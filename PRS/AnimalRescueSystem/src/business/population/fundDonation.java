@@ -79,5 +79,10 @@ public class FundDonation {
         this.status = status;
     }
     
+    @Override
+    public String toString(){ 
+        return this.fundDonationId; 
+    }
+    
     
 }

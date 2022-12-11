@@ -47,6 +47,11 @@ public class DeliveryAssociate extends Person{
     public void setSalary(int salary) {
         this.salary = salary;
     }
+    
+    @Override
+    public String toString(){ 
+        return this.deliveryAssociateId; 
+    }
 
  
     

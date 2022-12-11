@@ -47,5 +47,10 @@ public class FundRequest {
         this.description = description;
     }
     
+    @Override
+    public String toString(){ 
+        return this.fundRequestId; 
+    }
+    
     
 }

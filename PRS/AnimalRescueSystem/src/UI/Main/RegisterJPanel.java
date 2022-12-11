@@ -148,7 +148,7 @@ public class RegisterJPanel extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(314, Short.MAX_VALUE)
+                .addContainerGap(175, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -267,6 +267,16 @@ public class RegisterJPanel extends javax.swing.JPanel {
             
             if(!validations.passwordCheck(password)){
                 JOptionPane.showMessageDialog(this, "Enter valid details for Password");
+                return;
+            }
+            
+            if(!validations.ageCheck(age)){
+                JOptionPane.showMessageDialog(this, "Enter valid details for age");
+                return;
+            }
+            
+            if(!validations.phoneCheck(phonenumber)){
+                JOptionPane.showMessageDialog(this, "Enter valid details for Phone Number");
                 return;
             }
 

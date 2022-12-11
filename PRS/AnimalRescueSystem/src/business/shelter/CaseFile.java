@@ -89,5 +89,10 @@ public class CaseFile {
         this.date = date;
     }
     
+    @Override
+    public String toString(){ 
+        return this.caseId; 
+    }
+    
     
 }

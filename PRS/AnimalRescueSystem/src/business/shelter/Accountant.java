@@ -48,6 +48,11 @@ public class Accountant extends Person{
         this.salary = salary;
     }
     
+    @Override
+    public String toString(){ 
+        return this.accountantId; 
+    }
+    
     
     
     
