@@ -14,7 +14,9 @@ import business.population.ReportDirectory;
 import business.population.Reporter;
 import business.population.ReporterDirectory;
 import business.validations.Validations;
+import java.util.Properties;
 import java.util.UUID;
+import javax.mail.Session;
 import javax.swing.JOptionPane;
 
 /**
@@ -319,6 +321,17 @@ public class RegisterJPanel extends javax.swing.JPanel {
                 
                 Mail mail = new Mail();
                 mail.mail(email, "");
+
+//                String smtpHostServer = "smtp.example.com";
+//                String emailID = "nishith0514@gmail.com";
+//                
+//                Properties props = System.getProperties();
+//
+//                props.put("mail.smtp.host", smtpHostServer);
+//
+//                Session session = Session.getInstance(props, null);
+//                
+//                Mail.sendEmail(session, emailID,"SimpleEmail Testing Subject", "SimpleEmail Testing Body");
                 
                 LoginJPanel panel = new LoginJPanel(splitpane,system);
                 splitpane.setRightComponent(panel);
@@ -340,6 +353,7 @@ public class RegisterJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPasswordActionPerformed
 
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnRegister;
