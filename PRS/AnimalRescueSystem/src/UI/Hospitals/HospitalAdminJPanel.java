@@ -102,6 +102,11 @@ public class HospitalAdminJPanel extends javax.swing.JPanel {
         btnViewEncounter.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         btnViewEncounter.setForeground(new java.awt.Color(255, 255, 255));
         btnViewEncounter.setText("View Encounter");
+        btnViewEncounter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewEncounterActionPerformed(evt);
+            }
+        });
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/Images/medicalLogo.png"))); // NOI18N
         jLabel2.setText("jLabel2");
@@ -178,6 +183,8 @@ public class HospitalAdminJPanel extends javax.swing.JPanel {
 
     private void btnCreateEncounterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateEncounterActionPerformed
         // TODO add your handling code here:
+                                HospitalAdminSelectCaseJPanel selectPanel = new HospitalAdminSelectCaseJPanel(splitpane,system);
+                splitpane.setRightComponent(selectPanel);
     }//GEN-LAST:event_btnCreateEncounterActionPerformed
 
     private void btnViewManagerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewManagerActionPerformed
@@ -197,6 +204,12 @@ public class HospitalAdminJPanel extends javax.swing.JPanel {
                         ViewDoctorJPanel viewDoctor = new ViewDoctorJPanel(splitpane,system);
                 splitpane.setRightComponent(viewDoctor);
     }//GEN-LAST:event_btnViewDoctorActionPerformed
+
+    private void btnViewEncounterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewEncounterActionPerformed
+        // TODO add your handling code here:
+                                ViewEncounterJPanel viewEncounter = new ViewEncounterJPanel(splitpane,system);
+                splitpane.setRightComponent(viewEncounter);
+    }//GEN-LAST:event_btnViewEncounterActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
