@@ -249,7 +249,8 @@ public class LoginJPanel extends javax.swing.JPanel {
                     splitpane.setRightComponent(panel);
                 }
                 else if(role.equals("HospitalAdmin")){
-                     
+                    HospitalAdminJPanel panel = new HospitalAdminJPanel(splitpane, system);
+                    splitpane.setRightComponent(panel);
                 }
                 else if(role.equals("DistributionAdmin")){
                                         AdminDistribution panel = new AdminDistribution(splitpane,system);
@@ -271,8 +272,12 @@ public class LoginJPanel extends javax.swing.JPanel {
                     DeliveryAssociateJPanel panel = new DeliveryAssociateJPanel(splitpane, system,userAccount);
                     splitpane.setRightComponent(panel);
                 }
-                                                else if(role.equals("HospitalManager")){
+                else if(role.equals("HospitalManager")){
                     HospitalManagerJPanel panel = new HospitalManagerJPanel(splitpane, system);
+                    splitpane.setRightComponent(panel);
+                }
+                else if(role.equals("PopulationAdmin")){
+                    PopulationAdmin panel = new PopulationAdmin(splitpane, system);
                     splitpane.setRightComponent(panel);
                 }
 

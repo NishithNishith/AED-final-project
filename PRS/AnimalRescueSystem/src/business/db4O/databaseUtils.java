@@ -9,6 +9,7 @@ package business.db4O;
  * @author nishi
  */
 
+import business.ecosystem.ConfigSystem;
 import business.ecosystem.Business;
 import com.db4o.Db4oEmbedded;
 import com.db4o.ObjectContainer;
@@ -19,7 +20,7 @@ import java.nio.file.Paths;
 
 public class DatabaseUtils {
     
-    private static final String FILENAME = Paths.get("Database11.db4o").toAbsolutePath().toString();// path to the data store
+    private static final String FILENAME = Paths.get("Database12.db4o").toAbsolutePath().toString();
     private static DatabaseUtils dB4OUtil;
     
      public synchronized static DatabaseUtils getInstance() {
@@ -64,11 +65,12 @@ public class DatabaseUtils {
         ObjectContainer conn = null;
 //        try {
         conn = createConnection();
-//        Business proto = Business.getInstance();
-        ObjectSet systems = conn.queryByExample(Business.class); // Change to the object you want to save
+
+        ObjectSet systems = conn.queryByExample(Business.class); 
         Business system = null;
         if (systems.size() == 0) {
-            system = Business.getInstance();  // If there's no System in the record, create a new one
+//            system = Business.getInstance();  
+              system = ConfigSystem.configure();
         } else {
             system = (Business) systems.get(systems.size() - 1);
         }
