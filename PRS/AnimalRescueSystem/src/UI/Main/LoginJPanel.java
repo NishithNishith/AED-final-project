@@ -69,7 +69,6 @@ public class LoginJPanel extends javax.swing.JPanel {
         txtEmail = new javax.swing.JTextField();
         txtPassword = new javax.swing.JPasswordField();
         jButton1 = new javax.swing.JButton();
-        txtShelterAdmin3 = new javax.swing.JButton();
 
         jLabel1.setText("Login");
 
@@ -84,18 +83,11 @@ public class LoginJPanel extends javax.swing.JPanel {
             }
         });
 
-        txtShelterAdmin3.setText("Shelter Admin");
-        txtShelterAdmin3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtShelterAdmin3ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(97, 97, 97)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jButton1)
@@ -105,19 +97,15 @@ public class LoginJPanel extends javax.swing.JPanel {
                             .addComponent(jLabel2))
                         .addGap(30, 30, 30)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)
+                            .addComponent(txtEmail)
                             .addComponent(jLabel1)
                             .addComponent(txtPassword))))
-                .addGap(28, 28, 28)
-                .addComponent(txtShelterAdmin3)
-                .addGap(14, 14, 14))
+                .addGap(176, 176, 176))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(txtShelterAdmin3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(55, 55, 55)
                 .addComponent(jLabel1)
                 .addGap(53, 53, 53)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -162,7 +150,9 @@ public class LoginJPanel extends javax.swing.JPanel {
                 
                 system.setCurrentUserEmail(userAccount.getEmail());
                 system.setCurrentUserId(userAccount.getUserAccountId());
-                JOptionPane.showMessageDialog(this, "role is "+role);
+                system.setCurrentRole(role);
+                
+//                JOptionPane.showMessageDialog(this, "role is "+role);
                 if(role.equals("Doctor")){
 //                    ManageEncounterJPanel panel = new ManageEncounterJPanel(splitpane);
 //                    splitpane.setRightComponent(panel);
@@ -228,12 +218,6 @@ public class LoginJPanel extends javax.swing.JPanel {
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void txtShelterAdmin3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtShelterAdmin3ActionPerformed
-        // TODO add your handling code here:
-        ShelterAdmin panel = new ShelterAdmin(splitpane, system);
-        splitpane.setRightComponent(panel);
-    }//GEN-LAST:event_txtShelterAdmin3ActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
@@ -242,6 +226,5 @@ public class LoginJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JPasswordField txtPassword;
-    private javax.swing.JButton txtShelterAdmin3;
     // End of variables declaration//GEN-END:variables
 }

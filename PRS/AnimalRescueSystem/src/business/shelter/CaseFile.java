@@ -4,6 +4,8 @@
  */
 package business.shelter;
 
+import java.util.Date;
+
 /**
  *
  * @author nishi
@@ -15,7 +17,28 @@ public class CaseFile {
     String staffId;
     String status;
     String desciption;
-    String date;
+    Date date;
+    
+    Boolean medRecieved;
+    String med;
+
+    public Boolean getMedRecieved() {
+        return medRecieved;
+    }
+
+    public void setMedRecieved(Boolean medRecieved) {
+        this.medRecieved = medRecieved;
+    }
+
+    public String getMed() {
+        return med;
+    }
+
+    public void setMed(String med) {
+        this.med = med;
+    }
+    
+    
 
     public String getCaseId() {
         return caseId;
@@ -58,11 +81,11 @@ public class CaseFile {
         this.desciption = desciption;
     }
 
-    public String getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(Date date) {
         this.date = date;
     }
     

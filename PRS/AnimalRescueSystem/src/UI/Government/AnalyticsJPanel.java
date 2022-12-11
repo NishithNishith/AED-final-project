@@ -5,6 +5,16 @@
 package UI.Government;
 
 import business.ecosystem.Business;
+import business.population.FundDonation;
+import business.shelter.FundRequest;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartFrame;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.PiePlot3D;
+import org.jfree.data.general.DefaultPieDataset;
 
 /**
  *
@@ -22,6 +32,79 @@ public class AnalyticsJPanel extends javax.swing.JPanel {
         initComponents();
         this.splitpane = splitpane;
         this.system = system;
+        
+    }
+    
+    private void createDonationChart() {
+        DefaultPieDataset dataset = new DefaultPieDataset();
+
+        int accepted = 1;
+        int rejected = 1;
+        int pending = 1;
+        
+        for(FundDonation fund : system.getFundDonationDirectory().getFundDonationList()){
+            if(fund.getStatus().equals("PENDING")){
+                pending++;
+            }
+            else if(fund.getStatus().equals("ACCEPTED")){
+                accepted++;
+            }
+            else if(fund.getStatus().equals("REJECTED")){
+                rejected++;
+            }
+        }
+        
+        if (accepted == 0 && rejected == 0 && pending==0) {
+            JOptionPane.showMessageDialog(this, "More data is needed");
+            return;
+        } else {
+            dataset.setValue("Donations Pending", pending);
+            dataset.setValue("Donations Accepted", accepted);
+            dataset.setValue("Donations Rejected", rejected);
+
+            JFreeChart chart = ChartFactory.createPieChart3D("Donation Details",dataset,true,true,false);
+            final PiePlot3D plot = (PiePlot3D) chart.getPlot();
+
+            ChartFrame chartFrame = new ChartFrame("Donation Pie chart", chart);
+            chartFrame.setVisible(true);
+            chartFrame.setSize(600, 600);
+        }
+    }
+    
+    private void createFundRequestChart() {
+        DefaultPieDataset dataset = new DefaultPieDataset();
+
+        int accepted = 1;
+        int rejected = 1;
+        int pending = 1;
+        
+        for(FundRequest fund : system.getFundRequestDirectory().getFundRequest()){
+            if(fund.getStatus().equals("PENDING")){
+                pending++;
+            }
+            else if(fund.getStatus().equals("ACCEPTED")){
+                accepted++;
+            }
+            else if(fund.getStatus().equals("REJECTED")){
+                rejected++;
+            }
+        }
+        
+        if (accepted == 0 && rejected == 0 && pending==0) {
+            JOptionPane.showMessageDialog(this, "More data is needed");
+            return;
+        } else {
+            dataset.setValue("Request Pending", pending);
+            dataset.setValue("Request Accepted", accepted);
+            dataset.setValue("Request Rejected", rejected);
+
+            JFreeChart chart = ChartFactory.createPieChart3D("Donation Details",dataset,true,true,false);
+            final PiePlot3D plot = (PiePlot3D) chart.getPlot();
+
+            ChartFrame chartFrame = new ChartFrame("Fund Request Pie chart", chart);
+            chartFrame.setVisible(true);
+            chartFrame.setSize(600, 600);
+        }
     }
 
     /**
@@ -34,29 +117,74 @@ public class AnalyticsJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(17, 53, 81));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Analytics");
 
+        jButton1.setText("Donation Acceptance Rate");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("Fund Request Status");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jButton3.setText("Shelter Case Status");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(365, 365, 365)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton3)
+                    .addComponent(jButton2)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(791, Short.MAX_VALUE))
+                .addGap(143, 143, 143)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
+                .addComponent(jButton2)
+                .addGap(31, 31, 31)
+                .addComponent(jButton3)
+                .addContainerGap(503, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        createDonationChart();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        createFundRequestChart();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
