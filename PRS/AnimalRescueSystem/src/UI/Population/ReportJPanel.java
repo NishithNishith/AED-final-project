@@ -7,6 +7,7 @@ package UI.Population;
 import UI.Main.LoginJPanel;
 import UI.shelter.AdoptionWorkarea;
 import UI.shelter.ShelterAdmin;
+import UI.shelter.ViewAdoption;
 import business.ecosystem.Business;
 import business.population.Report;
 import business.population.ReportDirectory;
@@ -65,6 +66,7 @@ public class ReportJPanel extends javax.swing.JPanel {
         txtHistory1 = new javax.swing.JButton();
         txtHistory2 = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
+        txtHistory3 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(231, 250, 254));
         setForeground(new java.awt.Color(231, 250, 254));
@@ -179,6 +181,16 @@ public class ReportJPanel extends javax.swing.JPanel {
             }
         });
 
+        txtHistory3.setBackground(new java.awt.Color(17, 53, 81));
+        txtHistory3.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        txtHistory3.setForeground(new java.awt.Color(255, 255, 255));
+        txtHistory3.setText("View Adoptions");
+        txtHistory3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtHistory3ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -188,7 +200,7 @@ public class ReportJPanel extends javax.swing.JPanel {
                 .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -214,6 +226,7 @@ public class ReportJPanel extends javax.swing.JPanel {
                         .addComponent(btnSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 619, Short.MAX_VALUE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtHistory3, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(txtDonate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnDonateHistory, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -268,6 +281,8 @@ public class ReportJPanel extends javax.swing.JPanel {
                         .addComponent(txtHistory1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txtHistory2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtHistory3, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -362,6 +377,12 @@ public class ReportJPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnBackActionPerformed
 
+    private void txtHistory3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHistory3ActionPerformed
+        // TODO add your handling code here:
+        ViewAdoption panel = new ViewAdoption(splitpane, system);
+        splitpane.setRightComponent(panel);
+    }//GEN-LAST:event_txtHistory3ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
@@ -382,5 +403,6 @@ public class ReportJPanel extends javax.swing.JPanel {
     private javax.swing.JButton txtHistory;
     private javax.swing.JButton txtHistory1;
     private javax.swing.JButton txtHistory2;
+    private javax.swing.JButton txtHistory3;
     // End of variables declaration//GEN-END:variables
 }
