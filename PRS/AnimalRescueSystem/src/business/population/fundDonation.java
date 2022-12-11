@@ -18,6 +18,17 @@ public class FundDonation {
     String sender;
     String message;
     Date date;
+    String userId;
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+    
+    
 
     public Date getDate() {
         return date;

@@ -27,13 +27,19 @@ public class Profile extends javax.swing.JPanel {
     javax.swing.JSplitPane splitpane;
     Validations validations;
     String userId ;
+    Reporter updateReporter;
+    UserAccount updateUserAccount;
+    String orgEmail;
     public Profile(javax.swing.JSplitPane splitpane, Business system) {
         initComponents();
-        validations = new Validations();
+        this.validations = new Validations();
         this.splitpane = splitpane;
         this.system = system;
         
         this. userId = system.getCurrentUserId();
+        this.updateReporter = null;
+        this.updateUserAccount=null;
+        this.orgEmail = "";
         
         for(Reporter rep : system.getReporterDirectory().getReporterList()){
             if(rep.getReporterId().equals(userId))
@@ -43,11 +49,8 @@ public class Profile extends javax.swing.JPanel {
                 txtAge.setText(String.valueOf(rep.getAge()));
                 txtPhno.setText(String.valueOf(rep.getPhoneNumber()));
                 cboGender.setSelectedItem(String.valueOf(rep.getGender()));
-            }
-            else{
-                JOptionPane.showMessageDialog(this, "Cant retrieve profile, try again");
-                ReportJPanel panel = new ReportJPanel(splitpane, system);
-                splitpane.setRightComponent(panel);
+                this.updateReporter=rep;
+                
             }
             
         }
@@ -56,13 +59,11 @@ public class Profile extends javax.swing.JPanel {
             if(user.getUserAccountId().equals(userId)){
                 txtEmail.setText(user.getEmail());
                 txtPassword.setText(user.getPassword());
+                this.updateUserAccount=user;
+                this.orgEmail = user.getEmail();
                 
             }
-            else{
-                JOptionPane.showMessageDialog(this, "Cant retrieve account, try again");
-                ReportJPanel panel = new ReportJPanel(splitpane, system);
-                splitpane.setRightComponent(panel);
-            }
+
         }
         
         
@@ -189,7 +190,7 @@ public class Profile extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnRegister)
-                .addGap(249, 249, 249))
+                .addGap(244, 244, 244))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -206,8 +207,7 @@ public class Profile extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(50, 50, 50)
-                        .addComponent(jLabel2)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jLabel2))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(19, 19, 19)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -237,14 +237,14 @@ public class Profile extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel8)
                             .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
-                        .addComponent(btnRegister)
-                        .addGap(26, 26, 26))))
+                        .addGap(18, 18, 18)
+                        .addComponent(btnRegister)))
+                .addContainerGap(43, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        // TODO add your handling code here:
+        // TODO add your handling code here:       
         ReportJPanel panel = new ReportJPanel(splitpane, system);
         splitpane.setRightComponent(panel);
     }//GEN-LAST:event_btnBackActionPerformed
@@ -288,42 +288,33 @@ public class Profile extends javax.swing.JPanel {
                 return;
             }
 
-            //Unique check
-            int uniqueFlag = 0;
-            UserAccount ua = system.getUserAccountDirectory().userCheck(email, password);
-            if(ua != null){
-                uniqueFlag = 1;
+            for (UserAccount user : system.getUserAccountDirectory().getUserAccountList()){
+                if (user.getEmail().equals(email)){
+                    if(user.getEmail().equals(orgEmail)){
+                        continue;
+                    }
+                    
+                    JOptionPane.showMessageDialog(this, "Email is present, please choose another one");
+                
+                    return;
+                    
+                }
             }
+            
+           
+            updateUserAccount.setEmail(email);
+            updateUserAccount.setPassword(password);
 
-            if(uniqueFlag == 1){
-                System.out.println("User Account is present");
-                JOptionPane.showMessageDialog(this, "Email already present");
-                return;
+            updateReporter.setFirstName(firstname);
+            updateReporter.setLastName(lastname);
+            updateReporter.setAge(Integer.parseInt(age));
+            updateReporter.setGender(gender);
+            updateReporter.setPhoneNumber(phonenumber);
 
-            }
-            else{
-                System.out.println("User Account is not present");
+            JOptionPane.showMessageDialog(this, "Profile Updated");
+            System.out.println(email+" "+password);
 
-                String uniqueField = UUID.randomUUID().toString();
-
-                UserAccount userAccount = system.getUserAccountDirectory().addNewUserAccount();
-                userAccount.setEmail(email);
-                userAccount.setPassword(password);
-                userAccount.setRole("Reporter");
-                userAccount.setUserAccountId(uniqueField);
-
-                Reporter reporter = system.getReporterDirectory().addNewReporter();
-                reporter.setReporterId(uniqueField);
-                reporter.setFirstName(firstname);
-                reporter.setLastName(lastname);
-                reporter.setAge(Integer.parseInt(age));
-                reporter.setGender(gender);
-                reporter.setPhoneNumber(phonenumber);
-
-                JOptionPane.showMessageDialog(this, "User registered");
-                System.out.println(email+" "+password);
-
-            }
+            
 
         }
         catch(Exception e){

@@ -4,6 +4,8 @@
  */
 package UI.Population;
 
+import UI.shelter.ShelterAdmin;
+import UI.shelter.ShelterManagerWorkarea;
 import business.ecosystem.Business;
 import business.population.Report;
 import business.population.ReportDirectory;
@@ -30,7 +32,12 @@ public class ReportHistoryJPanel extends javax.swing.JPanel {
         initComponents();
         this.splitpane = splitpane;
         this.system = system;
-        populate();
+       if(system.getCurrentRole().equals("Reporter")){
+             populate();
+        }
+        else{
+            populate2();
+        }
         
 
     }
@@ -305,8 +312,16 @@ public class ReportHistoryJPanel extends javax.swing.JPanel {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-        ReportJPanel panel = new ReportJPanel(splitpane, system);
-        splitpane.setRightComponent(panel);
+        
+        if(system.getCurrentRole().equals("PopulationAdmin")){
+            PopulationAdmin panel = new PopulationAdmin(splitpane, system);
+            splitpane.setRightComponent(panel);
+        }
+        else if(system.getCurrentRole().equals("Reporter")){
+            ReportJPanel panel = new ReportJPanel(splitpane, system);
+            splitpane.setRightComponent(panel);
+        }
+        
     }//GEN-LAST:event_btnBackActionPerformed
 
 
@@ -342,6 +357,24 @@ public class ReportHistoryJPanel extends javax.swing.JPanel {
         model.setRowCount(0);
 
         for(Report pro: system.getReportDirectory().getReportList()){
+            
+            if(pro.getUser().equals(system.getCurrentUserId())){
+                Object[] row = new Object[4];
+                row[0] = pro;
+                row[1] = pro.getAnimal();
+                row[2] = pro.getCondition();
+                row[3] = pro.getStatus();
+
+                model.addRow(row );
+            }
+        }  
+    }
+    
+    private void populate2() {
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        model.setRowCount(0);
+
+        for(Report pro: system.getReportDirectory().getReportList()){
 
             Object[] row = new Object[4];
             row[0] = pro;
@@ -352,5 +385,7 @@ public class ReportHistoryJPanel extends javax.swing.JPanel {
             model.addRow(row );
 
         }
+        
+        
     }
 }
