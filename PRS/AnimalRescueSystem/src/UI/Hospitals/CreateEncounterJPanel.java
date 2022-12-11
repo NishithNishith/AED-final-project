@@ -9,8 +9,6 @@ import business.ecosystem.UserAccount;
 import business.ecosystem.UserAccountDirectory;
 import business.hospital.Encounter;
 import business.hospital.EncounterHistory;
-import business.hospital.VitalSigns;
-import business.hospital.VitalSignsDirectory;
 import business.validations.Validations;
 import java.util.UUID;
 import javax.swing.JOptionPane;
@@ -22,9 +20,9 @@ import javax.swing.JOptionPane;
 public class CreateEncounterJPanel extends javax.swing.JPanel {
 
     Validations validations;
-    EncounterHistory encounterHistory;
-    VitalSignsDirectory vitalSignsDirectory;
-    UserAccountDirectory userAccountDirectory;
+    //EncounterHistory encounterHistory;
+    //VitalSignsDirectory vitalSignsDirectory;
+    //UserAccountDirectory userAccountDirectory;
     javax.swing.JSplitPane splitpane;
     Business system;
     /**
@@ -35,9 +33,9 @@ public class CreateEncounterJPanel extends javax.swing.JPanel {
         this.splitpane = splitpane;
         this.system = system;
         this.validations = new Validations();
-        this.encounterHistory = new EncounterHistory();
-        this.vitalSignsDirectory = new VitalSignsDirectory();
-        this.userAccountDirectory = new UserAccountDirectory();
+        //this.encounterHistory = new EncounterHistory();
+        //this.vitalSignsDirectory = new VitalSignsDirectory();
+        //this.userAccountDirectory = new UserAccountDirectory();
     }
 
     /**
@@ -385,23 +383,23 @@ public class CreateEncounterJPanel extends javax.swing.JPanel {
             }
 
             //Unique check
+            
+            Encounter encounter = system.getEncounterHistory().addNewEncounter();
 
-            Encounter encounter = encounterHistory.addNewEncounter();
-            VitalSigns vitalSigns = vitalSignsDirectory.addVitalSigns();
 
             String uniqueField = UUID.randomUUID().toString();
 
-            UserAccount userAccount = userAccountDirectory.addNewUserAccount();
-            userAccount.setRole("EncounterManager");
+            UserAccount userAccount = system.getUserAccountDirectory().addNewUserAccount();
+            userAccount.setRole("HospitalAdmin");
             userAccount.setUserAccountId(uniqueField);
 
             encounter.setPatientId(uniqueField);
-            vitalSigns.setHeartRate(Integer.parseInt(heartrate));
-            vitalSigns.setRespiratoryRate(Integer.parseInt(respiratoryrate));
-            vitalSigns.setTemperature(Integer.parseInt(temp));
-            vitalSigns.setHeight(Integer.parseInt(height));
-            vitalSigns.setWeight(Integer.parseInt(weight));
-            vitalSigns.setBloodPressure(Integer.parseInt(bloodpressure));
+            encounter.setHeartRate(Integer.parseInt(heartrate));
+            encounter.setRespiratoryRate(Integer.parseInt(respiratoryrate));
+            encounter.setTemperature(Integer.parseInt(temp));
+            encounter.setHeight(Integer.parseInt(height));
+            encounter.setWeight(Integer.parseInt(weight));
+            encounter.setBloodPressure(Integer.parseInt(bloodpressure));
             encounter.setPrescription(prescription);
 
             JOptionPane.showMessageDialog(this, "Encounter created");
@@ -418,8 +416,7 @@ public class CreateEncounterJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewActionPerformed
-        ViewEncounterJPanel panel = new ViewEncounterJPanel(system, encounterHistory, vitalSignsDirectory);
-        splitpane.setRightComponent(panel);
+        
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btnViewActionPerformed
