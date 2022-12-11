@@ -11,6 +11,8 @@ import UI.Government.AnalyticsJPanel;
 import UI.Government.GovernmentAdmin;
 import UI.Government.ManageFundsJPanel;
 import UI.Hospital.ManageEncounterJPanel;
+import UI.Hospitals.DoctorJPanel;
+import UI.Hospitals.HospitalManagerJPanel;
 import UI.Population.ReportJPanel;
 import UI.shelter.AccountingWorkarea;
 import UI.shelter.ManageStaffWorkarea;
@@ -154,8 +156,8 @@ public class LoginJPanel extends javax.swing.JPanel {
                 
 //                JOptionPane.showMessageDialog(this, "role is "+role);
                 if(role.equals("Doctor")){
-//                    ManageEncounterJPanel panel = new ManageEncounterJPanel(splitpane);
-//                    splitpane.setRightComponent(panel);
+                                            DoctorJPanel panel = new DoctorJPanel(splitpane, system);
+                    splitpane.setRightComponent(panel);
                 }
                 else if(role.equals("ShelterStaff")){
                     StaffWorkarea panel = new StaffWorkarea(splitpane, system);
@@ -201,6 +203,11 @@ public class LoginJPanel extends javax.swing.JPanel {
                     DeliveryAssociateJPanel panel = new DeliveryAssociateJPanel(splitpane, system,userAccount);
                     splitpane.setRightComponent(panel);
                 }
+                                                else if(role.equals("HospitalManager")){
+                    HospitalManagerJPanel panel = new HospitalManagerJPanel(splitpane, system);
+                    splitpane.setRightComponent(panel);
+                }
+
                 
                 
                 
