@@ -108,6 +108,11 @@ public class ViewOrder extends javax.swing.JPanel {
         });
 
         jButton4.setText("Back");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -284,6 +289,12 @@ public class ViewOrder extends javax.swing.JPanel {
 
         populateTable();
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+                 DoctorJPanel panel = new DoctorJPanel(splitpane, system);
+            splitpane.setRightComponent(panel);
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     
     private void populateTable(){
