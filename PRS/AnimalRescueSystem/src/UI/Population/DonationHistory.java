@@ -36,7 +36,13 @@ public class DonationHistory extends javax.swing.JPanel {
         validations = new Validations();
         this.splitpane = splitpane;
         this.system = system;
-        populate();
+        if(system.getCurrentRole().equals("Reporter")){
+             populate();
+        }
+        else{
+            populate2();
+        }
+       
     }
 
     /**
@@ -227,8 +233,14 @@ public class DonationHistory extends javax.swing.JPanel {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-        ReportJPanel panel = new ReportJPanel(splitpane, system);
-        splitpane.setRightComponent(panel);
+        if(system.getCurrentRole().equals("PopulationAdmin")){
+            PopulationAdmin panel = new PopulationAdmin(splitpane, system);
+            splitpane.setRightComponent(panel);
+        }
+        else if(system.getCurrentRole().equals("Reporter")){
+            ReportJPanel panel = new ReportJPanel(splitpane, system);
+            splitpane.setRightComponent(panel);
+        }
     }//GEN-LAST:event_btnBackActionPerformed
 
 
@@ -250,6 +262,35 @@ public class DonationHistory extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 
     private void populate() {
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        
+        model.setRowCount(0);
+
+        for(FundDonation pro: system.getFundDonationDirectory().getFundDonationList()){
+            
+            if(pro.getUserId().equals(system.getCurrentUserId())){
+                Object[] row = new Object[4];
+                row[0] = pro;
+                row[1] = pro.getAmount();
+                row[2] = pro.getStatus();
+                row[3] = pro.getDate();
+
+                model.addRow(row );
+            }
+
+        }
+        
+        TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(((DefaultTableModel) jTable1.getModel())); 
+        
+        jTable1.setRowSorter(sorter);
+        
+        List<RowSorter.SortKey> sortKeys = new ArrayList<>(25);
+        sortKeys.add(new RowSorter.SortKey(3, SortOrder.ASCENDING));
+//                sortKeys.add(new RowSorter.SortKey(0, SortOrder.ASCENDING));
+        sorter.setSortKeys(sortKeys);
+    }
+    
+    private void populate2() {
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         
         model.setRowCount(0);

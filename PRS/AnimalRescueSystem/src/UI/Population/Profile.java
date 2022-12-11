@@ -32,7 +32,7 @@ public class Profile extends javax.swing.JPanel {
     String orgEmail;
     public Profile(javax.swing.JSplitPane splitpane, Business system) {
         initComponents();
-        validations = new Validations();
+        this.validations = new Validations();
         this.splitpane = splitpane;
         this.system = system;
         
@@ -244,7 +244,7 @@ public class Profile extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        // TODO add your handling code here:
+        // TODO add your handling code here:       
         ReportJPanel panel = new ReportJPanel(splitpane, system);
         splitpane.setRightComponent(panel);
     }//GEN-LAST:event_btnBackActionPerformed

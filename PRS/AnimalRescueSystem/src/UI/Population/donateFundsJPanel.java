@@ -188,6 +188,7 @@ public class DonateFundsJPanel extends javax.swing.JPanel {
             fundDonation.setSender("");
             fundDonation.setMessage(msg);
             fundDonation.setDate(new Date());
+            fundDonation.setUserId(system.getCurrentUserId());
 
             System.out.println("fund doantion "+fundDonation);
             JOptionPane.showMessageDialog(this, "Amount Donated "+amount+" "+msg+" "+fundDonation);
@@ -201,8 +202,14 @@ public class DonateFundsJPanel extends javax.swing.JPanel {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-        ReportJPanel panel = new ReportJPanel(splitpane, system);
-        splitpane.setRightComponent(panel);
+        if(system.getCurrentRole().equals("PopulationAdmin")){
+            PopulationAdmin panel = new PopulationAdmin(splitpane, system);
+            splitpane.setRightComponent(panel);
+        }
+        else if(system.getCurrentRole().equals("Reporter")){
+            ReportJPanel panel = new ReportJPanel(splitpane, system);
+            splitpane.setRightComponent(panel);
+        }
     }//GEN-LAST:event_btnBackActionPerformed
 
 
