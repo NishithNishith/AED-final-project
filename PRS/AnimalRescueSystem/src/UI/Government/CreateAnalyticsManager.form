@@ -60,8 +60,8 @@
                                       <Component id="txtFirstname" max="32767" attributes="0"/>
                                       <Component id="txtLastname" max="32767" attributes="0"/>
                                       <Component id="txtAge" max="32767" attributes="0"/>
-                                      <Component id="txtGender" max="32767" attributes="0"/>
                                       <Component id="txtExp" alignment="0" min="-2" pref="197" max="-2" attributes="0"/>
+                                      <Component id="cboGender" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -113,7 +113,7 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtGender" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="cboGender" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -148,7 +148,7 @@
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="btnSave" min="-2" pref="34" max="-2" attributes="0"/>
-              <EmptySpace pref="303" max="32767" attributes="0"/>
+              <EmptySpace pref="302" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -204,13 +204,6 @@
       </Events>
     </Component>
     <Component class="javax.swing.JPasswordField" name="txtPassword">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Times New Roman" size="16" style="0"/>
-        </Property>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="txtGender">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Times New Roman" size="16" style="0"/>
@@ -375,6 +368,20 @@
         </Property>
         <Property name="text" type="java.lang.String" value="jLabel11"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="cboGender">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Times New Roman" size="18" style="0"/>
+        </Property>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="new javax.swing.DefaultComboBoxModel&lt;&gt;(new String[] { &quot;Male&quot;, &quot;Female&quot;, &quot;Others&quot; })" type="code"/>
+        </Property>
+        <Property name="toolTipText" type="java.lang.String" value=""/>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>

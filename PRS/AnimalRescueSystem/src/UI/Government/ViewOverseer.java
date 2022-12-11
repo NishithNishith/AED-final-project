@@ -25,14 +25,16 @@ public class ViewOverseer extends javax.swing.JPanel {
      * Creates new form ViewOverseer
      */
     Business system;
-          DatabaseUtils dB4OUtil = DatabaseUtils.getInstance();
-      Validations validations;
-      javax.swing.JSplitPane splitpane;
+
+    Validations validations;
+    javax.swing.JSplitPane splitpane;
+    BudgetOverseer updateProfile;
     public ViewOverseer(javax.swing.JSplitPane splitpane,Business system) {
         initComponents();
         this.system = system;
         this.system = system;
-        validations = new Validations();
+        this.validations = new Validations();
+        populateTable();
     }
 
     /**
@@ -79,7 +81,6 @@ public class ViewOverseer extends javax.swing.JPanel {
         txtFirstname1 = new javax.swing.JTextField();
         txtPhno1 = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
-        txtGender1 = new javax.swing.JTextField();
         btnDelete1 = new javax.swing.JButton();
         jLabel16 = new javax.swing.JLabel();
         btnUpdate1 = new javax.swing.JButton();
@@ -97,6 +98,7 @@ public class ViewOverseer extends javax.swing.JPanel {
         txtLastname1 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
+        cboGender = new javax.swing.JComboBox<>();
 
         btnSelect.setText("View");
 
@@ -168,13 +170,6 @@ public class ViewOverseer extends javax.swing.JPanel {
         jLabel15.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(17, 53, 81));
         jLabel15.setText("Phone Number");
-
-        txtGender1.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
-        txtGender1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtGender1ActionPerformed(evt);
-            }
-        });
 
         btnDelete1.setBackground(new java.awt.Color(138, 10, 20));
         btnDelete1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
@@ -259,6 +254,8 @@ public class ViewOverseer extends javax.swing.JPanel {
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/Images/Gov copy.png"))); // NOI18N
         jLabel13.setText("jLabel13");
 
+        cboGender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female", "Others" }));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -301,14 +298,14 @@ public class ViewOverseer extends javax.swing.JPanel {
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                             .addComponent(txtFirstname1, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
                                             .addComponent(txtLastname1)
-                                            .addComponent(txtGender1)
                                             .addComponent(txtAge1)
                                             .addComponent(txtExp1)
                                             .addComponent(txtSalary1)
-                                            .addComponent(txtPhno1)))
+                                            .addComponent(txtPhno1)
+                                            .addComponent(cboGender, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
                                         .addComponent(txtEmail1, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel20)
@@ -333,11 +330,12 @@ public class ViewOverseer extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel23)
-                            .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnSelect1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnDelete1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnSelect1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnDelete1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel23)
+                                .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(275, 275, 275))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -351,10 +349,10 @@ public class ViewOverseer extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel13)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel1)
-                                    .addComponent(txtGender1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(20, 20, 20)
+                                    .addComponent(cboGender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(25, 25, 25)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(txtAge1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -386,42 +384,50 @@ public class ViewOverseer extends javax.swing.JPanel {
 
     private void btnSelect1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelect1ActionPerformed
 
-        int selectRowIndex = jTable1.getSelectedRow();
+        int selectRowIndex = jTable2.getSelectedRow();
 
         if(selectRowIndex < 0){
             JOptionPane.showMessageDialog(this, "Please select a row to be updated");
             return;
         }
 
-        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
         BudgetOverseer selectedProfile = (BudgetOverseer)model.getValueAt(selectRowIndex,0  );
 
         txtFirstname1.setText(String.valueOf(selectedProfile.getFirstName()));
         txtLastname1.setText(String.valueOf(selectedProfile.getLastName()));
         txtAge1.setText(String.valueOf(selectedProfile.getAge()));
-        txtGender1.setText(String.valueOf(selectedProfile.getGender()));
+        cboGender.setSelectedItem(String.valueOf(selectedProfile.getGender()));
         txtExp1.setText(String.valueOf(selectedProfile.getYearsOfExperience()));
         txtSalary1.setText(String.valueOf(selectedProfile.getSalary()));
 
         txtPhno1.setText(String.valueOf(selectedProfile.getPhoneNumber()));
+        
+        UserAccount userAccount = system.getUserAccountDirectory().findAccount(selectedProfile.getBudgetOverseerId());
+
+        if(userAccount!=null){
+            txtPassword1.setText(userAccount.getPassword());
+        }
+        
+        updateProfile = selectedProfile;
     }//GEN-LAST:event_btnSelect1ActionPerformed
 
     private void btnDelete1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDelete1ActionPerformed
         // TODO add your handling code here:
 
-        int selectRowIndex = jTable1.getSelectedRow();
+        int selectRowIndex = jTable2.getSelectedRow();
 
         if(selectRowIndex < 0){
             JOptionPane.showMessageDialog(this, "Please select a row to be deleted");
             return;
         }
 
-        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
         BudgetOverseer selectedProfile = (BudgetOverseer)model.getValueAt(selectRowIndex,0  );
 
         //        shelterStaffList.removeShelterStaff(selectedProfile);
         system.getBudgetOverseerDirectory().removeBudgetOverseer(selectedProfile);
-        JOptionPane.showMessageDialog(this, "Staff has been deleted");
+        JOptionPane.showMessageDialog(this, "Overseer has been deleted");
 
         populateTable();
     }//GEN-LAST:event_btnDelete1ActionPerformed
@@ -429,124 +435,67 @@ public class ViewOverseer extends javax.swing.JPanel {
     private void btnUpdate1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdate1ActionPerformed
         // TODO add your handling code here:
 
-        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-        if(jTable1.getSelectedRowCount()==1)
-        {
+        if(updateProfile == null){
+            JOptionPane.showMessageDialog(this, "Please select a row to be updated");
+            return;
+        }
 
-            String firstname;
-            String lastname;
-            Integer age ;
-            String gender ;
-            String exp ;
-            String phonenumber ;
-            String salary ;
-            String email = txtEmail.getText();
+        try{
+            String firstname = txtFirstname.getText();
+            String lastname = txtLastname.getText();
+            String age = txtAge.getText();
+            String gender = cboGender.getSelectedItem()+"";
+            String exp = txtExp.getText();
+            String phonenumber = txtPhno.getText();
+            String salary = txtSalary.getText();
             String password = txtPassword.getText();
 
-            if(!validations.emailCheck(email)){
-                JOptionPane.showMessageDialog(this, "Enter valid details for Email");
+            if(!validations.lengthCheck(firstname) ||!validations.lengthCheck(lastname) ||
+                !validations.lengthCheck(age) ||!validations.lengthCheck(gender)
+                || !validations.lengthCheck(exp) || !validations.lengthCheck(phonenumber)
+                || !validations.lengthCheck(salary)
+                || !validations.lengthCheck(password))
+            {
+                JOptionPane.showMessageDialog(this, "Enter valid details for Overseer");
                 return;
             }
 
+            if(!validations.numberCheck(age) || !validations.numberCheck(exp) || !validations.numberCheck(salary) ){
+                JOptionPane.showMessageDialog(this, "Enter valid details for Overseer");
+                return;
+            }
+            
             if(!validations.passwordCheck(password)){
                 JOptionPane.showMessageDialog(this, "Enter valid details for Password");
                 return;
             }
 
-            if(!validations.checkStringAndNumber(txtFirstname1.getText()) || txtFirstname1.getText().isEmpty() || !validations.lengthCheck(txtFirstname1.getText()))
-            {
-                JOptionPane.showMessageDialog(this, "Enter valid first name ");
-                return;
+            //Unique Check
+
+            UserAccount userAccount = system.getUserAccountDirectory().findAccount(updateProfile.getBudgetOverseerId());
+
+            if(userAccount!=null){
+                userAccount.setPassword(password);
             }
-            else
-                firstname = txtFirstname1.getText();
 
-            if(!validations.checkStringAndNumber(txtLastname1.getText()) || txtLastname1.getText().isEmpty() ||!validations.lengthCheck(txtLastname1.getText()))
-            {
-                JOptionPane.showMessageDialog(this, "Enter valid last name ");
-                return;
-            }
-            else
-                lastname = txtLastname1.getText();
+            updateProfile.setFirstName(firstname);
+            updateProfile.setLastName(lastname);
+            updateProfile.setAge(Integer.parseInt(age));
+            updateProfile.setGender(gender);
+            updateProfile.setYearsOfExperience(Integer.parseInt(exp));
+            updateProfile.setPhoneNumber(phonenumber);
+            updateProfile.setSalary(Integer.parseInt(salary));
 
-            if(!validations.checkStringAndNumber(txtGender1.getText()) || txtGender1.getText().isEmpty() ||!validations.lengthCheck(txtGender1.getText()))
-            {
-                JOptionPane.showMessageDialog(this, "Enter valid gender ");
-                return;
-            }
-            else
-                gender = txtGender1.getText();
+            JOptionPane.showMessageDialog(this, "Overseer updated");
 
-            if(!validations.checkNumber(txtAge1.getText()) || txtAge1.getText().isEmpty())
-            {
-                JOptionPane.showMessageDialog(this, "Enter valid age ");
-                return;
-            }
-            else
-
-                 age = Integer.valueOf(txtAge1.getText());
-            if(!validations.checkStringAndNumber(txtExp1.getText()) || txtExp1.getText().isEmpty() || !validations.lengthCheck(txtExp1.getText()))
-            {
-                JOptionPane.showMessageDialog(this, "Enter valid experience ");
-                return;
-            }
-            else
-                exp = txtExp1.getText();
-
-            if(!validations.checkStringAndNumber(txtPhno1.getText()) || txtPhno1.getText().isEmpty() || !validations.lengthCheck(txtPhno1.getText()))
-            {
-                JOptionPane.showMessageDialog(this, "Enter valid phone number ");
-                return;
-            }
-            else
-                phonenumber = txtPhno1.getText();
-
-            if(!validations.checkStringAndNumber(txtSalary1.getText()) || txtSalary1.getText().isEmpty() || !validations.lengthCheck(txtSalary1.getText()))
-            {
-                JOptionPane.showMessageDialog(this, "Enter valid salary ");
-                return;
-            }
-            else
-                salary = txtSalary1.getText();
-
-            model.setValueAt(firstname, jTable1.getSelectedRow(), 0);
-            model.setValueAt(lastname, jTable1.getSelectedRow(), 1);
-            model.setValueAt(age, jTable1.getSelectedRow(), 2);
-            model.setValueAt(exp, jTable1.getSelectedRow(), 3);
-            model.setValueAt(phonenumber, jTable1.getSelectedRow(), 4);
-            model.setValueAt(salary, jTable1.getSelectedRow(), 5);
-
-            JOptionPane.showMessageDialog(this, "Updated information");
-
-            BudgetOverseer analyticsManager = system.getBudgetOverseerDirectory().addNewBudgetOverseer();
-
-            String uniqueField = UUID.randomUUID().toString();
-
-            UserAccount userAccount = system.getUserAccountDirectory().addNewUserAccount();
-            userAccount.setEmail(email);
-            userAccount.setPassword(password);
-            userAccount.setRole("AnalyticsManager");
-            userAccount.setUserAccountId(uniqueField);
-
-            analyticsManager.setBudgetOverseerId(uniqueField);
-            analyticsManager.setFirstName(firstname);
-            analyticsManager.setLastName(lastname);
-            analyticsManager.setAge(age);
-            analyticsManager.setGender(gender);
-            analyticsManager.setYearsOfExperience(Integer.parseInt(exp));
-            analyticsManager.setPhoneNumber(phonenumber);
-            analyticsManager.setSalary(Integer.parseInt(salary));
-
-            JOptionPane.showMessageDialog(this, "Manager created");
-
-            dB4OUtil.storeSystem(system);
+            populateTable();
+        }
+        catch(Exception err){
+            JOptionPane.showMessageDialog(this, "Issue while updating Overseer, try again");
         }
 
-    }//GEN-LAST:event_btnUpdate1ActionPerformed
 
-    private void txtGender1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtGender1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtGender1ActionPerformed
+    }//GEN-LAST:event_btnUpdate1ActionPerformed
 
     private void txtSearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchKeyReleased
         // TODO add your handling code here:
@@ -595,6 +544,7 @@ public class ViewOverseer extends javax.swing.JPanel {
     private javax.swing.JButton btnSelect1;
     private javax.swing.JButton btnUpdate;
     private javax.swing.JButton btnUpdate1;
+    private javax.swing.JComboBox<String> cboGender;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -632,7 +582,6 @@ public class ViewOverseer extends javax.swing.JPanel {
     private javax.swing.JTextField txtFirstname;
     private javax.swing.JTextField txtFirstname1;
     private javax.swing.JTextField txtGender;
-    private javax.swing.JTextField txtGender1;
     private javax.swing.JTextField txtLastname;
     private javax.swing.JTextField txtLastname1;
     private javax.swing.JPasswordField txtPassword;

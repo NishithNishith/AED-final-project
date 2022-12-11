@@ -64,7 +64,6 @@ public class ViewAccountantJPanel extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
-        txtGender = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         txtPhno = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
@@ -76,6 +75,7 @@ public class ViewAccountantJPanel extends javax.swing.JPanel {
         txtSalary = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         btnBack2 = new javax.swing.JButton();
+        cboGender = new javax.swing.JComboBox<>();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -175,45 +175,12 @@ public class ViewAccountantJPanel extends javax.swing.JPanel {
             }
         });
 
+        cboGender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female", "Others" }));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(160, 160, 160)
-                        .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(41, 41, 41)
-                        .addComponent(btnBack2, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(193, 193, 193)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(5, 5, 5)
-                .addComponent(txtLastname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(5, 5, 5)
-                .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(jLabel1)
-                .addGap(5, 5, 5)
-                .addComponent(jLabel9)
-                .addGap(5, 5, 5)
-                .addComponent(jLabel2)
-                .addGap(5, 5, 5)
-                .addComponent(jLabel6)
-                .addGap(5, 5, 5)
-                .addComponent(jLabel3)
-                .addGap(5, 5, 5)
-                .addComponent(jLabel5)
-                .addGap(5, 5, 5)
-                .addComponent(jLabel4)
-                .addGap(5, 5, 5)
-                .addComponent(jButton2)
-                .addGap(5, 5, 5)
-                .addComponent(txtGender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(5, 5, 5)
-                .addComponent(jButton1))
             .addGroup(layout.createSequentialGroup()
                 .addGap(37, 37, 37)
                 .addComponent(txtPhno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -233,6 +200,46 @@ public class ViewAccountantJPanel extends javax.swing.JPanel {
                 .addComponent(txtSalary, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(5, 5, 5)
                 .addComponent(jLabel11))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addComponent(jLabel1)
+                        .addGap(5, 5, 5)
+                        .addComponent(jLabel9)
+                        .addGap(5, 5, 5)
+                        .addComponent(jLabel2)
+                        .addGap(5, 5, 5)
+                        .addComponent(jLabel6)
+                        .addGap(5, 5, 5)
+                        .addComponent(jLabel3)
+                        .addGap(5, 5, 5)
+                        .addComponent(jLabel5)
+                        .addGap(5, 5, 5)
+                        .addComponent(jLabel4)
+                        .addGap(5, 5, 5)
+                        .addComponent(jButton2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cboGender, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(160, 160, 160)
+                                .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(41, 41, 41)
+                                .addComponent(btnBack2, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(193, 193, 193)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(5, 5, 5)
+                        .addComponent(txtLastname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(5, 5, 5)
+                        .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton1))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -271,13 +278,10 @@ public class ViewAccountantJPanel extends javax.swing.JPanel {
                         .addComponent(jLabel4))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(7, 7, 7)
-                        .addComponent(jButton2))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(txtGender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(7, 7, 7)
-                        .addComponent(jButton1)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButton2)
+                            .addComponent(cboGender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton1))))
                 .addGap(5, 5, 5)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -320,7 +324,7 @@ public class ViewAccountantJPanel extends javax.swing.JPanel {
             String firstname = txtFirstname.getText();
             String lastname = txtLastname.getText();
             String age = txtAge.getText();
-            String gender = txtGender.getText();
+            String gender = cboGender.getSelectedItem()+"";
             String exp = txtExp.getText();
             String phonenumber = txtPhno.getText();
             String salary = txtSalary.getText();
@@ -408,7 +412,7 @@ public class ViewAccountantJPanel extends javax.swing.JPanel {
         txtFirstname.setText(String.valueOf(selectedProfile.getFirstName()));
         txtLastname.setText(String.valueOf(selectedProfile.getLastName()));
         txtAge.setText(String.valueOf(selectedProfile.getAge()));
-        txtGender.setText(String.valueOf(selectedProfile.getGender()));
+        cboGender.setSelectedItem(String.valueOf(selectedProfile.getGender()));
         txtExp.setText(String.valueOf(selectedProfile.getYearsOfExperience()));
         txtSalary.setText(String.valueOf(selectedProfile.getSalary()));
 
@@ -448,6 +452,7 @@ public class ViewAccountantJPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack2;
     private javax.swing.JButton btnSelect;
+    private javax.swing.JComboBox<String> cboGender;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
@@ -466,7 +471,6 @@ public class ViewAccountantJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField txtAge;
     private javax.swing.JTextField txtExp;
     private javax.swing.JTextField txtFirstname;
-    private javax.swing.JTextField txtGender;
     private javax.swing.JTextField txtLastname;
     private javax.swing.JPasswordField txtPassword;
     private javax.swing.JTextField txtPhno;
