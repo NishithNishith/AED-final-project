@@ -201,7 +201,8 @@ public class DonateFundsJPanel extends javax.swing.JPanel {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-        JOptionPane.showMessageDialog(this, "back");
+        ReportJPanel panel = new ReportJPanel(splitpane, system);
+        splitpane.setRightComponent(panel);
     }//GEN-LAST:event_btnBackActionPerformed
 
 

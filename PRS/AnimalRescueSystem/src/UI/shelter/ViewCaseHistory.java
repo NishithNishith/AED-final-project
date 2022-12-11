@@ -56,6 +56,7 @@ public class ViewCaseHistory extends javax.swing.JPanel {
         jLabel7 = new javax.swing.JLabel();
         txtDesc = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
+        btnBack2 = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(17, 53, 81));
@@ -118,11 +119,25 @@ public class ViewCaseHistory extends javax.swing.JPanel {
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/Images/Report.png"))); // NOI18N
         jLabel4.setText("jLabel4");
 
+        btnBack2.setBackground(new java.awt.Color(17, 53, 81));
+        btnBack2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        btnBack2.setForeground(new java.awt.Color(255, 255, 255));
+        btnBack2.setText("Back");
+        btnBack2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBack2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(43, 43, 43)
+                .addComponent(btnBack2, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(73, 73, 73)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 482, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -156,7 +171,9 @@ public class ViewCaseHistory extends javax.swing.JPanel {
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(73, 73, 73)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnBack2)
+                                .addGap(85, 85, 85)
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 445, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(153, 153, 153)
@@ -184,7 +201,7 @@ public class ViewCaseHistory extends javax.swing.JPanel {
                             .addComponent(txtDesc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(18, 18, 18)
                 .addComponent(btnSelect, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(211, Short.MAX_VALUE))
+                .addContainerGap(165, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -208,8 +225,30 @@ public class ViewCaseHistory extends javax.swing.JPanel {
 
     }//GEN-LAST:event_btnSelectActionPerformed
 
+    private void btnBack2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBack2ActionPerformed
+        // TODO add your handling code here:
+
+        if(system.getCurrentRole().equals("ShelterAdmin")){
+            ShelterAdmin panel = new ShelterAdmin(splitpane, system);
+            splitpane.setRightComponent(panel);
+        }
+        else if(system.getCurrentRole().equals("ShelterManager")){
+            ShelterManagerWorkarea panel = new ShelterManagerWorkarea(splitpane, system);
+            splitpane.setRightComponent(panel);
+        }
+        else if(system.getCurrentRole().equals("Accountant")){
+            AccountingWorkarea panel = new AccountingWorkarea(splitpane, system);
+            splitpane.setRightComponent(panel);
+        }
+        else{
+            StaffWorkarea panel = new StaffWorkarea(splitpane, system);
+            splitpane.setRightComponent(panel);
+        }
+    }//GEN-LAST:event_btnBack2ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBack2;
     private javax.swing.JButton btnSelect;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

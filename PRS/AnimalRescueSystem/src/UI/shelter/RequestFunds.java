@@ -48,8 +48,8 @@ public class RequestFunds extends javax.swing.JPanel {
         txtAmount = new javax.swing.JTextField();
         txtDesc = new javax.swing.JTextField();
         txtSubmit = new javax.swing.JButton();
-        txtBack = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
+        btnBack2 = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(17, 53, 81));
@@ -83,24 +83,23 @@ public class RequestFunds extends javax.swing.JPanel {
             }
         });
 
-        txtBack.setBackground(new java.awt.Color(17, 53, 81));
-        txtBack.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        txtBack.setForeground(new java.awt.Color(255, 255, 255));
-        txtBack.setText("Back");
-
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/Images/donate.png"))); // NOI18N
         jLabel4.setText("jLabel4");
+
+        btnBack2.setBackground(new java.awt.Color(17, 53, 81));
+        btnBack2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        btnBack2.setForeground(new java.awt.Color(255, 255, 255));
+        btnBack2.setText("Back");
+        btnBack2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBack2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(69, 69, 69)
-                .addComponent(txtBack, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(65, 65, 65)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 798, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(280, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -119,14 +118,20 @@ public class RequestFunds extends javax.swing.JPanel {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(542, 542, 542))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(64, 64, 64)
+                .addComponent(btnBack2)
+                .addGap(86, 86, 86)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 798, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(280, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtBack, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnBack2))
                 .addGap(146, 146, 146)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -185,14 +190,35 @@ public class RequestFunds extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtAmountActionPerformed
 
+    private void btnBack2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBack2ActionPerformed
+        // TODO add your handling code here:
+
+        if(system.getCurrentRole().equals("ShelterAdmin")){
+            ShelterAdmin panel = new ShelterAdmin(splitpane, system);
+            splitpane.setRightComponent(panel);
+        }
+        else if(system.getCurrentRole().equals("ShelterManager")){
+            ShelterManagerWorkarea panel = new ShelterManagerWorkarea(splitpane, system);
+            splitpane.setRightComponent(panel);
+        }
+        else if(system.getCurrentRole().equals("Accountant")){
+            AccountingWorkarea panel = new AccountingWorkarea(splitpane, system);
+            splitpane.setRightComponent(panel);
+        }
+        else{
+            StaffWorkarea panel = new StaffWorkarea(splitpane, system);
+            splitpane.setRightComponent(panel);
+        }
+    }//GEN-LAST:event_btnBack2ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBack2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JTextField txtAmount;
-    private javax.swing.JButton txtBack;
     private javax.swing.JTextField txtDesc;
     private javax.swing.JButton txtSubmit;
     // End of variables declaration//GEN-END:variables

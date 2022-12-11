@@ -69,6 +69,7 @@ public class ViewManagerJPanel extends javax.swing.JPanel {
         jLabel11 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        btnBack2 = new javax.swing.JButton();
 
         txtPassword.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
 
@@ -165,28 +166,28 @@ public class ViewManagerJPanel extends javax.swing.JPanel {
 
         jLabel5.setText("Email");
 
+        btnBack2.setBackground(new java.awt.Color(17, 53, 81));
+        btnBack2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        btnBack2.setForeground(new java.awt.Color(255, 255, 255));
+        btnBack2.setText("Back");
+        btnBack2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBack2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(57, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 477, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(46, 46, 46)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel9)
-                            .addComponent(jLabel2))
-                        .addGap(64, 64, 64)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtLastname, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
-                            .addComponent(txtFirstname)
-                            .addComponent(txtAge)))
-                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(57, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 477, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(42, 42, 42)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(46, 46, 46)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel8)
                             .addComponent(jLabel3)
@@ -204,7 +205,18 @@ public class ViewManagerJPanel extends javax.swing.JPanel {
                                     .addComponent(txtExp, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addComponent(txtSalary, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(txtPassword, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(txtPassword, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel9)
+                            .addComponent(jLabel2))
+                        .addGap(64, 64, 64)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtLastname, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
+                            .addComponent(txtFirstname)
+                            .addComponent(txtAge))))
                 .addGap(135, 135, 135))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(207, 207, 207)
@@ -218,13 +230,17 @@ public class ViewManagerJPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(37, 37, 37)
+                .addComponent(btnBack2, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(101, 101, 101)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -268,6 +284,8 @@ public class ViewManagerJPanel extends javax.swing.JPanel {
                             .addComponent(jLabel6)
                             .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(btnBack2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(561, 561, 561)
@@ -392,8 +410,30 @@ public class ViewManagerJPanel extends javax.swing.JPanel {
 
     }//GEN-LAST:event_btnUpdateActionPerformed
 
+    private void btnBack2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBack2ActionPerformed
+        // TODO add your handling code here:
+
+        if(system.getCurrentRole().equals("ShelterAdmin")){
+            ShelterAdmin panel = new ShelterAdmin(splitpane, system);
+            splitpane.setRightComponent(panel);
+        }
+        else if(system.getCurrentRole().equals("ShelterManager")){
+            ShelterManagerWorkarea panel = new ShelterManagerWorkarea(splitpane, system);
+            splitpane.setRightComponent(panel);
+        }
+        else if(system.getCurrentRole().equals("Accountant")){
+            AccountingWorkarea panel = new AccountingWorkarea(splitpane, system);
+            splitpane.setRightComponent(panel);
+        }
+        else{
+            StaffWorkarea panel = new StaffWorkarea(splitpane, system);
+            splitpane.setRightComponent(panel);
+        }
+    }//GEN-LAST:event_btnBack2ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBack2;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnSelect;
     private javax.swing.JButton btnUpdate;

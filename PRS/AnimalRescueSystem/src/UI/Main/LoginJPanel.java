@@ -164,8 +164,6 @@ public class LoginJPanel extends javax.swing.JPanel {
             String email = txtEmail.getText();
             String password = txtPassword.getText();
             
-            System.out.println(email+" "+password);
-            
             if(!validations.lengthCheck(email) ||!validations.lengthCheck(password))
             {
                 JOptionPane.showMessageDialog(this, "Invalid Credentials");
@@ -187,7 +185,9 @@ public class LoginJPanel extends javax.swing.JPanel {
                 
                 system.setCurrentUserEmail(userAccount.getEmail());
                 system.setCurrentUserId(userAccount.getUserAccountId());
-                JOptionPane.showMessageDialog(this, "role is "+role);
+                system.setCurrentRole(role);
+                
+//                JOptionPane.showMessageDialog(this, "role is "+role);
                 if(role.equals("Doctor")){
 //                    ManageEncounterJPanel panel = new ManageEncounterJPanel(splitpane);
 //                    splitpane.setRightComponent(panel);

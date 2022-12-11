@@ -61,6 +61,17 @@ public class Business {
     String currentUserId;
     String currentUserName;
     String currentUserEmail;
+    String currentRole;
+
+    public String getCurrentRole() {
+        return currentRole;
+    }
+
+    public void setCurrentRole(String currentRole) {
+        this.currentRole = currentRole;
+    }
+    
+    
     
     //Funding
     int curAmount;

@@ -226,6 +226,7 @@ public class MainJFrame extends javax.swing.JFrame {
         
         system.setCurrentUserEmail("");
         system.setCurrentUserId("");
+        system.setCurrentRole("");
         
         try{
             dB4OUtil.storeSystem(system);
