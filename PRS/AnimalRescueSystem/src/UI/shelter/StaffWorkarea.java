@@ -9,6 +9,7 @@ import business.population.Report;
 import business.shelter.CaseFile;
 import business.shelter.CaseFileDirectory;
 import business.validations.Validations;
+import java.util.Date;
 import java.util.UUID;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -373,9 +374,9 @@ public class StaffWorkarea extends javax.swing.JPanel {
             String uniqueField = UUID.randomUUID().toString();
 
             String reportId =selectedProfile.getId();
-            String staffId = "";
+            String staffId = system.getCurrentUserId();
             String reportDiscription =selectedProfile.getDescription() ;
-            String date = "";
+            Date date = new Date();
 
             caseFile.setCaseId(uniqueField);
             caseFile.setReportId(reportId);
