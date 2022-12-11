@@ -85,16 +85,16 @@
                               <Component id="name19" alignment="1" min="-2" pref="133" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="txtFirstname" alignment="0" min="-2" pref="225" max="-2" attributes="0"/>
-                              <Component id="txtLastname" alignment="0" min="-2" pref="225" max="-2" attributes="0"/>
-                              <Component id="txtPassword" alignment="0" min="-2" pref="225" max="-2" attributes="0"/>
-                              <Component id="txtPhno" alignment="0" min="-2" pref="225" max="-2" attributes="0"/>
-                              <Component id="txtEmail" alignment="0" min="-2" pref="225" max="-2" attributes="0"/>
-                              <Component id="txtAge" alignment="0" min="-2" pref="225" max="-2" attributes="0"/>
-                              <Component id="txtGender" alignment="0" min="-2" pref="225" max="-2" attributes="0"/>
-                              <Component id="txtYearsofexp" alignment="0" min="-2" pref="225" max="-2" attributes="0"/>
-                              <Component id="txtSalary" alignment="0" min="-2" pref="225" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="txtFirstname" alignment="0" pref="225" max="32767" attributes="0"/>
+                              <Component id="txtLastname" alignment="0" pref="225" max="32767" attributes="0"/>
+                              <Component id="txtPassword" alignment="0" pref="225" max="32767" attributes="0"/>
+                              <Component id="txtPhno" alignment="0" pref="225" max="32767" attributes="0"/>
+                              <Component id="txtEmail" alignment="0" pref="225" max="32767" attributes="0"/>
+                              <Component id="txtAge" alignment="0" pref="225" max="32767" attributes="0"/>
+                              <Component id="txtYearsofexp" alignment="0" pref="225" max="32767" attributes="0"/>
+                              <Component id="txtSalary" alignment="0" pref="225" max="32767" attributes="0"/>
+                              <Component id="cboGender" alignment="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <Component id="jLabel4" min="-2" pref="376" max="-2" attributes="0"/>
@@ -143,9 +143,9 @@
                                   <Component id="txtPassword" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="txtAge" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                                  <Component id="txtGender" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="cboGender" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="txtYearsofexp" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="name18" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
@@ -404,8 +404,6 @@
         </Component>
         <Component class="javax.swing.JTextField" name="txtAge">
         </Component>
-        <Component class="javax.swing.JTextField" name="txtGender">
-        </Component>
         <Component class="javax.swing.JTextField" name="txtYearsofexp">
         </Component>
         <Component class="javax.swing.JLabel" name="name18">
@@ -492,6 +490,16 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnView1ActionPerformed"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="cboGender">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="new javax.swing.DefaultComboBoxModel&lt;&gt;(new String[] { &quot;Male&quot;, &quot;Female&quot;, &quot;Others&quot; })" type="code"/>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
         </Component>
       </SubComponents>
     </Container>

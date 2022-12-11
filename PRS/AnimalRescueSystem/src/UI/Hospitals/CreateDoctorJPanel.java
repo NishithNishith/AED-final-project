@@ -51,7 +51,6 @@ public class CreateDoctorJPanel extends javax.swing.JPanel {
         name1 = new javax.swing.JLabel();
         name2 = new javax.swing.JLabel();
         txtSalary = new javax.swing.JTextField();
-        txtGender = new javax.swing.JTextField();
         name3 = new javax.swing.JLabel();
         name4 = new javax.swing.JLabel();
         name5 = new javax.swing.JLabel();
@@ -69,6 +68,7 @@ public class CreateDoctorJPanel extends javax.swing.JPanel {
         btnBack = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         btnView = new javax.swing.JButton();
+        cboGender = new javax.swing.JComboBox<>();
 
         medicalIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/Images/medicalLogo.png"))); // NOI18N
         medicalIcon.setText("jLabel3");
@@ -170,6 +170,15 @@ public class CreateDoctorJPanel extends javax.swing.JPanel {
             }
         });
 
+        cboGender.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        cboGender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female", "Others" }));
+        cboGender.setToolTipText("");
+        cboGender.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cboGenderActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -202,7 +211,7 @@ public class CreateDoctorJPanel extends javax.swing.JPanel {
                                     .addComponent(name6, javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(name7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(name8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(jPanel2Layout.createSequentialGroup()
                                         .addGap(18, 18, 18)
                                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -216,14 +225,15 @@ public class CreateDoctorJPanel extends javax.swing.JPanel {
                                     .addGroup(jPanel2Layout.createSequentialGroup()
                                         .addGap(18, 18, 18)
                                         .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addGap(18, 18, 18)
-                                        .addComponent(txtGender, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(cboGender, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(2, 2, 2))))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(name3, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(129, 129, 129)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(medicalIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(133, 133, 133))
         );
@@ -268,7 +278,7 @@ public class CreateDoctorJPanel extends javax.swing.JPanel {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(name4, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtGender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(cboGender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(name5, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -315,7 +325,7 @@ public class CreateDoctorJPanel extends javax.swing.JPanel {
             String firstname = txtFirstName.getText();
             String lastname = txtLastName.getText();
             String age = txtAge.getText();
-            String gender = txtGender.getText();
+            String gender = cboGender.getSelectedItem()+"";
             String exp = txtYearsofexp.getText();
             String phonenumber = txtPhno.getText();
             String specilization = txtSpecilization.getText();
@@ -407,11 +417,16 @@ public class CreateDoctorJPanel extends javax.swing.JPanel {
 // TODO add your handling code here:
     }//GEN-LAST:event_btnViewActionPerformed
 
+    private void cboGenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboGenderActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cboGenderActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel DocID;
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnView;
+    private javax.swing.JComboBox<String> cboGender;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -429,7 +444,6 @@ public class CreateDoctorJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField txtAge;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtFirstName;
-    private javax.swing.JTextField txtGender;
     private javax.swing.JTextField txtLastName;
     private javax.swing.JPasswordField txtPassword;
     private javax.swing.JTextField txtPhno;

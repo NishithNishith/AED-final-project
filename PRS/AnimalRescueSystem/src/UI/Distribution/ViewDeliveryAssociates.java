@@ -55,7 +55,6 @@ public class ViewDeliveryAssociates extends javax.swing.JPanel {
         txtEmail = new javax.swing.JTextField();
         txtPhno = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        txtGender = new javax.swing.JTextField();
         txtLastname = new javax.swing.JTextField();
         txtPassword = new javax.swing.JPasswordField();
         txtSalary = new javax.swing.JTextField();
@@ -72,6 +71,7 @@ public class ViewDeliveryAssociates extends javax.swing.JPanel {
         btnUpdate = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
         btnSelect1 = new javax.swing.JButton();
+        cboGender = new javax.swing.JComboBox<>();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -97,8 +97,6 @@ public class ViewDeliveryAssociates extends javax.swing.JPanel {
 
         jLabel10.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
         jLabel10.setText("Phone Number");
-
-        txtGender.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
 
         txtLastname.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
 
@@ -171,6 +169,8 @@ public class ViewDeliveryAssociates extends javax.swing.JPanel {
             }
         });
 
+        cboGender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female", "Others" }));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -211,15 +211,13 @@ public class ViewDeliveryAssociates extends javax.swing.JPanel {
                             .addComponent(jLabel4)
                             .addComponent(jLabel11))
                         .addGap(35, 35, 35)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(txtPhno, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtGender)
-                                    .addComponent(txtExp, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(txtSalary, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(txtPassword, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtPhno, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
+                            .addComponent(txtExp, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
+                            .addComponent(txtSalary, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
+                            .addComponent(txtEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
+                            .addComponent(txtPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
+                            .addComponent(cboGender, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addGap(20, 20, 20))
         );
         layout.setVerticalGroup(
@@ -244,7 +242,7 @@ public class ViewDeliveryAssociates extends javax.swing.JPanel {
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel8)
-                            .addComponent(txtGender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(cboGender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
@@ -266,7 +264,7 @@ public class ViewDeliveryAssociates extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnUpdate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnSelect, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -309,7 +307,7 @@ public class ViewDeliveryAssociates extends javax.swing.JPanel {
         txtFirstname.setText(String.valueOf(selectedProfile.getFirstName()));
         txtLastname.setText(String.valueOf(selectedProfile.getLastName()));
         txtAge.setText(String.valueOf(selectedProfile.getAge()));
-        txtGender.setText(String.valueOf(selectedProfile.getGender()));
+        cboGender.setSelectedItem(String.valueOf(selectedProfile.getGender()));
         txtExp.setText(String.valueOf(selectedProfile.getYearsOfExperience()));
         txtSalary.setText(String.valueOf(selectedProfile.getSalary()));
 
@@ -336,7 +334,7 @@ public class ViewDeliveryAssociates extends javax.swing.JPanel {
             String lastname = txtLastname.getText();
             String salary = txtSalary.getText();
             String age = txtAge.getText();
-            String gender = txtGender.getText();
+            String gender = cboGender.getSelectedItem()+"";
             String exp = txtExp.getText();
             String phonenumber = txtPhno.getText();
             String email = txtEmail.getText();
@@ -417,6 +415,7 @@ public class ViewDeliveryAssociates extends javax.swing.JPanel {
     private javax.swing.JButton btnSelect;
     private javax.swing.JButton btnSelect1;
     private javax.swing.JButton btnUpdate;
+    private javax.swing.JComboBox<String> cboGender;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
@@ -432,7 +431,6 @@ public class ViewDeliveryAssociates extends javax.swing.JPanel {
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtExp;
     private javax.swing.JTextField txtFirstname;
-    private javax.swing.JTextField txtGender;
     private javax.swing.JTextField txtLastname;
     private javax.swing.JPasswordField txtPassword;
     private javax.swing.JTextField txtPhno;
