@@ -16,6 +16,27 @@ public class CaseFile {
     String status;
     String desciption;
     String date;
+    
+    Boolean medRecieved;
+    String med;
+
+    public Boolean getMedRecieved() {
+        return medRecieved;
+    }
+
+    public void setMedRecieved(Boolean medRecieved) {
+        this.medRecieved = medRecieved;
+    }
+
+    public String getMed() {
+        return med;
+    }
+
+    public void setMed(String med) {
+        this.med = med;
+    }
+    
+    
 
     public String getCaseId() {
         return caseId;
