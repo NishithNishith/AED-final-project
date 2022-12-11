@@ -68,6 +68,8 @@ public class ManageAccountantWorkarea extends javax.swing.JPanel {
         btnBack2 = new javax.swing.JButton();
         cboGender = new javax.swing.JComboBox<>();
 
+        setBackground(new java.awt.Color(206, 229, 242));
+
         jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(17, 53, 81));
         jLabel4.setText("Lastname:");
@@ -174,13 +176,13 @@ public class ManageAccountantWorkarea extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(69, 69, 69)
+                .addGap(196, 196, 196)
                 .addComponent(btnBack2)
-                .addGap(51, 51, 51)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 894, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(203, 203, 203)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 384, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(96, 96, 96)
                 .addComponent(txtViewStaff)
-                .addGap(0, 33, Short.MAX_VALUE))
+                .addGap(0, 186, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
