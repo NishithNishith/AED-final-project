@@ -4,6 +4,8 @@
  */
 package business.ecosystem;
 
+import java.util.UUID;
+
 /**
  *
  * @author nishi
@@ -14,15 +16,35 @@ public class ConfigSystem {
         Business system = Business.getInstance();
        
         UserAccount user = system.userAccountDirectory.addNewUserAccount();
-        user.setEmail("email");
-        user.setPassword("pass");
-        user.setRole("Manager");
+        user.setEmail("shelter@email.com");
+        user.setPassword("123");
+        user.setRole("ShelterAdmin");
+        user.setUserAccountId(UUID.randomUUID().toString());
         
+        UserAccount user2 = system.userAccountDirectory.addNewUserAccount();
+        user2.setEmail("pop@email.com");
+        user2.setPassword("123");
+        user2.setRole("PopulationAdmin");
+        user2.setUserAccountId(UUID.randomUUID().toString());
         
-//        Business employee = system.getEmployeeDirectory().createEmployee("RRH");
-//        
-//        UserAccount ua = system.getUserAccountDirectory().createUserAccount("sysadmin", "sysadmin", employee, new SystemAdminRole());
-//        
+        UserAccount user3 = system.userAccountDirectory.addNewUserAccount();
+        user3.setEmail("hos@email.com");
+        user3.setPassword("123");
+        user3.setRole("HospitalAdmin");
+        user3.setUserAccountId(UUID.randomUUID().toString());
+        
+        UserAccount user4 = system.userAccountDirectory.addNewUserAccount();
+        user4.setEmail("dis@email.com");
+        user4.setPassword("123");
+        user4.setRole("DistributionAdmin");
+        user4.setUserAccountId(UUID.randomUUID().toString());
+        
+        UserAccount user5 = system.userAccountDirectory.addNewUserAccount();
+        user5.setEmail("gov@email.com");
+        user5.setPassword("123");
+        user5.setRole("GovernmentAdmin");
+        user5.setUserAccountId(UUID.randomUUID().toString());
+              
         return system;
     }
     

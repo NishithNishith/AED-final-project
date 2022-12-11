@@ -40,6 +40,7 @@ public class ShelterManagerWorkarea extends javax.swing.JPanel {
         txtShelter = new javax.swing.JButton();
         txtStaff1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        txtShelter1 = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(17, 53, 81));
@@ -99,13 +100,25 @@ public class ShelterManagerWorkarea extends javax.swing.JPanel {
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/Images/Shelter.png"))); // NOI18N
         jLabel2.setText("jLabel2");
 
+        txtShelter1.setBackground(new java.awt.Color(17, 53, 81));
+        txtShelter1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        txtShelter1.setForeground(new java.awt.Color(255, 255, 255));
+        txtShelter1.setText("View Adoption");
+        txtShelter1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtShelter1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(299, Short.MAX_VALUE)
+                .addContainerGap(103, Short.MAX_VALUE)
+                .addComponent(txtShelter1, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(txtDonations, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -113,7 +126,7 @@ public class ShelterManagerWorkarea extends javax.swing.JPanel {
                         .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(txtShelter, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtStaff1, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(194, 194, 194)
+                .addGap(169, 169, 169)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 497, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(185, 185, 185))
         );
@@ -128,7 +141,9 @@ public class ShelterManagerWorkarea extends javax.swing.JPanel {
                         .addGap(35, 35, 35)
                         .addComponent(txtDonations, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(141, 141, 141)
-                        .addComponent(txtShelter, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtShelter, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtShelter1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(40, 40, 40)
                         .addComponent(txtStaff1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
@@ -170,6 +185,12 @@ public class ShelterManagerWorkarea extends javax.swing.JPanel {
         splitpane.setRightComponent(panel);
     }//GEN-LAST:event_txtStaff1ActionPerformed
 
+    private void txtShelter1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtShelter1ActionPerformed
+        // TODO add your handling code here:
+        ViewAdoption panel = new ViewAdoption(splitpane, system);
+        splitpane.setRightComponent(panel);
+    }//GEN-LAST:event_txtShelter1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton3;
@@ -177,6 +198,7 @@ public class ShelterManagerWorkarea extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JButton txtDonations;
     private javax.swing.JButton txtShelter;
+    private javax.swing.JButton txtShelter1;
     private javax.swing.JButton txtStaff;
     private javax.swing.JButton txtStaff1;
     // End of variables declaration//GEN-END:variables

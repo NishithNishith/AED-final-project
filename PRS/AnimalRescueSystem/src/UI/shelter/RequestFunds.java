@@ -174,6 +174,7 @@ public class RequestFunds extends javax.swing.JPanel {
             fundRequest.setFundRequestId(uniqueField);
             fundRequest.setAmount(Integer.parseInt(amount));
             fundRequest.setDescription(desc);
+            fundRequest.setStatus("PENDING");
             
             //save report directory in the db
 

@@ -11,6 +11,7 @@ import business.hospital.Encounter;
 import business.hospital.EncounterHistory;
 import business.hospital.Prescription;
 import business.hospital.VitalSigns;
+import business.shelter.CaseFile;
 import business.validations.Validations;
 import java.util.UUID;
 import javax.swing.JOptionPane;
@@ -451,8 +452,9 @@ public class CreateEncounterJPanel extends javax.swing.JPanel {
             }
 
             //Unique check
-
+            
             Encounter encounter = system.getEncounterHistory().addNewEncounter();
+
             
              String uniqueField = UUID.randomUUID().toString();
              encounter.setEncounterID(uniqueField);
@@ -476,9 +478,24 @@ public class CreateEncounterJPanel extends javax.swing.JPanel {
             encounter.setCaseStatus(status);
             
             if(status.equals("critical"))
+            {
                 encounter.setRecipient(doctorID);
+                for(CaseFile c : system.getCaseFileDirectory().getCaseFile()){
+                    if(c.getCaseId().equals(caseID)){
+                        c.setStatus("HOSPITAL");
+                    }
+                }
+            }
             else
+            {
                 encounter.setRecipient(staffID);
+                for(CaseFile c : system.getCaseFileDirectory().getCaseFile()){
+                    if(c.getCaseId().equals(caseID)){
+                        c.setStatus("SHELTER");
+                    }
+                }
+            }
+                
             
             
 
