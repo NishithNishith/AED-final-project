@@ -22,22 +22,22 @@ import javax.swing.JOptionPane;
 public class CreateEncounterJPanel extends javax.swing.JPanel {
 
     Validations validations;
-    EncounterHistory encounterHistory;
-    VitalSignsDirectory vitalSignsDirectory;
-    UserAccountDirectory userAccountDirectory;
     javax.swing.JSplitPane splitpane;
     Business system;
+    String caseID;
+
     /**
      * Creates new form CreateEncounterJPanel
      */
-    public CreateEncounterJPanel(javax.swing.JSplitPane splitpane, Business system) {
+    public CreateEncounterJPanel(javax.swing.JSplitPane splitpane, Business system,String caseID ,String staffID, String doctorID) {
         initComponents();
         this.splitpane = splitpane;
         this.system = system;
         this.validations = new Validations();
-        this.encounterHistory = new EncounterHistory();
-        this.vitalSignsDirectory = new VitalSignsDirectory();
-        this.userAccountDirectory = new UserAccountDirectory();
+        this.caseID = caseID;
+        this.staffID = staffID;
+        this.doctorID = doctorID;
+
     }
 
     /**
@@ -52,7 +52,7 @@ public class CreateEncounterJPanel extends javax.swing.JPanel {
         jPanel3 = new javax.swing.JPanel();
         medicalIcon = new javax.swing.JLabel();
         name = new javax.swing.JLabel();
-        txtPatientid = new javax.swing.JTextField();
+        txtCaseId = new javax.swing.JTextField();
         name1 = new javax.swing.JLabel();
         name2 = new javax.swing.JLabel();
         txtHeartrate = new javax.swing.JTextField();
@@ -91,7 +91,7 @@ public class CreateEncounterJPanel extends javax.swing.JPanel {
         name.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
         name.setForeground(new java.awt.Color(1, 77, 78));
         name.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        name.setText("Patient ID:");
+        name.setText("Case ID:");
 
         name1.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
         name1.setForeground(new java.awt.Color(1, 77, 78));
@@ -236,7 +236,7 @@ public class CreateEncounterJPanel extends javax.swing.JPanel {
                                             .addGroup(jPanel3Layout.createSequentialGroup()
                                                 .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGap(18, 18, 18)
-                                                .addComponent(txtPatientid, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addComponent(txtCaseId, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE))
                                             .addGroup(jPanel3Layout.createSequentialGroup()
                                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                                     .addGroup(jPanel3Layout.createSequentialGroup()
@@ -320,7 +320,7 @@ public class CreateEncounterJPanel extends javax.swing.JPanel {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPatientid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtCaseId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel3Layout.createSequentialGroup()
@@ -404,7 +404,8 @@ public class CreateEncounterJPanel extends javax.swing.JPanel {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
         try{
-            String patientid = txtPatientid.getText();
+           
+            txtCaseId.setText(caseID);
             String heartrate = txtHeartrate.getText();
             String respiratoryrate = txtRespiratoryrate.getText();
             String temp = txtTemp.getText();
@@ -412,21 +413,23 @@ public class CreateEncounterJPanel extends javax.swing.JPanel {
             String weight = txtWeight.getText();
             String bloodpressure = txtBloodpressure.getText();
             String prescription = txtPrescription.getText();
+            String quantity = txtQuantity.getText();
+            String status = txtStatus.getText();
 
-            if( !validations.lengthCheck(patientid) || !validations.lengthCheck(heartrate) ||
+            if(  !validations.lengthCheck(heartrate) ||
                 !validations.lengthCheck(respiratoryrate) ||!validations.lengthCheck(temp)
                 || !validations.lengthCheck(height) || !validations.lengthCheck(weight)
-                || !validations.lengthCheck(bloodpressure) || !validations.lengthCheck(prescription)
+                || !validations.lengthCheck(bloodpressure) || !validations.lengthCheck(prescription) || !validations.lengthCheck(quantity) || !validations.lengthCheck(status)
             )
             {
                 JOptionPane.showMessageDialog(this, "Enter valid details for Encounter");
                 return;
             }
 
-            if( !validations.numberCheck(patientid) || !validations.numberCheck(heartrate) ||
+            if(  !validations.numberCheck(heartrate) ||
                 !validations.numberCheck(respiratoryrate) ||!validations.numberCheck(temp)
                 || !validations.numberCheck(height) || !validations.numberCheck(weight)
-                || !validations.numberCheck(bloodpressure)
+                || !validations.numberCheck(bloodpressure) || !validations.numberCheck(quantity)
 
             ){
                 JOptionPane.showMessageDialog(this, "Enter valid details for Encounter");
@@ -435,14 +438,12 @@ public class CreateEncounterJPanel extends javax.swing.JPanel {
 
             //Unique check
 
-            Encounter encounter = encounterHistory.addNewEncounter();
+            Encounter encounter = system.getEncounterHistory().addNewEncounter();
             VitalSigns vitalSigns = vitalSignsDirectory.addVitalSigns();
 
             String uniqueField = UUID.randomUUID().toString();
 
-            UserAccount userAccount = userAccountDirectory.addNewUserAccount();
-            userAccount.setRole("EncounterManager");
-            userAccount.setUserAccountId(uniqueField);
+
 
             encounter.setPatientId(uniqueField);
             vitalSigns.setHeartRate(Integer.parseInt(heartrate));
@@ -501,9 +502,9 @@ public class CreateEncounterJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel name7;
     private javax.swing.JLabel name8;
     private javax.swing.JTextField txtBloodpressure;
+    private javax.swing.JTextField txtCaseId;
     private javax.swing.JTextField txtHeartrate;
     private javax.swing.JTextField txtHeight;
-    private javax.swing.JTextField txtPatientid;
     private javax.swing.JTextField txtPrescription;
     private javax.swing.JTextField txtQuantity;
     private javax.swing.JTextField txtRespiratoryrate;

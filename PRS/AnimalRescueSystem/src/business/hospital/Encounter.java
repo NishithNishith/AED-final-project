@@ -9,9 +9,46 @@ package business.hospital;
  * @author nishi
  */
 public class Encounter {
-    String id;
-    String patientId;
-    String desc;
-    String prescription;
+
+    public String caseID;
+    public String encounterID;
+    public VitalSigns vitalSigns;
+    public Prescription prescription;
+
+    public String getCaseID() {
+        return caseID;
+    }
+
+    public void setCaseID(String caseID) {
+        this.caseID = caseID;
+    }
+
+    public VitalSigns getVitalSigns() {
+        return vitalSigns;
+    }
+
+    public void setVitalSigns(VitalSigns vitalSigns) {
+        this.vitalSigns = vitalSigns;
+    }
+
+    public Prescription getPrescription() {
+        return prescription;
+    }
+
+    public void setPrescription(Prescription prescription) {
+        this.prescription = prescription;
+    }
+
+    public String getEncounterID() {
+        return encounterID;
+    }
+
+    public void setEncounterID(String encounterID) {
+        this.encounterID = encounterID;
+    }
+
+    
+    
+    
     
 }

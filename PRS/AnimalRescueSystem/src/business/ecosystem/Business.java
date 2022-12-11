@@ -23,6 +23,8 @@ import business.shelter.FundRequestDirectory;
 import business.shelter.ShelterManagerDirectory;
 import business.shelter.ShelterStaffDirectory;
 import business.distribution.OrderDirectory;
+import business.hospital.VitalSignsHistory;
+import business.hospital.PrescriptionDirectory;
 
 
 /**
@@ -52,6 +54,8 @@ public class Business {
     BudgetOverseerDirectory budgetOverseerDirectory;
     OrderDirectory orderDirectory;
     AdoptionDirectory adoptionDirectory;
+    VitalSignsHistory vitalSignsHistory;
+    PrescriptionDirectory prescriptionDirectory;
     
     //Current user
     String currentUserId;
@@ -84,6 +88,8 @@ public class Business {
         
         budgetOverseerDirectory = new BudgetOverseerDirectory();    
         adoptionDirectory = new AdoptionDirectory();
+        vitalSignsHistory = new VitalSignsHistory();
+        prescriptionDirectory = new PrescriptionDirectory();
 
         
         
@@ -94,6 +100,22 @@ public class Business {
         this.curAmount = 0;
         
         
+    }
+
+    public VitalSignsHistory getVitalSignsHistory() {
+        return vitalSignsHistory;
+    }
+
+    public void setVitalSignsHistory(VitalSignsHistory vitalSignsHistory) {
+        this.vitalSignsHistory = vitalSignsHistory;
+    }
+
+    public PrescriptionDirectory getPrescriptionDirectory() {
+        return prescriptionDirectory;
+    }
+
+    public void setPrescriptionDirectory(PrescriptionDirectory prescriptionDirectory) {
+        this.prescriptionDirectory = prescriptionDirectory;
     }
     
         
