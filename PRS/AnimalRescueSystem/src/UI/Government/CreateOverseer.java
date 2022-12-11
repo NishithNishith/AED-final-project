@@ -4,6 +4,7 @@
  */
 package UI.Government;
 
+import business.Government.AnalyticsManager;
 import business.Government.BudgetOverseer;
 import business.db4O.DatabaseUtils;
 import business.ecosystem.Business;
@@ -24,12 +25,12 @@ public class CreateOverseer extends javax.swing.JPanel {
     javax.swing.JSplitPane splitpane;
     Validations validations;
     Business system;
-    DatabaseUtils dB4OUtil = DatabaseUtils.getInstance();
     
     public CreateOverseer(javax.swing.JSplitPane splitpane, Business system) {
         initComponents();
         this.splitpane = splitpane;
         this.system = system;
+        this.validations = new Validations();
     }
 
     /**
@@ -60,9 +61,9 @@ public class CreateOverseer extends javax.swing.JPanel {
         txtEmail = new javax.swing.JTextField();
         txtPassword = new javax.swing.JPasswordField();
         jLabel5 = new javax.swing.JLabel();
-        txtGender = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
+        cboGender = new javax.swing.JComboBox<>();
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(17, 53, 81));
@@ -147,14 +148,16 @@ public class CreateOverseer extends javax.swing.JPanel {
         jLabel5.setForeground(new java.awt.Color(17, 53, 81));
         jLabel5.setText("Age");
 
-        txtGender.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
-
         jLabel9.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(17, 53, 81));
         jLabel9.setText("Salary");
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/Images/Gov copy.png"))); // NOI18N
         jLabel11.setText("jLabel11");
+
+        cboGender.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        cboGender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female", "Others" }));
+        cboGender.setToolTipText("");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -172,11 +175,12 @@ public class CreateOverseer extends javax.swing.JPanel {
                                     .addComponent(jLabel5)
                                     .addComponent(jLabel6))
                                 .addGap(52, 52, 52)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtGender, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtLastname, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtFirstname, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtLastname, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtFirstname, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(cboGender, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -230,7 +234,7 @@ public class CreateOverseer extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel6)
-                            .addComponent(txtGender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(cboGender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtExp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -253,7 +257,7 @@ public class CreateOverseer extends javax.swing.JPanel {
                             .addComponent(jLabel10))
                         .addGap(27, 27, 27)
                         .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(302, Short.MAX_VALUE))
+                .addContainerGap(301, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -265,81 +269,51 @@ public class CreateOverseer extends javax.swing.JPanel {
         // TODO add your handling code here:
 
         try{
-            String firstname;
-            String lastname;
-            Integer age ;
-            String gender ;
-            String exp ;
-            String phonenumber ;
-            String salary ;
+            String firstname = txtFirstname.getText();
+            String lastname = txtLastname.getText();
+            String age = txtAge.getText();
+            String gender = cboGender.getSelectedItem()+"";
+            String exp = txtExp.getText();
+            String phonenumber = txtPhno.getText();
+            String salary = txtSalary.getText();
             String email = txtEmail.getText();
             String password = txtPassword.getText();
 
+            if(!validations.lengthCheck(firstname) ||!validations.lengthCheck(lastname) ||
+                    !validations.lengthCheck(age) ||!validations.lengthCheck(gender)
+                    || !validations.lengthCheck(exp) || !validations.lengthCheck(phonenumber)
+                    || !validations.lengthCheck(salary) || !validations.lengthCheck(email) 
+                    || !validations.lengthCheck(password))
+            {
+                JOptionPane.showMessageDialog(this, "Enter valid details for Overseer");
+                return;
+            }
+            
+            if(!validations.numberCheck(age) || !validations.numberCheck(exp) || !validations.numberCheck(salary) ){
+                JOptionPane.showMessageDialog(this, "Enter valid details for Overseer");
+                return;
+            }
+            
             if(!validations.emailCheck(email)){
                 JOptionPane.showMessageDialog(this, "Enter valid details for Email");
                 return;
             }
-
+            
             if(!validations.passwordCheck(password)){
                 JOptionPane.showMessageDialog(this, "Enter valid details for Password");
                 return;
             }
-
-            if(!validations.checkStringAndNumber(txtFirstname.getText()) || txtFirstname.getText().isEmpty() || !validations.lengthCheck(txtFirstname.getText()))
-            {
-                JOptionPane.showMessageDialog(this, "Enter valid first name ");
+            
+            if(!validations.ageCheck(age)){
+                JOptionPane.showMessageDialog(this, "Enter valid details for age");
                 return;
             }
-            else
-                 firstname = txtFirstname.getText();
-
-            if(!validations.checkStringAndNumber(txtLastname.getText()) || txtLastname.getText().isEmpty() ||!validations.lengthCheck(txtLastname.getText()))
-            {
-                JOptionPane.showMessageDialog(this, "Enter valid last name ");
+            
+            if(!validations.phoneCheck(phonenumber)){
+                JOptionPane.showMessageDialog(this, "Enter valid details for Phone Number");
                 return;
             }
-            else
-                 lastname = txtLastname.getText();
- 
-            if(!validations.checkStringAndNumber(txtGender.getText()) || txtGender.getText().isEmpty() ||!validations.lengthCheck(txtGender.getText()))
-            {
-                JOptionPane.showMessageDialog(this, "Enter valid gender ");
-                return;
-            }
-            else
-                gender = txtGender.getText();
-
-            if(!validations.checkNumber(txtAge.getText()) || txtAge.getText().isEmpty())
-            {
-                JOptionPane.showMessageDialog(this, "Enter valid age ");
-                return;
-            }
-            else
-
-                age = Integer.valueOf(txtAge.getText());
-            if(!validations.checkStringAndNumber(txtExp.getText()) || txtExp.getText().isEmpty() || !validations.lengthCheck(txtExp.getText()))
-            {
-                JOptionPane.showMessageDialog(this, "Enter valid experience ");
-                return;
-            }
-            else
-                exp = txtExp.getText();
-
-            if(!validations.checkStringAndNumber(txtPhno.getText()) || txtPhno.getText().isEmpty() || !validations.lengthCheck(txtPhno.getText()))
-            {
-                JOptionPane.showMessageDialog(this, "Enter valid phone number ");
-                return;
-            }
-            else
-                phonenumber = txtPhno.getText();
-
-            if(!validations.checkStringAndNumber(txtSalary.getText()) || txtSalary.getText().isEmpty() || !validations.lengthCheck(txtSalary.getText()))
-            {
-                JOptionPane.showMessageDialog(this, "Enter valid salary ");
-                return;
-            }
-            else
-                salary = txtPhno.getText();
+            //Unique Check
             
             int uniqueFlag = 0;
             UserAccount ua = system.getUserAccountDirectory().userCheck(email, password);
@@ -353,31 +327,32 @@ public class CreateOverseer extends javax.swing.JPanel {
                 return;
 
             }
-
-            BudgetOverseer overseer = system.getBudgetOverseerDirectory().addNewBudgetOverseer();
-
+            
+            BudgetOverseer budgetOverseer = system.getBudgetOverseerDirectory().addNewBudgetOverseer();
+            
+           
             String uniqueField = UUID.randomUUID().toString();
-
+            
             UserAccount userAccount = system.getUserAccountDirectory().addNewUserAccount();
             userAccount.setEmail(email);
             userAccount.setPassword(password);
             userAccount.setRole("Overseer");
             userAccount.setUserAccountId(uniqueField);
+//            JOptionPane.showMessageDialog(this, "Manager role "+userAccount.getRole());
+            
+            budgetOverseer.setBudgetOverseerId(uniqueField);
+            budgetOverseer.setFirstName(firstname);
+            budgetOverseer.setLastName(lastname);
+            budgetOverseer.setAge(Integer.parseInt(age));
+            budgetOverseer.setGender(gender);
+            budgetOverseer.setYearsOfExperience(Integer.parseInt(exp));
+            budgetOverseer.setPhoneNumber(phonenumber);
+            budgetOverseer.setSalary(Integer.parseInt(salary));
 
-            overseer.setBudgetOverseerId(uniqueField);
-            overseer.setFirstName(firstname);
-            overseer.setLastName(lastname);
-            overseer.setAge(age);
-            overseer.setGender(gender);
-            overseer.setYearsOfExperience(Integer.parseInt(exp));
-            overseer.setPhoneNumber(phonenumber);
-            overseer.setSalary(Integer.parseInt(salary));
-
-            JOptionPane.showMessageDialog(this, "Analytics created");
-
+            JOptionPane.showMessageDialog(this, "Overseer created");
         }
         catch(Exception err){
-            JOptionPane.showMessageDialog(this, "Issue while creating analytics, try again");
+            JOptionPane.showMessageDialog(this, "Issue while creating Overseer, try again");
         }
     }//GEN-LAST:event_btnSaveActionPerformed
 
@@ -392,6 +367,7 @@ public class CreateOverseer extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSave;
+    private javax.swing.JComboBox<String> cboGender;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -408,7 +384,6 @@ public class CreateOverseer extends javax.swing.JPanel {
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtExp;
     private javax.swing.JTextField txtFirstname;
-    private javax.swing.JTextField txtGender;
     private javax.swing.JTextField txtLastname;
     private javax.swing.JPasswordField txtPassword;
     private javax.swing.JTextField txtPhno;

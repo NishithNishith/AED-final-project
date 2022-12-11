@@ -14,7 +14,7 @@ public class AnalyticsManager extends Person{
     String analyticsManagerId;
     int yearsOfExperience;
     String phoneNumber;
-    float salary;
+    int salary;
 
     public String getAnalyticsManagerId() {
         return analyticsManagerId;
@@ -40,11 +40,11 @@ public class AnalyticsManager extends Person{
         this.phoneNumber = phoneNumber;
     }
 
-    public float getSalary() {
+    public int getSalary() {
         return salary;
     }
 
-    public void setSalary(float salary) {
+    public void setSalary(int salary) {
         this.salary = salary;
     }
     
