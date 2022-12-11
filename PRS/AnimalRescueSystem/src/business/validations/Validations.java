@@ -36,25 +36,45 @@ public class Validations {
     
     public boolean emailCheck(String val) {
 
-        
+        if(!val.matches("^(.+)@(\\S+)$")){
+            return false;
+        }
         
         return true;
     }
     
     public boolean passwordCheck(String val) {
 
-        
+        if(val.length()<3 || val.length()>20){
+            return false;
+        }
 
         return true;
     }
     
     public boolean ageCheck(String val) {
-
         
+        try{
+            if(val.length()< 1|| val.length()>3){
+                return false;
+            }
+
+            if(Integer.parseInt(val)>150){
+                return false;
+            }
+        }
+        catch(Exception e){
+            return false;
+        }
+
         return true;
     }
     
     public boolean phoneCheck(String val) {
+        
+        if(val.length()<5 || val.length()>15){
+            return false;
+        }
 
         
         return true;

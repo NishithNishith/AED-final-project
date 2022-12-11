@@ -104,5 +104,10 @@ public class Report {
         this.location = location;
     }
     
+    @Override
+    public String toString(){ 
+        return this.id; 
+    }
+    
     
 }

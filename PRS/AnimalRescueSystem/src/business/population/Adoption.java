@@ -49,10 +49,10 @@ public class Adoption {
         this.petName = petName;
     }
     
-    
-    
-    
-    
-    
+    @Override
+    public String toString(){ 
+        return this.adoptionId; 
+    }
+
     
 }

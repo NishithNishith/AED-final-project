@@ -46,6 +46,11 @@ public String recipient;
     public void setRecipient(String recipient) {
         this.recipient = recipient;
     }
+    
+    @Override
+    public String toString(){ 
+        return this.prescriptionName; 
+    }
 
 
 }

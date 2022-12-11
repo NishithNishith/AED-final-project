@@ -49,4 +49,9 @@ public class ShelterStaff extends Person {
         this.salary = (int) salary;
     }
     
+    @Override
+    public String toString(){ 
+        return this.shelterStaffId; 
+    }
+    
 }

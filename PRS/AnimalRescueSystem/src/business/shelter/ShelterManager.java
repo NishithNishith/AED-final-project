@@ -48,6 +48,11 @@ public class ShelterManager extends Person {
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
+    
+    @Override
+    public String toString(){ 
+        return this.shelterManagerId; 
+    }
 
     
     

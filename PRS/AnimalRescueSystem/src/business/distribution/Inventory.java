@@ -38,7 +38,7 @@ public class Inventory {
         this.status = status;
     }
     
-        @Override
+    @Override
     public String toString(){
         return name;
     }
