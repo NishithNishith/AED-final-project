@@ -68,6 +68,8 @@ public class CreateManagerJPanel extends javax.swing.JPanel {
         txtPassword = new javax.swing.JPasswordField();
         cboGender = new javax.swing.JComboBox<>();
 
+        setBackground(new java.awt.Color(206, 229, 242));
+
         txtSalary.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
 
         jLabel6.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
@@ -260,9 +262,9 @@ public class CreateManagerJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
                     .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(36, 36, 36)
+                .addGap(27, 27, 27)
                 .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(237, Short.MAX_VALUE))
+                .addContainerGap(246, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
