@@ -47,7 +47,7 @@ public class ViewShelterJPanel extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 774, Short.MAX_VALUE))
+                .addGap(0, 795, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
