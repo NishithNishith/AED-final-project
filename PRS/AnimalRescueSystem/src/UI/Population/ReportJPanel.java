@@ -62,6 +62,7 @@ public class ReportJPanel extends javax.swing.JPanel {
         txtHistory = new javax.swing.JButton();
         btnDonateHistory = new javax.swing.JButton();
         txtHistory1 = new javax.swing.JButton();
+        txtHistory2 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(231, 250, 254));
         setForeground(new java.awt.Color(231, 250, 254));
@@ -156,6 +157,16 @@ public class ReportJPanel extends javax.swing.JPanel {
             }
         });
 
+        txtHistory2.setBackground(new java.awt.Color(17, 53, 81));
+        txtHistory2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        txtHistory2.setForeground(new java.awt.Color(255, 255, 255));
+        txtHistory2.setText("Profile");
+        txtHistory2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtHistory2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -191,7 +202,8 @@ public class ReportJPanel extends javax.swing.JPanel {
                         .addComponent(txtDonate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnDonateHistory, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(txtHistory, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(txtHistory1, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtHistory1, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtHistory2, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(161, 161, 161))
         );
         layout.setVerticalGroup(
@@ -233,6 +245,8 @@ public class ReportJPanel extends javax.swing.JPanel {
                         .addComponent(txtHistory, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(txtHistory1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtHistory2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -307,6 +321,12 @@ public class ReportJPanel extends javax.swing.JPanel {
         splitpane.setRightComponent(panel);
     }//GEN-LAST:event_txtHistory1ActionPerformed
 
+    private void txtHistory2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHistory2ActionPerformed
+        // TODO add your handling code here:
+        Profile panel = new Profile(splitpane, system);
+        splitpane.setRightComponent(panel);
+    }//GEN-LAST:event_txtHistory2ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDonateHistory;
@@ -325,5 +345,6 @@ public class ReportJPanel extends javax.swing.JPanel {
     private javax.swing.JButton txtDonate;
     private javax.swing.JButton txtHistory;
     private javax.swing.JButton txtHistory1;
+    private javax.swing.JButton txtHistory2;
     // End of variables declaration//GEN-END:variables
 }
