@@ -26,12 +26,13 @@ public class CreateAnalyticsManager extends javax.swing.JPanel {
     javax.swing.JSplitPane splitpane;
     Validations validations;
     Business system;
-    DatabaseUtils dB4OUtil = DatabaseUtils.getInstance();
+
     
     public CreateAnalyticsManager(javax.swing.JSplitPane splitpane, Business system) {
         initComponents();
         this.splitpane = splitpane;
         this.system = system;
+        this.validations = new Validations();
     }
 
     /**
@@ -365,7 +366,7 @@ public class CreateAnalyticsManager extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "Analytics created");
         }
         catch(Exception err){
-            JOptionPane.showMessageDialog(this, "Issue while creating Analytics, try again");
+            JOptionPane.showMessageDialog(this, "Issue while creating Analytics, try again ");
         }
     }//GEN-LAST:event_btnSaveActionPerformed
 

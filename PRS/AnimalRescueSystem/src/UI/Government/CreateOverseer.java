@@ -25,12 +25,12 @@ public class CreateOverseer extends javax.swing.JPanel {
     javax.swing.JSplitPane splitpane;
     Validations validations;
     Business system;
-    DatabaseUtils dB4OUtil = DatabaseUtils.getInstance();
     
     public CreateOverseer(javax.swing.JSplitPane splitpane, Business system) {
         initComponents();
         this.splitpane = splitpane;
         this.system = system;
+        this.validations = new Validations();
     }
 
     /**
@@ -285,12 +285,12 @@ public class CreateOverseer extends javax.swing.JPanel {
                     || !validations.lengthCheck(salary) || !validations.lengthCheck(email) 
                     || !validations.lengthCheck(password))
             {
-                JOptionPane.showMessageDialog(this, "Enter valid details for Analytics");
+                JOptionPane.showMessageDialog(this, "Enter valid details for Overseer");
                 return;
             }
             
             if(!validations.numberCheck(age) || !validations.numberCheck(exp) || !validations.numberCheck(salary) ){
-                JOptionPane.showMessageDialog(this, "Enter valid details for Analytics");
+                JOptionPane.showMessageDialog(this, "Enter valid details for Overseer");
                 return;
             }
             
@@ -349,10 +349,10 @@ public class CreateOverseer extends javax.swing.JPanel {
             budgetOverseer.setPhoneNumber(phonenumber);
             budgetOverseer.setSalary(Integer.parseInt(salary));
 
-            JOptionPane.showMessageDialog(this, "Analytics created");
+            JOptionPane.showMessageDialog(this, "Overseer created");
         }
         catch(Exception err){
-            JOptionPane.showMessageDialog(this, "Issue while creating Analytics, try again");
+            JOptionPane.showMessageDialog(this, "Issue while creating Overseer, try again");
         }
     }//GEN-LAST:event_btnSaveActionPerformed
 
