@@ -358,7 +358,7 @@ public class ViewDoctorJPanel extends javax.swing.JPanel {
                 return;
             }
 
-            if(!validations.numberCheck(age) || !validations.numberCheck(exp) || !validations.numberCheck(phonenumber) ){
+            if(!validations.ageCheck(age) || !validations.numberCheck(exp) || !validations.phoneCheck(phonenumber) ){
                 JOptionPane.showMessageDialog(this, "Enter valid details for Doctors");
                 return;
             }
@@ -412,6 +412,16 @@ public class ViewDoctorJPanel extends javax.swing.JPanel {
         txtSpecilization.setText(String.valueOf(selectedProfile.getSpecialization()));
 
         txtPhno.setText(String.valueOf(selectedProfile.getPhoneNumber()));
+        
+                UserAccount userAccount = system.getUserAccountDirectory().findAccount(selectedProfile.getDoctorId());
+
+        if(userAccount!=null){
+            txtPassword.setText(userAccount.getPassword());
+            txtEmail.setText(userAccount.getEmail());
+            
+        }
+         txtPassword.setEditable(false);
+         txtEmail.setEditable(false);
         
         updateProfile = selectedProfile;
         // TODO add your handling code here:
