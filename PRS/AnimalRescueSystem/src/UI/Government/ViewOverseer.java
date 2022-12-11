@@ -410,6 +410,7 @@ public class ViewOverseer extends javax.swing.JPanel {
 
         if(userAccount!=null){
             txtPassword1.setText(userAccount.getPassword());
+            txtEmail1.setText(userAccount.getEmail());
         }
         
         updateProfile = selectedProfile;
@@ -452,6 +453,10 @@ public class ViewOverseer extends javax.swing.JPanel {
             String phonenumber = txtPhno.getText();
             String salary = txtSalary.getText();
             String password = txtPassword.getText();
+            
+            String email = txtEmail.getText();
+            
+            String orgEmail = email;
 
             if(!validations.lengthCheck(firstname) ||!validations.lengthCheck(lastname) ||
                 !validations.lengthCheck(age) ||!validations.lengthCheck(gender)
@@ -472,8 +477,25 @@ public class ViewOverseer extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(this, "Enter valid details for Password");
                 return;
             }
+            
+            if(!validations.emailCheck(email)){
+                JOptionPane.showMessageDialog(this, "Enter valid details for Email");
+                return;
+            }
 
             //Unique Check
+            
+            for (UserAccount user : system.getUserAccountDirectory().getUserAccountList()){
+                if (user.getEmail().equals(email)){
+                    if(user.getEmail().equals(orgEmail)){
+                        continue;
+                    }
+                    
+                    JOptionPane.showMessageDialog(this, "Email is present, please choose another one");
+                    return;
+                    
+                }
+            }
 
             UserAccount userAccount = system.getUserAccountDirectory().findAccount(updateProfile.getBudgetOverseerId());
 
