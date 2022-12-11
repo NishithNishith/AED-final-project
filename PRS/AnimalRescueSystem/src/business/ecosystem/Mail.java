@@ -51,7 +51,7 @@ public class Mail {
         try {
             MimeMessage message = new MimeMessage(session);
             message.setFrom(new InternetAddress("themediabreakout@gmail.com"));
-            message.addRecipient(Message.RecipientType.TO, new InternetAddress("nishith0514@gmail.com"));
+            message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
 
 
             message.setSubject("Welcome to the animal rescue system");
