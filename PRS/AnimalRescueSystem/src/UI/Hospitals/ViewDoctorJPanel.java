@@ -70,12 +70,12 @@ public class ViewDoctorJPanel extends javax.swing.JPanel {
         btnView = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
         txtAge = new javax.swing.JTextField();
-        txtGender = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         txtPassword = new javax.swing.JPasswordField();
         btnView1 = new javax.swing.JButton();
+        cboGender = new javax.swing.JComboBox<>();
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/Images/medicalLogo.png"))); // NOI18N
         jLabel3.setText("jLabel3");
@@ -202,6 +202,8 @@ public class ViewDoctorJPanel extends javax.swing.JPanel {
             }
         });
 
+        cboGender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female", "Others" }));
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -246,8 +248,8 @@ public class ViewDoctorJPanel extends javax.swing.JPanel {
                                     .addComponent(txtPhno)
                                     .addComponent(txtEmail)
                                     .addComponent(txtAge)
-                                    .addComponent(txtGender)
-                                    .addComponent(txtPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 225, Short.MAX_VALUE)))
+                                    .addComponent(txtPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 225, Short.MAX_VALUE)
+                                    .addComponent(cboGender, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 376, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(118, 118, 118)
@@ -307,7 +309,7 @@ public class ViewDoctorJPanel extends javax.swing.JPanel {
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(name13, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtGender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(cboGender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(name14, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -360,7 +362,7 @@ public class ViewDoctorJPanel extends javax.swing.JPanel {
             String lastname = txtLastName.getText();
             String salary = txtSalary.getText();
             String age = txtAge.getText();
-            String gender = txtGender.getText();
+            String gender = cboGender.getSelectedItem()+"";
             String exp = txtYearsofexp.getText();
             String phonenumber = txtPhno.getText();
             String specilization = txtSpecilization.getText();
@@ -426,7 +428,7 @@ public class ViewDoctorJPanel extends javax.swing.JPanel {
         txtSalary.setText(String.valueOf(selectedProfile.getSalary()));
         
         txtAge.setText(String.valueOf(selectedProfile.getAge()));
-        txtGender.setText(String.valueOf(selectedProfile.getGender()));
+        cboGender.setSelectedItem(String.valueOf(selectedProfile.getGender()));
         txtYearsofexp.setText(String.valueOf(selectedProfile.getYearsOfExperience()));
         txtSpecilization.setText(String.valueOf(selectedProfile.getSpecialization()));
 
@@ -474,7 +476,6 @@ public class ViewDoctorJPanel extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
          model.setRowCount(0);
          for(Doctor pro: system.getDoctorDirectory().getDoctorList()){
-              System.out.println("profile "+pro);
              Object[] row = new Object[4];
              row[0] = pro;
              row[1] = pro.getSpecialization();
@@ -491,6 +492,7 @@ public class ViewDoctorJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnView;
     private javax.swing.JButton btnView1;
+    private javax.swing.JComboBox<String> cboGender;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -511,7 +513,6 @@ public class ViewDoctorJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField txtAge;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtFirstName;
-    private javax.swing.JTextField txtGender;
     private javax.swing.JTextField txtLastName;
     private javax.swing.JPasswordField txtPassword;
     private javax.swing.JTextField txtPhno;
