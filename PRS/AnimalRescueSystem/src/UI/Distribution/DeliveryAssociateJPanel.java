@@ -105,10 +105,10 @@ public class DeliveryAssociateJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Please select a row from the Table");
         }
         Order placedOrder = null;
-        int orderId = (int)jTable1.getValueAt(selectedRow,5);
+        String orderId = jTable1.getValueAt(selectedRow,5).toString();
         for(Order o : system.getOrderDirectory().getOrder()){
             Order order = o;              
-            if(o.getOrderID() == orderId ){
+            if(o.getOrderID().equals(orderId) ){
                 order.setOrderStatus("Completed");
                 placedOrder = order;
             }

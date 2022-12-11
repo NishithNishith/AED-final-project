@@ -28,18 +28,18 @@ public class ManageOrders extends javax.swing.JPanel {
         this.system = system;
         this.splitpane = splitpane;
         
-        System.out.println("system"+system);
-        
-        Order o  = system.getOrderDirectory().addOrder();
-
-       
-        o.setMedicineName("Remdezvir");
-        o.setSender("da");
-        o.setReciever("asasma@gmail.com");
-        o.setQuantity(5);
-        o.setOrderStatus("Pending");
-        o.setOrderID(2);
-        
+//        System.out.println("system"+system);
+//        
+//        Order o  = system.getOrderDirectory().addOrder();
+//
+//       
+//        o.setMedicineName("Remdezvir");
+//        o.setSender("da");
+//        o.setReciever("asasma@gmail.com");
+//        o.setQuantity(5);
+//        o.setOrderStatus("Pending");
+//        o.setOrderID("2");
+//        
         populateTable();
     }
 
@@ -150,10 +150,10 @@ public class ManageOrders extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Please select a row from the Table");
         }
         Order placedOrder = null;
-        int orderId = (int)orderTable.getValueAt(selectedRow,5);
+        String orderId = orderTable.getValueAt(selectedRow,5).toString();
         for(Order o : system.getOrderDirectory().getOrder()){
             Order order = o;              
-            if(o.getOrderID() == orderId ){
+            if(o.getOrderID().equals(orderId)){
                 placedOrder = o;
             }
         }
@@ -168,7 +168,7 @@ public class ManageOrders extends javax.swing.JPanel {
         
         for(Order o : system.getOrderDirectory().getOrder()){
             Order order = o;              
-            if(o.getOrderID() == placedOrder.getOrderID() ){
+            if(o.getOrderID().equals(placedOrder.getOrderID()) ){
                 order.setOrderStatus("Work In Progress");
             }
         }
@@ -185,10 +185,10 @@ public class ManageOrders extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Please select a row from the Table");
         }
         Order placedOrder = null;
-        int orderId = (int)orderTable.getValueAt(selectedRow,5);
+        String orderId = orderTable.getValueAt(selectedRow,5).toString();
         for(Order o : system.getOrderDirectory().getOrder()){
             Order order = o;              
-            if(o.getOrderID() == orderId ){
+            if(o.getOrderID().equals(orderId) ){
                 placedOrder = o;
             }
         }
@@ -238,10 +238,10 @@ public class ManageOrders extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Please select a row from the Table");
         }
         Order placedOrder = null;
-        int orderId = (int)orderTable.getValueAt(selectedRow,5);
+        String orderId = orderTable.getValueAt(selectedRow,5).toString();
         for(Order o : system.getOrderDirectory().getOrder()){
             Order order = o;              
-            if(o.getOrderID() == orderId ){
+            if(o.getOrderID().equals(orderId) ){
                 placedOrder = o;
             }
         }

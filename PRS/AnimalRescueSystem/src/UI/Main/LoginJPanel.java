@@ -12,6 +12,7 @@ import UI.Government.GovernmentAdmin;
 import UI.Government.ManageFundsJPanel;
 import UI.Hospital.ManageEncounterJPanel;
 import UI.Hospitals.DoctorJPanel;
+import UI.Hospitals.HospitalManagerJPanel;
 import UI.Population.ReportJPanel;
 import UI.shelter.AccountingWorkarea;
 import UI.shelter.ManageStaffWorkarea;
@@ -235,6 +236,10 @@ public class LoginJPanel extends javax.swing.JPanel {
                 }
                                 else if(role.equals("DeliveryAssociate")){
                     DeliveryAssociateJPanel panel = new DeliveryAssociateJPanel(splitpane, system,userAccount);
+                    splitpane.setRightComponent(panel);
+                }
+                                                else if(role.equals("HospitalManager")){
+                    HospitalManagerJPanel panel = new HospitalManagerJPanel(splitpane, system);
                     splitpane.setRightComponent(panel);
                 }
 

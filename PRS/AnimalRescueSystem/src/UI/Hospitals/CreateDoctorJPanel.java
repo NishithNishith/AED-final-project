@@ -371,7 +371,7 @@ public class CreateDoctorJPanel extends javax.swing.JPanel {
             UserAccount userAccount = system.getUserAccountDirectory().addNewUserAccount();
             userAccount.setEmail(email);
             userAccount.setPassword(password);
-            userAccount.setRole("HospitalManager");
+            userAccount.setRole("Doctor");
             userAccount.setUserAccountId(uniqueField);
 
             doctor.setSalary(Integer.parseInt(salary));
