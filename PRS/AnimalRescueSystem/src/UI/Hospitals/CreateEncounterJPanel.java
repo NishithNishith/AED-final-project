@@ -452,6 +452,8 @@ public class CreateEncounterJPanel extends javax.swing.JPanel {
             }
 
             //Unique check
+            
+            Encounter encounter = system.getEncounterHistory().addNewEncounter();
 
             Encounter encounter = system.getEncounterHistory().addNewEncounter();
             
