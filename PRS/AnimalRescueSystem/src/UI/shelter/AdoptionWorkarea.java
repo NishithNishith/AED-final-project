@@ -261,7 +261,7 @@ public class AdoptionWorkarea extends javax.swing.JPanel {
                 adoption.setUser(system.getCurrentUserEmail());
                 adoption.setPetName(petName);
                 
-                JOptionPane.showMessageDialog(this, "This animal adopted!");
+                JOptionPane.showMessageDialog(this, "Adoption Complete!");
                 populate();
             }
             else{

@@ -279,7 +279,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void txtRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRegisterActionPerformed
         // TODO add your handling code here:
-        RegisterJPanel panel = new RegisterJPanel(splitpane);
+        RegisterJPanel panel = new RegisterJPanel(splitpane, system);
         splitpane.setRightComponent(panel);
     }//GEN-LAST:event_txtRegisterActionPerformed
 
@@ -287,7 +287,7 @@ public class MainJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         LoginJPanel panel = new LoginJPanel(splitpane,system);
-        splitpane.setRightComponent(panel);
+        splitpane.setRightComponent(jPanel2);
         
         system.setCurrentUserEmail("");
         system.setCurrentUserId("");

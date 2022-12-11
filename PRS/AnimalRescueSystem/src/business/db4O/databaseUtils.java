@@ -19,7 +19,7 @@ import java.nio.file.Paths;
 
 public class DatabaseUtils {
     
-    private static final String FILENAME = Paths.get("Database3.db4o").toAbsolutePath().toString();// path to the data store
+    private static final String FILENAME = Paths.get("Database11.db4o").toAbsolutePath().toString();// path to the data store
     private static DatabaseUtils dB4OUtil;
     
      public synchronized static DatabaseUtils getInstance() {
@@ -57,6 +57,7 @@ public class DatabaseUtils {
         conn.store(system);
         conn.commit();
         conn.close();
+        System.out.println("Save in dbS");
     }
     
     public Business retrieveSystem() {
@@ -72,6 +73,7 @@ public class DatabaseUtils {
             system = (Business) systems.get(systems.size() - 1);
         }
         conn.close();
+        System.out.println("Ret from dbS");
         return system;
 //        } catch (Exception ex) {
 //            System.out.print(ex.getMessage());

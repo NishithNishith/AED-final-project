@@ -34,11 +34,12 @@ public class RegisterJPanel extends javax.swing.JPanel {
     Business system;
     DatabaseUtils dB4OUtil = DatabaseUtils.getInstance();
     
-    public RegisterJPanel(javax.swing.JSplitPane splitpane) {
+    public RegisterJPanel(javax.swing.JSplitPane splitpane, Business system) {
         initComponents();
         validations = new Validations();
         this.splitpane = splitpane;
-        this.system = dB4OUtil.retrieveSystem();
+        this.system = system;
+//        this.system = dB4OUtil.retrieveSystem();
     }
 
     /**

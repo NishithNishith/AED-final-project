@@ -455,7 +455,6 @@ public class CreateEncounterJPanel extends javax.swing.JPanel {
             
             Encounter encounter = system.getEncounterHistory().addNewEncounter();
 
-            Encounter encounter = system.getEncounterHistory().addNewEncounter();
             
              String uniqueField = UUID.randomUUID().toString();
              encounter.setEncounterID(uniqueField);

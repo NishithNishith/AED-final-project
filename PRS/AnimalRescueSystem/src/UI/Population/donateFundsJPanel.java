@@ -168,7 +168,7 @@ public class DonateFundsJPanel extends javax.swing.JPanel {
         try{
             String amount = txtAmount.getText();
             String msg = txtMsg.getText();
-            JOptionPane.showMessageDialog(this, "amount "+amount);
+//            JOptionPane.showMessageDialog(this, "amount "+amount);
             if(!validations.lengthCheck(amount) || !validations.lengthCheck(msg)){
                 JOptionPane.showMessageDialog(this, "Enter valid details for Donations");
                 return;
@@ -191,7 +191,7 @@ public class DonateFundsJPanel extends javax.swing.JPanel {
             fundDonation.setUserId(system.getCurrentUserId());
 
             System.out.println("fund doantion "+fundDonation);
-            JOptionPane.showMessageDialog(this, "Amount Donated "+amount+" "+msg+" "+fundDonation);
+            JOptionPane.showMessageDialog(this, "Amount Donated "+amount);
         }
         catch(Exception err){
             System.out.print("ReportJPanel error "+err);
