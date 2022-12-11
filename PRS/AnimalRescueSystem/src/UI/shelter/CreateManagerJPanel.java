@@ -350,6 +350,22 @@ public class CreateManagerJPanel extends javax.swing.JPanel {
 
     private void txtBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBackActionPerformed
         // TODO add your handling code here:
+        if(system.getCurrentRole().equals("ShelterAdmin")){
+            ShelterAdmin panel = new ShelterAdmin(splitpane, system);
+            splitpane.setRightComponent(panel);
+        }
+        else if(system.getCurrentRole().equals("ShelterManager")){
+            ShelterManagerWorkarea panel = new ShelterManagerWorkarea(splitpane, system);
+            splitpane.setRightComponent(panel);
+        }
+        else if(system.getCurrentRole().equals("Accountant")){
+            AccountingWorkarea panel = new AccountingWorkarea(splitpane, system);
+            splitpane.setRightComponent(panel);
+        }
+        else{
+            StaffWorkarea panel = new StaffWorkarea(splitpane, system);
+            splitpane.setRightComponent(panel);
+        }
     }//GEN-LAST:event_txtBackActionPerformed
 
 

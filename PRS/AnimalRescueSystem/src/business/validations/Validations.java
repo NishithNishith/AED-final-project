@@ -37,7 +37,7 @@ public class Validations {
     public boolean emailCheck(String val) {
 
         
-
+        
         return true;
     }
     
@@ -45,6 +45,18 @@ public class Validations {
 
         
 
+        return true;
+    }
+    
+    public boolean ageCheck(String val) {
+
+        
+        return true;
+    }
+    
+    public boolean phoneCheck(String val) {
+
+        
         return true;
     }
     
