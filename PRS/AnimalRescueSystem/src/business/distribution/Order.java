@@ -14,7 +14,7 @@ public class Order {
     
     public String medicineName;
     public Integer quantity;
-    public Integer orderID;
+    public String orderID;
     public String  reciever;
     public UserAccount deliveryAssociate;
     public String orderStatus;
@@ -36,11 +36,11 @@ public class Order {
         this.quantity = quantity;
     }
 
-    public Integer getOrderID() {
+    public String getOrderID() {
         return orderID;
     }
 
-    public void setOrderID(Integer orderID) {
+    public void setOrderID(String orderID) {
         this.orderID = orderID;
     }
 

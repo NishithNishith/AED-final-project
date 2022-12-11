@@ -13,7 +13,6 @@ import java.util.ArrayList;
  */
 public class EncounterHistory {
     
-    String patientId;
     ArrayList<Encounter> encounterHistory ;
     
     public EncounterHistory(){
