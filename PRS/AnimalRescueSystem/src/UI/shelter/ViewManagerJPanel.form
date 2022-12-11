@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
+  <Properties>
+    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+      <Color blue="f2" green="e5" red="ce" type="rgb"/>
+    </Property>
+  </Properties>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
@@ -19,16 +24,27 @@
           <Group type="102" attributes="0">
               <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
               <Component id="btnBack2" min="-2" pref="108" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="306" max="-2" attributes="0"/>
               <Component id="jLabel11" min="-2" pref="326" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="435" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace pref="57" max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
+          <Group type="102" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <Component id="jScrollPane1" min="-2" pref="477" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+                      <EmptySpace pref="57" max="32767" attributes="0"/>
+                      <Component id="jScrollPane1" min="-2" pref="414" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="163" max="-2" attributes="0"/>
+                      <Component id="btnSelect" min="-2" pref="90" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="btnDelete" min="-2" pref="89" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
                       <Component id="jLabel1" min="-2" pref="252" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -41,15 +57,15 @@
                       </Group>
                       <EmptySpace min="35" pref="35" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="txtPhno" alignment="1" pref="160" max="32767" attributes="0"/>
-                          <Component id="txtExp" alignment="1" pref="160" max="32767" attributes="0"/>
-                          <Component id="txtSalary" alignment="1" pref="160" max="32767" attributes="0"/>
-                          <Component id="txtEmail" alignment="1" pref="160" max="32767" attributes="0"/>
-                          <Component id="txtPassword" pref="160" max="32767" attributes="0"/>
-                          <Component id="cboGender" max="32767" attributes="0"/>
+                          <Component id="txtPhno" alignment="1" max="32767" attributes="0"/>
+                          <Component id="txtExp" alignment="1" max="32767" attributes="0"/>
+                          <Component id="txtSalary" alignment="1" max="32767" attributes="0"/>
+                          <Component id="txtEmail" alignment="1" max="32767" attributes="0"/>
+                          <Component id="txtPassword" max="32767" attributes="0"/>
+                          <Component id="cboGender" min="-2" pref="160" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <Group type="102" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
@@ -57,22 +73,18 @@
                       </Group>
                       <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="txtLastname" pref="160" max="32767" attributes="0"/>
+                          <Component id="txtLastname" max="32767" attributes="0"/>
                           <Component id="txtFirstname" max="32767" attributes="0"/>
-                          <Component id="txtAge" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtAge" alignment="0" min="-2" pref="160" max="-2" attributes="0"/>
                       </Group>
                   </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="360" pref="360" max="-2" attributes="0"/>
+                      <Component id="btnUpdate" min="-2" pref="134" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="95" max="-2" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace min="-2" pref="135" max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="185" max="-2" attributes="0"/>
-              <Component id="btnSelect" min="-2" pref="90" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-              <Component id="btnDelete" min="-2" pref="89" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
-              <Component id="btnUpdate" min="-2" pref="134" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="230" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="186" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -157,14 +169,13 @@
                           <Component id="btnSelect" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
                           <Component id="btnDelete" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                       <Component id="btnUpdate" min="-2" pref="34" max="-2" attributes="0"/>
-                      <EmptySpace pref="545" max="32767" attributes="0"/>
                   </Group>
               </Group>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>

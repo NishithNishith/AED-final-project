@@ -39,6 +39,8 @@ public class ViewExpense extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         btnBack3 = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(206, 229, 242));
+
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(17, 53, 81));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -61,8 +63,9 @@ public class ViewExpense extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(53, 53, 53)
                 .addComponent(btnBack3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1169, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 335, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(461, 461, 461))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
