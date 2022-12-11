@@ -19,7 +19,7 @@ import java.nio.file.Paths;
 
 public class DatabaseUtils {
     
-    private static final String FILENAME = Paths.get("Database1.db4o").toAbsolutePath().toString();// path to the data store
+    private static final String FILENAME = Paths.get("Database2.db4o").toAbsolutePath().toString();// path to the data store
     private static DatabaseUtils dB4OUtil;
     
      public synchronized static DatabaseUtils getInstance() {

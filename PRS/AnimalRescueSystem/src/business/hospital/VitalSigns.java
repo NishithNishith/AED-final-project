@@ -47,5 +47,13 @@ public class VitalSigns {
     public void setBloodPressure(int bloodPressure) {
         this.bloodPressure = bloodPressure;
     }
+
+    public int getWeight() {
+        return weight;
+    }
+
+    public void setWeight(int weight) {
+        this.weight = weight;
+    }
     
 }

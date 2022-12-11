@@ -12,8 +12,8 @@ public class Prescription {
     
     public String prescriptionName;
     public int quantity;
-    public int caseStatus;
-    public int caseID;
+    public String caseStatus;
+public String recipient;
 
     public String getPrescriptionName() {
         return prescriptionName;
@@ -31,19 +31,21 @@ public class Prescription {
         this.quantity = quantity;
     }
 
-    public int getCaseStatus() {
+    public String getCaseStatus() {
         return caseStatus;
     }
 
-    public void setCaseStatus(int caseStatus) {
+    public void setCaseStatus(String caseStatus) {
         this.caseStatus = caseStatus;
     }
 
-    public int getCaseID() {
-        return caseID;
+    public String getRecipient() {
+        return recipient;
     }
 
-    public void setCaseID(int caseID) {
-        this.caseID = caseID;
+    public void setRecipient(String recipient) {
+        this.recipient = recipient;
     }
+
+
 }

@@ -9,8 +9,8 @@ import business.ecosystem.UserAccount;
 import business.ecosystem.UserAccountDirectory;
 import business.hospital.Encounter;
 import business.hospital.EncounterHistory;
+import business.hospital.Prescription;
 import business.hospital.VitalSigns;
-import business.hospital.VitalSignsDirectory;
 import business.validations.Validations;
 import java.util.UUID;
 import javax.swing.JOptionPane;
@@ -25,6 +25,8 @@ public class CreateEncounterJPanel extends javax.swing.JPanel {
     javax.swing.JSplitPane splitpane;
     Business system;
     String caseID;
+    String staffID;
+    String doctorID;
 
     /**
      * Creates new form CreateEncounterJPanel
@@ -412,14 +414,14 @@ public class CreateEncounterJPanel extends javax.swing.JPanel {
             String height = txtHeight.getText();
             String weight = txtWeight.getText();
             String bloodpressure = txtBloodpressure.getText();
-            String prescription = txtPrescription.getText();
+            String prescriptionName = txtPrescription.getText();
             String quantity = txtQuantity.getText();
             String status = txtStatus.getText();
 
             if(  !validations.lengthCheck(heartrate) ||
                 !validations.lengthCheck(respiratoryrate) ||!validations.lengthCheck(temp)
                 || !validations.lengthCheck(height) || !validations.lengthCheck(weight)
-                || !validations.lengthCheck(bloodpressure) || !validations.lengthCheck(prescription) || !validations.lengthCheck(quantity) || !validations.lengthCheck(status)
+                || !validations.lengthCheck(bloodpressure) || !validations.lengthCheck(prescriptionName) || !validations.lengthCheck(quantity) || !validations.lengthCheck(status)
             )
             {
                 JOptionPane.showMessageDialog(this, "Enter valid details for Encounter");
@@ -439,20 +441,34 @@ public class CreateEncounterJPanel extends javax.swing.JPanel {
             //Unique check
 
             Encounter encounter = system.getEncounterHistory().addNewEncounter();
-            VitalSigns vitalSigns = vitalSignsDirectory.addVitalSigns();
+            
+             String uniqueField = UUID.randomUUID().toString();
+             encounter.setEncounterID(uniqueField);
+            
+            VitalSigns vitalSigns = system.getVitalSignsHistory().addVitalSigns();
 
-            String uniqueField = UUID.randomUUID().toString();
+           
 
 
 
-            encounter.setPatientId(uniqueField);
-            vitalSigns.setHeartRate(Integer.parseInt(heartrate));
+           
+            vitalSigns.setHeartrate(Integer.parseInt(heartrate));
             vitalSigns.setRespiratoryRate(Integer.parseInt(respiratoryrate));
             vitalSigns.setTemperature(Integer.parseInt(temp));
-            vitalSigns.setHeight(Integer.parseInt(height));
             vitalSigns.setWeight(Integer.parseInt(weight));
             vitalSigns.setBloodPressure(Integer.parseInt(bloodpressure));
-            encounter.setPrescription(prescription);
+            
+            Prescription prescription = system.getPrescriptionDirectory().addPrescription();
+            prescription.setPrescriptionName(prescriptionName);
+            prescription.setQuantity(Integer.parseInt(quantity));
+            prescription.setCaseStatus(status);
+            
+            if(status.equals("critical"))
+                prescription.setRecipient(doctorID);
+            else
+                prescription.setRecipient(staffID);
+            
+            
 
             JOptionPane.showMessageDialog(this, "Encounter created");
         }
@@ -468,9 +484,6 @@ public class CreateEncounterJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewActionPerformed
-        ViewEncounterJPanel panel = new ViewEncounterJPanel(system, encounterHistory, vitalSignsDirectory);
-        splitpane.setRightComponent(panel);
-
         // TODO add your handling code here:
     }//GEN-LAST:event_btnViewActionPerformed
 
