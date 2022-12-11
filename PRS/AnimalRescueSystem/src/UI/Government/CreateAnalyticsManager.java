@@ -9,6 +9,7 @@ import business.db4O.DatabaseUtils;
 import business.ecosystem.Business;
 import business.ecosystem.UserAccount;
 import business.ecosystem.UserAccountDirectory;
+import business.shelter.ShelterManager;
 import business.validations.Validations;
 import java.util.UUID;
 import javax.swing.JOptionPane;
@@ -48,7 +49,6 @@ public class CreateAnalyticsManager extends javax.swing.JPanel {
         txtAge = new javax.swing.JTextField();
         txtEmail = new javax.swing.JTextField();
         txtPassword = new javax.swing.JPasswordField();
-        txtGender = new javax.swing.JTextField();
         txtSalary = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -64,6 +64,7 @@ public class CreateAnalyticsManager extends javax.swing.JPanel {
         txtLastname = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
+        cboGender = new javax.swing.JComboBox<>();
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(17, 53, 81));
@@ -90,8 +91,6 @@ public class CreateAnalyticsManager extends javax.swing.JPanel {
         });
 
         txtPassword.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
-
-        txtGender.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
 
         txtSalary.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
 
@@ -157,6 +156,10 @@ public class CreateAnalyticsManager extends javax.swing.JPanel {
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/Images/Gov copy.png"))); // NOI18N
         jLabel11.setText("jLabel11");
 
+        cboGender.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        cboGender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female", "Others" }));
+        cboGender.setToolTipText("");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -198,8 +201,8 @@ public class CreateAnalyticsManager extends javax.swing.JPanel {
                                         .addComponent(txtFirstname)
                                         .addComponent(txtLastname)
                                         .addComponent(txtAge)
-                                        .addComponent(txtGender)
-                                        .addComponent(txtExp, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addComponent(txtExp, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(cboGender, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(layout.createSequentialGroup()
@@ -236,7 +239,7 @@ public class CreateAnalyticsManager extends javax.swing.JPanel {
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel6)
-                            .addComponent(txtGender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(cboGender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtExp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -262,7 +265,7 @@ public class CreateAnalyticsManager extends javax.swing.JPanel {
                     .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(303, Short.MAX_VALUE))
+                .addContainerGap(302, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -279,84 +282,50 @@ public class CreateAnalyticsManager extends javax.swing.JPanel {
         // TODO add your handling code here:
 
         try{
-            String firstname;
-            String lastname;
-            Integer age ;
-            String gender ;
-            String exp ;
-            String phonenumber ;
-            String salary ;
+            String firstname = txtFirstname.getText();
+            String lastname = txtLastname.getText();
+            String age = txtAge.getText();
+            String gender = cboGender.getSelectedItem()+"";
+            String exp = txtExp.getText();
+            String phonenumber = txtPhno.getText();
+            String salary = txtSalary.getText();
             String email = txtEmail.getText();
             String password = txtPassword.getText();
 
-
-
+            if(!validations.lengthCheck(firstname) ||!validations.lengthCheck(lastname) ||
+                    !validations.lengthCheck(age) ||!validations.lengthCheck(gender)
+                    || !validations.lengthCheck(exp) || !validations.lengthCheck(phonenumber)
+                    || !validations.lengthCheck(salary) || !validations.lengthCheck(email) 
+                    || !validations.lengthCheck(password))
+            {
+                JOptionPane.showMessageDialog(this, "Enter valid details for Analytics");
+                return;
+            }
+            
+            if(!validations.numberCheck(age) || !validations.numberCheck(exp) || !validations.numberCheck(salary) ){
+                JOptionPane.showMessageDialog(this, "Enter valid details for Analytics");
+                return;
+            }
+            
             if(!validations.emailCheck(email)){
                 JOptionPane.showMessageDialog(this, "Enter valid details for Email");
                 return;
             }
-
+            
             if(!validations.passwordCheck(password)){
                 JOptionPane.showMessageDialog(this, "Enter valid details for Password");
                 return;
             }
-   
-            if(!validations.checkStringAndNumber(txtFirstname.getText()) || txtFirstname.getText().isEmpty() || !validations.lengthCheck(txtFirstname.getText()))
-            {
-                JOptionPane.showMessageDialog(this, "Enter valid first name ");
-                return;
-            }
-            else
-                 firstname = txtFirstname.getText();
             
-            if(!validations.checkStringAndNumber(txtLastname.getText()) || txtLastname.getText().isEmpty() ||!validations.lengthCheck(txtLastname.getText()))
-            {
-                JOptionPane.showMessageDialog(this, "Enter valid last name ");
+            if(!validations.ageCheck(age)){
+                JOptionPane.showMessageDialog(this, "Enter valid details for age");
                 return;
             }
-            else
-                 lastname = txtLastname.getText();
             
-            if(!validations.checkStringAndNumber(txtGender.getText()) || txtGender.getText().isEmpty() ||!validations.lengthCheck(txtGender.getText()))
-            {
-                JOptionPane.showMessageDialog(this, "Enter valid gender ");
+            if(!validations.phoneCheck(phonenumber)){
+                JOptionPane.showMessageDialog(this, "Enter valid details for Phone Number");
                 return;
             }
-            else
-                 gender = txtGender.getText();
-            
-            if(!validations.checkNumber(txtAge.getText()) || txtAge.getText().isEmpty())
-            {
-                JOptionPane.showMessageDialog(this, "Enter valid age ");
-                return;
-            }
-            else
-              
-                age = Integer.valueOf(txtAge.getText());
-            if(!validations.checkStringAndNumber(txtExp.getText()) || txtExp.getText().isEmpty() || !validations.lengthCheck(txtExp.getText()))
-            {
-                JOptionPane.showMessageDialog(this, "Enter valid experience ");
-                return;
-            }
-            else
-                 exp = txtExp.getText();
-            
-            if(!validations.checkStringAndNumber(txtPhno.getText()) || txtPhno.getText().isEmpty() || !validations.lengthCheck(txtPhno.getText()))
-            {
-                JOptionPane.showMessageDialog(this, "Enter valid phone number ");
-                return;
-            }
-            else
-                 phonenumber = txtPhno.getText();
-            
-            if(!validations.checkStringAndNumber(txtSalary.getText()) || txtSalary.getText().isEmpty() || !validations.lengthCheck(txtSalary.getText()))
-            {
-                JOptionPane.showMessageDialog(this, "Enter valid salary ");
-                return;
-            }
-            else
-                 salary = txtPhno.getText();      
-            
             //Unique Check
             
             int uniqueFlag = 0;
@@ -371,32 +340,32 @@ public class CreateAnalyticsManager extends javax.swing.JPanel {
                 return;
 
             }
-
+            
             AnalyticsManager analyticsManager = system.getAnalyticsManagerDirectory().addNewAnalyticsManager();
-
+            
+           
             String uniqueField = UUID.randomUUID().toString();
-
+            
             UserAccount userAccount = system.getUserAccountDirectory().addNewUserAccount();
             userAccount.setEmail(email);
             userAccount.setPassword(password);
             userAccount.setRole("AnalyticsManager");
             userAccount.setUserAccountId(uniqueField);
-
+//            JOptionPane.showMessageDialog(this, "Manager role "+userAccount.getRole());
+            
             analyticsManager.setAnalyticsManagerId(uniqueField);
             analyticsManager.setFirstName(firstname);
             analyticsManager.setLastName(lastname);
-            analyticsManager.setAge(age);
+            analyticsManager.setAge(Integer.parseInt(age));
             analyticsManager.setGender(gender);
             analyticsManager.setYearsOfExperience(Integer.parseInt(exp));
             analyticsManager.setPhoneNumber(phonenumber);
             analyticsManager.setSalary(Integer.parseInt(salary));
 
-
-            JOptionPane.showMessageDialog(this, "Manager created");
-            
+            JOptionPane.showMessageDialog(this, "Analytics created");
         }
         catch(Exception err){
-            JOptionPane.showMessageDialog(this, "Issue while creating manager, try again");
+            JOptionPane.showMessageDialog(this, "Issue while creating Analytics, try again");
         }
     }//GEN-LAST:event_btnSaveActionPerformed
 
@@ -407,6 +376,7 @@ public class CreateAnalyticsManager extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSave;
+    private javax.swing.JComboBox<String> cboGender;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -423,7 +393,6 @@ public class CreateAnalyticsManager extends javax.swing.JPanel {
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtExp;
     private javax.swing.JTextField txtFirstname;
-    private javax.swing.JTextField txtGender;
     private javax.swing.JTextField txtLastname;
     private javax.swing.JPasswordField txtPassword;
     private javax.swing.JTextField txtPhno;
