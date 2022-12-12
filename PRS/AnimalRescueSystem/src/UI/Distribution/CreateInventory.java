@@ -48,11 +48,11 @@ public class CreateInventory extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         txtQuantity = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        txtStatus = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        txtStatus = new javax.swing.JComboBox<>();
 
         setBackground(new java.awt.Color(206, 229, 242));
 
@@ -71,8 +71,6 @@ public class CreateInventory extends javax.swing.JPanel {
         jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(17, 53, 81));
         jLabel3.setText("Status:");
-
-        txtStatus.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
 
         jButton1.setBackground(new java.awt.Color(17, 53, 81));
         jButton1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
@@ -101,6 +99,8 @@ public class CreateInventory extends javax.swing.JPanel {
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/Images/Staff.png"))); // NOI18N
         jLabel5.setText("jLabel5");
 
+        txtStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Packaged", "Unpackaged" }));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -116,21 +116,22 @@ public class CreateInventory extends javax.swing.JPanel {
                         .addGap(314, 314, 314)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel3)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(37, 37, 37)
+                                        .addComponent(jButton1)))
+                                .addGap(73, 73, 73))
+                            .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel2)
                                     .addComponent(jLabel1))
                                 .addGap(30, 30, 30)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtName)
-                                    .addComponent(txtQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabel3)
-                                    .addGap(30, 30, 30)
-                                    .addComponent(txtStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(37, 37, 37)
-                                    .addComponent(jButton1))))
+                                    .addComponent(txtStatus, 0, 120, Short.MAX_VALUE)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(txtName)
+                                        .addComponent(txtQuantity, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)))))
                         .addGap(45, 45, 45)
                         .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(481, Short.MAX_VALUE))
@@ -157,8 +158,8 @@ public class CreateInventory extends javax.swing.JPanel {
                             .addComponent(jLabel2))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3))
+                            .addComponent(jLabel3)
+                            .addComponent(txtStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addComponent(jButton1))
                     .addComponent(jLabel5))
@@ -183,13 +184,13 @@ public class CreateInventory extends javax.swing.JPanel {
         else
                  name = txtName.getText();
         
-        if(!validations.checkStringAndNumber(txtStatus.getText()) || txtStatus.getText().isEmpty())
+        if(!validations.checkStringAndNumber(txtStatus.getSelectedItem()+""))
             {
                 JOptionPane.showMessageDialog(this, "Enter valid status ");
                 return;
             }
         else
-                status = txtStatus.getText();
+                status = txtStatus.getSelectedItem()+"";
         
         if(!validations.checkNumber(txtQuantity.getText()) || txtQuantity.getText().isEmpty())
             {
@@ -233,7 +234,6 @@ public class CreateInventory extends javax.swing.JPanel {
          
         txtName.setText("");
         txtQuantity.setText("");
-        txtStatus.setText("");
         
         
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -256,6 +256,6 @@ public class CreateInventory extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JTextField txtName;
     private javax.swing.JTextField txtQuantity;
-    private javax.swing.JTextField txtStatus;
+    private javax.swing.JComboBox<String> txtStatus;
     // End of variables declaration//GEN-END:variables
 }

@@ -175,10 +175,9 @@ public class DeliveryAssociateJPanel extends javax.swing.JPanel {
   
             for(Order inv : system.getOrderDirectory().getOrder()) {
                 Order order = inv;
-               if(order.getDeliveryAssociate() == userAccount){
+               if(order.getDeliveryAssociate() == userAccount|| system.getCurrentRole().equals("Distribution Admin")){
                 Object[] row = new Object[6];
                 row[0] = inv;
-    //          row[1] = e.getPatientName();
                 row[1] = inv.getReciever();
                 row[2] = inv.getSender();
                 

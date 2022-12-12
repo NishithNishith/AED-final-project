@@ -261,6 +261,10 @@ public class LoginJPanel extends javax.swing.JPanel {
                     PopulationAdmin panel = new PopulationAdmin(splitpane, system);
                     splitpane.setRightComponent(panel);
                 }
+                                else if(role.equals("DistributionManager")){
+                    ManageOrders panel = new ManageOrders(splitpane, system);
+                    splitpane.setRightComponent(panel);
+                }
 
                 
                 

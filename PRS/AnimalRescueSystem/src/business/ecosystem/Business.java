@@ -12,6 +12,7 @@ import business.hospital.EncounterHistory;
 import business.hospital.HospitalManagerDirectory;
 import business.distribution.InventoryDirectory;
 import business.distribution.DeliveryAssociateDirectory;
+import business.distribution.DistributionManagerDirectory;
 import business.population.AdoptionDirectory;
 import business.population.FundDonationDirectory;
 import business.population.PersonDirectory;
@@ -56,6 +57,7 @@ public class Business {
     AdoptionDirectory adoptionDirectory;
     VitalSignsHistory vitalSignsHistory;
     PrescriptionDirectory prescriptionDirectory;
+    DistributionManagerDirectory distributionManagerDirectory;
     
     //Current user
     String currentUserId;
@@ -101,6 +103,7 @@ public class Business {
         adoptionDirectory = new AdoptionDirectory();
         vitalSignsHistory = new VitalSignsHistory();
         prescriptionDirectory = new PrescriptionDirectory();
+        distributionManagerDirectory = new DistributionManagerDirectory();
 
         
         
@@ -253,6 +256,14 @@ public class Business {
 
     public void setShelterStaffDirectory(ShelterStaffDirectory ShelterStaffDirectory) {
         this.shelterStaffDirectory = ShelterStaffDirectory;
+    }
+
+    public DistributionManagerDirectory getDistributionManagerDirectory() {
+        return distributionManagerDirectory;
+    }
+
+    public void setDistributionManagerDirectory(DistributionManagerDirectory distributionManagerDirectory) {
+        this.distributionManagerDirectory = distributionManagerDirectory;
     }
     
     

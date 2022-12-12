@@ -82,8 +82,8 @@ public class CreateEncounterJPanel extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         txtQuantity = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        txtStatus = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
+        txtStatus = new javax.swing.JComboBox<>();
 
         jPanel3.setBackground(new java.awt.Color(206, 229, 242));
 
@@ -198,15 +198,16 @@ public class CreateEncounterJPanel extends javax.swing.JPanel {
         jLabel9.setForeground(new java.awt.Color(1, 77, 78));
         jLabel9.setText("Status:");
 
+        jLabel10.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(1, 77, 78));
+        jLabel10.setText("Quantity:");
+
+        txtStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "critical", "non-critical" }));
         txtStatus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtStatusActionPerformed(evt);
             }
         });
-
-        jLabel10.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(1, 77, 78));
-        jLabel10.setText("Quantity:");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -241,13 +242,12 @@ public class CreateEncounterJPanel extends javax.swing.JPanel {
                                                     .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                 .addGap(47, 47, 47))
                                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGap(29, 29, 29)))
-                                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(txtStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txtQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txtPrescription, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(txtQuantity, javax.swing.GroupLayout.DEFAULT_SIZE, 225, Short.MAX_VALUE)
+                                            .addComponent(txtPrescription, javax.swing.GroupLayout.DEFAULT_SIZE, 225, Short.MAX_VALUE)
+                                            .addComponent(txtStatus, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                                 .addGap(51, 51, 51)
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel3Layout.createSequentialGroup()
@@ -348,8 +348,8 @@ public class CreateEncounterJPanel extends javax.swing.JPanel {
                                                     .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                 .addGap(22, 22, 22)
                                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                    .addComponent(txtStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(txtStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                                 .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addComponent(txtPrescription, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -405,7 +405,7 @@ public class CreateEncounterJPanel extends javax.swing.JPanel {
             String bloodpressure = txtBloodpressure.getText();
             String prescriptionName = txtPrescription.getText();
             String quantity = txtQuantity.getText();
-            String status = txtStatus.getText();
+            String status = txtStatus.getSelectedItem()+"";
 
             if(  !validations.lengthCheck(heartrate) ||
                 !validations.lengthCheck(respiratoryrate) ||!validations.lengthCheck(temp)
@@ -478,6 +478,14 @@ public class CreateEncounterJPanel extends javax.swing.JPanel {
             
 
             JOptionPane.showMessageDialog(this, "Encounter created");
+                     if(system.getCurrentRole().equals("HospitalAdmin")){
+            HospitalAdminSelectCaseJPanel panel = new HospitalAdminSelectCaseJPanel(splitpane, system);
+            splitpane.setRightComponent(panel);
+        }
+        else{
+            DoctorJPanel panel = new DoctorJPanel(splitpane, system);
+            splitpane.setRightComponent(panel);
+        }
         }
         catch(Exception err){
             JOptionPane.showMessageDialog(this, "Issue while creating Encounter, try again");
@@ -533,7 +541,7 @@ public class CreateEncounterJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField txtPrescription;
     private javax.swing.JTextField txtQuantity;
     private javax.swing.JTextField txtRespiratoryrate;
-    private javax.swing.JTextField txtStatus;
+    private javax.swing.JComboBox<String> txtStatus;
     private javax.swing.JTextField txtTemp;
     private javax.swing.JTextField txtWeight;
     // End of variables declaration//GEN-END:variables

@@ -60,11 +60,11 @@ public class ViewInventory extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         txtQuantity = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        txtStatus = new javax.swing.JTextField();
         Update = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        txtStatus = new javax.swing.JComboBox<>();
 
         setBackground(new java.awt.Color(206, 229, 242));
 
@@ -129,8 +129,6 @@ public class ViewInventory extends javax.swing.JPanel {
         jLabel4.setForeground(new java.awt.Color(17, 53, 81));
         jLabel4.setText("Status:");
 
-        txtStatus.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-
         Update.setBackground(new java.awt.Color(17, 53, 81));
         Update.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         Update.setForeground(new java.awt.Color(255, 255, 255));
@@ -159,6 +157,8 @@ public class ViewInventory extends javax.swing.JPanel {
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("Inventory");
 
+        txtStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Packaged", "Unpackaged" }));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -184,15 +184,16 @@ public class ViewInventory extends javax.swing.JPanel {
                                                 .addGroup(layout.createSequentialGroup()
                                                     .addComponent(jLabel3)
                                                     .addGap(47, 47, 47)
-                                                    .addComponent(txtQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createSequentialGroup()
+                                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                        .addComponent(txtStatus, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addComponent(txtQuantity, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE)))))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                 .addComponent(jLabel4)
-                                                .addGap(47, 47, 47)
-                                                .addComponent(txtStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGap(43, 43, 43)
-                                                .addComponent(Update))))
+                                                .addGroup(layout.createSequentialGroup()
+                                                    .addGap(43, 43, 43)
+                                                    .addComponent(Update)))
+                                            .addGap(78, 78, 78)))
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(layout.createSequentialGroup()
@@ -240,9 +241,9 @@ public class ViewInventory extends javax.swing.JPanel {
                         .addGap(18, 18, 18)
                         .addComponent(Update))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(58, 58, 58)
+                        .addGap(111, 111, 111)
                         .addComponent(jLabel5)))
-                .addContainerGap(301, Short.MAX_VALUE))
+                .addContainerGap(248, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -261,7 +262,7 @@ public class ViewInventory extends javax.swing.JPanel {
         
                 txtName.setText(String.valueOf(inventory.getName())) ;
                 txtQuantity.setText(String.valueOf(inventory.getQuantity()));
-                txtStatus.setText(String.valueOf(inventory.getStatus())) ;               
+                txtStatus.setSelectedItem(String.valueOf(inventory.getStatus()));              
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -304,13 +305,13 @@ public class ViewInventory extends javax.swing.JPanel {
         else
                  name = txtName.getText();
         
-        if(!validations.checkStringAndNumber(txtStatus.getText()) || txtStatus.getText().isEmpty())
+        if(!validations.checkStringAndNumber(txtStatus.getSelectedItem()+""))
             {
                 JOptionPane.showMessageDialog(this, "Enter valid status ");
                 return;
             }
         else
-                status = txtStatus.getText();
+                status = txtStatus.getSelectedItem()+"";
         
         if(!validations.checkNumber(txtQuantity.getText()) || txtQuantity.getText().isEmpty())
             {
@@ -362,7 +363,7 @@ public class ViewInventory extends javax.swing.JPanel {
          
         txtName.setText("");
         txtQuantity.setText("");
-        txtStatus.setText("");
+
             
                    
         }        
@@ -431,6 +432,6 @@ public class ViewInventory extends javax.swing.JPanel {
     private javax.swing.JTextField txtName;
     private javax.swing.JTextField txtQuantity;
     private javax.swing.JTextField txtSearch;
-    private javax.swing.JTextField txtStatus;
+    private javax.swing.JComboBox<String> txtStatus;
     // End of variables declaration//GEN-END:variables
 }

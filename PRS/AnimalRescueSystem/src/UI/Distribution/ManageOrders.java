@@ -8,6 +8,7 @@ import business.db4O.DatabaseUtils;
 import business.distribution.Inventory;
 import business.distribution.Order;
 import business.ecosystem.Business;
+import business.ecosystem.UserAccount;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -211,8 +212,10 @@ public class ManageOrders extends javax.swing.JPanel {
         
         if(placedOrder.getOrderStatus().equals("Work In Progress"))
             JOptionPane.showMessageDialog(null, "Order will be assigned to delivery associate and will be dispatched for delivery");
-        else if(placedOrder.getOrderStatus().equals("Pending") || placedOrder.getOrderStatus().equals("Cancelled"))
+        else if(placedOrder.getOrderStatus().equals("Pending"))
             placedOrder.setOrderStatus("Work In Progress");
+        else if(placedOrder.getOrderStatus().equals("Cancelled"))
+            JOptionPane.showMessageDialog(null, "This order is cancelled");
         else{
             JOptionPane.showMessageDialog(null, "Order in progress");
         }
@@ -270,10 +273,15 @@ public class ManageOrders extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Please select a row from the Table");
         }
         String medicineName  = orderTable.getValueAt(selectedRow,0).toString();
+        Integer orderQuantity = (Integer)orderTable.getValueAt(selectedRow,4);
         int count = 0;
         for(Inventory inv : system.getInventoryDirectory().getInventory()){
             if(inv.name.equals(medicineName)){
-               count = count + inv.getQuantity();
+               count = inv.getQuantity();
+               count = count - orderQuantity;
+               if(count<0 || count == 0){
+                   JOptionPane.showMessageDialog(null, "The following medicine does not exist");
+               }
             }
             else
                 JOptionPane.showMessageDialog(null, "The following medicine does not exist");
@@ -330,7 +338,7 @@ public class ManageOrders extends javax.swing.JPanel {
        
   
             for(Order inv : system.getOrderDirectory().getOrder()) {
-
+                  
                 Object[] row = new Object[6];
                 row[0] = inv;
     //          row[1] = e.getPatientName();
@@ -340,7 +348,7 @@ public class ManageOrders extends javax.swing.JPanel {
                 row[4] = inv.getQuantity();
                 row[5] = inv.getOrderID();
 
-                model.addRow(row);           
+                model.addRow(row);   
             }
         }
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -353,8 +353,14 @@ public class ViewOrder extends javax.swing.JPanel {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-                 DoctorJPanel panel = new DoctorJPanel(splitpane, system);
+         if(system.getCurrentRole().equals("HospitalAdmin")){
+            HospitalAdminJPanel panel = new HospitalAdminJPanel(splitpane, system);
             splitpane.setRightComponent(panel);
+        }
+        else{
+            HospitalManagerJPanel panel = new HospitalManagerJPanel(splitpane, system);
+            splitpane.setRightComponent(panel);
+        }
     }//GEN-LAST:event_jButton4ActionPerformed
 
     
@@ -367,9 +373,6 @@ public class ViewOrder extends javax.swing.JPanel {
        
   
             for(Order inv : system.getOrderDirectory().getOrder()) {
-
-                 if(system.getCurrentRole().equals("Doctor") && inv.getCreatedByID().equals(system.getCurrentUserId())) {
-                
                 
                 Object[] row = new Object[6];
                 row[0] = inv;
@@ -382,19 +385,7 @@ public class ViewOrder extends javax.swing.JPanel {
 
                 model.addRow(row); 
                 break;
-               }
-                 else{
-                     Object[] row = new Object[6];
-                row[0] = inv;
-    //          row[1] = e.getPatientName();
-                row[1] = inv.getSender();
-                row[2] = inv.getReciever();
-                row[3] = inv.getOrderStatus();
-                row[4] = inv.getQuantity();
-                row[5] = inv.getOrderID();
-
-                model.addRow(row);  
-                 }
+              
             }
         }
 
