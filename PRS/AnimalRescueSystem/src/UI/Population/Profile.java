@@ -50,7 +50,7 @@ public class Profile extends javax.swing.JPanel {
                 txtPhno.setText(String.valueOf(rep.getPhoneNumber()));
                 cboGender.setSelectedItem(String.valueOf(rep.getGender()));
                 this.updateReporter=rep;
-                lblName.setName(rep.getFirstName());
+                lblName.setText(rep.getFirstName());
                 
             }
             
@@ -106,7 +106,6 @@ public class Profile extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(17, 53, 81));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Welcome");
 
         lblName.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
         lblName.setForeground(new java.awt.Color(17, 53, 81));

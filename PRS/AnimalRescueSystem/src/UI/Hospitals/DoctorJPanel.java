@@ -148,12 +148,20 @@ public class DoctorJPanel extends javax.swing.JPanel {
 
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         CaseFile selectedProfile = (CaseFile)model.getValueAt(selectRowIndex,0  );
-        String staffID = selectedProfile.getStaffId();
+        
+        if(selectedProfile.getStatus().equals("ACTIVE")){
+            String staffID = selectedProfile.getStaffId();
         String doctorID = system.getCurrentUserId();
         String caseID = selectedProfile.getCaseId();
         
         CreateEncounterJPanel createEncounter = new CreateEncounterJPanel(splitpane, system, caseID, staffID, doctorID);
         splitpane.setRightComponent(createEncounter);
+        }
+        else{
+            JOptionPane.showMessageDialog(this, "Animal already treated");
+            return;
+        }
+        
 
     }//GEN-LAST:event_btnSelectActionPerformed
 
