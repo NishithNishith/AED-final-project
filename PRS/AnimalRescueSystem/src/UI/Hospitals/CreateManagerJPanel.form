@@ -24,7 +24,7 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="860" max="32767" attributes="0"/>
+          <EmptySpace min="0" pref="962" max="32767" attributes="0"/>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
               <Component id="jPanel3" alignment="0" max="32767" attributes="0"/>
           </Group>
@@ -33,114 +33,125 @@
   </Layout>
   <SubComponents>
     <Container class="javax.swing.JPanel" name="jPanel3">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="f2" green="e5" red="ce" type="rgb"/>
+        </Property>
+      </Properties>
 
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="1" attributes="0">
-                  <Group type="103" groupAlignment="1" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="101" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="name8" min="-2" pref="133" max="-2" attributes="0"/>
-                              <Component id="DocID" alignment="1" min="-2" pref="133" max="-2" attributes="0"/>
-                              <Component id="name" alignment="1" min="-2" pref="133" max="-2" attributes="0"/>
-                              <Component id="name3" alignment="1" min="-2" pref="133" max="-2" attributes="0"/>
-                              <Component id="name4" alignment="1" min="-2" pref="133" max="-2" attributes="0"/>
-                              <Component id="name7" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Component id="name14" alignment="1" min="-2" pref="133" max="-2" attributes="0"/>
-                              <Component id="name15" alignment="1" min="-2" pref="133" max="-2" attributes="0"/>
+                          <EmptySpace pref="318" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="name3" alignment="1" min="-2" pref="133" max="-2" attributes="0"/>
+                                      <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                                          <Component id="name2" min="-2" pref="125" max="-2" attributes="0"/>
+                                          <Group type="103" alignment="0" groupAlignment="0" attributes="0">
+                                              <Component id="DocID" alignment="1" min="-2" pref="133" max="-2" attributes="0"/>
+                                              <Component id="name" alignment="1" min="-2" pref="133" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <Component id="name4" alignment="1" min="-2" pref="133" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="txtLastname" max="32767" attributes="0"/>
+                                          <Component id="txtFirstname" alignment="0" min="-2" pref="225" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Component id="txtAge" min="-2" pref="225" max="-2" attributes="0"/>
+                                      <Component id="cboGender" min="-2" pref="223" max="-2" attributes="0"/>
+                                      <Component id="txtPassword" alignment="0" min="-2" pref="225" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="103" alignment="0" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="name7" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="name14" alignment="1" min="-2" pref="133" max="-2" attributes="0"/>
+                                          <Component id="name15" alignment="1" min="-2" pref="133" max="-2" attributes="0"/>
+                                          <Component id="name8" alignment="1" min="-2" pref="133" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="txtSalary" min="-2" pref="225" max="-2" attributes="0"/>
+                                          <Component id="txtYearsofexp" min="-2" pref="225" max="-2" attributes="0"/>
+                                          <Component id="txtPhno" min="-2" pref="225" max="-2" attributes="0"/>
+                                          <Component id="txtEmail" alignment="0" min="-2" pref="225" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="jButton1" min="-2" pref="184" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="137" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                          <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
+                          <Component id="medicalIcon" min="-2" pref="192" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="btnBack" min="-2" pref="114" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jLabel2" min="-2" pref="642" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="103" max="-2" attributes="0"/>
+                                  <Component id="jLabel1" min="-2" pref="467" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="115" max="-2" attributes="0"/>
+                                  <Component id="btnView" min="-2" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                       </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace min="-2" pref="118" max="-2" attributes="0"/>
-                          <Component id="jButton1" min="-2" pref="184" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Component id="name2" min="-2" pref="133" max="-2" attributes="0"/>
-                      </Group>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="txtSalary" min="-2" pref="225" max="-2" attributes="0"/>
-                      <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="txtLastname" max="32767" attributes="0"/>
-                          <Component id="txtFirstname" alignment="0" max="32767" attributes="0"/>
-                          <Component id="txtPassword" alignment="0" min="-2" pref="225" max="-2" attributes="0"/>
-                      </Group>
-                      <Component id="txtAge" min="-2" pref="225" max="-2" attributes="0"/>
-                      <Component id="txtYearsofexp" min="-2" pref="225" max="-2" attributes="0"/>
-                      <Component id="txtPhno" min="-2" pref="225" max="-2" attributes="0"/>
-                      <Component id="txtEmail" alignment="0" min="-2" pref="225" max="-2" attributes="0"/>
-                      <Component id="cboGender" min="-2" pref="223" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="136" max="-2" attributes="0"/>
-                  <Component id="medicalIcon" min="-2" pref="192" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="155" max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" attributes="0">
-                  <EmptySpace min="-2" pref="160" max="-2" attributes="0"/>
-                  <Component id="btnBack" min="-2" pref="114" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jLabel2" min="-2" pref="642" max="-2" attributes="0"/>
-                      <Group type="102" attributes="0">
-                          <Component id="jLabel1" min="-2" pref="678" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
-                          <Component id="btnView" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <EmptySpace pref="97" max="32767" attributes="0"/>
+                  <EmptySpace pref="224" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel1" alignment="3" min="-2" pref="73" max="-2" attributes="0"/>
                       <Component id="btnBack" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
                       <Component id="btnView" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="jLabel2" min="-2" pref="64" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="DocID" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
+                      <Component id="txtFirstname" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="DocID" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
-                              <Component id="txtFirstname" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                      <Group type="102" attributes="0">
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="name" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
                               <Component id="txtLastname" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="name2" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
-                                      <Component id="txtPassword" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                                  <Component id="jButton1" min="-2" pref="30" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="name2" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
+                              <Component id="txtPassword" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="name3" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
                               <Component id="txtAge" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="name4" min="-2" pref="23" max="-2" attributes="0"/>
-                              <Group type="102" attributes="0">
-                                  <Component id="cboGender" pref="0" max="32767" attributes="0"/>
-                                  <EmptySpace min="3" pref="3" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="cboGender" min="-2" max="-2" attributes="0"/>
+                              <Component id="name4" min="-2" pref="27" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
@@ -148,27 +159,29 @@
                               <Component id="txtYearsofexp" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="txtPhno" min="-2" max="-2" attributes="0"/>
-                              <Component id="name14" min="-2" pref="23" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="name14" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
+                              <Component id="txtPhno" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="txtEmail" max="32767" attributes="0"/>
-                              <Component id="name15" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="name15" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
+                              <Component id="txtEmail" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="name8" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="txtSalary" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
+                          <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                          <Component id="jButton1" min="-2" pref="30" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
-                          <Component id="medicalIcon" min="-2" pref="407" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+                          <Component id="medicalIcon" min="-2" pref="302" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="236" max="32767" attributes="0"/>
+                  <EmptySpace pref="377" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
