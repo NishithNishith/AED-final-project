@@ -76,6 +76,7 @@ public class ViewAnalyticsManager extends javax.swing.JPanel {
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         cboGender = new javax.swing.JComboBox<>();
+        btnSelect2 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(206, 229, 242));
 
@@ -194,6 +195,16 @@ public class ViewAnalyticsManager extends javax.swing.JPanel {
 
         cboGender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female", "Others" }));
 
+        btnSelect2.setBackground(new java.awt.Color(17, 53, 81));
+        btnSelect2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        btnSelect2.setForeground(new java.awt.Color(255, 255, 255));
+        btnSelect2.setText("Back");
+        btnSelect2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSelect2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -243,12 +254,18 @@ public class ViewAnalyticsManager extends javax.swing.JPanel {
                                 .addComponent(cboGender, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(139, Short.MAX_VALUE))
             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(45, 45, 45)
+                .addComponent(btnSelect2)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(99, 99, 99)
+                .addGap(18, 18, 18)
+                .addComponent(btnSelect2)
+                .addGap(53, 53, 53)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -446,6 +463,12 @@ public class ViewAnalyticsManager extends javax.swing.JPanel {
         Search(searchString);
     }//GEN-LAST:event_txtSearchKeyReleased
 
+    private void btnSelect2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelect2ActionPerformed
+        // TODO add your handling code here:
+                                 GovernmentAdmin panel = new GovernmentAdmin(splitpane, system);
+            splitpane.setRightComponent(panel);
+    }//GEN-LAST:event_btnSelect2ActionPerformed
+
       private void populate(){
         
          DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
@@ -481,6 +504,7 @@ public class ViewAnalyticsManager extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnSelect;
+    private javax.swing.JButton btnSelect2;
     private javax.swing.JButton btnUpdate;
     private javax.swing.JComboBox<String> cboGender;
     private javax.swing.JLabel jLabel1;

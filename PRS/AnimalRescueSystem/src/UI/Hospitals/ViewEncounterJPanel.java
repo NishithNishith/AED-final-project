@@ -6,11 +6,8 @@ package UI.Hospitals;
 
 import business.ecosystem.Business;
 import business.ecosystem.UserAccount;
-import business.ecosystem.UserAccountDirectory;
 import business.hospital.Encounter;
-import business.hospital.EncounterHistory;
-import business.hospital.Prescription;
-import business.hospital.VitalSigns;
+import business.shelter.CaseFile;
 import business.validations.Validations;
 import java.util.UUID;
 import javax.swing.JOptionPane;
@@ -18,23 +15,21 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author sinchanakumar
+ * @author adity
  */
 public class ViewEncounterJPanel extends javax.swing.JPanel {
 
-    Encounter updateProfile;
-    Business system;
-    javax.swing.JSplitPane splitpane;
-    Validations validations;
     /**
      * Creates new form ViewEncounterJPanel
      */
+        Encounter updateProfile;
+    Business system;
+    javax.swing.JSplitPane splitpane;
+    Validations validations;
     public ViewEncounterJPanel(javax.swing.JSplitPane splitpane,Business system) {
         initComponents();
-        this.system = system;
+                this.system = system;
         this.splitpane = splitpane;
-  
-        //System.out.print(hospitalManagerDirectory);
         populateTable();
     }
 
@@ -47,252 +42,220 @@ public class ViewEncounterJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel4 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        btnView = new javax.swing.JButton();
-        btnDelete = new javax.swing.JButton();
-        name3 = new javax.swing.JLabel();
-        txtCaseID = new javax.swing.JTextField();
-        name4 = new javax.swing.JLabel();
-        name24 = new javax.swing.JLabel();
-        name26 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        txtStatus = new javax.swing.JTextField();
-        txtEncounterID = new javax.swing.JTextField();
         txtPrescription = new javax.swing.JTextField();
+        txtEncounterID = new javax.swing.JTextField();
+        txtCaseID = new javax.swing.JTextField();
         txtQuantity = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        txtRecipient = new javax.swing.JTextField();
+        txtStatus = new javax.swing.JTextField();
+        txtRecepient = new javax.swing.JTextField();
+        txtHeartRate = new javax.swing.JTextField();
+        txtRespirationRate = new javax.swing.JTextField();
+        txtTemperature = new javax.swing.JTextField();
+        txtWeight = new javax.swing.JTextField();
+        txtBloodPressure = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/Images/medicalLogo.png"))); // NOI18N
-        jLabel3.setText("jLabel3");
+        jTable1.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
+        jTable1.setForeground(new java.awt.Color(17, 53, 81));
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "Prescription Name", "EncounterID", "CaseID", "Quantity", "Status", "Recipient", "Heart Rate", "Respiration Rate", "Temperatur", "Weight", "Blood Pressure"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
 
-        jButton2.setBackground(new java.awt.Color(17, 53, 81));
-        jButton2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Update");
+        jLabel1.setText("Name:");
+
+        jLabel2.setText("EncounterID:");
+
+        jLabel3.setText("CaseID:");
+
+        jLabel4.setText("Quantity:");
+
+        jLabel5.setText("Status:");
+
+        jLabel6.setText("Weight:");
+
+        jLabel7.setText("Recipient:");
+
+        jLabel8.setText("Heart Rate:");
+
+        jLabel9.setText("Resp Rate:");
+
+        jLabel10.setText("Temperature:");
+
+        jLabel11.setText("Blood Pressure:");
+
+        jButton1.setText("View");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("Delete");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
 
-        jTable1.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
-        jTable1.setForeground(new java.awt.Color(17, 53, 81));
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
-            },
-            new String [] {
-                "Prescription Name", "EncounterID", "CaseID", "Quantity", "Status", "Recipient"
-            }
-        ));
-        jScrollPane1.setViewportView(jTable1);
-
-        btnView.setBackground(new java.awt.Color(17, 53, 81));
-        btnView.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
-        btnView.setForeground(new java.awt.Color(255, 255, 255));
-        btnView.setText("View");
-        btnView.addActionListener(new java.awt.event.ActionListener() {
+        jButton3.setText("Back");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnViewActionPerformed(evt);
+                jButton3ActionPerformed(evt);
             }
         });
-
-        btnDelete.setBackground(new java.awt.Color(138, 10, 20));
-        btnDelete.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
-        btnDelete.setForeground(new java.awt.Color(255, 255, 255));
-        btnDelete.setText("Delete");
-        btnDelete.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDeleteActionPerformed(evt);
-            }
-        });
-
-        name3.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
-        name3.setForeground(new java.awt.Color(1, 77, 78));
-        name3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        name3.setText("Case ID:");
-
-        name4.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
-        name4.setForeground(new java.awt.Color(1, 77, 78));
-        name4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        name4.setText("Encounter ID:");
-
-        name24.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
-        name24.setForeground(new java.awt.Color(1, 77, 78));
-        name24.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        name24.setText("Prescription Name:");
-
-        name26.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
-        name26.setForeground(new java.awt.Color(1, 77, 78));
-        name26.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        name26.setText("Quantity");
-
-        jLabel6.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(1, 77, 78));
-        jLabel6.setText("Status:");
-
-        jLabel7.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(1, 77, 78));
-        jLabel7.setText("Recipient");
-
-        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(17, 53, 81));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Manage Encounter");
-
-        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(17, 53, 81));
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("View & Delete Encounter");
-
-        jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(17, 53, 81));
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("Update Managers");
-
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(41, 41, 41)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(115, 115, 115)
-                        .addComponent(btnView, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1))
-                .addGap(18, 18, 18)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addComponent(name3, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtCaseID, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGap(1, 1, 1)
-                                .addComponent(name4, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(17, 17, 17)
-                                .addComponent(txtEncounterID, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGap(1, 1, 1)
-                                .addComponent(name24, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(17, 17, 17)
-                                .addComponent(txtPrescription, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGap(1, 1, 1)
-                                .addComponent(name26, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(17, 17, 17)
-                                .addComponent(txtQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGap(1, 1, 1)
-                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(40, 40, 40)
-                                .addComponent(txtStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 376, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(40, 40, 40)
-                        .addComponent(txtRecipient, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(127, 127, 127)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(122, 122, 122))
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1263, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31))
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnView, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(name3, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtCaseID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(111, 111, 111)
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(name4, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtEncounterID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(57, 57, 57)
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(name24, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtPrescription, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(57, 57, 57)
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(name26, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(14, 14, 14)
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel4Layout.createSequentialGroup()
-                                        .addGap(3, 3, 3)
-                                        .addComponent(txtStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel4Layout.createSequentialGroup()
-                                        .addGap(1, 1, 1)
-                                        .addComponent(txtRecipient, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(1, 1, 1)))
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(171, 171, 171))
-        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addGap(159, 159, 159)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(txtCaseID, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtEncounterID, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(txtWeight, javax.swing.GroupLayout.DEFAULT_SIZE, 107, Short.MAX_VALUE)
+                                .addComponent(txtQuantity)
+                                .addComponent(txtStatus))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGap(57, 57, 57)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel5)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel4)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel3)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel2)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jLabel1)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(txtPrescription, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)))))))))
+                .addGap(267, 267, 267)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel9)
+                    .addComponent(jLabel10)
+                    .addComponent(jLabel11))
+                .addGap(48, 48, 48)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtBloodPressure)
+                    .addComponent(txtRecepient, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
+                    .addComponent(txtHeartRate)
+                    .addComponent(txtRespirationRate)
+                    .addComponent(txtTemperature))
+                .addGap(108, 108, 108))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jButton3)
+                .addGap(138, 138, 138)
+                .addComponent(jButton1)
+                .addGap(92, 92, 92)
+                .addComponent(jButton2)
+                .addGap(52, 52, 52))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(49, 49, 49)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2)
+                    .addComponent(jButton3))
+                .addGap(17, 17, 17)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtPrescription, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addGap(31, 31, 31)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtEncounterID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtRecepient, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel7))
+                .addGap(33, 33, 33)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtCaseID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtHeartRate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel8))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(37, 37, 37)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtRespirationRate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel9))))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(32, 32, 32)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtTemperature, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel10))))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtWeight, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel6)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtBloodPressure, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel11))))
+                .addContainerGap(253, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewActionPerformed
-
-        int selectRowIndex = jTable1.getSelectedRow();
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        
+            int selectRowIndex = jTable1.getSelectedRow();
 
         if(selectRowIndex < 0){
             JOptionPane.showMessageDialog(this, "Please select a row to be updated");
@@ -301,143 +264,123 @@ public class ViewEncounterJPanel extends javax.swing.JPanel {
 
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         Encounter selectedProfile = (Encounter)model.getValueAt(selectRowIndex,0  );
-  
 
-        txtCaseID.setText(String.valueOf(selectedProfile.getCaseID()));
-        txtEncounterID.setText(String.valueOf(selectedProfile.getEncounterID()));
-        
         txtPrescription.setText(String.valueOf(selectedProfile.getPrescriptionName()));
-
+        txtEncounterID.setText(String.valueOf(selectedProfile.getEncounterID()));;
+        txtCaseID.setText(String.valueOf(selectedProfile.getCaseID()));
         txtQuantity.setText(String.valueOf(selectedProfile.getQuantity()));
         txtStatus.setText(String.valueOf(selectedProfile.getCaseStatus()));
-
-        txtRecipient.setText(String.valueOf(selectedProfile.getRecipient()));
+        txtRecepient.setText(String.valueOf(selectedProfile.getRecipient()));
+        txtHeartRate.setText(String.valueOf(selectedProfile.getHeartrate()));
+        txtRespirationRate.setText(String.valueOf(selectedProfile.getRespiratoryRate()));
+        txtTemperature.setText(String.valueOf(selectedProfile.getTemperature()));
+        txtWeight.setText(String.valueOf(selectedProfile.getWeight()));
+        txtBloodPressure.setText(String.valueOf(selectedProfile.getBloodPressure()));
 
         updateProfile = selectedProfile;
-  
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnViewActionPerformed
-
-    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
-
-//        int selectRowIndex = jTable1.getSelectedRow();
-//
-//        if(selectRowIndex < 0){
-//            JOptionPane.showMessageDialog(this, "Please select a row to be deleted");
-//            return;
-//        }
-//
-//        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-//        Encounter selectedProfile = (Encounter)model.getValueAt(selectRowIndex,0  );
-//        VitalSigns selectedPro = (VitalSigns)model.getValueAt(selectRowIndex, 0);
-//
-//        encounterHistory.removeEncounter(selectedProfile);
-//        vitalSignsDirectory.removeVitalSigns(selectedPro);
-//        JOptionPane.showMessageDialog(this, "Encounter has been deleted");
-//
-//        populate();// TODO add your handling code here:
-    }//GEN-LAST:event_btnDeleteActionPerformed
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-
-//        if(updateProfile == null){
-//            JOptionPane.showMessageDialog(this, "Please select a row to be updated");
-//            return;
-//        }
-//
-//        try{
-//            String caseID = txtCaseID.getText();
-//            String encounterID = txtEncounterID.getText();
-//
-//            String prescription = txtPrescription.getText();
-//
-//            String quantity = txtQuantity.getText();
-//            String status = txtStatus.getText();
-//            String recepient = txtRecipient.getText();
-//
-//            if( !validations.lengthCheck(caseID) || !validations.lengthCheck(encounterID)
-//                ||!validations.lengthCheck(quantity)
-//                || !validations.lengthCheck(status)
-//                || !validations.lengthCheck(recepient) || !validations.lengthCheck(prescription)
-//            )
-//            {
-//                JOptionPane.showMessageDialog(this, "Enter valid details for Encounter");
-//                return;
-//            }
-//
-//            if( !validations.numberCheck(quantity)
-//
-//            ){
-//                JOptionPane.showMessageDialog(this, "Enter valid details for Encounter");
-//                return;
-//            }
-//
-//            //Unique check
-//
-//            Encounter encounter = system.getEncounterHistory().addNewEncounter();
-//            VitalSigns vitalSigns = system.getVitalSignsHistory().addVitalSigns();
-//
-//            Prescription prescription = system.getPrescriptionDirectory().addPrescription();
-//
-//            encounter.setPatientId(uniqueField);
-//            encounter.setHeartRate(Integer.parseInt(heartrate));
-//            encounter.setRespiratoryRate(Integer.parseInt(respiratoryrate));
-//            encounter.setTemperature(Integer.parseInt(temp));
-//            encounter.setHeight(Integer.parseInt(height));
-//            encounter.setWeight(Integer.parseInt(weight));
-//            encounter.setBloodPressure(Integer.parseInt(bloodpressure));
-//            encounter.setPrescription(prescription);
-//
-//            JOptionPane.showMessageDialog(this, "Encounter created");
-//        }
-//        catch(Exception err){
-//            JOptionPane.showMessageDialog(this, "Issue while creating Encounter, try again");
-//        }
-
         // TODO add your handling code here:
+               int selectRowIndex = jTable1.getSelectedRow();
+        
+        if(selectRowIndex < 0){
+            JOptionPane.showMessageDialog(this, "Please select a row to be deleted");
+            return;
+        }
+
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        Encounter selectedProfile = (Encounter)model.getValueAt(selectRowIndex,0  );
+
+        system.getEncounterHistory().removeEncounter(selectedProfile);
+        JOptionPane.showMessageDialog(this, "Doctor has been deleted");
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+                 if(system.getCurrentRole().equals("HospitalAdmin")){
+            HospitalAdminSelectCaseJPanel panel = new HospitalAdminSelectCaseJPanel(splitpane, system);
+            splitpane.setRightComponent(panel);
+        }
+        else{
+            DoctorJPanel panel = new DoctorJPanel(splitpane, system);
+            splitpane.setRightComponent(panel);
+        }
+  
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    
     private void populateTable() {
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
          model.setRowCount(0);
         // System.out.println("doctor "+hospitalManagerDirectory);
+
          for(Encounter pro: system.getEncounterHistory().getEncounterList()){
 
-             Object[] row = new Object[6];
+            if(system.getCurrentRole().equals("Doctor") && pro.getCreatedByID().equals(system.getCurrentUserId())) {
+             Object[] row = new Object[11];
              row[0] = pro;
              row[1] = pro.getEncounterID();
              row[2] = pro.getCaseID();
              row[3] = pro.getQuantity();
              row[4] = pro.getCaseStatus();
-             row[5] = pro.getRecipient();
+             row[5] = pro.getHeartrate();
+             row[6] = pro.getRespiratoryRate();
+             row[7] = pro.getTemperature();
+             row[8] = pro.getWeight();
+             row[9] = pro.getWeight();
+             row[10] = pro.getBloodPressure();
              
              model.addRow(row );
+             break;
+            }
+            else{
+                             Object[] row = new Object[11];
+             row[0] = pro;
+             row[1] = pro.getEncounterID();
+             row[2] = pro.getCaseID();
+             row[3] = pro.getQuantity();
+             row[4] = pro.getCaseStatus();
+             row[5] = pro.getHeartrate();
+             row[6] = pro.getRespiratoryRate();
+             row[7] = pro.getTemperature();
+             row[8] = pro.getWeight();
+             row[9] = pro.getWeight();
+             row[10] = pro.getBloodPressure();
+             
+             model.addRow(row );
+            }
              
          }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnDelete;
-    private javax.swing.JButton btnView;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JPanel jPanel4;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JLabel name24;
-    private javax.swing.JLabel name26;
-    private javax.swing.JLabel name3;
-    private javax.swing.JLabel name4;
+    private javax.swing.JTextField txtBloodPressure;
     private javax.swing.JTextField txtCaseID;
     private javax.swing.JTextField txtEncounterID;
+    private javax.swing.JTextField txtHeartRate;
     private javax.swing.JTextField txtPrescription;
     private javax.swing.JTextField txtQuantity;
-    private javax.swing.JTextField txtRecipient;
+    private javax.swing.JTextField txtRecepient;
+    private javax.swing.JTextField txtRespirationRate;
     private javax.swing.JTextField txtStatus;
+    private javax.swing.JTextField txtTemperature;
+    private javax.swing.JTextField txtWeight;
     // End of variables declaration//GEN-END:variables
 }

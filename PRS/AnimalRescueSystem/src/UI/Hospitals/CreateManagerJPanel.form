@@ -59,7 +59,7 @@
                           <Component id="name2" min="-2" pref="133" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="txtSalary" min="-2" pref="225" max="-2" attributes="0"/>
                       <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
@@ -68,10 +68,10 @@
                           <Component id="txtPassword" alignment="0" min="-2" pref="225" max="-2" attributes="0"/>
                       </Group>
                       <Component id="txtAge" min="-2" pref="225" max="-2" attributes="0"/>
-                      <Component id="txtGender" min="-2" pref="225" max="-2" attributes="0"/>
                       <Component id="txtYearsofexp" min="-2" pref="225" max="-2" attributes="0"/>
                       <Component id="txtPhno" min="-2" pref="225" max="-2" attributes="0"/>
                       <Component id="txtEmail" alignment="0" min="-2" pref="225" max="-2" attributes="0"/>
+                      <Component id="cboGender" min="-2" pref="223" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="136" max="-2" attributes="0"/>
                   <Component id="medicalIcon" min="-2" pref="192" max="-2" attributes="0"/>
@@ -135,9 +135,12 @@
                               <Component id="txtAge" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="name4" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
-                              <Component id="txtGender" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="name4" min="-2" pref="23" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Component id="cboGender" pref="0" max="32767" attributes="0"/>
+                                  <EmptySpace min="3" pref="3" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
@@ -218,8 +221,6 @@
             <Property name="horizontalAlignment" type="int" value="2"/>
             <Property name="text" type="java.lang.String" value="Password:"/>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="txtGender">
         </Component>
         <Component class="javax.swing.JLabel" name="name3">
           <Properties>
@@ -385,6 +386,23 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnViewActionPerformed"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="cboGender">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Times New Roman" size="18" style="0"/>
+            </Property>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="new javax.swing.DefaultComboBoxModel&lt;&gt;(new String[] { &quot;Male&quot;, &quot;Female&quot;, &quot;Others&quot; })" type="code"/>
+            </Property>
+            <Property name="toolTipText" type="java.lang.String" value=""/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cboGenderActionPerformed"/>
+          </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
         </Component>
       </SubComponents>
     </Container>

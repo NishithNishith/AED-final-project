@@ -69,57 +69,48 @@
                                   <EmptySpace min="-2" pref="155" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" alignment="0" attributes="0">
-                                          <Component id="name" min="-2" pref="133" max="-2" attributes="0"/>
-                                          <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
-                                          <Component id="txtCaseId" min="-2" pref="225" max="-2" attributes="0"/>
+                                          <EmptySpace min="50" pref="50" max="-2" attributes="0"/>
+                                          <Component id="jLabel2" min="-2" pref="240" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <EmptySpace min="50" pref="50" max="-2" attributes="0"/>
-                                                  <Component id="jLabel2" min="-2" pref="240" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="name1" min="-2" pref="133" max="-2" attributes="0"/>
-                                                  <EmptySpace min="17" pref="17" max="-2" attributes="0"/>
-                                                  <Component id="txtHeartrate" min="-2" pref="225" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="name2" min="-2" pref="133" max="-2" attributes="0"/>
-                                                  <EmptySpace min="17" pref="17" max="-2" attributes="0"/>
-                                                  <Component id="txtRespiratoryrate" min="-2" pref="225" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="name5" min="-2" pref="133" max="-2" attributes="0"/>
-                                                  <EmptySpace min="17" pref="17" max="-2" attributes="0"/>
-                                                  <Component id="txtTemp" min="-2" pref="225" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="name6" min="-2" pref="73" max="-2" attributes="0"/>
-                                                  <EmptySpace min="77" pref="77" max="-2" attributes="0"/>
-                                                  <Component id="txtHeight" min="-2" pref="225" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="name7" min="-2" pref="133" max="-2" attributes="0"/>
-                                                  <EmptySpace min="17" pref="17" max="-2" attributes="0"/>
-                                                  <Component id="txtWeight" min="-2" pref="225" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="jLabel4" min="-2" pref="110" max="-2" attributes="0"/>
-                                                  <EmptySpace min="40" pref="40" max="-2" attributes="0"/>
-                                                  <Component id="txtBloodpressure" min="-2" pref="225" max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                          <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="name8" min="-2" pref="73" max="-2" attributes="0"/>
-                                              <Component id="name18" min="-2" pref="73" max="-2" attributes="0"/>
-                                              <Component id="name19" min="-2" pref="73" max="-2" attributes="0"/>
-                                              <Component id="name20" min="-2" pref="73" max="-2" attributes="0"/>
-                                              <Component id="name21" min="-2" pref="73" max="-2" attributes="0"/>
-                                              <Component id="name22" min="-2" pref="73" max="-2" attributes="0"/>
-                                          </Group>
+                                          <Component id="name1" min="-2" pref="133" max="-2" attributes="0"/>
+                                          <EmptySpace min="17" pref="17" max="-2" attributes="0"/>
+                                          <Component id="txtHeartrate" min="-2" pref="225" max="-2" attributes="0"/>
                                       </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="name2" min="-2" pref="133" max="-2" attributes="0"/>
+                                          <EmptySpace min="17" pref="17" max="-2" attributes="0"/>
+                                          <Component id="txtRespiratoryrate" min="-2" pref="225" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="name5" min="-2" pref="133" max="-2" attributes="0"/>
+                                          <EmptySpace min="17" pref="17" max="-2" attributes="0"/>
+                                          <Component id="txtTemp" min="-2" pref="225" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="name6" min="-2" pref="73" max="-2" attributes="0"/>
+                                          <EmptySpace min="77" pref="77" max="-2" attributes="0"/>
+                                          <Component id="txtHeight" min="-2" pref="225" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="name7" min="-2" pref="133" max="-2" attributes="0"/>
+                                          <EmptySpace min="17" pref="17" max="-2" attributes="0"/>
+                                          <Component id="txtWeight" min="-2" pref="225" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="jLabel4" min="-2" pref="110" max="-2" attributes="0"/>
+                                          <EmptySpace min="40" pref="40" max="-2" attributes="0"/>
+                                          <Component id="txtBloodpressure" min="-2" pref="225" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="name8" min="-2" pref="73" max="-2" attributes="0"/>
+                                      <Component id="name18" min="-2" pref="73" max="-2" attributes="0"/>
+                                      <Component id="name19" min="-2" pref="73" max="-2" attributes="0"/>
+                                      <Component id="name20" min="-2" pref="73" max="-2" attributes="0"/>
+                                      <Component id="name21" min="-2" pref="73" max="-2" attributes="0"/>
+                                      <Component id="name22" min="-2" pref="73" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
@@ -168,11 +159,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="medicalIcon" min="-2" pref="377" max="-2" attributes="0"/>
                       <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="name" min="-2" pref="23" max="-2" attributes="0"/>
-                              <Component id="txtCaseId" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jLabel2" min="-2" pref="40" max="-2" attributes="0"/>
@@ -271,20 +258,6 @@
             </Property>
             <Property name="text" type="java.lang.String" value="jLabel3"/>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="name">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Times New Roman" size="16" style="0"/>
-            </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="4e" green="4d" red="1" type="rgb"/>
-            </Property>
-            <Property name="horizontalAlignment" type="int" value="2"/>
-            <Property name="text" type="java.lang.String" value="Case ID:"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="txtCaseId">
         </Component>
         <Component class="javax.swing.JLabel" name="name1">
           <Properties>

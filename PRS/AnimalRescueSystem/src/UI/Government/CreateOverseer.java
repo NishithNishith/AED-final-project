@@ -265,6 +265,8 @@ public class CreateOverseer extends javax.swing.JPanel {
 
     private void txtBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBackActionPerformed
         // TODO add your handling code here:
+                 GovernmentAdmin panel = new GovernmentAdmin(splitpane, system);
+            splitpane.setRightComponent(panel);
     }//GEN-LAST:event_txtBackActionPerformed
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed

@@ -160,6 +160,11 @@ public class CreateManagerJPanel extends javax.swing.JPanel {
         cboGender.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         cboGender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female", "Others" }));
         cboGender.setToolTipText("");
+        cboGender.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cboGenderActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -383,6 +388,10 @@ public class CreateManagerJPanel extends javax.swing.JPanel {
             splitpane.setRightComponent(panel);
         }
     }//GEN-LAST:event_txtBackActionPerformed
+
+    private void cboGenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboGenderActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cboGenderActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
