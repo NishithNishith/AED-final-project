@@ -364,6 +364,15 @@ public class StaffWorkarea extends javax.swing.JPanel {
         
         if(reportStatus.equals("PENDING"))
         {
+            
+            if(system.getCurAmount()<50){
+                JOptionPane.showMessageDialog(this, "Insufficient funds");
+                return;
+            }
+            
+            int curAmt = system.getCurAmount();
+            int newAmt = curAmt-50;
+            system.setCurAmount(newAmt);
             CaseFile caseFile = system.getCaseFileDirectory().addCaseFile();
         
             String uniqueField = UUID.randomUUID().toString();
@@ -379,6 +388,10 @@ public class StaffWorkarea extends javax.swing.JPanel {
             caseFile.setStatus("Active");
             caseFile.setDesciption(reportDiscription);
             caseFile.setDate(date);
+            caseFile.setMedRecieved(false);
+            caseFile.setMed("");
+            
+            
             
             selectedProfile.setStatus("RESOLVED");
 

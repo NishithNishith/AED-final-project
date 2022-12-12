@@ -34,22 +34,6 @@ public class DatabaseUtils {
 
         ObjectContainer db = Db4oEmbedded.openFile(Db4oEmbedded.newConfiguration(), FILENAME);
         return db;
-//        EmbeddedConfiguration config = Db4oEmbedded.newConfiguration();
-//        config.common().add(new TransparentPersistenceSupport());
-//        //Controls the number of objects in memory
-//        config.common().activationDepth(Integer.MAX_VALUE);
-//        //Controls the depth/level of updation of Object
-//        config.common().updateDepth(Integer.MAX_VALUE);
-//
-//        //Register your top most Class here
-//        config.common().objectClass(Business.class).cascadeOnUpdate(true); // Change to the object you want to save
-//        try {
-//            ObjectContainer db = Db4oEmbedded.openFile(config, FILENAME);
-//            return db;
-//        } catch (Exception ex) {
-//            System.out.print(ex.getMessage());
-//        }
-//        return null;
     }
     
     
@@ -77,12 +61,7 @@ public class DatabaseUtils {
         conn.close();
         System.out.println("Ret from dbS");
         return system;
-//        } catch (Exception ex) {
-//            System.out.print(ex.getMessage());
-//        } finally {
-//            conn.close();
-//        }
-//        return null;
+
     }
     
 }
