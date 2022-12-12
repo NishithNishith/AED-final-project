@@ -59,18 +59,14 @@ public class ReportHistoryJPanel extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         txtId = new javax.swing.JTextField();
         txtUser = new javax.swing.JTextField();
         txtAnimal = new javax.swing.JTextField();
         txtDesc = new javax.swing.JTextField();
         txtCommunity = new javax.swing.JTextField();
-        txtCity = new javax.swing.JTextField();
         txtCondition = new javax.swing.JTextField();
-        txtLocation = new javax.swing.JTextField();
         txtStatus = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
@@ -119,19 +115,11 @@ public class ReportHistoryJPanel extends javax.swing.JPanel {
 
         jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(17, 53, 81));
-        jLabel5.setText("Community:");
-
-        jLabel6.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(17, 53, 81));
-        jLabel6.setText("City:");
+        jLabel5.setText("Location");
 
         jLabel7.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(17, 53, 81));
         jLabel7.setText("Condition:");
-
-        jLabel8.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(17, 53, 81));
-        jLabel8.setText("Location:");
 
         jLabel9.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(17, 53, 81));
@@ -147,11 +135,7 @@ public class ReportHistoryJPanel extends javax.swing.JPanel {
 
         txtCommunity.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
 
-        txtCity.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
-
         txtCondition.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
-
-        txtLocation.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
 
         txtStatus.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
 
@@ -208,27 +192,19 @@ public class ReportHistoryJPanel extends javax.swing.JPanel {
                                             .addComponent(txtCondition, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(txtAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addComponent(jLabel1)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel9)
-                                            .addComponent(jLabel4))
-                                        .addGap(32, 32, 32)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(txtDesc, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txtStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                            .addComponent(jLabel8)
-                                            .addGap(49, 49, 49)
-                                            .addComponent(txtLocation))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                        .addGroup(layout.createSequentialGroup()
                                             .addComponent(jLabel5)
-                                            .addGap(30, 30, 30)
-                                            .addComponent(txtCommunity))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                            .addComponent(jLabel6)
-                                            .addGap(78, 78, 78)
-                                            .addComponent(txtCity, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(txtCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(jLabel9)
+                                                .addComponent(jLabel4))
+                                            .addGap(32, 32, 32)
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(txtDesc, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(txtStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(180, 180, 180)
                                 .addComponent(btnSelect, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -273,16 +249,8 @@ public class ReportHistoryJPanel extends javax.swing.JPanel {
                             .addComponent(jLabel4))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6))
-                        .addGap(26, 26, 26)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtLocation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel8))))
+                            .addComponent(jLabel5)
+                            .addComponent(txtCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(18, 18, 18)
                 .addComponent(btnSelect, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(189, Short.MAX_VALUE))
@@ -305,13 +273,11 @@ public class ReportHistoryJPanel extends javax.swing.JPanel {
         txtUser.setText(String.valueOf(selectedProfile.getUser()));
         txtAnimal.setText(String.valueOf(selectedProfile.getAnimal()));
         txtDesc.setText(String.valueOf(selectedProfile.getDescription()));
-        txtCity.setText(String.valueOf(selectedProfile.getCity()));
         txtCommunity.setText(String.valueOf(selectedProfile.getCommunity()));
         
 
         txtCondition.setText(String.valueOf(selectedProfile.getCondition()));
         
-        txtLocation.setText(String.valueOf(selectedProfile.getLocation()));
         txtStatus.setText(String.valueOf(selectedProfile.getStatus()));
 
     }//GEN-LAST:event_btnSelectActionPerformed
@@ -341,19 +307,15 @@ public class ReportHistoryJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField txtAnimal;
-    private javax.swing.JTextField txtCity;
     private javax.swing.JTextField txtCommunity;
     private javax.swing.JTextField txtCondition;
     private javax.swing.JTextField txtDesc;
     private javax.swing.JTextField txtId;
-    private javax.swing.JTextField txtLocation;
     private javax.swing.JTextField txtStatus;
     private javax.swing.JTextField txtUser;
     // End of variables declaration//GEN-END:variables

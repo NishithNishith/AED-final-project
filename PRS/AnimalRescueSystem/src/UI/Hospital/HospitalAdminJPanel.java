@@ -88,8 +88,8 @@ public class HospitalAdminJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_btnManageEncounterActionPerformed
 
     private void btnManageDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageDocActionPerformed
-        ManageDoctorsJPanel panel = new ManageDoctorsJPanel(splitpane);
-        splitpane.setRightComponent(panel);
+//        ManageDoctorsJPanel panel = new ManageDoctorsJPanel(splitpane, system);
+//        splitpane.setRightComponent(panel);
         // TODO add your handling code here:
     }//GEN-LAST:event_btnManageDocActionPerformed
 
