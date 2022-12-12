@@ -365,7 +365,7 @@ public class ManageStaffWorkarea extends javax.swing.JPanel {
             shelterStaff.setPhoneNumber(phonenumber);
             shelterStaff.setSalary(Integer.parseInt(salary));
 
-            JOptionPane.showMessageDialog(this, "Staff created"+ shelterStaff);
+            JOptionPane.showMessageDialog(this, "Staff created");
         }
         catch(Exception err){
             JOptionPane.showMessageDialog(this, "Issue while creating staff, try again "+err);

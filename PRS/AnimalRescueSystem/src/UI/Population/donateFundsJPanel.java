@@ -193,6 +193,8 @@ public class DonateFundsJPanel extends javax.swing.JPanel {
 
             System.out.println("fund doantion "+fundDonation);
             JOptionPane.showMessageDialog(this, "Amount Donated "+amount);
+            txtAmount.setText("");
+            txtMsg.setText("");
         }
         catch(Exception err){
             System.out.print("ReportJPanel error "+err);

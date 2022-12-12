@@ -116,7 +116,7 @@ public class Encounter {
     
     @Override
     public String toString(){ 
-        return this.encounterID; 
+        return this.prescriptionName; 
     }
 
     public String getCreatedByID() {

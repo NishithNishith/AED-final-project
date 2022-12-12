@@ -313,7 +313,7 @@ public class ReportJPanel extends javax.swing.JPanel {
             
             //save report directory in the db
 
-            JOptionPane.showMessageDialog(this, "Incident reported "+report);
+            JOptionPane.showMessageDialog(this, "Incident reported ");
         }
         catch(Exception err){
             System.out.print("ReportJPanel error "+err);

@@ -47,6 +47,11 @@ public class UserAccount {
         this.userAccountId = userAccountId;
     }
     
+    @Override
+    public String toString(){ 
+        return this.email; 
+    }
+    
 
     
 }
