@@ -8,6 +8,7 @@ import business.distribution.Inventory;
 import business.distribution.Order;
 import business.ecosystem.Business;
 import business.ecosystem.UserAccount;
+import business.shelter.CaseFile;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -144,6 +145,12 @@ public class DeliveryAssociateJPanel extends javax.swing.JPanel {
             if(o.getOrderID().equals(orderId) ){
                 order.setOrderStatus("Completed");
                 placedOrder = order;
+            }
+        }
+        
+        for(CaseFile c : system.getCaseFileDirectory().getCaseFile()){
+            if(c.getCaseId().equals(placedOrder.getReciever())){
+                c.setMedRecieved(true);
             }
         }
         

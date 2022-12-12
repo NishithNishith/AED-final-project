@@ -171,11 +171,11 @@ public class AnalyticsJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "More data is needed");
             return;
         } else {
-            dataset.setValue("Pending", pending);
-            dataset.setValue("active", active);
-            dataset.setValue("shelter", shelter);
-            dataset.setValue("Resolved", hospital);
-            dataset.setValue("Pending", adopted);
+//            dataset.setValue("Pending", pending);
+            dataset.setValue("Active", active);
+            dataset.setValue("Shelter", shelter);
+            dataset.setValue("Hospital", hospital);
+            dataset.setValue("Adopted", adopted);
 
             JFreeChart chart = ChartFactory.createPieChart3D("Case report",dataset,true,true,false);
             final PiePlot3D plot = (PiePlot3D) chart.getPlot();

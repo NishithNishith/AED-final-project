@@ -44,8 +44,12 @@ public class ShelterAdmin extends javax.swing.JPanel {
         jButton1 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         txtCreateManager1 = new javax.swing.JButton();
-        txtCreateManager2 = new javax.swing.JButton();
         txtCreateManager3 = new javax.swing.JButton();
+        txtCreateManager4 = new javax.swing.JButton();
+        txtCreateManager5 = new javax.swing.JButton();
+        txtCreateManager6 = new javax.swing.JButton();
+        txtCreateManager7 = new javax.swing.JButton();
+        txtCreateManager8 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(206, 229, 242));
 
@@ -104,16 +108,6 @@ public class ShelterAdmin extends javax.swing.JPanel {
             }
         });
 
-        txtCreateManager2.setBackground(new java.awt.Color(17, 53, 81));
-        txtCreateManager2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        txtCreateManager2.setForeground(new java.awt.Color(255, 255, 255));
-        txtCreateManager2.setText("Manage Accountant");
-        txtCreateManager2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCreateManager2ActionPerformed(evt);
-            }
-        });
-
         txtCreateManager3.setBackground(new java.awt.Color(17, 53, 81));
         txtCreateManager3.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         txtCreateManager3.setForeground(new java.awt.Color(255, 255, 255));
@@ -124,45 +118,113 @@ public class ShelterAdmin extends javax.swing.JPanel {
             }
         });
 
+        txtCreateManager4.setBackground(new java.awt.Color(17, 53, 81));
+        txtCreateManager4.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        txtCreateManager4.setForeground(new java.awt.Color(255, 255, 255));
+        txtCreateManager4.setText("Staff Workarea");
+        txtCreateManager4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCreateManager4ActionPerformed(evt);
+            }
+        });
+
+        txtCreateManager5.setBackground(new java.awt.Color(17, 53, 81));
+        txtCreateManager5.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        txtCreateManager5.setForeground(new java.awt.Color(255, 255, 255));
+        txtCreateManager5.setText("Request Funds");
+        txtCreateManager5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCreateManager5ActionPerformed(evt);
+            }
+        });
+
+        txtCreateManager6.setBackground(new java.awt.Color(17, 53, 81));
+        txtCreateManager6.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        txtCreateManager6.setForeground(new java.awt.Color(255, 255, 255));
+        txtCreateManager6.setText("Adoption Workarea");
+        txtCreateManager6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCreateManager6ActionPerformed(evt);
+            }
+        });
+
+        txtCreateManager7.setBackground(new java.awt.Color(17, 53, 81));
+        txtCreateManager7.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        txtCreateManager7.setForeground(new java.awt.Color(255, 255, 255));
+        txtCreateManager7.setText("View Adoptions");
+        txtCreateManager7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCreateManager7ActionPerformed(evt);
+            }
+        });
+
+        txtCreateManager8.setBackground(new java.awt.Color(17, 53, 81));
+        txtCreateManager8.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        txtCreateManager8.setForeground(new java.awt.Color(255, 255, 255));
+        txtCreateManager8.setText("View Request History");
+        txtCreateManager8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCreateManager8ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(168, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 871, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(261, 261, 261))
             .addGroup(layout.createSequentialGroup()
-                .addGap(486, 486, 486)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtCreateManager, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtViewManager, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtCreateManager1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtCreateManager2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtCreateManager3, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(486, 486, 486)
+                        .addComponent(txtCreateManager7, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(331, 331, 331)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtCreateManager, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtCreateManager3, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtCreateManager4, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtCreateManager6, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(27, 27, 27)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtCreateManager1, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtViewManager, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtCreateManager5, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtCreateManager8, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 265, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 871, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(164, 164, 164))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(68, 68, 68)
-                .addComponent(txtCreateManager, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(txtViewManager, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(txtCreateManager1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(txtCreateManager2, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(txtCreateManager3, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(227, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtCreateManager, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCreateManager1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtCreateManager3, javax.swing.GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE)
+                    .addComponent(txtViewManager, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtCreateManager4, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCreateManager5, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtCreateManager6, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCreateManager8, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(270, 270, 270)
+                .addComponent(txtCreateManager7, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(20, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -196,17 +258,41 @@ public class ShelterAdmin extends javax.swing.JPanel {
         splitpane.setRightComponent(panel);
     }//GEN-LAST:event_txtCreateManager1ActionPerformed
 
-    private void txtCreateManager2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCreateManager2ActionPerformed
-        // TODO add your handling code here:
-        ManageAccountantWorkarea panel = new ManageAccountantWorkarea(splitpane, system);
-        splitpane.setRightComponent(panel);
-    }//GEN-LAST:event_txtCreateManager2ActionPerformed
-
     private void txtCreateManager3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCreateManager3ActionPerformed
         // TODO add your handling code here:
         ViewCaseHistory panel = new ViewCaseHistory(splitpane, system);
         splitpane.setRightComponent(panel);
     }//GEN-LAST:event_txtCreateManager3ActionPerformed
+
+    private void txtCreateManager4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCreateManager4ActionPerformed
+        // TODO add your handling code here:
+        StaffWorkarea panel = new StaffWorkarea(splitpane, system);
+        splitpane.setRightComponent(panel);
+    }//GEN-LAST:event_txtCreateManager4ActionPerformed
+
+    private void txtCreateManager5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCreateManager5ActionPerformed
+        // TODO add your handling code here:\
+        RequestFunds panel = new RequestFunds(splitpane, system);
+        splitpane.setRightComponent(panel);
+    }//GEN-LAST:event_txtCreateManager5ActionPerformed
+
+    private void txtCreateManager6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCreateManager6ActionPerformed
+        // TODO add your handling code here:
+        AdoptionWorkarea panel = new AdoptionWorkarea(splitpane, system);
+        splitpane.setRightComponent(panel);
+    }//GEN-LAST:event_txtCreateManager6ActionPerformed
+
+    private void txtCreateManager7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCreateManager7ActionPerformed
+        // TODO add your handling code here:
+        ViewAdoption panel = new ViewAdoption(splitpane, system);
+        splitpane.setRightComponent(panel);
+    }//GEN-LAST:event_txtCreateManager7ActionPerformed
+
+    private void txtCreateManager8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCreateManager8ActionPerformed
+        // TODO add your handling code here:
+        ViewRequestFundHistory panel = new ViewRequestFundHistory(splitpane, system);
+        splitpane.setRightComponent(panel);
+    }//GEN-LAST:event_txtCreateManager8ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -215,8 +301,12 @@ public class ShelterAdmin extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JButton txtCreateManager;
     private javax.swing.JButton txtCreateManager1;
-    private javax.swing.JButton txtCreateManager2;
     private javax.swing.JButton txtCreateManager3;
+    private javax.swing.JButton txtCreateManager4;
+    private javax.swing.JButton txtCreateManager5;
+    private javax.swing.JButton txtCreateManager6;
+    private javax.swing.JButton txtCreateManager7;
+    private javax.swing.JButton txtCreateManager8;
     private javax.swing.JButton txtViewManager;
     // End of variables declaration//GEN-END:variables
 }

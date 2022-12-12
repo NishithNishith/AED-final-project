@@ -89,7 +89,7 @@ public class ViewStaffJPanel extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                "Name", "Salary", "Age", "Experience"
+                "Id", "Salary", "Age", "Experience"
             }
         ));
         jScrollPane1.setViewportView(jTable1);

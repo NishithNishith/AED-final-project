@@ -127,7 +127,7 @@ public class ReportJPanel extends javax.swing.JPanel {
         txtHistory.setBackground(new java.awt.Color(17, 53, 81));
         txtHistory.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         txtHistory.setForeground(new java.awt.Color(255, 255, 255));
-        txtHistory.setText("View History");
+        txtHistory.setText("View Report History");
         txtHistory.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtHistoryActionPerformed(evt);
@@ -314,6 +314,11 @@ public class ReportJPanel extends javax.swing.JPanel {
             //save report directory in the db
 
             JOptionPane.showMessageDialog(this, "Incident reported ");
+            txtAnimal.setText("");
+            txtDesc.setText("");
+            txtCondition.setText("");
+            txtCommunity.setText("");
+            
         }
         catch(Exception err){
             System.out.print("ReportJPanel error "+err);

@@ -459,7 +459,8 @@ public class CreateEncounterJPanel extends javax.swing.JPanel {
                 for(CaseFile c : system.getCaseFileDirectory().getCaseFile()){
                     if(c.getCaseId().equals(caseID)){
                         c.setStatus("HOSPITAL");
-//                        c.setMed(prescriptionName);
+                        c.setMed(prescriptionName);
+                        
                     }
                 }
             }
@@ -469,7 +470,7 @@ public class CreateEncounterJPanel extends javax.swing.JPanel {
                 for(CaseFile c : system.getCaseFileDirectory().getCaseFile()){
                     if(c.getCaseId().equals(caseID)){
                         c.setStatus("SHELTER");
-//                        c.setMed(prescriptionName);
+                        c.setMed(prescriptionName);
                     }
                 }
             }

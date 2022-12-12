@@ -435,7 +435,7 @@ public class ViewAnalyticsManager extends javax.swing.JPanel {
 
     private void btnSelect2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelect2ActionPerformed
         // TODO add your handling code here:
-                                 GovernmentAdmin panel = new GovernmentAdmin(splitpane, system);
+            GovernmentAdmin panel = new GovernmentAdmin(splitpane, system);
             splitpane.setRightComponent(panel);
     }//GEN-LAST:event_btnSelect2ActionPerformed
 

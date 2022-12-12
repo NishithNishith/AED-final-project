@@ -182,6 +182,8 @@ public class RequestFunds extends javax.swing.JPanel {
             //save report directory in the db
 
             JOptionPane.showMessageDialog(this, "Funds requested");
+            txtAmount.setText("");
+            txtDesc.setText("");
         }
         catch(Exception err){
             JOptionPane.showMessageDialog(this, "Issue while submitting request, try again");
