@@ -307,6 +307,9 @@ public class ViewOrder extends javax.swing.JPanel {
   
             for(Order inv : system.getOrderDirectory().getOrder()) {
 
+                 if(system.getCurrentRole().equals("Doctor") && inv.getCreatedByID().equals(system.getCurrentUserId())) {
+                
+                
                 Object[] row = new Object[6];
                 row[0] = inv;
     //          row[1] = e.getPatientName();
@@ -316,7 +319,21 @@ public class ViewOrder extends javax.swing.JPanel {
                 row[4] = inv.getQuantity();
                 row[5] = inv.getOrderID();
 
-                model.addRow(row);           
+                model.addRow(row); 
+                break;
+               }
+                 else{
+                     Object[] row = new Object[6];
+                row[0] = inv;
+    //          row[1] = e.getPatientName();
+                row[1] = inv.getSender();
+                row[2] = inv.getReciever();
+                row[3] = inv.getOrderStatus();
+                row[4] = inv.getQuantity();
+                row[5] = inv.getOrderID();
+
+                model.addRow(row);  
+                 }
             }
         }
 

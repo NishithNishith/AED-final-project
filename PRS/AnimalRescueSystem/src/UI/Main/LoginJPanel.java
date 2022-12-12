@@ -10,7 +10,6 @@ import UI.Distribution.ManageOrders;
 import UI.Government.AnalyticsJPanel;
 import UI.Government.GovernmentAdmin;
 import UI.Government.ManageFundsJPanel;
-import UI.Hospital.ManageEncounterJPanel;
 import UI.Hospitals.DoctorJPanel;
 import UI.Hospitals.HospitalAdminJPanel;
 import UI.Hospitals.HospitalManagerJPanel;

@@ -128,6 +128,7 @@ public class CreateOrder extends javax.swing.JPanel {
         o.setReciever(selectedProfile.getRecipient());
         o.setSender(system.getCurrentUserId());
         o.setOrderID(selectedProfile.getEncounterID());
+        o.setCreatedByID(system.getCurrentUserId());
         
         JOptionPane.showMessageDialog(this, "Order created");
         
