@@ -32,6 +32,7 @@ public class ViewOverseer extends javax.swing.JPanel {
     public ViewOverseer(javax.swing.JSplitPane splitpane,Business system) {
         initComponents();
         this.system = system;
+        this.splitpane = splitpane;
         this.validations = new Validations();
         populateTable();
     }
