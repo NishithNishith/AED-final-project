@@ -47,12 +47,8 @@ public class MainJFrame extends javax.swing.JFrame {
 
         splitpane = new javax.swing.JSplitPane();
         jPanel1 = new javax.swing.JPanel();
-        txtShelterAdmin = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         txtLogin = new javax.swing.JButton();
@@ -67,15 +63,6 @@ public class MainJFrame extends javax.swing.JFrame {
         splitpane.setDividerLocation(180);
 
         jPanel1.setBackground(new java.awt.Color(17, 53, 81));
-
-        txtShelterAdmin.setFont(new java.awt.Font("Times New Roman", 1, 13)); // NOI18N
-        txtShelterAdmin.setForeground(new java.awt.Color(17, 53, 81));
-        txtShelterAdmin.setText("Shelter admin");
-        txtShelterAdmin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtShelterAdminActionPerformed(evt);
-            }
-        });
 
         jButton2.setFont(new java.awt.Font("Times New Roman", 1, 13)); // NOI18N
         jButton2.setForeground(new java.awt.Color(17, 53, 81));
@@ -95,65 +82,25 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setFont(new java.awt.Font("Times New Roman", 1, 13)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(17, 53, 81));
-        jButton3.setText("Government Admin");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-
-        jButton4.setFont(new java.awt.Font("Times New Roman", 1, 13)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(17, 53, 81));
-        jButton4.setText("Distribution Admin");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
-
-        jButton5.setText("Hospital Admin");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtShelterAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(19, 19, 19)
-                            .addComponent(jButton3)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(45, 45, 45)
-                        .addComponent(jButton1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(42, 42, 42)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(14, 14, 14)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(19, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(132, 132, 132)
-                .addComponent(txtShelterAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(160, 160, 160)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(301, Short.MAX_VALUE))
+                .addGap(340, 340, 340)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(416, Short.MAX_VALUE))
         );
 
         splitpane.setLeftComponent(jPanel1);
@@ -264,13 +211,6 @@ public class MainJFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtShelterAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtShelterAdminActionPerformed
-        // TODO add your handling code here:
-        
-        ShelterAdmin adminPanel = new ShelterAdmin(splitpane, system);
-        splitpane.setRightComponent(adminPanel);
-    }//GEN-LAST:event_txtShelterAdminActionPerformed
-
     private void txtLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLoginActionPerformed
         // TODO add your handling code here:
         LoginJPanel panel = new LoginJPanel(splitpane, system);
@@ -307,24 +247,6 @@ public class MainJFrame extends javax.swing.JFrame {
         LoginJPanel panel = new LoginJPanel(splitpane,system);
         splitpane.setRightComponent(panel);
     }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-                GovernmentAdmin adminPanel = new GovernmentAdmin(splitpane, system);
-        splitpane.setRightComponent(adminPanel);
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-                AdminDistribution adminPanel = new AdminDistribution(splitpane, system);
-        splitpane.setRightComponent(adminPanel);
-    }//GEN-LAST:event_jButton4ActionPerformed
-
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
-                        HospitalAdminJPanel adminPanel = new HospitalAdminJPanel(splitpane, system);
-        splitpane.setRightComponent(adminPanel);
-    }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -364,9 +286,6 @@ public class MainJFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -377,6 +296,5 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JSplitPane splitpane;
     private javax.swing.JButton txtLogin;
     private javax.swing.JButton txtRegister;
-    private javax.swing.JButton txtShelterAdmin;
     // End of variables declaration//GEN-END:variables
 }
