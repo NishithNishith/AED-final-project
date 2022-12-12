@@ -40,13 +40,12 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                                       <Component id="btnUpdate" min="-2" pref="134" max="-2" attributes="0"/>
-                                      <EmptySpace pref="75" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="btnBack" min="-2" pref="105" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="327" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="267" max="-2" attributes="0"/>
                               <Component id="jLabel1" min="-2" pref="369" max="-2" attributes="0"/>
                           </Group>
                       </Group>
