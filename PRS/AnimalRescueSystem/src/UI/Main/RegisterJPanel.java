@@ -15,6 +15,7 @@ import business.population.Reporter;
 import business.population.ReporterDirectory;
 import business.validations.Validations;
 import java.util.Properties;
+import java.util.Random;
 import java.util.UUID;
 import javax.mail.Session;
 import javax.swing.JOptionPane;
@@ -36,6 +37,10 @@ public class RegisterJPanel extends javax.swing.JPanel {
     
     Business system;
     DatabaseUtils dB4OUtil = DatabaseUtils.getInstance();
+    String code;
+    int registerFlag;
+    UserAccount user;
+    Reporter rep;
     
     public RegisterJPanel(javax.swing.JSplitPane splitpane, Business system) {
         initComponents();
@@ -43,6 +48,10 @@ public class RegisterJPanel extends javax.swing.JPanel {
         this.splitpane = splitpane;
         this.system = system;
 //        this.system = dB4OUtil.retrieveSystem();
+        this.code = "";
+        this.registerFlag = 0;
+        this.user = null;
+        this.rep = null;
     }
 
     /**
@@ -72,6 +81,9 @@ public class RegisterJPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
+        txtCode = new javax.swing.JPasswordField();
+        jLabel11 = new javax.swing.JLabel();
+        btnOtp = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(206, 229, 242));
 
@@ -145,15 +157,36 @@ public class RegisterJPanel extends javax.swing.JPanel {
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/Images/pawprints.png"))); // NOI18N
         jLabel10.setText("jLabel10");
 
+        txtCode.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        txtCode.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCodeActionPerformed(evt);
+            }
+        });
+
+        jLabel11.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(17, 53, 81));
+        jLabel11.setText("Enter Code");
+
+        btnOtp.setBackground(new java.awt.Color(17, 53, 81));
+        btnOtp.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
+        btnOtp.setForeground(new java.awt.Color(255, 255, 255));
+        btnOtp.setText("Submit OTP");
+        btnOtp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOtpActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(175, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(161, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel2)
@@ -176,11 +209,20 @@ public class RegisterJPanel extends javax.swing.JPanel {
                             .addComponent(txtLastname, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtFirstname, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(139, 139, 139)
-                        .addComponent(btnRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(65, 65, 65)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(85, 85, 85)
+                                .addComponent(jLabel11)
+                                .addGap(32, 32, 32)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtCode, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnOtp, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(10, 10, 10)))))
                 .addGap(123, 123, 123)
                 .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(201, 201, 201))
@@ -225,6 +267,12 @@ public class RegisterJPanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(28, 28, 28)
                         .addComponent(btnRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(29, 29, 29)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel11))
+                        .addGap(29, 29, 29)
+                        .addComponent(btnOtp, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
@@ -315,26 +363,29 @@ public class RegisterJPanel extends javax.swing.JPanel {
                 reporter.setGender(gender);
                 reporter.setPhoneNumber(phonenumber);
                 
-                JOptionPane.showMessageDialog(this, "User registered");
+                rep = reporter;
+                user = userAccount;
+                
+                JOptionPane.showMessageDialog(this, "OTP sent");
                 System.out.println(email+" "+password);
-                dB4OUtil.storeSystem(system);
+//                dB4OUtil.storeSystem(system);
+                
+                Random random = new Random();
+                
+                int x = random.nextInt(500);
+
+                
+                code = String.valueOf(x);
+                
+                System.out.println("random "+code);
                 
                 Mail mail = new Mail();
-                mail.mail(email, "");
+                mail.mail(email, String.valueOf(code));
 
-//                String smtpHostServer = "smtp.example.com";
-//                String emailID = "nishith0514@gmail.com";
-//                
-//                Properties props = System.getProperties();
-//
-//                props.put("mail.smtp.host", smtpHostServer);
-//
-//                Session session = Session.getInstance(props, null);
-//                
-//                Mail.sendEmail(session, emailID,"SimpleEmail Testing Subject", "SimpleEmail Testing Body");
-                
-                LoginJPanel panel = new LoginJPanel(splitpane,system);
-                splitpane.setRightComponent(panel);
+                registerFlag = 1;
+
+//                LoginJPanel panel = new LoginJPanel(splitpane,system);
+//                splitpane.setRightComponent(panel);
             }
              
             
@@ -353,13 +404,63 @@ public class RegisterJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPasswordActionPerformed
 
+    private void txtCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCodeActionPerformed
+
+    private void btnOtpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOtpActionPerformed
+        // TODO add your handling code here:
+        
+        try{
+            
+            if(registerFlag == 0){
+                JOptionPane.showMessageDialog(this, "Register first");
+                return;
+            }
+
+            String enteredCode = txtCode.getText();
+
+            if(enteredCode.equals(code)){
+
+                System.out.println("Code match");
+                
+                
+                
+                dB4OUtil.storeSystem(system);
+                LoginJPanel panel = new LoginJPanel(splitpane,system);
+                splitpane.setRightComponent(panel);
+
+                registerFlag =0;
+                JOptionPane.showMessageDialog(this, "User Registered");
+            }
+            else{
+                
+                JOptionPane.showMessageDialog(this, "Wrong code, try again");
+                
+                system.getReporterDirectory().removeReporter(rep);
+                system.getUserAccountDirectory().removeUserAccount(user);
+                registerFlag = 0;
+                return;
+            }
+            
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(this, "Error in accepting code, try again");
+            return;
+        }
+        
+        
+    }//GEN-LAST:event_btnOtpActionPerformed
+
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnOtp;
     private javax.swing.JButton btnRegister;
     private javax.swing.JComboBox<String> cboGender;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -369,6 +470,7 @@ public class RegisterJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JTextField txtAge;
+    private javax.swing.JPasswordField txtCode;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtFirstname;
     private javax.swing.JTextField txtLastname;
