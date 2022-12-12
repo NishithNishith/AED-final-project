@@ -55,7 +55,7 @@ public class Mail {
 
 
             message.setSubject("Welcome to the animal rescue system");
-            message.setText("Registration Successful, code - "+event);
+            message.setText("Code - "+event);
 
             Transport.send(message);
         } catch (Exception ex) {

@@ -44,6 +44,9 @@ public class ShelterAdmin extends javax.swing.JPanel {
         jButton1 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
+        txtCreateManager1 = new javax.swing.JButton();
+        txtCreateManager2 = new javax.swing.JButton();
+        txtCreateManager3 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(206, 229, 242));
 
@@ -95,6 +98,36 @@ public class ShelterAdmin extends javax.swing.JPanel {
             }
         });
 
+        txtCreateManager1.setBackground(new java.awt.Color(17, 53, 81));
+        txtCreateManager1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        txtCreateManager1.setForeground(new java.awt.Color(255, 255, 255));
+        txtCreateManager1.setText("Manage Donations");
+        txtCreateManager1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCreateManager1ActionPerformed(evt);
+            }
+        });
+
+        txtCreateManager2.setBackground(new java.awt.Color(17, 53, 81));
+        txtCreateManager2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        txtCreateManager2.setForeground(new java.awt.Color(255, 255, 255));
+        txtCreateManager2.setText("Manage Accountant");
+        txtCreateManager2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCreateManager2ActionPerformed(evt);
+            }
+        });
+
+        txtCreateManager3.setBackground(new java.awt.Color(17, 53, 81));
+        txtCreateManager3.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        txtCreateManager3.setForeground(new java.awt.Color(255, 255, 255));
+        txtCreateManager3.setText("View Cases");
+        txtCreateManager3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCreateManager3ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -105,7 +138,10 @@ public class ShelterAdmin extends javax.swing.JPanel {
                     .addComponent(txtCreateManager, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txtViewManager, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 214, Short.MAX_VALUE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtCreateManager1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtCreateManager2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtCreateManager3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 496, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(246, 246, 246))
@@ -122,16 +158,22 @@ public class ShelterAdmin extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(90, 90, 90)
                         .addComponent(txtCreateManager, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(40, 40, 40)
+                        .addGap(18, 18, 18)
                         .addComponent(txtViewManager, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(48, 48, 48)
+                        .addGap(18, 18, 18)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(46, 46, 46)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtCreateManager1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(60, 60, 60)
                         .addComponent(jLabel3)))
-                .addContainerGap(332, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(txtCreateManager2, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(txtCreateManager3, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(205, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -159,6 +201,24 @@ public class ShelterAdmin extends javax.swing.JPanel {
         splitpane.setRightComponent(panel);// TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    private void txtCreateManager1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCreateManager1ActionPerformed
+        // TODO add your handling code here:
+        ManageDonationsWorkarea panel = new ManageDonationsWorkarea(splitpane, system);
+        splitpane.setRightComponent(panel);
+    }//GEN-LAST:event_txtCreateManager1ActionPerformed
+
+    private void txtCreateManager2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCreateManager2ActionPerformed
+        // TODO add your handling code here:
+        ManageAccountantWorkarea panel = new ManageAccountantWorkarea(splitpane, system);
+        splitpane.setRightComponent(panel);
+    }//GEN-LAST:event_txtCreateManager2ActionPerformed
+
+    private void txtCreateManager3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCreateManager3ActionPerformed
+        // TODO add your handling code here:
+        ViewCaseHistory panel = new ViewCaseHistory(splitpane, system);
+        splitpane.setRightComponent(panel);
+    }//GEN-LAST:event_txtCreateManager3ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
@@ -166,6 +226,9 @@ public class ShelterAdmin extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JButton txtCreateManager;
+    private javax.swing.JButton txtCreateManager1;
+    private javax.swing.JButton txtCreateManager2;
+    private javax.swing.JButton txtCreateManager3;
     private javax.swing.JButton txtViewManager;
     // End of variables declaration//GEN-END:variables
 }
