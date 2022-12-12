@@ -6,6 +6,7 @@ package UI.Government;
 
 import business.ecosystem.Business;
 import business.population.FundDonation;
+import business.population.Report;
 import business.shelter.FundRequest;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
@@ -38,9 +39,9 @@ public class AnalyticsJPanel extends javax.swing.JPanel {
     private void createDonationChart() {
         DefaultPieDataset dataset = new DefaultPieDataset();
 
-        int accepted = 1;
-        int rejected = 1;
-        int pending = 1;
+        int accepted = 0;
+        int rejected = 0;
+        int pending = 0;
         
         for(FundDonation fund : system.getFundDonationDirectory().getFundDonationList()){
             if(fund.getStatus().equals("PENDING")){
@@ -74,9 +75,9 @@ public class AnalyticsJPanel extends javax.swing.JPanel {
     private void createFundRequestChart() {
         DefaultPieDataset dataset = new DefaultPieDataset();
 
-        int accepted = 1;
-        int rejected = 1;
-        int pending = 1;
+        int accepted = 0;
+        int rejected = 0;
+        int pending = 0;
         
         for(FundRequest fund : system.getFundRequestDirectory().getFundRequest()){
             if(fund.getStatus().equals("PENDING")){
@@ -102,6 +103,37 @@ public class AnalyticsJPanel extends javax.swing.JPanel {
             final PiePlot3D plot = (PiePlot3D) chart.getPlot();
 
             ChartFrame chartFrame = new ChartFrame("Fund Request Pie chart", chart);
+            chartFrame.setVisible(true);
+            chartFrame.setSize(600, 600);
+        }
+    }
+    
+    private void createIncidentStatusChart() {
+        DefaultPieDataset dataset = new DefaultPieDataset();
+
+        int accepted = 0;
+        int rejected = 0;
+        
+        for(Report fund : system.getReportDirectory().getReportList()){
+            if(fund.getStatus().equals("PENDING")){
+                accepted++;
+            }
+            else if(fund.getStatus().equals("RESOLVED")){
+                rejected++;
+            }
+        }
+        
+        if (accepted == 0 && rejected == 0 ) {
+            JOptionPane.showMessageDialog(this, "More data is needed");
+            return;
+        } else {
+            dataset.setValue("Pending", accepted);
+            dataset.setValue("Resolved", rejected);
+
+            JFreeChart chart = ChartFactory.createPieChart3D("Incident",dataset,true,true,false);
+            final PiePlot3D plot = (PiePlot3D) chart.getPlot();
+
+            ChartFrame chartFrame = new ChartFrame("Incident Pie chart", chart);
             chartFrame.setVisible(true);
             chartFrame.setSize(600, 600);
         }
@@ -133,7 +165,7 @@ public class AnalyticsJPanel extends javax.swing.JPanel {
         jButton1.setBackground(new java.awt.Color(17, 53, 81));
         jButton1.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Donation Acceptance Rate");
+        jButton1.setText("Donation Status");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -153,7 +185,7 @@ public class AnalyticsJPanel extends javax.swing.JPanel {
         jButton3.setBackground(new java.awt.Color(17, 53, 81));
         jButton3.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
         jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setText("Shelter Case Status");
+        jButton3.setText("Incident Report");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -221,9 +253,8 @@ public class AnalyticsJPanel extends javax.swing.JPanel {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
+        createIncidentStatusChart();
         
-               GovernmentAdmin panel = new GovernmentAdmin(splitpane, system);
-            splitpane.setRightComponent(panel);
     }//GEN-LAST:event_jButton3ActionPerformed
 
 

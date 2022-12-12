@@ -22,14 +22,17 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
+              <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
+              <Component id="txtBack" min="-2" pref="80" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="592" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="374" max="-2" attributes="0"/>
                       <Component id="btnSave" min="-2" pref="106" max="-2" attributes="0"/>
                   </Group>
                   <Group type="103" alignment="0" groupAlignment="1" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="497" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="279" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
@@ -47,7 +50,7 @@
                                   <EmptySpace max="32767" attributes="0"/>
                                   <Component id="txtEmail" min="-2" pref="197" max="-2" attributes="0"/>
                               </Group>
-                              <Group type="102" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
                                   <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
                                   <Component id="txtPassword" min="-2" pref="197" max="-2" attributes="0"/>
@@ -66,22 +69,17 @@
                                       <Component id="txtLastname" max="32767" attributes="0"/>
                                       <Component id="txtAge" max="32767" attributes="0"/>
                                       <Component id="txtExp" alignment="0" min="-2" pref="197" max="-2" attributes="0"/>
-                                      <Component id="cboGender" max="32767" attributes="0"/>
+                                      <Component id="cboGender" min="-2" pref="197" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
                           <EmptySpace min="-2" pref="83" max="-2" attributes="0"/>
                           <Component id="jLabel11" min="-2" pref="186" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
-                          <Component id="txtBack" min="-2" pref="80" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
-                          <Component id="jLabel1" min="-2" pref="870" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="jLabel1" alignment="1" min="-2" pref="870" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="212" max="32767" attributes="0"/>
+              <EmptySpace pref="273" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>

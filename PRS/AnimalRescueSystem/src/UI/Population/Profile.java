@@ -50,6 +50,7 @@ public class Profile extends javax.swing.JPanel {
                 txtPhno.setText(String.valueOf(rep.getPhoneNumber()));
                 cboGender.setSelectedItem(String.valueOf(rep.getGender()));
                 this.updateReporter=rep;
+                lblName.setName(rep.getFirstName());
                 
             }
             

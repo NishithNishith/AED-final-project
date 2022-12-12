@@ -57,6 +57,10 @@ public class ViewCaseHistory extends javax.swing.JPanel {
         txtDesc = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         btnBack2 = new javax.swing.JButton();
+        txtPre = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        lblDelivery = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(206, 229, 242));
 
@@ -131,6 +135,20 @@ public class ViewCaseHistory extends javax.swing.JPanel {
             }
         });
 
+        txtPre.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
+
+        jLabel9.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(17, 53, 81));
+        jLabel9.setText("Prescription");
+
+        jLabel10.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(17, 53, 81));
+        jLabel10.setText("Delivered ");
+
+        lblDelivery.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
+        lblDelivery.setForeground(new java.awt.Color(17, 53, 81));
+        lblDelivery.setText("No ");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -157,15 +175,20 @@ public class ViewCaseHistory extends javax.swing.JPanel {
                                     .addComponent(jLabel2)
                                     .addComponent(jLabel3)
                                     .addComponent(jLabel7)
-                                    .addComponent(jLabel8))
+                                    .addComponent(jLabel8)
+                                    .addComponent(jLabel9)
+                                    .addComponent(jLabel10))
                                 .addGap(30, 30, 30)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtReportId)
-                                    .addComponent(txtStatus)
-                                    .addComponent(txtDate)
-                                    .addComponent(txtStaffId, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtDesc, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addContainerGap(176, Short.MAX_VALUE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblDelivery)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(txtReportId)
+                                        .addComponent(txtStatus)
+                                        .addComponent(txtDate)
+                                        .addComponent(txtStaffId, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtDesc, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtPre, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
+                .addContainerGap(173, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -202,7 +225,15 @@ public class ViewCaseHistory extends javax.swing.JPanel {
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel8)
-                                    .addComponent(txtDesc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                    .addComponent(txtDesc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(txtPre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel9))))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel10)
+                            .addComponent(lblDelivery))))
                 .addGap(18, 18, 18)
                 .addComponent(btnSelect, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(166, Short.MAX_VALUE))
@@ -226,6 +257,8 @@ public class ViewCaseHistory extends javax.swing.JPanel {
         txtStatus.setText(String.valueOf(selectedProfile.getStatus()));
         txtDate.setText(String.valueOf(selectedProfile.getDate()));
         txtDesc.setText(String.valueOf(selectedProfile.getDesciption()));
+        txtPre.setText(String.valueOf(selectedProfile.getMed()));
+        lblDelivery.setText(String.valueOf(selectedProfile.getMedRecieved()));
 
     }//GEN-LAST:event_btnSelectActionPerformed
 
@@ -255,16 +288,20 @@ public class ViewCaseHistory extends javax.swing.JPanel {
     private javax.swing.JButton btnBack2;
     private javax.swing.JButton btnSelect;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JLabel lblDelivery;
     private javax.swing.JTextField txtDate;
     private javax.swing.JTextField txtDesc;
+    private javax.swing.JTextField txtPre;
     private javax.swing.JTextField txtReportId;
     private javax.swing.JTextField txtStaffId;
     private javax.swing.JTextField txtStatus;
