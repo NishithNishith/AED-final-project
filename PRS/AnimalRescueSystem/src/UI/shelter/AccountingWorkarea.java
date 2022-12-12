@@ -105,7 +105,7 @@ public class AccountingWorkarea extends javax.swing.JPanel {
                         .addGap(141, 141, 141)
                         .addComponent(jLabel2)
                         .addGap(18, 18, 18)
-                        .addComponent(lblFunds, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(lblFunds, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(562, 562, 562)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
