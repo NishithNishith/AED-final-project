@@ -19,6 +19,7 @@ public class Order {
     public UserAccount deliveryAssociate;
     public String orderStatus;
     public String sender;
+    public String createdByID;
 
     public String getMedicineName() {
         return medicineName;
@@ -79,6 +80,14 @@ public class Order {
     @Override
     public String toString(){
         return medicineName;
+    }
+
+    public String getCreatedByID() {
+        return createdByID;
+    }
+
+    public void setCreatedByID(String createdByID) {
+        this.createdByID = createdByID;
     }
     
 }
