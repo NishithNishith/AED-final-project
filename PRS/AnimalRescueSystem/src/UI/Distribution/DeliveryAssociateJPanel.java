@@ -153,8 +153,8 @@ public class DeliveryAssociateJPanel extends javax.swing.JPanel {
                count = inv.getQuantity();
                inv.setQuantity(count - placedOrder.getQuantity());
             }
-            else
-                JOptionPane.showMessageDialog(null, "The following medicine does not exist");
+//            else
+//                JOptionPane.showMessageDialog(null, "The following medicine does not exist");
         }
         
         populateTable();

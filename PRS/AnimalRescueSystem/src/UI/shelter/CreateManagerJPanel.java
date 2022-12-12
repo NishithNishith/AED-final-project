@@ -353,6 +353,7 @@ public class CreateManagerJPanel extends javax.swing.JPanel {
             shelterManager.setSalary(Integer.parseInt(salary));
 
             JOptionPane.showMessageDialog(this, "Manager created");
+   
         }
         catch(Exception err){
             JOptionPane.showMessageDialog(this, "Issue while creating manager, try again");

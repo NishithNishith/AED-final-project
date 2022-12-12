@@ -4,6 +4,8 @@
  */
 package UI.Hospitals;
 
+import UI.shelter.ShelterAdmin;
+import UI.shelter.ShelterManagerWorkarea;
 import business.distribution.Order;
 import business.ecosystem.Business;
 import business.hospital.Encounter;
@@ -148,8 +150,14 @@ public class CreateOrder extends javax.swing.JPanel {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-         DoctorJPanel panel = new DoctorJPanel(splitpane, system);
+         if(system.getCurrentRole().equals("HospitalAdmin")){
+            HospitalAdminJPanel panel = new HospitalAdminJPanel(splitpane, system);
             splitpane.setRightComponent(panel);
+        }
+        else if(system.getCurrentRole().equals("HospitalManager")){
+            HospitalManagerJPanel panel = new HospitalManagerJPanel(splitpane, system);
+            splitpane.setRightComponent(panel);
+        }
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void populateTable() {
