@@ -52,7 +52,7 @@ public class ShelterManagerWorkarea extends javax.swing.JPanel {
         txtStaff.setBackground(new java.awt.Color(17, 53, 81));
         txtStaff.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         txtStaff.setForeground(new java.awt.Color(255, 255, 255));
-        txtStaff.setText("Manage Staff");
+        txtStaff.setText("Request Funds");
         txtStaff.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtStaffActionPerformed(evt);
@@ -72,7 +72,7 @@ public class ShelterManagerWorkarea extends javax.swing.JPanel {
         jButton3.setBackground(new java.awt.Color(17, 53, 81));
         jButton3.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setText("Request Funds");
+        jButton3.setText("Manage Staff");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
