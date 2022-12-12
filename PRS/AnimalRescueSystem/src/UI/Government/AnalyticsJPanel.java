@@ -7,6 +7,7 @@ package UI.Government;
 import business.ecosystem.Business;
 import business.population.FundDonation;
 import business.population.Report;
+import business.shelter.CaseFile;
 import business.shelter.FundRequest;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
@@ -148,7 +149,7 @@ public class AnalyticsJPanel extends javax.swing.JPanel {
         int hospital = 0;
         int adopted = 0;
         
-        for(Report fund : system.getReportDirectory().getReportList()){
+        for(CaseFile fund : system.getCaseFileDirectory().getCaseFile()){
             if(fund.getStatus().equals("PENDING")){
                 pending++;
             }
