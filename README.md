@@ -13,6 +13,8 @@ It is essential that we have a system solely committed to helping animals in nee
 
 ## Solution:
 
+![chart drawio](https://user-images.githubusercontent.com/113729244/206957930-e4eb51cb-d6d4-4ad8-8b67-302a9fbb15f3.png)
+
 The purpose of our project is to establish an animal rescue system, that allows the user to report an injured animal to the shelter. We have created an ecosystem where we manage the shelter, the hospital for injured animals, the distribution of medications, and the government that controls the funding for the shelter. We have 5 Enterprises, 7 Organizations and 13 Role. This displays the resilience of our system. In order to protect injured animals, we strive to offer a simple and user-friendly workflow.
 
 ## Class diagram:
@@ -28,6 +30,10 @@ The purpose of our project is to establish an animal rescue system, that allows 
 
 
 ## Project by:
+
+Aditya
+Nishith
+Sinchana
 
 
 
