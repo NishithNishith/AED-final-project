@@ -46,6 +46,8 @@ public class DoctorJPanel extends javax.swing.JPanel {
         jLabel4 = new javax.swing.JLabel();
         btnSelect1 = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(206, 229, 242));
+
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(17, 53, 81));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
