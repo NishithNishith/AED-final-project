@@ -385,7 +385,7 @@ public class StaffWorkarea extends javax.swing.JPanel {
             caseFile.setCaseId(uniqueField);
             caseFile.setReportId(reportId);
             caseFile.setStaffId(staffId);
-            caseFile.setStatus("Active");
+            caseFile.setStatus("ACTIVE");
             caseFile.setDesciption(reportDiscription);
             caseFile.setDate(date);
             caseFile.setMedRecieved(false);
